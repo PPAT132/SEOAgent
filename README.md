@@ -77,5 +77,3 @@ A minimal full‑stack prototype that demonstrates how an AI agent can automatic
 ---
 
 ## License
-
-MIT © 2025 Patrick Maxiao Ma
