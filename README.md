@@ -46,8 +46,8 @@ A minimal full‑stack prototype that demonstrates how an AI agent can automatic
 1. **Clone the repo**
 
    ```bash
-   git clone https://github.com/your‑handle/seo‑agent‑playground.git
-   cd seo‑agent‑playground
+   git clone https://github.com/PPAT132/SEOAgent.git
+   cd SEOAgent
    ```
 
 2. **Back‑end (FastAPI)**
