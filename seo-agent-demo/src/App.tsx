@@ -6,20 +6,35 @@ export default function App() {
   const [html, setHtml] = useState('');
   const [diff, setDiff] = useState('');
 
-  const handleGenerate = () => {
-    console.log('Generate Patch clicked');
-    // 用动画模拟生成 diff 的延迟效果
-    setDiff('');
-    setTimeout(() => {
-      setDiff('// diff will appear here');
-    }, 300);
+  const handleGenerate = async () => {
+    try {
+      const res = await fetch('http://127.0.0.1:8000/optimize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ html }),
+      });
+      const data = await res.json();
+      setDiff(data.diff || '// No diff returned');
+    } catch (err) {
+      console.error(err);
+      setDiff('// Error: cannot reach backend');
+    }
   };
-
+  
   const handleDownload = () => {
-    console.log('Apply & Download clicked');
+    if (!diff) return;
+  
+    const blob = new Blob([diff], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'patch.diff';
+    a.click();
+    URL.revokeObjectURL(url);
   };
+  
 
-  // 动画 variants
+  // Animation variants
   const containerVariants = {
     initial: { opacity: 0 },
     animate: {
