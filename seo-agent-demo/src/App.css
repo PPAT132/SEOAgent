@@ -1,0 +1,14 @@
+#diff-out {
+  white-space: pre-wrap;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.container textarea {
+  flex: 1;
+}
