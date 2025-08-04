@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 
 export default function App() {
@@ -6,57 +7,97 @@ export default function App() {
   const [diff, setDiff] = useState('');
 
   const handleGenerate = () => {
-    // TODO: connect to backend /optimize
     console.log('Generate Patch clicked');
-    setDiff('// diff will appear here');
+    // 用动画模拟生成 diff 的延迟效果
+    setDiff('');
+    setTimeout(() => {
+      setDiff('// diff will appear here');
+    }, 300);
   };
 
   const handleDownload = () => {
-    // TODO: implement download of .patch file
     console.log('Apply & Download clicked');
   };
 
+  // 动画 variants
+  const containerVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.15,
+      },
+    },
+  } as const;
+
+  const sectionVariants = {
+    initial: { y: 40, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80 } },
+  } as const;
+
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 text-white font-sans">
+    <motion.div
+      className="min-h-screen flex flex-col bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 text-white font-sans"
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+    >
       {/* Header */}
-      <header className="py-4 shadow-md backdrop-blur-sm bg-white/10">
-        <h1 className="text-3xl md:text-4xl font-bold text-center uppercase tracking-wide">
+      <motion.header
+        className="py-4 shadow-md backdrop-blur-sm bg-white/10"
+        variants={sectionVariants}
+      >
+        <h1 className="text-3xl md:text-4xl font-bold text-center uppercase tracking-wide drop-shadow-lg">
           SEO Agent Playground
         </h1>
-      </header>
+      </motion.header>
 
       {/* Main */}
-      <main className="flex flex-1 flex-col md:flex-row p-4 gap-4 overflow-hidden">
-        <textarea
+      <motion.main
+        className="flex flex-1 flex-col md:flex-row p-4 gap-4 overflow-hidden"
+        variants={sectionVariants}
+      >
+        <motion.textarea
           id="html-in"
           className="flex-1 min-h-[200px] md:min-h-0 p-4 rounded-lg bg-black/40 border border-white/20 focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none font-mono placeholder:text-gray-300 backdrop-blur-lg"
           placeholder="Paste raw HTML here..."
           value={html}
-          onChange={(e) => setHtml(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setHtml(e.target.value)}
+          whileFocus={{ scale: 1.01 }}
         />
-        <pre
+        <motion.textarea
           id="diff-out"
-          className="flex-1 min-h-[200px] md:min-h-0 p-4 rounded-lg bg-black/20 border border-white/20 overflow-auto font-mono backdrop-blur-lg whitespace-pre-wrap"
-        >
-          {diff}
-        </pre>
-      </main>
+          className="flex-1 min-h-[200px] md:min-h-0 p-4 rounded-lg bg-black/20 border border-white/20 focus:outline-none focus:ring-2 focus:ring-sky-400 overflow-auto font-mono backdrop-blur-lg resize-none"
+          value={diff}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDiff(e.target.value)}
+          variants={sectionVariants}
+          whileFocus={{ scale: 1.01 }}
+        />
+      </motion.main>
 
       {/* Buttons */}
-      <footer className="py-4 bg-white/10 backdrop-blur-sm shadow-inner flex flex-col md:flex-row justify-center gap-4">
-        <button
+      <motion.footer
+        className="py-4 bg-white/10 backdrop-blur-sm shadow-inner flex flex-col md:flex-row justify-center gap-4"
+        variants={sectionVariants}
+      >
+        <motion.button
           onClick={handleGenerate}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-600 hover:brightness-110 active:scale-95 transition-transform shadow-lg font-semibold"
+          className="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-600 hover:brightness-110 transition-shadow shadow-lg font-semibold"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Generate Patch
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={handleDownload}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 hover:brightness-110 active:scale-95 transition-transform shadow-lg font-semibold"
+          className="px-6 py-3 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 hover:brightness-110 transition-shadow shadow-lg font-semibold"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Apply & Download
-        </button>
-      </footer>
-    </div>
+        </motion.button>
+      </motion.footer>
+    </motion.div>
   );
 }
