@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/patrick/Desktop/qiaozhishishabi/SEO_Agent /SEOAgent/backend/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/patrick/Desktop/qiaozhishishabi/SEO_Agent /SEOAgent/backend/venv/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

@@ -21,8 +21,7 @@ class OptimizeRequest(BaseModel):
 @app.post("/optimize")
 def optimize(req: OptimizeRequest):
     """
-    Optimize HTML for SEO improvements
+    Echo back the HTML with 'modified ' prepended, for frontend-backend connectivity test
     """
-    # TODO: Implement actual SEO optimization logic
-    dummy_diff = "\n".join(difflib.unified_diff([], [], lineterm=''))
-    return {"diff": dummy_diff or "// TODO: diff will appear here"}
+    modified_html = "modified " + req.html
+    return {"diff": modified_html}
