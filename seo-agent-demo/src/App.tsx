@@ -20,10 +20,8 @@ export default function App() {
       setDiff('// Error: cannot reach backend');
     }
   };
-  
   const handleDownload = () => {
     if (!diff) return;
-  
     const blob = new Blob([diff], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
