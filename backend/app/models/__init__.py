@@ -1,1 +1,4 @@
-# Data Models Package 
+from pydantic import BaseModel
+
+class OptimizeRequest(BaseModel):
+    html: str 
