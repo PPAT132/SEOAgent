@@ -10,6 +10,9 @@ class Config:
     
     # Environment Configuration
     ENV = os.getenv("ENV", "development")
+
+    # Lighthouse Url
+    LIGHTHOUSE_URL = "http://host.docker.internal:3001"
     
     @classmethod
     def validate_config(cls):
