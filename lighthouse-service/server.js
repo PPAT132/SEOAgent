@@ -3,8 +3,6 @@ npm init -y
 npm install express lighthouse chrome-launcher
 */
 
-
-
 // server.js
 const express       = require('express');
 const lighthouse = require('lighthouse').default || require('lighthouse');
