@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 export default function App() {
   const [html, setHtml] = useState('');
   const [diff, setDiff] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerate = async () => {
+    setIsLoading(true);
+    setDiff('🔄 Optimizing HTML... Please wait...');
+    
     try {
       const res = await fetch('http://127.0.0.1:8000/optimizev1', {
         method: 'POST',
@@ -18,6 +23,8 @@ export default function App() {
     } catch (err) {
       console.error(err);
       setDiff('// Error: cannot reach backend');
+    } finally {
+      setIsLoading(false);
     }
   };
   const handleDownload = () => {
@@ -61,9 +68,17 @@ export default function App() {
         className="py-4 shadow-md backdrop-blur-sm bg-white/10"
         variants={sectionVariants}
       >
-        <h1 className="text-3xl md:text-4xl font-bold text-center uppercase tracking-wide drop-shadow-lg">
-          SEO Agent Playground
-        </h1>
+        <div className="flex justify-between items-center px-4">
+          <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wide drop-shadow-lg">
+            SEO Agent Playground
+          </h1>
+          <Link 
+            to="/lighthouse" 
+            className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm"
+          >
+            🔍 Lighthouse Raw Data →
+          </Link>
+        </div>
       </motion.header>
 
       {/* Main */}
@@ -96,11 +111,16 @@ export default function App() {
       >
         <motion.button
           onClick={handleGenerate}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-600 hover:brightness-110 transition-shadow shadow-lg font-semibold"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          disabled={isLoading}
+          className={`px-6 py-3 rounded-full font-semibold shadow-lg transition-all ${
+            isLoading 
+              ? 'bg-gray-500 cursor-not-allowed' 
+              : 'bg-gradient-to-r from-green-400 to-emerald-600 hover:brightness-110'
+          }`}
+          whileHover={isLoading ? {} : { scale: 1.05 }}
+          whileTap={isLoading ? {} : { scale: 0.95 }}
         >
-          Generate Patch
+          {isLoading ? '🔄 Generating...' : 'Generate Patch'}
         </motion.button>
         <motion.button
           onClick={handleDownload}
