@@ -10,3 +10,5 @@ services:
       - ./backend:/app
     environment:
       - ENV=production
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
