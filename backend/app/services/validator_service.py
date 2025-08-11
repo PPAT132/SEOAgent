@@ -16,5 +16,5 @@ class ValidatorService:
         Get full Lighthouse audit result for raw HTML content
         Returns raw JSON for LLM processing
         """
-        result = self.lighthouse_service.run_lighthouse_audit_html(html_content)
+        result = self.lighthouse_service.get_required_lighthouse_data(html_content, False)
         return {"result": result}

@@ -30,3 +30,24 @@ class LighthouseService:
         except requests.RequestException as e:
             # Log or handle error appropriately
             return {"error": str(e)}
+    
+    def get_required_lighthouse_data(self, content: str, is_url: bool) -> dict:
+        # 1) invoke the right audit endpoint
+        response = (
+            self.run_lighthouse_audit(content)
+            if is_url
+            else self.run_lighthouse_audit_html(content)
+        )
+
+        # 2) if an error key is present or success is false, bubble it up
+        if response.get("error") or response.get("success") is False:
+            return {"error": response.get("error", "Lighthouse audit failed")}
+
+        seo_score = response.get("seoScore", 0)
+        audits    = response.get("audits", {})
+        print("lol: ", response.keys())
+
+        return {
+            "seo_score": seo_score,
+            "audits":    audits
+        }
