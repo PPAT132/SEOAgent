@@ -133,7 +133,7 @@ app.post('/audit-html', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`⚡ Lighthouse API listening on port ${PORT}`);
   console.log(`📊 Available endpoints:`);
   console.log(`   POST /audit      - Audit live website URL`);
