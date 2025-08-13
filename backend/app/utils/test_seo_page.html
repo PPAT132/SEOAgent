@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<!-- bad: no lang; head order messy; lots of poor metas -->
+<head>
+  <!-- bad: missing meaningful title or brand context -->
+  <title>Welcome</title>
+
+  <!-- bad: meta keywords stuffing and duplicates -->
+  <meta name="keywords" content="best shoes, shoes, cheap shoes, buy shoes, discount, free, deal, hot, hot hot, 2025, canada, usa, keyword, keyword, keyword">
+  <meta name="keywords" content="seo, seo trick, seo hack, rank 1 now, instant ranking, super fast, magic, click here, limited offer">
+
+  <!-- bad: overly long description, repetitive and irrelevant -->
+  <meta name="description" content="Buy shoes now buy shoes now, cheap shoes cheap shoes, the very best shoes in the whole world for everyone, free free free, deal deal deal, top 2025 shoes in Canada USA Waterloo Toronto everywhere, amazing amazing amazing, unlimited sale sale sale, click here click here click here, hurry hurry hurry, do not miss, description continues and continues with no real value and too many words that do not help users or search engines at all but just fill space for a very long time to be extremely long beyond reason.">
+
+  <!-- bad: duplicate/conflicting description -->
+  <meta name="description" content="Welcome to a page about shoes and not about shoes at the same time. Best best best. Buy buy buy. Free free free.">
+
+  <!-- bad: conflicting charsets and placement; windows-1252 before utf-8, then utf-8 later -->
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta name="viewport" content="width=device-width"> <!-- bad: missing initial-scale and other values -->
+  <meta name="robots" content="noindex,follow,noarchive,noimageindex,nosnippet"> <!-- bad: might block indexing unintentionally -->
+  <meta name="author" content="admin, unknown, n/a"> <!-- bad: vague/meaningless -->
+  <meta http-equiv="refresh" content="5; url=/promo"> <!-- bad: meta refresh redirect -->
+
+  <!-- bad: Open Graph tags mismatched/irrelevant/incomplete -->
+  <meta property="og:title" content="Completely Different Title From Page">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://example.com/wrong">
+  <meta property="og:image" content="/missing-image.jpg">
+  <meta property="og:description" content="Hot hot deal deal free free click click now now now.">
+
+  <!-- bad: twitter card incomplete/mismatched -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@notexistinghandle">
+  <meta name="twitter:title" content="Another Different Title">
+  <meta name="twitter:description" content="spam spam spam spam spam">
+  <meta name="twitter:image" content="/not-found.png">
+
+  <!-- bad: canonical is relative and points incorrectly; hreflang missing -->
+  <link rel="canonical" href="/home-old.html">
+
+  <!-- bad: inline CSS with !important and poor design choices -->
+  <style>
+    body { font-family: Comic Sans MS, cursive; margin:0; padding:0; background:#fff !important; color:#111 !important; }
+    .container { width:960px; margin:0 auto; border:1px solid #eee }
+    .hidden { color:#fff; background:#fff; font-size:1px }
+    .blink { animation: blink 0.5s infinite; }
+    @keyframes blink { 0%{opacity:1} 50%{opacity:0} 100%{opacity:1} }
+    table.layout { width:100%; border:0; border-spacing:0 }
+    td.cell { vertical-align:top }
+    .button { display:inline-block; padding:4px 6px; border:1px solid #aaa; background:#f9f9f9; text-decoration:none }
+    .huge { font-size:48px }
+    .tiny { font-size:10px }
+    .keyword { font-size:14px; color:#0a0 }
+    .box { border:1px dashed #ccc; padding:6px; margin:6px }
+    .img-wrap { width:100%; height:220px; background:#ddd }
+    .footer-links a { margin-right:12px }
+    .bg-inline { background:url('hero.jpg') no-repeat center center }
+    .dup{border:0}.dup{border:0}.dup{border:0} /* bad: useless duplicates */
+  </style>
+
+  <!-- bad: charset placed very late and conflicts with previous one -->
+  <meta charset="utf-8">
+</head>
+<body onload="trackUser()" style="background:#fff;">
+
+<center>
+  <!-- bad: marquee and center tags -->
+  <marquee behavior="scroll" direction="left" scrollamount="12">Welcome to The Best Best BEST Shoes!!! Cheap shoes cheap shoes cheap shoes!!!</marquee>
+</center>
+
+<!-- bad: multiple H1s and wrong order -->
+<h1 class="huge">Best Shoes Best Shoes Best Shoes</h1>
+<h1>Amazing Cheap Shoes in Canada USA 2025 2025</h1>
+<h3>Subsection Before H2 (wrong order)</h3>
+<h2>Why Our Shoes Are Best (But actually nothing here)</h2>
+
+<!-- bad: keyword stuffing + duplicate paragraphs -->
+<p class="keyword">best shoes cheap shoes discount shoes buy shoes now click here free shipping best shoes cheap shoes discount shoes buy shoes now click here free shipping</p>
+<p class="keyword">best shoes cheap shoes discount shoes buy shoes now click here free shipping best shoes cheap shoes discount shoes buy shoes now click here free shipping</p>
+
+<!-- bad: table-based layout -->
+<table class="layout">
+  <tr>
+    <td class="cell" style="width:70%;">
+      <div class="container">
+        <!-- bad: generic link text, dead links -->
+        <a href="page.html" class="button">Click here</a>
+        <a href="javascript:void(0)" class="button">Learn more</a>
+        <a href="/non-existent" class="button">Read more</a>
+
+        <!-- bad: non-semantic div soup, inline styles -->
+        <div style="padding:8px;">
+          <div class="box">
+            <b>Amazing Offer</b> — <font color="red">Only today only today only today!</font>
+            <p style="line-height:1.1">We sell shoes shoes shoes. Buy shoes now buy shoes now buy shoes now.</p>
+            <!-- bad: image without alt -->
+            <img src="shoe-1.jpg" width="640" height="360">
+            <!-- bad: empty alt -->
+            <img src="shoe-2.jpg" alt="" width="300" height="200">
+            <!-- bad: decorative image with misleading alt -->
+            <img src="sparkles.png" alt="best seo hack" width="50" height="50">
+          </div>
+
+          <!-- repeated low-quality product blocks -->
+          <div class="box">
+            <h2>Product 1</h2>
+            <div class="img-wrap"></div>
+            <p>Buy cheap shoes now click here click here click here.</p>
+            <a href="#" onclick="outbound()">Click here</a>
+          </div>
+
+          <div class="box">
+            <h2>Product 2</h2>
+            <div class="img-wrap bg-inline"></div>
+            <p>Cheap cheap cheap best best best shoes shoes shoes.</p>
+            <a href="#" onclick="outbound()">Click here</a>
+          </div>
+
+          <div class="box">
+            <h2>Product 3</h2>
+            <div class="img-wrap"></div>
+            <p>Top shoes sale sale sale sale sale.</p>
+            <a href="#" onclick="outbound()">Click here</a>
+          </div>
+
+          <div class="box">
+            <h2>Product 4</h2>
+            <div class="img-wrap"></div>
+            <p>Buy now buy now buy now. Free!!!</p>
+            <a href="#" onclick="outbound()">Click here</a>
+          </div>
+
+          <div class="box">
+            <h2>Product 5</h2>
+            <div class="img-wrap"></div>
+            <p>Totally the best shoes for running walking jumping.</p>
+            <a href="#" onclick="outbound()">Click here</a>
+          </div>
+
+          <!-- bad: incorrect heading nesting and multiple H1 again -->
+          <h1>Top Reviews</h1>
+          <h4>Customer Review Section</h4>
+          <div class="box">
+            <p>"Best shoes best shoes best shoes!"</p>
+            <p class="tiny hidden">hidden hidden hidden keywords best shoes discount cheap buy free deal</p>
+          </div>
+
+          <!-- bad: iframe without title -->
+          <iframe src="promo.html" width="300" height="200"></iframe>
+
+          <!-- bad: autoplay audio/video -->
+          <audio autoplay src="ad.m4a"></audio>
+          <video autoplay muted loop width="320" height="180" src="promo.mp4"></video>
+
+          <!-- repeated spam blocks to increase length -->
+          <div class="box"><p>cheap shoes cheap shoes cheap shoes cheap shoes cheap shoes</p></div>
+          <div class="box"><p>best best best best best best best best</p></div>
+          <div class="box"><p>discount discount discount discount discount</p></div>
+          <div class="box"><p>free shipping free shipping free shipping</p></div>
+          <div class="box"><p>buy now buy now buy now buy now</p></div>
+          <div class="box"><p>sale sale sale sale sale sale sale</p></div>
+          <div class="box"><p>canada usa toronto waterloo shoes shoes shoes</p></div>
+          <div class="box"><p>keyword keyword keyword keyword keyword</p></div>
+          <div class="box"><p>amazing amazing amazing amazing amazing</p></div>
+          <div class="box"><p>deal deal deal deal deal deal</p></div>
+
+          <!-- copy/paste a large low-quality list -->
+          <ul>
+            <li>best shoes cheap</li>
+            <li>cheap best shoes</li>
+            <li>buy shoes now</li>
+            <li>deal deal deal</li>
+            <li>free shipping now</li>
+            <li>top best shoes 2025</li>
+            <li>hot hot hot</li>
+            <li>amazing shoes</li>
+            <li>shoes shoes shoes</li>
+            <li>keyword keyword keyword</li>
+          </ul>
+
+          <!-- repeat generic sections to grow lines -->
+          <div class="box"><h3>Section A</h3><p>content content content</p></div>
+          <div class="box"><h3>Section B</h3><p>content content content</p></div>
+          <div class="box"><h3>Section C</h3><p>content content content</p></div>
+          <div class="box"><h3>Section D</h3><p>content content content</p></div>
+          <div class="box"><h3>Section E</h3><p>content content content</p></div>
+          <div class="box"><h3>Section F</h3><p>content content content</p></div>
+          <div class="box"><h3>Section G</h3><p>content content content</p></div>
+          <div class="box"><h3>Section H</h3><p>content content content</p></div>
+          <div class="box"><h3>Section I</h3><p>content content content</p></div>
+          <div class="box"><h3>Section J</h3><p>content content content</p></div>
+
+          <div class="box">
+            <!-- bad: form with missing labels -->
+            <h2>Sign Up Now</h2>
+            <form action="/subscribe" method="post" onsubmit="return false">
+              <input type="text" name="n" placeholder="Name">
+              <input type="email" name="e" placeholder="Email">
+              <input type="submit" value="Submit">
+            </form>
+            <!-- bad: suspicious link -->
+            <p><a href="http://example.com/track?utm=spam" rel="nofollow">Click here</a></p>
+          </div>
+
+          <!-- more duplicated boxes -->
+          <div class="box"><p>Lorem ipsum dolor sit amet shoes shoes shoes.</p></div>
+          <div class="box"><p>Consectetur adipiscing elit shoes shoes.</p></div>
+          <div class="box"><p>Sed do eiusmod tempor incididunt shoes.</p></div>
+          <div class="box"><p>Ut labore et dolore magna aliqua shoes.</p></div>
+          <div class="box"><p>Ut enim ad minim veniam shoes shoes.</p></div>
+          <div class="box"><p>Quis nostrud exercitation ullamco shoes.</p></div>
+          <div class="box"><p>Nisi ut aliquip ex ea commodo consequat shoes.</p></div>
+          <div class="box"><p>Duis aute irure dolor in reprehenderit shoes.</p></div>
+          <div class="box"><p>Excepteur sint occaecat cupidatat non proident shoes.</p></div>
+          <div class="box"><p>Sunt in culpa qui officia deserunt mollit anim id est shoes.</p></div>
+
+          <!-- bad: inline script-heavy trackers -->
+          <script>
+            function trackUser(){
+              // bad: synchronous fake tracking
+              var s = 0; for (var i=0;i<10000000;i++){ s += i; }
+              console.log("tracking complete", s);
+            }
+            function outbound(){ alert('tracking'); return false; }
+            // bad: global click handler
+            window.onclick = function(){ console.log('clicked'); };
+          </script>
+
+          <!-- more spammy lists -->
+          <ol>
+            <li>Buy</li>
+            <li>Now</li>
+            <li>Free</li>
+            <li>Deal</li>
+            <li>Cheap</li>
+          </ol>
+
+          <!-- broken image -->
+          <img src="not-found.png" alt="">
+
+          <!-- repeated headings -->
+          <h1>FAQ</h1>
+          <h3>Q1: Are these the best shoes?</h3>
+          <p>Yes yes yes best best best.</p>
+          <h3>Q2: Is there free shipping?</h3>
+          <p>Free free free.</p>
+          <h3>Q3: Why buy now?</h3>
+          <p>Because buy now buy now buy now.</p>
+
+          <!-- filler to grow lines -->
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+          <div class="box"><p>filler filler filler filler filler</p></div>
+
+          <!-- hidden keyword block -->
+          <div class="hidden">
+            best shoes best shoes cheap shoes discount shoes buy shoes canada usa 2025 2025 2025 keyword keyword keyword
+          </div>
+
+          <!-- deprecated font tags -->
+          <p><font size="1">tiny text</font> and <font size="7">huge text</font></p>
+
+          <!-- bad: nested anchors, wrong structure -->
+          <a href="#"><div class="button">Click here</div></a>
+
+          <!-- unnecessary inline styles -->
+          <p style="background:#ff0; color:#ff0">invisible text same as background</p>
+
+          <!-- more repetitive sections -->
+          <div class="box"><h2>Product 6</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 7</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 8</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 9</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 10</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 11</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 12</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 13</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 14</h2><p>cheap cheap cheap</p></div>
+          <div class="box"><h2>Product 15</h2><p>cheap cheap cheap</p></div>
+
+          <!-- bad: excessive inline JS -->
+          <button onclick="alert('Buy Now! Buy Now! Buy Now!')">BUY NOW</button>
+
+        </div>
+      </div>
+    </td>
+    <td class="cell" style="width:30%;">
+      <!-- sidebar with duplicated content -->
+      <div class="box">
+        <h2>Sidebar</h2>
+        <p>best shoes cheap shoes discount shoes</p>
+        <ul>
+          <li><a href="#">Click here</a></li>
+          <li><a href="#">Click here</a></li>
+          <li><a href="#">Click here</a></li>
+          <li><a href="#">Click here</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h2>News</h2>
+        <p>Breaking: Best Shoes discovered in Waterloo!</p>
+        <p>Breaking: Best Shoes discovered in Waterloo!</p>
+        <p>Breaking: Best Shoes discovered in Waterloo!</p>
+      </div>
+
+      <div class="box">
+        <h2>Tags</h2>
+        <p>best, shoes, cheap, discount, buy, free, deal, hot, hot, hot</p>
+      </div>
+
+      <div class="box">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="http://example.com">Partner 1</a></li>
+          <li><a href="http://example.com">Partner 2</a></li>
+          <li><a href="http://example.com">Partner 3</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <!-- bad: iframe ads without title -->
+        <iframe src="ad.html" width="160" height="600"></iframe>
+      </div>
+
+      <!-- filler blocks -->
+      <div class="box"><p>More filler more filler more filler</p></div>
+      <div class="box"><p>More filler more filler more filler</p></div>
+      <div class="box"><p>More filler more filler more filler</p></div>
+      <div class="box"><p>More filler more filler more filler</p></div>
+      <div class="box"><p>More filler more filler more filler</p></div>
+
+    </td>
+  </tr>
+</table>
+
+<!-- footer with many generic links -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Deals</a>
+    <a href="#">Contact</a>
+    <a href="#">Click here</a>
+    <a href="#">Click here</a>
+    <a href="#">Click here</a>
+  </div>
+  <p>&copy; 2025 Best Shoes Inc.</p>
+</footer>
+
+<!-- big inline script to pad lines and block rendering -->
+<script>
+  // bad: long blocking JS and duplicated logic
+  var keywords = ["best","shoes","cheap","discount","buy","free","deal","hot"];
+  function spam(){
+    var p = document.createElement('p');
+    p.textContent = keywords.join(' ') + ' ' + keywords.join(' ');
+    document.body.appendChild(p);
+  }
+  for (var i=0;i<30;i++){ spam(); } // add many spam paragraphs
+
+  // bad: eval usage
+  eval("console.log('eval is bad for SEO and security')");
+</script>
+
+<!-- more hidden keyword dumps -->
+<div class="hidden">cheap shoes cheap shoes cheap shoes</div>
+<div class="hidden">discount discount discount discount</div>
+<div class="hidden">best best best best best</div>
+
+</body>
+</html>
