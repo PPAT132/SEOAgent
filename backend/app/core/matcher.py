@@ -4,7 +4,7 @@
 import re
 from typing import Any, Dict, List, Optional, Tuple
 from lxml import html, etree
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, parse_qs
 
 VOID_TAGS = {"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
@@ -53,7 +53,86 @@ def _urls_match_for_audit(lighthouse_url: str, html_href: str) -> bool:
     if norm_html.startswith("/"):
         norm_html = norm_html[1:]
     
-    return norm_lighthouse == norm_html
+    if norm_lighthouse == norm_html:
+        return True
+    
+    # NEW: Handle base href path resolution issues
+    # Extract path components for deeper analysis
+    lighthouse_path = _extract_path_components(norm_lighthouse)
+    html_path = _extract_path_components(norm_html)
+    
+    # Try to match by path components (ignoring domain differences)
+    if _paths_match_by_components(lighthouse_path, html_path):
+        return True
+    
+    # Try to match by filename and query parameters
+    if _urls_match_by_filename_and_query(lighthouse_url, html_href):
+        return True
+    
+    return False
+
+def _extract_path_components(url: str) -> dict:
+    """
+    Extract path components from URL for deeper matching.
+    """
+    
+    parsed = urlparse(url)
+    
+    # Split path into components
+    path_parts = [p for p in parsed.path.split('/') if p]
+    
+    # Parse query parameters
+    query_params = parse_qs(parsed.query)
+    
+    return {
+        'path_parts': path_parts,
+        'query_params': query_params,
+        'filename': path_parts[-1] if path_parts else '',
+        'extension': path_parts[-1].split('.')[-1] if path_parts and '.' in path_parts[-1] else ''
+    }
+
+def _paths_match_by_components(lighthouse_path: dict, html_path: dict) -> bool:
+    """
+    Compare paths by their components, ignoring domain differences.
+    """
+    # Compare filename
+    if lighthouse_path['filename'] and html_path['filename']:
+        if lighthouse_path['filename'] == html_path['filename']:
+            return True
+    
+    # Compare path structure (last few components)
+    lh_parts = lighthouse_path['path_parts']
+    html_parts = html_path['path_parts']
+    
+    if len(lh_parts) >= 2 and len(html_parts) >= 1:
+        # Try to match by end of path
+        if lh_parts[-1] == html_parts[-1]:
+            return True
+    
+    return False
+
+def _urls_match_by_filename_and_query(lighthouse_url: str, html_href: str) -> bool:
+    """
+    Match URLs by filename and query parameters, ignoring domain and path differences.
+    """
+    
+    lh_parsed = urlparse(lighthouse_url)
+    html_parsed = urlparse(html_href)
+    
+    # Extract filename
+    lh_filename = lh_parsed.path.split('/')[-1] if lh_parsed.path else ''
+    html_filename = html_parsed.path.split('/')[-1] if html_parsed.path else ''
+    
+    if lh_filename and html_filename and lh_filename == html_filename:
+        # If filenames match, also check query parameters
+        lh_query = parse_qs(lh_parsed.query)
+        html_query = parse_qs(html_parsed.query)
+        
+        # Compare key query parameters (ignore values that might be different due to base href)
+        if set(lh_query.keys()) == set(html_query.keys()):
+            return True
+    
+    return False
 
 def _build_line_index(raw: str) -> List[int]:
     """Prefix array of line-start offsets to convert offsets → 1-based line numbers."""
@@ -214,12 +293,52 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
     link_url = issue.get("url")
     link_text = issue.get("link_text") or ""
 
-    # 1) Prefer node.selector
+    # 1) Prefer node.selector with more specific matching
     elem = None
     if selector:
         cands = dom.css(selector)
         if cands:
-            elem = cands[0]
+            # For link tags, try to match by rel attribute to avoid wrong matches
+            if snippet and "rel=" in snippet:
+                # Extract rel attribute from snippet
+                rel_match = re.search(r'rel\s*=\s*["\']([^"\']+)["\']', snippet)
+                if rel_match:
+                    target_rel = rel_match.group(1)
+                    
+                    # For hreflang tags, also extract hreflang and href attributes for precise matching
+                    hreflang_match = re.search(r'hreflang\s*=\s*["\']([^"\']+)["\']', snippet)
+                    href_match = re.search(r'href\s*=\s*["\']([^"\']+)["\']', snippet)
+                    
+                    target_hreflang = hreflang_match.group(1) if hreflang_match else None
+                    target_href = href_match.group(1) if href_match else None
+                    
+                    if target_hreflang and target_href:
+                        # Find element with matching rel, hreflang, and href attributes
+                        for i, cand in enumerate(cands):
+                            cand_rel = cand.get("rel")
+                            cand_hreflang = cand.get("hreflang")
+                            cand_href = cand.get("href")
+                            if (cand_rel == target_rel and 
+                                cand_hreflang == target_hreflang and 
+                                cand_href == target_href):
+                                elem = cand
+                                break
+                    
+                    # If no exact match, fall back to rel-only matching
+                    if elem is None:
+                        for i, cand in enumerate(cands):
+                            cand_rel = cand.get("rel")
+                            if cand_rel == target_rel:
+                                elem = cand
+                                break
+                    
+                    # If still no match, use first candidate
+                    if elem is None:
+                        elem = cands[0]
+                else:
+                    elem = cands[0]
+            else:
+                elem = cands[0]
 
     # 2) Fallback to node.path
     if elem is None and path:
@@ -241,6 +360,15 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
 
     # 4) If no element: try snippet exact search (good for node-only items with snippet)
     if snippet:
+        # For hreflang and similar audits, we need to find the exact snippet
+        # to avoid matching the wrong element
+        # Normalize HTML for matching (Lighthouse uses escaped quotes, HTML uses regular quotes)
+        normalized_snippet = snippet.replace('\\"', '"').replace("\\'", "'")
+        
+        # Also normalize self-closing tags (Lighthouse: />, HTML: >)
+        normalized_snippet = normalized_snippet.replace(' />', '>').replace('/>', '>')
+        
+        # Try exact match first
         off = raw.find(snippet)
         if off != -1:
             s, e = off, off + len(snippet)
@@ -252,6 +380,159 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                 "match_line_end": le
             })
             return issue
+        
+        # Try normalized snippet if exact match failed
+        off = raw.find(normalized_snippet)
+        if off != -1:
+            s, e = off, off + len(normalized_snippet)
+            ls, le = _slice_to_lines_1based(starts, s, e)
+            issue.update({
+                "match_status": "matched",
+                "match_html": raw[s:e],
+                "match_line_start": ls,
+                "match_line_end": le
+            })
+            return issue
+        
+        # Try even more flexible matching by removing whitespace differences
+        flexible_snippet = re.sub(r'\s+', ' ', normalized_snippet.strip())
+        flexible_html = re.sub(r'\s+', ' ', raw)
+        off = flexible_html.find(flexible_snippet)
+        if off != -1:
+            # Find the corresponding position in original HTML
+            # This is approximate but should work for most cases
+            original_pos = 0
+            flexible_pos = 0
+            while flexible_pos < off and original_pos < len(raw):
+                if raw[original_pos] == flexible_html[flexible_pos]:
+                    flexible_pos += 1
+                elif raw[original_pos].isspace() and flexible_html[flexible_pos].isspace():
+                    flexible_pos += 1
+                original_pos += 1
+            
+            s = original_pos
+            e = s + len(normalized_snippet)
+            ls, le = _slice_to_lines_1based(starts, s, e)
+            issue.update({
+                "match_status": "matched",
+                "match_html": raw[s:e],
+                "match_line_start": ls,
+                "match_line_end": le
+            })
+            return issue
+        
+        # NEW: Handle base href and path resolution issues
+        # Extract the actual element from snippet and try to find it in HTML
+        if "src=" in normalized_snippet or "href=" in normalized_snippet:
+            # Extract the attribute value that might have path issues
+            src_match = re.search(r'src\s*=\s*["\']([^"\']+)["\']', normalized_snippet)
+            href_match = re.search(r'href\s*=\s*["\']([^"\']+)["\']', normalized_snippet)
+            
+            if src_match or href_match:
+                lighthouse_path = (src_match.group(1) if src_match else href_match.group(1))
+                
+                # Try to find the element by tag type and other attributes
+                tag_match = re.search(r'<(\w+)', normalized_snippet)
+                if tag_match:
+                    tag_name = tag_match.group(1)
+                    
+                    # Extract other attributes for matching
+                    other_attrs = {}
+                    for attr_match in re.finditer(r'(\w+)\s*=\s*["\']([^"\']+)["\']', normalized_snippet):
+                        attr_name, attr_value = attr_match.groups()
+                        if attr_name not in ['src', 'href']:  # Skip the problematic path attribute
+                            other_attrs[attr_name] = attr_value
+                    
+                    # Build a CSS selector that excludes the problematic path
+                    selector_parts = [tag_name]
+                    for attr_name, attr_value in other_attrs.items():
+                        selector_parts.append(f'[{attr_name}="{attr_value}"]')
+                    
+                    if len(selector_parts) > 1:
+                        css_selector = ''.join(selector_parts)
+                        try:
+                            candidates = dom.css(css_selector)
+                            if candidates:
+                                # Find the best match by comparing other attributes
+                                best_match = None
+                                best_score = 0
+                                
+                                for cand in candidates:
+                                    score = 0
+                                    for attr_name, attr_value in other_attrs.items():
+                                        if cand.get(attr_name) == attr_value:
+                                            score += 1
+                                    
+                                    # Bonus for having the same tag
+                                    if cand.tag == tag_name:
+                                        score += 1
+                                    
+                                    if score > best_score:
+                                        best_score = score
+                                        best_match = cand
+                                
+                                if best_match is not None and best_score > 0:
+                                    offsets = dom.map_elem_to_offsets(best_match)
+                                    if offsets:
+                                        s, e = offsets
+                                        ls, le = _slice_to_lines_1based(starts, s, e)
+                                        issue.update({
+                                            "match_status": "matched",
+                                            "match_html": raw[s:e],
+                                            "match_line_start": ls,
+                                            "match_line_end": le
+                                        })
+                                        return issue
+                        except Exception:
+                            pass  # CSS selector failed, continue to next strategy
+                    
+                    # Fallback: If no other attributes, try to find by tag type and position
+                    # This handles cases like <img src="path"> where only src exists
+                    if not other_attrs:
+                        try:
+                            # Try to find all elements of this tag type
+                            all_tags = dom.css(tag_name)
+                            if all_tags:
+                                # For images, try to find by looking at the HTML structure
+                                # Since we know the path is wrong due to base href, 
+                                # we'll try to find the element by its position in the document
+                                
+                                # Extract the path from Lighthouse to understand the structure
+                                path_parts = []
+                                if "path" in issue.get("node", {}):
+                                    path_str = issue["node"]["path"]
+                                    path_parts = path_str.split(",")
+                                
+                                # Try to find element by approximate position
+                                # Look for elements with similar structure
+                                for i, elem in enumerate(all_tags):
+                                    try:
+                                        # Check if this element is in a similar structural position
+                                        offsets = dom.map_elem_to_offsets(elem)
+                                        if offsets:
+                                            s, e = offsets
+                                            ls, le = _slice_to_lines_1based(starts, s, e)
+                                            
+                                            # For debugging, let's see what we found
+                                            found_html = raw[s:e]
+                                            
+                                            # Check if this looks like the right element
+                                            # (same tag, similar structure, no conflicting attributes)
+                                            if (elem.tag == tag_name and 
+                                                not elem.get("alt") and  # For images without alt
+                                                "src=" in found_html):   # Has src attribute
+                                                
+                                                issue.update({
+                                                    "match_status": "matched",
+                                                    "match_html": found_html,
+                                                    "match_line_start": ls,
+                                                    "match_line_end": le
+                                                })
+                                                return issue
+                                    except Exception:
+                                        continue
+                        except Exception:
+                            pass  # Continue to next strategy
 
     # 5) link-text style: match by href (+ optional exact visible text)
     if link_url:
@@ -311,7 +592,24 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
             })
             return issue
 
-    # 7) Minimal code-value fallback: if a literal code snippet is provided
+    # 7) Special handling for canonical audit
+    if audit_id == "canonical":
+        # Look for canonical link tag
+        canonical_links = dom.css('link[rel="canonical"]')
+        if canonical_links:
+            offsets = dom.map_elem_to_offsets(canonical_links[0])
+            if offsets:
+                s, e = offsets
+                ls, le = _slice_to_lines_1based(starts, s, e)
+                issue.update({
+                    "match_status": "matched",
+                    "match_html": raw[s:e],
+                    "match_line_start": ls,
+                    "match_line_end": le
+                })
+                return issue
+
+    # 8) Minimal code-value fallback: if a literal code snippet is provided
     code = issue.get("code")
     if isinstance(code, str) and code:
         off = raw.find(code)

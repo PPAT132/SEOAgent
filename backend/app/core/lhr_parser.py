@@ -17,8 +17,16 @@ class LHRTool:
         audits = lhr_json.get("audits", {})
 
         issues: List[Dict[str, Any]] = []
+        errors: List[str] = []
 
         for audit_id, audit in audits.items():
+            # Check if audit has an error
+            score_display_mode = audit.get("scoreDisplayMode")
+            if score_display_mode == "error":
+                error_msg = audit.get("errorMessage", "Unknown error")
+                errors.append(f"{audit_id}: {error_msg}")
+                continue
+                
             # Only keep failing audits (score = 0 or score < 1 for non-binary)
             score = audit.get("score")
             if score is None or score >= 1:
@@ -72,15 +80,40 @@ class LHRTool:
                         "lhId": node.get("lhId"),
                     }
 
+                # Handle source field that may contain a node object (e.g., is-crawlable audit)
+                source = it.get("source")
+                if isinstance(source, dict) and source.get("type") == "node":
+                    # If we don't already have a node, use the source node
+                    if not issue["node"]:
+                        issue["node"] = {
+                            "selector": source.get("selector"),
+                            "path": source.get("path"),
+                            "snippet": source.get("snippet"),
+                            "nodeLabel": source.get("nodeLabel"),
+                            "lhId": source.get("lhId"),
+                        }
+                elif isinstance(source, str):
+                    # CodeValue (e.g. directives or <link rel=alternate ...> etc.)
+                    issue["code"] = source
+
+                # Handle subItems for detailed problem reasons (e.g., hreflang audit)
+                sub_items = it.get("subItems", {})
+                if isinstance(sub_items, dict) and sub_items.get("type") == "subitems":
+                    reasons = sub_items.get("items", [])
+                    if reasons:
+                        # Extract all reason texts
+                        reason_texts = []
+                        for reason_item in reasons:
+                            if isinstance(reason_item, dict) and "reason" in reason_item:
+                                reason_texts.append(reason_item["reason"])
+                        if reason_texts:
+                            issue["code"] = "; ".join(reason_texts)
+
                 # Link-text style: columns "href" + "text"
                 if "href" in it:
                     issue["url"] = it.get("href")
                 if "text" in it:
                     issue["link_text"] = it.get("text")
-
-                # CodeValue (e.g. directives or <link rel=alternate ...> etc.)
-                if isinstance(it.get("source"), str):
-                    issue["code"] = it["source"]
 
                 # SourceLocationValue (occasionally appears in other audits)
                 if isinstance(it.get("url"), str) and any(k in it for k in ("line", "column", "original")):
@@ -93,4 +126,9 @@ class LHRTool:
 
                 issues.append(issue)
 
-        return {"seo_score": seo_score, "issues": issues}
+        result = {"seo_score": seo_score, "issues": issues}
+        if errors:
+            result["errors"] = errors
+            result["error_summary"] = f"Lighthouse encountered {len(errors)} errors during analysis"
+            
+        return result

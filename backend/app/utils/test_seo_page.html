@@ -1,380 +1,401 @@
-<!DOCTYPE html>
-<html>
-<!-- bad: no lang; head order messy; lots of poor metas -->
+<!-- INTENTIONALLY HORRIBLE SEO PAGE FOR TESTING -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> <!-- old doctype -->
+<html lang="en-CA zh-CN" dir="rtl"> <!-- invalid mixed lang, weird dir -->
 <head>
-  <!-- bad: missing meaningful title or brand context -->
-  <title>Welcome</title>
+  <!-- multiple titles, keyword stuffing, duplicates -->
+  <title>Buy Cheap Shoes - Cheap Cheap Shoes | Best Cheap Shoes Deals Super Cheap Super Cheap Super Cheap</title>
+  <title>主页 标题 Title 重复 Duplicate Title Keyword Keyword Keyword Keyword Keyword</title>
+  <title></title> <!-- empty title -->
 
-  <!-- bad: meta keywords stuffing and duplicates -->
-  <meta name="keywords" content="best shoes, shoes, cheap shoes, buy shoes, discount, free, deal, hot, hot hot, 2025, canada, usa, keyword, keyword, keyword">
-  <meta name="keywords" content="seo, seo trick, seo hack, rank 1 now, instant ranking, super fast, magic, click here, limited offer">
+  <!-- conflicting charsets and misplaced -->
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta charset="utf-8">
+  <meta charset="windows-1252"> <!-- conflicting late charset -->
 
-  <!-- bad: overly long description, repetitive and irrelevant -->
-  <meta name="description" content="Buy shoes now buy shoes now, cheap shoes cheap shoes, the very best shoes in the whole world for everyone, free free free, deal deal deal, top 2025 shoes in Canada USA Waterloo Toronto everywhere, amazing amazing amazing, unlimited sale sale sale, click here click here click here, hurry hurry hurry, do not miss, description continues and continues with no real value and too many words that do not help users or search engines at all but just fill space for a very long time to be extremely long beyond reason.">
+  <!-- conflicting robots -->
+  <meta name="robots" content="index,follow">
+  <meta name="robots" content="noindex,nofollow,noarchive"> <!-- conflict -->
 
-  <!-- bad: duplicate/conflicting description -->
-  <meta name="description" content="Welcome to a page about shoes and not about shoes at the same time. Best best best. Buy buy buy. Free free free.">
+  <!-- duplicate / bad viewport -->
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=320, initial-scale=3, maximum-scale=1, user-scalable=no"> <!-- hostile to mobile -->
 
-  <!-- bad: conflicting charsets and placement; windows-1252 before utf-8, then utf-8 later -->
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <meta name="viewport" content="width=device-width"> <!-- bad: missing initial-scale and other values -->
-  <meta name="robots" content="noindex,follow,noarchive,noimageindex,nosnippet"> <!-- bad: might block indexing unintentionally -->
-  <meta name="author" content="admin, unknown, n/a"> <!-- bad: vague/meaningless -->
-  <meta http-equiv="refresh" content="5; url=/promo"> <!-- bad: meta refresh redirect -->
+  <!-- descriptions: too long, empty, duplicate-ish -->
+  <meta name="description" content="This is the most amazing best cheap cheap cheap shoes deals page on the internet, buy now buy now buy now, free shipping worldwide, unbelievable discounts, once-in-a-lifetime opportunity, keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword, scroll more, click here, you won't believe it, act fast, super SEO meta description that is absurdly long to trigger truncation and penalties and tests and everything else under the sun, repeating words over and over and over again!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
+  <meta name="description" content="">
+  <meta name="description" content="重复描述 Duplicate description 重复描述 Duplicate description">
 
-  <!-- bad: Open Graph tags mismatched/irrelevant/incomplete -->
-  <meta property="og:title" content="Completely Different Title From Page">
+  <!-- meta keywords (deprecated) with stuffing -->
+  <meta name="keywords" content="cheap, shoes, cheap shoes, buy cheap shoes, best cheap shoes, free, free free free, discount, 90% off, click here, click here, click here, spam, spam, spam">
+
+  <!-- refresh redirect (bad) -->
+  <meta http-equiv="refresh" content="0; url=/redirect/landing?src=meta"> <!-- immediate redirect -->
+
+  <!-- outdated X-UA -->
+  <meta http-equiv="X-UA-Compatible" content="IE=7">
+
+  <!-- base href that breaks relatives -->
+  <base href="//wrong.example.com/subdir/"> 
+
+  <!-- multiple conflicting canonicals -->
+  <link rel="canonical" href="/relative-canonical"> <!-- relative: bad -->
+  <link rel="canonical" href="http://example.org/different-page"> <!-- cross-domain, conflicting -->
+  <link rel="canonical" href="https://example.com/page?utm=spam&utm=spam2"> <!-- tracking in canonical -->
+
+  <!-- bad hreflang: invalid codes, duplicates, wrong targets -->
+  <link rel="alternate" hreflang="en-UK" href="https://example.com/uk"> <!-- should be en-GB -->
+  <link rel="alternate" hreflang="zh-cn" href="https://example.com/cn">
+  <link rel="alternate" hreflang="xx-YY" href="https://example.com/invalid">
+  <link rel="alternate" hreflang="en" href="https://example.com/">
+  <link rel="alternate" hreflang="en" href="https://example.com/home-duplicate"> <!-- duplicate en -->
+  <!-- missing x-default -->
+
+  <!-- Open Graph: broken/duplicates/mismatched -->
+  <meta property="og:title" content="">
+  <meta property="og:title" content="Cheap Shoes | Cheapest | OMG OMG OMG">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://example.com/wrong">
-  <meta property="og:image" content="/missing-image.jpg">
-  <meta property="og:description" content="Hot hot deal deal free free click click now now now.">
+  <meta property="og:url" content="http://not-https.example.com">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="zh_CN"> <!-- duplicate conflicts -->
+  <meta property="og:image" content="http://example.com/huge-base64.png"> <!-- points to non-existent -->
+  <meta property="og:description" content="Buy now now now now now now now now now now now now now now now!!!">
 
-  <!-- bad: twitter card incomplete/mismatched -->
+  <!-- Twitter cards conflicting -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@notexistinghandle">
-  <meta name="twitter:title" content="Another Different Title">
-  <meta name="twitter:description" content="spam spam spam spam spam">
-  <meta name="twitter:image" content="/not-found.png">
+  <meta name="twitter:card" content="player"> <!-- conflict -->
 
-  <!-- bad: canonical is relative and points incorrectly; hreflang missing -->
-  <link rel="canonical" href="/home-old.html">
+  <!-- rel=next/prev deprecated & wrong -->
+  <link rel="prev" href="page5.html">
+  <link rel="next" href="page4.html">
 
-  <!-- bad: inline CSS with !important and poor design choices -->
+  <!-- wrong preload/preconnect -->
+  <link rel="preload" href="big.css" as="script"> <!-- wrong as -->
+  <link rel="preconnect" href="http://cdn.not-https.example"> <!-- http + no crossorigin -->
+
+  <!-- alternate type mismatch -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed-not-rss.html">
+
+  <!-- blocking @import chain & massive inline CSS -->
   <style>
-    body { font-family: Comic Sans MS, cursive; margin:0; padding:0; background:#fff !important; color:#111 !important; }
-    .container { width:960px; margin:0 auto; border:1px solid #eee }
-    .hidden { color:#fff; background:#fff; font-size:1px }
-    .blink { animation: blink 0.5s infinite; }
-    @keyframes blink { 0%{opacity:1} 50%{opacity:0} 100%{opacity:1} }
-    table.layout { width:100%; border:0; border-spacing:0 }
-    td.cell { vertical-align:top }
-    .button { display:inline-block; padding:4px 6px; border:1px solid #aaa; background:#f9f9f9; text-decoration:none }
-    .huge { font-size:48px }
-    .tiny { font-size:10px }
-    .keyword { font-size:14px; color:#0a0 }
-    .box { border:1px dashed #ccc; padding:6px; margin:6px }
-    .img-wrap { width:100%; height:220px; background:#ddd }
-    .footer-links a { margin-right:12px }
-    .bg-inline { background:url('hero.jpg') no-repeat center center }
-    .dup{border:0}.dup{border:0}.dup{border:0} /* bad: useless duplicates */
+    /* bad @import chain */
+    @import url("critical.css");
+    @import url("non-critical.css");
+    @import url("fonts.css");
+    /* hidden content cloaking */
+    .hidden-keywords { 
+      font-size:0; color:#fff; background:#fff; 
+      position:absolute; left:-9999px; top:-9999px; 
+    }
+    /* too light contrast */
+    .low-contrast { color:#eee; background:#fff; }
+    /* huge inline rules and !important everywhere */
+    .hero { height: 1200px !important; background: url('data:image/png;base64,iVBORw0KGgoAAA...truncated'); }
+    .ad { position: fixed; bottom: 0; right: 0; width: 100%; height: 200px; z-index: 9999; }
+    .duplicate-id { border:1px solid #f0f; }
+    #main-content { padding: 8px; } /* will be duplicated id later */
+    #main-content { padding: 12px; } /* duplicate id rule */
+    .stuffed { text-transform:uppercase; letter-spacing:0.3em; }
+    .spinner { display: none; }
+    .cloak-mobile { display:none; } /* different from noscript (cloaking-like) */
+    table.layout { width:100%; border: 0; }
   </style>
 
-  <!-- bad: charset placed very late and conflicts with previous one -->
-  <meta charset="utf-8">
-</head>
-<body onload="trackUser()" style="background:#fff;">
-
-<center>
-  <!-- bad: marquee and center tags -->
-  <marquee behavior="scroll" direction="left" scrollamount="12">Welcome to The Best Best BEST Shoes!!! Cheap shoes cheap shoes cheap shoes!!!</marquee>
-</center>
-
-<!-- bad: multiple H1s and wrong order -->
-<h1 class="huge">Best Shoes Best Shoes Best Shoes</h1>
-<h1>Amazing Cheap Shoes in Canada USA 2025 2025</h1>
-<h3>Subsection Before H2 (wrong order)</h3>
-<h2>Why Our Shoes Are Best (But actually nothing here)</h2>
-
-<!-- bad: keyword stuffing + duplicate paragraphs -->
-<p class="keyword">best shoes cheap shoes discount shoes buy shoes now click here free shipping best shoes cheap shoes discount shoes buy shoes now click here free shipping</p>
-<p class="keyword">best shoes cheap shoes discount shoes buy shoes now click here free shipping best shoes cheap shoes discount shoes buy shoes now click here free shipping</p>
-
-<!-- bad: table-based layout -->
-<table class="layout">
-  <tr>
-    <td class="cell" style="width:70%;">
-      <div class="container">
-        <!-- bad: generic link text, dead links -->
-        <a href="page.html" class="button">Click here</a>
-        <a href="javascript:void(0)" class="button">Learn more</a>
-        <a href="/non-existent" class="button">Read more</a>
-
-        <!-- bad: non-semantic div soup, inline styles -->
-        <div style="padding:8px;">
-          <div class="box">
-            <b>Amazing Offer</b> — <font color="red">Only today only today only today!</font>
-            <p style="line-height:1.1">We sell shoes shoes shoes. Buy shoes now buy shoes now buy shoes now.</p>
-            <!-- bad: image without alt -->
-            <img src="shoe-1.jpg" width="640" height="360">
-            <!-- bad: empty alt -->
-            <img src="shoe-2.jpg" alt="" width="300" height="200">
-            <!-- bad: decorative image with misleading alt -->
-            <img src="sparkles.png" alt="best seo hack" width="50" height="50">
-          </div>
-
-          <!-- repeated low-quality product blocks -->
-          <div class="box">
-            <h2>Product 1</h2>
-            <div class="img-wrap"></div>
-            <p>Buy cheap shoes now click here click here click here.</p>
-            <a href="#" onclick="outbound()">Click here</a>
-          </div>
-
-          <div class="box">
-            <h2>Product 2</h2>
-            <div class="img-wrap bg-inline"></div>
-            <p>Cheap cheap cheap best best best shoes shoes shoes.</p>
-            <a href="#" onclick="outbound()">Click here</a>
-          </div>
-
-          <div class="box">
-            <h2>Product 3</h2>
-            <div class="img-wrap"></div>
-            <p>Top shoes sale sale sale sale sale.</p>
-            <a href="#" onclick="outbound()">Click here</a>
-          </div>
-
-          <div class="box">
-            <h2>Product 4</h2>
-            <div class="img-wrap"></div>
-            <p>Buy now buy now buy now. Free!!!</p>
-            <a href="#" onclick="outbound()">Click here</a>
-          </div>
-
-          <div class="box">
-            <h2>Product 5</h2>
-            <div class="img-wrap"></div>
-            <p>Totally the best shoes for running walking jumping.</p>
-            <a href="#" onclick="outbound()">Click here</a>
-          </div>
-
-          <!-- bad: incorrect heading nesting and multiple H1 again -->
-          <h1>Top Reviews</h1>
-          <h4>Customer Review Section</h4>
-          <div class="box">
-            <p>"Best shoes best shoes best shoes!"</p>
-            <p class="tiny hidden">hidden hidden hidden keywords best shoes discount cheap buy free deal</p>
-          </div>
-
-          <!-- bad: iframe without title -->
-          <iframe src="promo.html" width="300" height="200"></iframe>
-
-          <!-- bad: autoplay audio/video -->
-          <audio autoplay src="ad.m4a"></audio>
-          <video autoplay muted loop width="320" height="180" src="promo.mp4"></video>
-
-          <!-- repeated spam blocks to increase length -->
-          <div class="box"><p>cheap shoes cheap shoes cheap shoes cheap shoes cheap shoes</p></div>
-          <div class="box"><p>best best best best best best best best</p></div>
-          <div class="box"><p>discount discount discount discount discount</p></div>
-          <div class="box"><p>free shipping free shipping free shipping</p></div>
-          <div class="box"><p>buy now buy now buy now buy now</p></div>
-          <div class="box"><p>sale sale sale sale sale sale sale</p></div>
-          <div class="box"><p>canada usa toronto waterloo shoes shoes shoes</p></div>
-          <div class="box"><p>keyword keyword keyword keyword keyword</p></div>
-          <div class="box"><p>amazing amazing amazing amazing amazing</p></div>
-          <div class="box"><p>deal deal deal deal deal deal</p></div>
-
-          <!-- copy/paste a large low-quality list -->
-          <ul>
-            <li>best shoes cheap</li>
-            <li>cheap best shoes</li>
-            <li>buy shoes now</li>
-            <li>deal deal deal</li>
-            <li>free shipping now</li>
-            <li>top best shoes 2025</li>
-            <li>hot hot hot</li>
-            <li>amazing shoes</li>
-            <li>shoes shoes shoes</li>
-            <li>keyword keyword keyword</li>
-          </ul>
-
-          <!-- repeat generic sections to grow lines -->
-          <div class="box"><h3>Section A</h3><p>content content content</p></div>
-          <div class="box"><h3>Section B</h3><p>content content content</p></div>
-          <div class="box"><h3>Section C</h3><p>content content content</p></div>
-          <div class="box"><h3>Section D</h3><p>content content content</p></div>
-          <div class="box"><h3>Section E</h3><p>content content content</p></div>
-          <div class="box"><h3>Section F</h3><p>content content content</p></div>
-          <div class="box"><h3>Section G</h3><p>content content content</p></div>
-          <div class="box"><h3>Section H</h3><p>content content content</p></div>
-          <div class="box"><h3>Section I</h3><p>content content content</p></div>
-          <div class="box"><h3>Section J</h3><p>content content content</p></div>
-
-          <div class="box">
-            <!-- bad: form with missing labels -->
-            <h2>Sign Up Now</h2>
-            <form action="/subscribe" method="post" onsubmit="return false">
-              <input type="text" name="n" placeholder="Name">
-              <input type="email" name="e" placeholder="Email">
-              <input type="submit" value="Submit">
-            </form>
-            <!-- bad: suspicious link -->
-            <p><a href="http://example.com/track?utm=spam" rel="nofollow">Click here</a></p>
-          </div>
-
-          <!-- more duplicated boxes -->
-          <div class="box"><p>Lorem ipsum dolor sit amet shoes shoes shoes.</p></div>
-          <div class="box"><p>Consectetur adipiscing elit shoes shoes.</p></div>
-          <div class="box"><p>Sed do eiusmod tempor incididunt shoes.</p></div>
-          <div class="box"><p>Ut labore et dolore magna aliqua shoes.</p></div>
-          <div class="box"><p>Ut enim ad minim veniam shoes shoes.</p></div>
-          <div class="box"><p>Quis nostrud exercitation ullamco shoes.</p></div>
-          <div class="box"><p>Nisi ut aliquip ex ea commodo consequat shoes.</p></div>
-          <div class="box"><p>Duis aute irure dolor in reprehenderit shoes.</p></div>
-          <div class="box"><p>Excepteur sint occaecat cupidatat non proident shoes.</p></div>
-          <div class="box"><p>Sunt in culpa qui officia deserunt mollit anim id est shoes.</p></div>
-
-          <!-- bad: inline script-heavy trackers -->
-          <script>
-            function trackUser(){
-              // bad: synchronous fake tracking
-              var s = 0; for (var i=0;i<10000000;i++){ s += i; }
-              console.log("tracking complete", s);
-            }
-            function outbound(){ alert('tracking'); return false; }
-            // bad: global click handler
-            window.onclick = function(){ console.log('clicked'); };
-          </script>
-
-          <!-- more spammy lists -->
-          <ol>
-            <li>Buy</li>
-            <li>Now</li>
-            <li>Free</li>
-            <li>Deal</li>
-            <li>Cheap</li>
-          </ol>
-
-          <!-- broken image -->
-          <img src="not-found.png" alt="">
-
-          <!-- repeated headings -->
-          <h1>FAQ</h1>
-          <h3>Q1: Are these the best shoes?</h3>
-          <p>Yes yes yes best best best.</p>
-          <h3>Q2: Is there free shipping?</h3>
-          <p>Free free free.</p>
-          <h3>Q3: Why buy now?</h3>
-          <p>Because buy now buy now buy now.</p>
-
-          <!-- filler to grow lines -->
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-          <div class="box"><p>filler filler filler filler filler</p></div>
-
-          <!-- hidden keyword block -->
-          <div class="hidden">
-            best shoes best shoes cheap shoes discount shoes buy shoes canada usa 2025 2025 2025 keyword keyword keyword
-          </div>
-
-          <!-- deprecated font tags -->
-          <p><font size="1">tiny text</font> and <font size="7">huge text</font></p>
-
-          <!-- bad: nested anchors, wrong structure -->
-          <a href="#"><div class="button">Click here</div></a>
-
-          <!-- unnecessary inline styles -->
-          <p style="background:#ff0; color:#ff0">invisible text same as background</p>
-
-          <!-- more repetitive sections -->
-          <div class="box"><h2>Product 6</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 7</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 8</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 9</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 10</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 11</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 12</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 13</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 14</h2><p>cheap cheap cheap</p></div>
-          <div class="box"><h2>Product 15</h2><p>cheap cheap cheap</p></div>
-
-          <!-- bad: excessive inline JS -->
-          <button onclick="alert('Buy Now! Buy Now! Buy Now!')">BUY NOW</button>
-
-        </div>
-      </div>
-    </td>
-    <td class="cell" style="width:30%;">
-      <!-- sidebar with duplicated content -->
-      <div class="box">
-        <h2>Sidebar</h2>
-        <p>best shoes cheap shoes discount shoes</p>
-        <ul>
-          <li><a href="#">Click here</a></li>
-          <li><a href="#">Click here</a></li>
-          <li><a href="#">Click here</a></li>
-          <li><a href="#">Click here</a></li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <h2>News</h2>
-        <p>Breaking: Best Shoes discovered in Waterloo!</p>
-        <p>Breaking: Best Shoes discovered in Waterloo!</p>
-        <p>Breaking: Best Shoes discovered in Waterloo!</p>
-      </div>
-
-      <div class="box">
-        <h2>Tags</h2>
-        <p>best, shoes, cheap, discount, buy, free, deal, hot, hot, hot</p>
-      </div>
-
-      <div class="box">
-        <h2>Partners</h2>
-        <ul>
-          <li><a href="http://example.com">Partner 1</a></li>
-          <li><a href="http://example.com">Partner 2</a></li>
-          <li><a href="http://example.com">Partner 3</a></li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <!-- bad: iframe ads without title -->
-        <iframe src="ad.html" width="160" height="600"></iframe>
-      </div>
-
-      <!-- filler blocks -->
-      <div class="box"><p>More filler more filler more filler</p></div>
-      <div class="box"><p>More filler more filler more filler</p></div>
-      <div class="box"><p>More filler more filler more filler</p></div>
-      <div class="box"><p>More filler more filler more filler</p></div>
-      <div class="box"><p>More filler more filler more filler</p></div>
-
-    </td>
-  </tr>
-</table>
-
-<!-- footer with many generic links -->
-<footer>
-  <div class="footer-links">
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Deals</a>
-    <a href="#">Contact</a>
-    <a href="#">Click here</a>
-    <a href="#">Click here</a>
-    <a href="#">Click here</a>
-  </div>
-  <p>&copy; 2025 Best Shoes Inc.</p>
-</footer>
-
-<!-- big inline script to pad lines and block rendering -->
-<script>
-  // bad: long blocking JS and duplicated logic
-  var keywords = ["best","shoes","cheap","discount","buy","free","deal","hot"];
-  function spam(){
-    var p = document.createElement('p');
-    p.textContent = keywords.join(' ') + ' ' + keywords.join(' ');
-    document.body.appendChild(p);
+  <!-- invalid JSON-LD (syntax errors & missing required fields) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": Cheap Shoes,          /* missing quotes */
+    "offers": { "@type":"Offer", "price": "FREE", "priceCurrency": "" } /* nonsensical */
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "6", "reviewCount": "two" } /* invalid types */
   }
-  for (var i=0;i<30;i++){ spam(); } // add many spam paragraphs
+  </script>
 
-  // bad: eval usage
-  eval("console.log('eval is bad for SEO and security')");
-</script>
+  <!-- duplicate/contradictory structured data -->
+  <script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":"first","name":1},  /* wrong types everywhere */
+      {"@type":"ListItem","position":2,"name":"Home","item":"/home-relative"}
+    ]}
+  </script>
 
-<!-- more hidden keyword dumps -->
-<div class="hidden">cheap shoes cheap shoes cheap shoes</div>
-<div class="hidden">discount discount discount discount</div>
-<div class="hidden">best best best best best</div>
+  <!-- synchronous, render-blocking JS + document.write spam -->
+  <script>
+    // keyword stuffing via JS
+    document.write('<div class="hidden-keywords">cheap shoes cheap shoes cheap shoes buy now buy now buy now discount discount discount free free free</div>');
+    // change title late (bad practice)
+    document.title = document.title + " | Click Here!";
+  </script>
+</head>
+<body id="main-content"> <!-- id duplicated in CSS, will be reused below -->
+  <!-- layout table (bad) -->
+  <table class="layout" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <!-- multiple H1s, broken hierarchy, decorative headings -->
+        <h1>Welcome to Cheap Shoes!!!</h1>
+        <h1>欢迎来到最便宜的鞋子!!!</h1>
+        <h4>Subsection before H2 (bad order)</h4>
+        <h2>Small Topic</h2>
+        <h5>Jumping To H5</h5>
+        <h3>Then Back To H3</h3>
 
+        <!-- hero with above-the-fold lazy image (bad), missing width/height -->
+        <img src="hero-5000x3000.jpg" loading="lazy" alt="">
+        <p class="low-contrast">This paragraph has extremely low contrast so it’s hard to read on white background.</p>
+
+        <!-- duplicate content blocks & near-duplicates -->
+        <section id="intro">
+          <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+          <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+          <p>We sell affordable footwear for price-conscious buyers. Lowest prices guaranteed, click here.</p>
+        </section>
+
+        <!-- broken links and meaningless anchors -->
+        <a href="#" rel="nofollow ugc sponsored">click here</a>
+        <a href="javascript:void(0)">learn more</a>
+        <a href="non-existent-page.html?utm=spam&utm=spam">read more</a>
+        <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+
+        <!-- images with various alt problems -->
+        <figure>
+          <img src="shoe.jpg" alt="shoe shoe shoe cheap cheap discount discount free free"> <!-- stuffed alt -->
+          <figcaption>Best Shoe</figcaption>
+        </figure>
+        <img src="gallery/image1.png"> <!-- missing alt -->
+        <img src="gallery/图像.png" alt=""> <!-- empty alt with non-decorative image -->
+        <img src="sprite.gif" alt=" "> <!-- meaningless alt -->
+        <img src="http://insecure.example.com/big.png" width="2000" height="1500" alt="Huge Unoptimized"> <!-- http -->
+
+        <!-- duplicate IDs -->
+        <div id="main-content">
+          <p>Duplicate ID section with thin content.</p>
+        </div>
+
+        <!-- iframe without title -->
+        <iframe src="https://example.com" width="560" height="315"></iframe>
+
+        <!-- form with no labels, odd fields -->
+        <form action="#" method="get">
+          <input type="text" name="q">
+          <input type="email" placeholder="Email"> <!-- missing name -->
+          <input type="submit" value="Submit">
+        </form>
+
+        <!-- hidden keyword block -->
+        <div class="hidden-keywords">
+          buy cheap shoes, cheapest sneakers, discount trainers, outlet footwear, best price shoes, 100% off*, free gift, free shipping, coupon coupon coupon
+        </div>
+
+        <!-- marquee & blink (deprecated) -->
+        <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!!</marquee>
+        <blink>FLASH SALE!!!</blink>
+
+        <!-- noscript content different from visible (cloaking-like) -->
+        <noscript>
+          <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+        </noscript>
+
+        <!-- massive inline script blocking -->
+        <script>
+          // pointless heavy loop to waste time
+          for (var i=0;i<30000;i++){ Math.sqrt(i); }
+        </script>
+
+        <!-- microdata with wrong vocab and nesting -->
+        <div itemscope itemtype="http://schema.org/Product">
+          <span itemprop="name">Cheap Shoe Model X</span>
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="">
+            <span itemprop="price">FREE</span> <!-- nonsense -->
+            <link itemprop="url" href="relative/product"> <!-- relative -->
+          </div>
+          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+            <meta itemprop="ratingValue" content="6">
+            <meta itemprop="reviewCount" content="two"> <!-- invalid -->
+          </div>
+        </div>
+
+        <!-- stuffing via comment (some crawlers parse) -->
+        <!-- cheap shoes cheap shoes cheap shoes buy buy buy free free discount discount -->
+
+        <!-- repeated heading text -->
+        <h2>Features</h2>
+        <h2>Features</h2>
+
+        <!-- anchor text spam -->
+        <p>
+          <a href="/buy">buy cheap shoes</a>,
+          <a href="/buy">buy cheap shoes</a>,
+          <a href="/buy">buy cheap shoes</a>
+        </p>
+
+        <!-- wrong lazy attributes & placeholders -->
+        <img data-src="lazy.jpg" loading="eager" alt="Lazy but eager mismatch">
+        <img src="pixel.gif" width="1" height="1" alt="tracking pixel"> <!-- tracking-like -->
+
+        <!-- css hiding primary content -->
+        <div class="cloak-mobile">
+          <h2>Important Content Hidden On Mobile</h2>
+          <p>This is hidden on mobile via CSS.</p>
+        </div>
+
+        <!-- Duplicate paragraphs to create internal duplication footprint -->
+        <div>
+          <p>Duplicate block A1: Cheap shoes are cheap because they are cheap.</p>
+          <p>Duplicate block A2: Cheap shoes are cheap because they are cheap.</p>
+          <p>Duplicate block A3: Cheap shoes are cheap because they are cheap.</p>
+        </div>
+
+        <!-- A long list of nearly identical items for thin pages / pagination bait -->
+        <ul>
+          <li>Cheap Shoe 1 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 2 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 3 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 4 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 5 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 6 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 7 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 8 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 9 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 10 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 11 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 12 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 13 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 14 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 15 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 16 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 17 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 18 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 19 - best cheap cheap cheap</li>
+          <li>Cheap Shoe 20 - best cheap cheap cheap</li>
+        </ul>
+
+        <!-- Table for layout with nested tables -->
+        <table class="layout" border="0">
+          <tr>
+            <td>
+              <table border="0" width="100%">
+                <tr><td><b>Bold used as heading</b></td></tr>
+                <tr><td><i>Italics used as heading</i></td></tr>
+                <tr><td><u>Underlined heading</u></td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Mixed languages without proper lang attributes -->
+        <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！</p>
+
+        <!-- link farm style footer links -->
+        <div class="footer-links">
+          <a href="/seo">SEO</a> | 
+          <a href="/seo">SEO</a> | 
+          <a href="/cheap">Cheap</a> | 
+          <a href="/cheap">Cheap</a> | 
+          <a href="/best-deals">Best Deals</a> | 
+          <a href="/best-deals">Best Deals</a>
+        </div>
+
+        <!-- Image with misleading filename and no dimensions -->
+        <img src="cute-kitten.jpg" alt="Black Friday Cheapest Shoes Sale!!!">
+
+        <!-- Broken breadcrumb microdata -->
+        <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="zero"> <!-- invalid -->
+          </span>
+          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+            <meta itemprop="position" content="-1"> <!-- invalid -->
+          </span>
+        </nav>
+
+        <!-- Multiple social graph tags inside body (bad placement) -->
+        <meta property="og:title" content="Body OG Title (wrong place)">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!-- Over-optimized internal anchors with parameters -->
+        <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW</a>
+
+        <!-- 404-ish external links and mixed content -->
+        <a href="http://mixed-content.example.com/resource">HTTP external</a>
+        <img src="http://mixed-content.example.com/img.png" alt="HTTP image mixed content">
+      </td>
+    </tr>
+  </table>
+
+  <!-- Big inline script after body start -->
+  <script>
+    // pointless inline analytics + duplicate IDs creation
+    (function(){
+      var d = document.createElement('div');
+      d.id = 'main-content'; // duplicate ID again
+      d.innerHTML = '<p>Injected duplicate id content</p>';
+      document.body.appendChild(d);
+    })();
+  </script>
+
+  <!-- Huge inline CSS late (blocking) -->
+  <style>
+    .late-style { font-family: "Comic Sans MS", cursive; font-size: 18px; }
+    /* more hidden text */
+    .hidden-2 { position:absolute; left:-10000px; top:-10000px; }
+  </style>
+
+  <!-- Another invalid JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context":"Schema.org",
+      "@type":"Organization",
+      "name": 12345,                 /* number instead of string */
+      "url": "/relative-org",        /* relative URL */
+      "sameAs": ["htp://broken-url"] /* bad scheme */
+    }
+  </script>
+
+  <!-- Tons of near-duplicate paragraphs to inflate page size & duplication -->
+  <div class="dupes">
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
+    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
+  </div>
+
+  <!-- Overlong UL with repetitive anchors to simulate sitewide footer spam -->
+  <ul>
+    <li><a href="/partners/partner-a">Partner A</a></li>
+    <li><a href="/partners/partner-a">Partner A (dup)</a></li>
+    <li><a href="/partners/partner-b">Partner B</a></li>
+    <li><a href="/partners/partner-b">Partner B (dup)</a></li>
+    <li><a href="/partners/partner-c">Partner C</a></li>
+    <li><a href="/partners/partner-c">Partner C (dup)</a></li>
+    <li><a href="/partners/partner-d">Partner D</a></li>
+    <li><a href="/partners/partner-d">Partner D (dup)</a></li>
+  </ul>
+
+  <!-- Footer with another H1 -->
+  <footer>
+    <h1>Footer Headline H1 (should not be H1)</h1>
+    <p>&copy; 2025 Cheap Shoes Unlimited Unlimited Unlimited</p>
+    <!-- social links repeated -->
+    <a href="/social">Social</a> | <a href="/social">Social</a> | <a href="/social">Social</a>
+  </footer>
+
+  <!-- Final blocking script tag to end badly -->
+  <script src="big-library.js"></script>
+  <script>
+    // Inline event handlers encouragement
+    function track(){ alert('tracking'); }
+  </script>
 </body>
 </html>
