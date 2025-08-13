@@ -4,8 +4,56 @@
 import re
 from typing import Any, Dict, List, Optional, Tuple
 from lxml import html, etree
+from urllib.parse import urlparse, urljoin
 
 VOID_TAGS = {"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
+
+def _normalize_url_for_matching(url: str) -> str:
+    """
+    Normalize URLs for matching by removing localhost prefixes and normalizing paths.
+    This handles cases where Lighthouse service adds http://localhost:3002/ prefix.
+    """
+    if not url:
+        return ""
+    
+    # Parse the URL
+    parsed = urlparse(url)
+    
+    # If it's a localhost URL, extract just the path
+    if parsed.netloc and "localhost" in parsed.netloc:
+        return parsed.path or "/"
+    
+    # If it's a relative path, normalize it
+    if not parsed.scheme and not parsed.netloc:
+        # Remove leading slash for relative paths
+        return parsed.path.lstrip("/") if parsed.path else ""
+    
+    # For absolute URLs, return as is
+    return url
+
+def _urls_match_for_audit(lighthouse_url: str, html_href: str) -> bool:
+    """
+    Compare URLs for audit matching, handling localhost prefixes and path differences.
+    """
+    if not lighthouse_url or not html_href:
+        return False
+    
+    # Normalize both URLs
+    norm_lighthouse = _normalize_url_for_matching(lighthouse_url)
+    norm_html = _normalize_url_for_matching(html_href)
+    
+    # Direct match
+    if norm_lighthouse == norm_html:
+        return True
+    
+    # Handle relative vs absolute path differences
+    # e.g., "page.html" vs "/page.html" vs "page.html"
+    if norm_lighthouse.startswith("/"):
+        norm_lighthouse = norm_lighthouse[1:]
+    if norm_html.startswith("/"):
+        norm_html = norm_html[1:]
+    
+    return norm_lighthouse == norm_html
 
 def _build_line_index(raw: str) -> List[int]:
     """Prefix array of line-start offsets to convert offsets → 1-based line numbers."""
@@ -210,9 +258,9 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
         anchors = dom.css("a[href]")
         def norm(t: str) -> str:
             return re.sub(r"\s+", " ", (t or "").strip())
-        targets = [a for a in anchors if a.get("href","") == link_url and (not link_text or norm(a.text_content()) == norm(link_text))]
+        targets = [a for a in anchors if _urls_match_for_audit(link_url, a.get("href","")) and (not link_text or norm(a.text_content()) == norm(link_text))]
         if not targets:
-            targets = [a for a in anchors if a.get("href","") == link_url]
+            targets = [a for a in anchors if _urls_match_for_audit(link_url, a.get("href",""))]
         if targets:
             a = targets[0]
             offsets = dom.map_elem_to_offsets(a)
