@@ -1,401 +1,704 @@
-<!-- INTENTIONALLY HORRIBLE SEO PAGE FOR TESTING -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> <!-- old doctype -->
-<html lang="en-CA zh-CN" dir="rtl"> <!-- invalid mixed lang, weird dir -->
-<head>
-  <!-- multiple titles, keyword stuffing, duplicates -->
-  <title>Buy Cheap Shoes - Cheap Cheap Shoes | Best Cheap Shoes Deals Super Cheap Super Cheap Super Cheap</title>
-  <title>主页 标题 Title 重复 Duplicate Title Keyword Keyword Keyword Keyword Keyword</title>
-  <title></title> <!-- empty title -->
 
-  <!-- conflicting charsets and misplaced -->
+<!-- INTENTIONALLY TERRIBLE SEO/HTML FOR TESTING -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en zh-CN" dir="rtl">
+<head>
+  <title></title>
+  <title>Keyword Keyword Keyword | Click Click Click | 超级便宜鞋子 Cheapest Shoes OMG OMG OMG</title>
+  <title>重复 标题 Duplicate Title 重复 标题 Duplicate Title</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta charset="utf-8">
-  <meta charset="windows-1252"> <!-- conflicting late charset -->
-
-  <!-- conflicting robots -->
-  <meta name="robots" content="index,follow">
-  <meta name="robots" content="noindex,nofollow,noarchive"> <!-- conflict -->
-
-  <!-- duplicate / bad viewport -->
+  <meta charset="windows-1252">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow, noodp, noydir">
   <meta name="viewport" content="width=device-width">
-  <meta name="viewport" content="width=320, initial-scale=3, maximum-scale=1, user-scalable=no"> <!-- hostile to mobile -->
-
-  <!-- descriptions: too long, empty, duplicate-ish -->
-  <meta name="description" content="This is the most amazing best cheap cheap cheap shoes deals page on the internet, buy now buy now buy now, free shipping worldwide, unbelievable discounts, once-in-a-lifetime opportunity, keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword keyword, scroll more, click here, you won't believe it, act fast, super SEO meta description that is absurdly long to trigger truncation and penalties and tests and everything else under the sun, repeating words over and over and over again!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
+  <meta name="viewport" content="width=320, initial-scale=3, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="This description is ridiculously long and spammy cheap shoes cheap shoes buy now buy now free discount coupon repeated repeated repeated.">
   <meta name="description" content="">
   <meta name="description" content="重复描述 Duplicate description 重复描述 Duplicate description">
-
-  <!-- meta keywords (deprecated) with stuffing -->
-  <meta name="keywords" content="cheap, shoes, cheap shoes, buy cheap shoes, best cheap shoes, free, free free free, discount, 90% off, click here, click here, click here, spam, spam, spam">
-
-  <!-- refresh redirect (bad) -->
-  <meta http-equiv="refresh" content="0; url=/redirect/landing?src=meta"> <!-- immediate redirect -->
-
-  <!-- outdated X-UA -->
+  <meta name="keywords" content="cheap, shoes, cheap shoes, buy cheap shoes, best cheap shoes, free, free free free, discount, 90% off, click here, click here, spam, spam, spam">
+  <meta http-equiv="refresh" content="0; url=/redirect?src=meta">
   <meta http-equiv="X-UA-Compatible" content="IE=7">
-
-  <!-- base href that breaks relatives -->
-  <base href="//wrong.example.com/subdir/"> 
-
-  <!-- multiple conflicting canonicals -->
-  <link rel="canonical" href="/relative-canonical"> <!-- relative: bad -->
-  <link rel="canonical" href="http://example.org/different-page"> <!-- cross-domain, conflicting -->
-  <link rel="canonical" href="https://example.com/page?utm=spam&utm=spam2"> <!-- tracking in canonical -->
-
-  <!-- bad hreflang: invalid codes, duplicates, wrong targets -->
-  <link rel="alternate" hreflang="en-UK" href="https://example.com/uk"> <!-- should be en-GB -->
+  <base href="//wrong.example.com/subdir/">
+  <link rel="canonical" href="/relative-canonical">
+  <link rel="canonical" href="http://example.org/other">
+  <link rel="canonical" href="https://example.com/page?utm=spam">
+  <link rel="alternate" hreflang="en-UK" href="https://example.com/en-uk">
   <link rel="alternate" hreflang="zh-cn" href="https://example.com/cn">
   <link rel="alternate" hreflang="xx-YY" href="https://example.com/invalid">
   <link rel="alternate" hreflang="en" href="https://example.com/">
-  <link rel="alternate" hreflang="en" href="https://example.com/home-duplicate"> <!-- duplicate en -->
-  <!-- missing x-default -->
-
-  <!-- Open Graph: broken/duplicates/mismatched -->
+  <link rel="alternate" hreflang="en" href="https://example.com/home-duplicate">
   <meta property="og:title" content="">
   <meta property="og:title" content="Cheap Shoes | Cheapest | OMG OMG OMG">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://not-https.example.com">
   <meta property="og:locale" content="en_US">
-  <meta property="og:locale" content="zh_CN"> <!-- duplicate conflicts -->
-  <meta property="og:image" content="http://example.com/huge-base64.png"> <!-- points to non-existent -->
-  <meta property="og:description" content="Buy now now now now now now now now now now now now now now now!!!">
-
-  <!-- Twitter cards conflicting -->
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="http://example.com/not-found.png">
+  <meta property="og:description" content="Buy now now now now now!!!">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:card" content="player"> <!-- conflict -->
-
-  <!-- rel=next/prev deprecated & wrong -->
+  <meta name="twitter:card" content="player">
   <link rel="prev" href="page5.html">
   <link rel="next" href="page4.html">
-
-  <!-- wrong preload/preconnect -->
-  <link rel="preload" href="big.css" as="script"> <!-- wrong as -->
-  <link rel="preconnect" href="http://cdn.not-https.example"> <!-- http + no crossorigin -->
-
-  <!-- alternate type mismatch -->
+  <link rel="preload" href="big.css" as="script">
+  <link rel="preconnect" href="http://cdn.not-https.example">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed-not-rss.html">
-
-  <!-- blocking @import chain & massive inline CSS -->
   <style>
-    /* bad @import chain */
     @import url("critical.css");
     @import url("non-critical.css");
     @import url("fonts.css");
-    /* hidden content cloaking */
-    .hidden-keywords { 
-      font-size:0; color:#fff; background:#fff; 
-      position:absolute; left:-9999px; top:-9999px; 
-    }
-    /* too light contrast */
+    .hidden-keywords { font-size:0; color:#fff; background:#fff; position:absolute; left:-9999px; top:-9999px; }
     .low-contrast { color:#eee; background:#fff; }
-    /* huge inline rules and !important everywhere */
     .hero { height: 1200px !important; background: url('data:image/png;base64,iVBORw0KGgoAAA...truncated'); }
     .ad { position: fixed; bottom: 0; right: 0; width: 100%; height: 200px; z-index: 9999; }
     .duplicate-id { border:1px solid #f0f; }
-    #main-content { padding: 8px; } /* will be duplicated id later */
-    #main-content { padding: 12px; } /* duplicate id rule */
+    #main-content { padding: 8px; }
+    #main-content { padding: 12px; }
     .stuffed { text-transform:uppercase; letter-spacing:0.3em; }
     .spinner { display: none; }
-    .cloak-mobile { display:none; } /* different from noscript (cloaking-like) */
-    table.layout { width:100%; border: 0; }
+    .cloak-mobile { display:none; }
+    table.layout { width:100%; border=0; }
   </style>
-
-  <!-- invalid JSON-LD (syntax errors & missing required fields) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": Cheap Shoes,          /* missing quotes */
-    "offers": { "@type":"Offer", "price": "FREE", "priceCurrency": "" } /* nonsensical */
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "6", "reviewCount": "two" } /* invalid types */
+    "name": Cheap Shoes,
+    "offers": { "@type":"Offer", "price": "FREE", "priceCurrency": "" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "6", "reviewCount": "two" }
   }
   </script>
-
-  <!-- duplicate/contradictory structured data -->
   <script type="application/ld+json">
     {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":"first","name":1},  /* wrong types everywhere */
+      {"@type":"ListItem","position":"first","name":1},
       {"@type":"ListItem","position":2,"name":"Home","item":"/home-relative"}
     ]}
   </script>
-
-  <!-- synchronous, render-blocking JS + document.write spam -->
   <script>
-    // keyword stuffing via JS
-    document.write('<div class="hidden-keywords">cheap shoes cheap shoes cheap shoes buy now buy now buy now discount discount discount free free free</div>');
-    // change title late (bad practice)
+    document.write('<div class="hidden-keywords">cheap shoes cheap shoes buy now buy now discount discount free free free</div>');
     document.title = document.title + " | Click Here!";
   </script>
 </head>
-<body id="main-content"> <!-- id duplicated in CSS, will be reused below -->
-  <!-- layout table (bad) -->
+<body id="main-content">
   <table class="layout" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>
-        <!-- multiple H1s, broken hierarchy, decorative headings -->
-        <h1>Welcome to Cheap Shoes!!!</h1>
-        <h1>欢迎来到最便宜的鞋子!!!</h1>
-        <h4>Subsection before H2 (bad order)</h4>
-        <h2>Small Topic</h2>
-        <h5>Jumping To H5</h5>
-        <h3>Then Back To H3</h3>
+    <tr><td>
+      <h1>Welcome to Cheap Shoes!!!</h1>
+      <h1>欢迎来到最便宜的鞋子!!!</h1>
+      <h4>Subsection before H2 (bad order)</h4>
+      <h2>Small Topic</h2>
+      <h5>Jumping To H5</h5>
+      <h3>Then Back To H3</h3>
+      <img src="hero-5000x3000.jpg" loading="lazy" alt="">
+      <p class="low-contrast">This paragraph has extremely low contrast so it’s hard to read on white background.</p>
 
-        <!-- hero with above-the-fold lazy image (bad), missing width/height -->
-        <img src="hero-5000x3000.jpg" loading="lazy" alt="">
-        <p class="low-contrast">This paragraph has extremely low contrast so it’s hard to read on white background.</p>
-
-        <!-- duplicate content blocks & near-duplicates -->
-        <section id="intro">
-          <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
-          <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
-          <p>We sell affordable footwear for price-conscious buyers. Lowest prices guaranteed, click here.</p>
-        </section>
-
-        <!-- broken links and meaningless anchors -->
-        <a href="#" rel="nofollow ugc sponsored">click here</a>
-        <a href="javascript:void(0)">learn more</a>
-        <a href="non-existent-page.html?utm=spam&utm=spam">read more</a>
-        <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
-
-        <!-- images with various alt problems -->
-        <figure>
-          <img src="shoe.jpg" alt="shoe shoe shoe cheap cheap discount discount free free"> <!-- stuffed alt -->
-          <figcaption>Best Shoe</figcaption>
-        </figure>
-        <img src="gallery/image1.png"> <!-- missing alt -->
-        <img src="gallery/图像.png" alt=""> <!-- empty alt with non-decorative image -->
-        <img src="sprite.gif" alt=" "> <!-- meaningless alt -->
-        <img src="http://insecure.example.com/big.png" width="2000" height="1500" alt="Huge Unoptimized"> <!-- http -->
-
-        <!-- duplicate IDs -->
-        <div id="main-content">
-          <p>Duplicate ID section with thin content.</p>
-        </div>
-
-        <!-- iframe without title -->
-        <iframe src="https://example.com" width="560" height="315"></iframe>
-
-        <!-- form with no labels, odd fields -->
-        <form action="#" method="get">
-          <input type="text" name="q">
-          <input type="email" placeholder="Email"> <!-- missing name -->
-          <input type="submit" value="Submit">
-        </form>
-
-        <!-- hidden keyword block -->
-        <div class="hidden-keywords">
-          buy cheap shoes, cheapest sneakers, discount trainers, outlet footwear, best price shoes, 100% off*, free gift, free shipping, coupon coupon coupon
-        </div>
-
-        <!-- marquee & blink (deprecated) -->
-        <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!!</marquee>
-        <blink>FLASH SALE!!!</blink>
-
-        <!-- noscript content different from visible (cloaking-like) -->
-        <noscript>
-          <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
-        </noscript>
-
-        <!-- massive inline script blocking -->
-        <script>
-          // pointless heavy loop to waste time
-          for (var i=0;i<30000;i++){ Math.sqrt(i); }
-        </script>
-
-        <!-- microdata with wrong vocab and nesting -->
-        <div itemscope itemtype="http://schema.org/Product">
-          <span itemprop="name">Cheap Shoe Model X</span>
-          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <meta itemprop="priceCurrency" content="">
-            <span itemprop="price">FREE</span> <!-- nonsense -->
-            <link itemprop="url" href="relative/product"> <!-- relative -->
-          </div>
-          <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-            <meta itemprop="ratingValue" content="6">
-            <meta itemprop="reviewCount" content="two"> <!-- invalid -->
-          </div>
-        </div>
-
-        <!-- stuffing via comment (some crawlers parse) -->
-        <!-- cheap shoes cheap shoes cheap shoes buy buy buy free free discount discount -->
-
-        <!-- repeated heading text -->
-        <h2>Features</h2>
-        <h2>Features</h2>
-
-        <!-- anchor text spam -->
-        <p>
-          <a href="/buy">buy cheap shoes</a>,
-          <a href="/buy">buy cheap shoes</a>,
-          <a href="/buy">buy cheap shoes</a>
-        </p>
-
-        <!-- wrong lazy attributes & placeholders -->
-        <img data-src="lazy.jpg" loading="eager" alt="Lazy but eager mismatch">
-        <img src="pixel.gif" width="1" height="1" alt="tracking pixel"> <!-- tracking-like -->
-
-        <!-- css hiding primary content -->
-        <div class="cloak-mobile">
-          <h2>Important Content Hidden On Mobile</h2>
-          <p>This is hidden on mobile via CSS.</p>
-        </div>
-
-        <!-- Duplicate paragraphs to create internal duplication footprint -->
-        <div>
-          <p>Duplicate block A1: Cheap shoes are cheap because they are cheap.</p>
-          <p>Duplicate block A2: Cheap shoes are cheap because they are cheap.</p>
-          <p>Duplicate block A3: Cheap shoes are cheap because they are cheap.</p>
-        </div>
-
-        <!-- A long list of nearly identical items for thin pages / pagination bait -->
-        <ul>
-          <li>Cheap Shoe 1 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 2 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 3 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 4 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 5 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 6 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 7 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 8 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 9 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 10 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 11 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 12 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 13 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 14 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 15 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 16 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 17 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 18 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 19 - best cheap cheap cheap</li>
-          <li>Cheap Shoe 20 - best cheap cheap cheap</li>
-        </ul>
-
-        <!-- Table for layout with nested tables -->
-        <table class="layout" border="0">
-          <tr>
-            <td>
-              <table border="0" width="100%">
-                <tr><td><b>Bold used as heading</b></td></tr>
-                <tr><td><i>Italics used as heading</i></td></tr>
-                <tr><td><u>Underlined heading</u></td></tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-
-        <!-- Mixed languages without proper lang attributes -->
-        <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！</p>
-
-        <!-- link farm style footer links -->
-        <div class="footer-links">
-          <a href="/seo">SEO</a> | 
-          <a href="/seo">SEO</a> | 
-          <a href="/cheap">Cheap</a> | 
-          <a href="/cheap">Cheap</a> | 
-          <a href="/best-deals">Best Deals</a> | 
-          <a href="/best-deals">Best Deals</a>
-        </div>
-
-        <!-- Image with misleading filename and no dimensions -->
-        <img src="cute-kitten.jpg" alt="Black Friday Cheapest Shoes Sale!!!">
-
-        <!-- Broken breadcrumb microdata -->
-        <nav itemscope itemtype="https://schema.org/BreadcrumbList">
-          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
-            <meta itemprop="position" content="zero"> <!-- invalid -->
-          </span>
-          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
-            <meta itemprop="position" content="-1"> <!-- invalid -->
-          </span>
-        </nav>
-
-        <!-- Multiple social graph tags inside body (bad placement) -->
-        <meta property="og:title" content="Body OG Title (wrong place)">
-        <meta name="twitter:card" content="summary_large_image">
-
-        <!-- Over-optimized internal anchors with parameters -->
-        <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW</a>
-
-        <!-- 404-ish external links and mixed content -->
-        <a href="http://mixed-content.example.com/resource">HTTP external</a>
-        <img src="http://mixed-content.example.com/img.png" alt="HTTP image mixed content">
-      </td>
-    </tr>
+              <!-- ===== TERRIBLE BLOCK 1 ===== -->
+              <section id="intro-1">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-1.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 1</figcaption>
+                </figure>
+                <img src="gallery/image-1.png"> 
+                <img src="gallery/图像-1.png" alt=""> 
+                <img src="http://insecure.example.com/big-1.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 1 with thin content.</p></div>
+                <iframe src="https://example.com/page-1" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 1</marquee>
+                <blink>FLASH SALE!!! Block 1</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-1</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-1">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-1.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 1</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (1)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (1)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (1)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 1-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 1-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 1-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 1-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 1-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 1</b></td></tr>
+                      <tr><td><i>Italics used as heading 1</i></td></tr>
+                      <tr><td><u>Underlined heading 1</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 1</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 1">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 1</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 1</a>
+                <img src="http://mixed-content.example.com/img-1.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+              <!-- ===== TERRIBLE BLOCK 2 ===== -->
+              <section id="intro-2">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-2.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 2</figcaption>
+                </figure>
+                <img src="gallery/image-2.png"> 
+                <img src="gallery/图像-2.png" alt=""> 
+                <img src="http://insecure.example.com/big-2.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 2 with thin content.</p></div>
+                <iframe src="https://example.com/page-2" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 2</marquee>
+                <blink>FLASH SALE!!! Block 2</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-2</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-2">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-2.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 2</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (2)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (2)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (2)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 2-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 2-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 2-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 2-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 2-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 2</b></td></tr>
+                      <tr><td><i>Italics used as heading 2</i></td></tr>
+                      <tr><td><u>Underlined heading 2</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 2</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 2">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 2</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 2</a>
+                <img src="http://mixed-content.example.com/img-2.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+              <!-- ===== TERRIBLE BLOCK 3 ===== -->
+              <section id="intro-3">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-3.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 3</figcaption>
+                </figure>
+                <img src="gallery/image-3.png"> 
+                <img src="gallery/图像-3.png" alt=""> 
+                <img src="http://insecure.example.com/big-3.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 3 with thin content.</p></div>
+                <iframe src="https://example.com/page-3" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 3</marquee>
+                <blink>FLASH SALE!!! Block 3</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-3</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-3">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-3.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 3</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (3)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (3)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (3)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 3-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 3-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 3-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 3-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 3-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 3</b></td></tr>
+                      <tr><td><i>Italics used as heading 3</i></td></tr>
+                      <tr><td><u>Underlined heading 3</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 3</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 3">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 3</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 3</a>
+                <img src="http://mixed-content.example.com/img-3.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+              <!-- ===== TERRIBLE BLOCK 4 ===== -->
+              <section id="intro-4">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-4.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 4</figcaption>
+                </figure>
+                <img src="gallery/image-4.png"> 
+                <img src="gallery/图像-4.png" alt=""> 
+                <img src="http://insecure.example.com/big-4.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 4 with thin content.</p></div>
+                <iframe src="https://example.com/page-4" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 4</marquee>
+                <blink>FLASH SALE!!! Block 4</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-4</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-4">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-4.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 4</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (4)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (4)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (4)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 4-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 4-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 4-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 4-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 4-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 4</b></td></tr>
+                      <tr><td><i>Italics used as heading 4</i></td></tr>
+                      <tr><td><u>Underlined heading 4</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 4</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 4">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 4</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 4</a>
+                <img src="http://mixed-content.example.com/img-4.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+              <!-- ===== TERRIBLE BLOCK 5 ===== -->
+              <section id="intro-5">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-5.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 5</figcaption>
+                </figure>
+                <img src="gallery/image-5.png"> 
+                <img src="gallery/图像-5.png" alt=""> 
+                <img src="http://insecure.example.com/big-5.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 5 with thin content.</p></div>
+                <iframe src="https://example.com/page-5" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 5</marquee>
+                <blink>FLASH SALE!!! Block 5</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-5</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-5">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-5.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 5</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (5)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (5)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (5)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 5-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 5-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 5-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 5-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 5-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 5</b></td></tr>
+                      <tr><td><i>Italics used as heading 5</i></td></tr>
+                      <tr><td><u>Underlined heading 5</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 5</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 5">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 5</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 5</a>
+                <img src="http://mixed-content.example.com/img-5.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+              <!-- ===== TERRIBLE BLOCK 6 ===== -->
+              <section id="intro-6">
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here.</p>
+                <p>我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！</p>
+                <a href="#" rel="nofollow ugc sponsored">click here</a>
+                <a href="javascript:void(0)">learn more</a>
+                <a>read more</a>
+                <a href="//wrong.example.com/absolute-but-wrong">absolute wrong</a>
+                <figure>
+                  <img src="images/shoe-6.jpg" alt="shoe shoe shoe cheap cheap free free discount discount"> 
+                  <figcaption>Best Shoe 6</figcaption>
+                </figure>
+                <img src="gallery/image-6.png"> 
+                <img src="gallery/图像-6.png" alt=""> 
+                <img src="http://insecure.example.com/big-6.png" width="2000" height="1500" alt="Huge Unoptimized"> 
+                <div id="main-content"><p>Duplicate ID section 6 with thin content.</p></div>
+                <iframe src="https://example.com/page-6" width="560" height="315"></iframe>
+                <form action="#" method="get">
+                  <input type="text" name="q">
+                  <input type="email" placeholder="Email">
+                  <input type="submit" value="Submit">
+                </form>
+                <div class="hidden-keywords">
+                  buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon
+                </div>
+                <marquee behavior="alternate">LIMITED OFFER!!! BUY NOW!!! Block 6</marquee>
+                <blink>FLASH SALE!!! Block 6</blink>
+                <noscript>
+                  <p>Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever.</p>
+                </noscript>
+                <script>for (var k=0;k<5000;k++){ Math.sqrt(k); }</script>
+                <div itemscope itemtype="http://schema.org/Product">
+                  <span itemprop="name">Cheap Shoe Model X-6</span>
+                  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="">
+                    <span itemprop="price">FREE</span>
+                    <link itemprop="url" href="relative/product-6">
+                  </div>
+                  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <meta itemprop="ratingValue" content="6">
+                    <meta itemprop="reviewCount" content="two">
+                  </div>
+                </div>
+                <p>
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>,
+                  <a href="/buy">buy cheap shoes</a>
+                </p>
+                <img data-src="lazy-6.jpg" loading="eager" alt="Lazy but eager mismatch">
+                <img src="pixel.gif" width="1" height="1" alt="tracking pixel">
+                <div class="cloak-mobile">
+                  <h2>Important Content Hidden On Mobile 6</h2>
+                  <p>This is hidden on mobile via CSS.</p>
+                </div>
+                <div>
+                  <p>Duplicate block A1: Cheap shoes are cheap because they are cheap. (6)</p>
+                  <p>Duplicate block A2: Cheap shoes are cheap because they are cheap. (6)</p>
+                  <p>Duplicate block A3: Cheap shoes are cheap because they are cheap. (6)</p>
+                </div>
+                <ul>
+                  <li>Cheap Shoe 6-1 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 6-2 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 6-3 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 6-4 - best cheap cheap cheap</li>
+                  <li>Cheap Shoe 6-5 - best cheap cheap cheap</li>
+                </ul>
+                <table class="layout" border="0">
+                  <tr><td>
+                    <table border="0" width="100%">
+                      <tr><td><b>Bold used as heading 6</b></td></tr>
+                      <tr><td><i>Italics used as heading 6</i></td></tr>
+                      <tr><td><u>Underlined heading 6</u></td></tr>
+                    </table>
+                  </td></tr>
+                </table>
+                <p>今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 6</p>
+                <nav itemscope itemtype="https://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="zero">
+                  </span>
+                  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/category"><span itemprop="name">Category</span></a>
+                    <meta itemprop="position" content="-1">
+                  </span>
+                </nav>
+                <meta property="og:title" content="Body OG Title (wrong place) 6">
+                <meta name="twitter:card" content="summary_large_image">
+                <a href="/buy?ref=ref&ref=ref2&session=123&gclid=abc">BUY CHEAP SHOES NOW 6</a>
+                <a href="http://mixed-content.example.com/resource">HTTP external 6</a>
+                <img src="http://mixed-content.example.com/img-6.png" alt="HTTP image mixed content">
+                <h1></h1><h2></h2><h3></h3>
+              </section>
+        
+      <div class="footer-links">
+        <a href="/seo">SEO</a> | 
+        <a href="/seo">SEO</a> | 
+        <a href="/cheap">Cheap</a> | 
+        <a href="/cheap">Cheap</a> | 
+        <a href="/best-deals">Best Deals</a> | 
+        <a href="/best-deals">Best Deals</a>
+      </div>
+      <img src="cute-kitten.jpg" alt="Black Friday Cheapest Shoes Sale!!!">
+      <footer>
+        <h1>Footer Headline H1 (should not be H1)</h1>
+        <p>&copy; 2025 Cheap Shoes Unlimited Unlimited Unlimited</p>
+        <a href="/social">Social</a> | <a href="/social">Social</a> | <a href="/social">Social</a>
+      </footer>
+    </td></tr>
   </table>
-
-  <!-- Big inline script after body start -->
   <script>
-    // pointless inline analytics + duplicate IDs creation
     (function(){
       var d = document.createElement('div');
-      d.id = 'main-content'; // duplicate ID again
+      d.id = 'main-content';
       d.innerHTML = '<p>Injected duplicate id content</p>';
       document.body.appendChild(d);
     })();
   </script>
-
-  <!-- Huge inline CSS late (blocking) -->
   <style>
     .late-style { font-family: "Comic Sans MS", cursive; font-size: 18px; }
-    /* more hidden text */
     .hidden-2 { position:absolute; left:-10000px; top:-10000px; }
   </style>
-
-  <!-- Another invalid JSON-LD -->
   <script type="application/ld+json">
     {
       "@context":"Schema.org",
       "@type":"Organization",
-      "name": 12345,                 /* number instead of string */
-      "url": "/relative-org",        /* relative URL */
-      "sameAs": ["htp://broken-url"] /* bad scheme */
+      "name": 12345,
+      "url": "/relative-org",
+      "sameAs": ["htp://broken-url"]
     }
   </script>
-
-  <!-- Tons of near-duplicate paragraphs to inflate page size & duplication -->
-  <div class="dupes">
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see.</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see!</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see?</p>
-    <p>Cheap shoes are the cheapest cheap shoes you will ever see…</p>
-  </div>
-
-  <!-- Overlong UL with repetitive anchors to simulate sitewide footer spam -->
-  <ul>
-    <li><a href="/partners/partner-a">Partner A</a></li>
-    <li><a href="/partners/partner-a">Partner A (dup)</a></li>
-    <li><a href="/partners/partner-b">Partner B</a></li>
-    <li><a href="/partners/partner-b">Partner B (dup)</a></li>
-    <li><a href="/partners/partner-c">Partner C</a></li>
-    <li><a href="/partners/partner-c">Partner C (dup)</a></li>
-    <li><a href="/partners/partner-d">Partner D</a></li>
-    <li><a href="/partners/partner-d">Partner D (dup)</a></li>
-  </ul>
-
-  <!-- Footer with another H1 -->
-  <footer>
-    <h1>Footer Headline H1 (should not be H1)</h1>
-    <p>&copy; 2025 Cheap Shoes Unlimited Unlimited Unlimited</p>
-    <!-- social links repeated -->
-    <a href="/social">Social</a> | <a href="/social">Social</a> | <a href="/social">Social</a>
-  </footer>
-
-  <!-- Final blocking script tag to end badly -->
   <script src="big-library.js"></script>
-  <script>
-    // Inline event handlers encouragement
-    function track(){ alert('tracking'); }
-  </script>
+  <script>function track(){ alert('tracking'); }</script>
 </body>
 </html>

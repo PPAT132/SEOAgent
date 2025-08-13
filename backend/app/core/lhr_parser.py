@@ -26,7 +26,18 @@ class LHRTool:
                 error_msg = audit.get("errorMessage", "Unknown error")
                 errors.append(f"{audit_id}: {error_msg}")
                 continue
-                
+            
+            # Special handling for robots-txt audit that may have parsing issues
+            if audit_id == "robots-txt":
+                details = audit.get("details", {})
+                if isinstance(details, dict) and details.get("type") == "table":
+                    items = details.get("items", [])
+                    # If robots-txt has many "Syntax not understood" errors, skip this audit
+                    syntax_errors = [item for item in items if isinstance(item, dict) and 
+                                   item.get("message") == "Syntax not understood"]
+                    if len(syntax_errors) > 10:
+                        continue
+            
             # Only keep failing audits (score = 0 or score < 1 for non-binary)
             score = audit.get("score")
             if score is None or score >= 1:
