@@ -2,6 +2,7 @@
 import requests
 import json
 from ..config import Config
+from app.schemas.issues import Issues
 
 class LLMTool:
     """
@@ -9,6 +10,7 @@ class LLMTool:
     """
     
     def __init__(self):
+        self.url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
         self.api_key = Config.GOOGLE_API_KEY
         self.validate_config()
     
@@ -23,12 +25,12 @@ class LLMTool:
         """
         try:
             # Use the correct Google Generative AI API endpoint and headers
-            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
             
             headers = {
                 "Content-Type": "application/json",
                 "X-goog-api-key": self.api_key
             }
+            print("prompt: ", prompt)
             
             payload = {
                 "contents": [
@@ -41,8 +43,8 @@ class LLMTool:
                     }
                 ]
             }
-            
-            response = requests.post(url, headers=headers, json=payload)
+            print("making call to gemini...")
+            response = requests.post(self.url, headers=headers, json=payload)
             
             if response.status_code != 200:
                 response.raise_for_status()
@@ -58,3 +60,19 @@ class LLMTool:
                 
         except Exception as e:
             raise e 
+    
+    # gets the html content
+    def get_modifications(self, modify_context: str, match_html: str) -> str:
+        prompt = (
+            f"Fix this HTML snippet for SEO:\n\n"
+            f"Original: {match_html}\n"
+            f"Issue: {modify_context}\n\n"
+            "Return ONLY the corrected HTML without markdown"
+        )
+
+        optimized_html = self.generate_content(prompt)
+        return optimized_html
+
+    
+    def modify(self):
+        pass

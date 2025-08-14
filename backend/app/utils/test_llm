@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""
+Test script for LLM Tool (HTML modification via Gemini API)
+
+This script:
+1) Sets up the environment and loads API keys
+2) Tests the LLMTool.get_modifications method with sample HTML snippets
+3) Generates a detailed report of the modifications
+4) Provides console output for quick verification
+"""
+
+import os
+import sys
+import json
+from datetime import datetime
+from pathlib import Path
+from dotenv import load_dotenv
+from typing import Dict, Any, List
+
+# Add the backend directory to Python path so we can import app modules
+backend_dir = Path(__file__).parents[2]  # Go up 2 levels to reach 'backend'
+sys.path.insert(0, str(backend_dir))
+
+from app.core.llm_tool import LLMTool
+
+
+class LLMTester:
+    def __init__(self):
+        self.llm_tool = LLMTool()
+        self.test_cases = [
+            # {
+            #     "name": "Missing Alt Text",
+            #     "html_snippet": "<img src=\"gallery/image-2.png\">",
+            #     "issue": "Image elements do not have `[alt]` attributes"
+            # },
+            # {
+            #     "name": "Missing Title",
+            #     "html_snippet": "<html><head></head><body>Content</body></html>",
+            #     "issue": "Document does not have a `<title>` element"
+            # },
+            # {
+            #     "name": "Invalid Canonical",
+            #     "html_snippet": "<link rel=\"canonical\" href=\"/relative-canonical\">",
+            #     "issue": "Document does not have a valid `rel=canonical`"
+            # },
+            {
+                "name": "1",
+                "html_snippet": "<img src=\"gallery/image-2.png\">",
+                "issue": "Image elements do not have `[alt]` attributes"
+            }
+        ]
+
+    def test_modification(self, test_case: Dict[str, str]):
+        """Test a single HTML modification case."""
+        print(f"🔄 Testing: {test_case['name']}")
+        
+        try:
+            result = self.llm_tool.get_modifications(
+                modify_context=test_case['issue'],
+                match_html=test_case['html_snippet']
+            )
+            print("res: ", result)
+            
+            print(f"✅ Modification completed for: {test_case['name']}")
+            return {
+                "success": True,
+                "original_html": test_case['html_snippet'],
+                "issue": test_case['issue'],
+                "modified_html": result,
+                "error": None
+            }
+            
+        except Exception as e:
+            print(f"❌ Error modifying {test_case['name']}: {e}")
+            return {
+                "success": False,
+                "original_html": test_case['html_snippet'],
+                "issue": test_case['issue'],
+                "modified_html": None,
+                "error": str(e)
+            }
+
+def main():
+    """Main entry point."""
+    tester = LLMTester()
+    success = tester.test_modification({
+        "name": "1",
+        "html_snippet": "<img src=\"gallery/image-2.png\">",
+        "issue": "Image elements do not have `[alt]` attributes"
+    })
+    
+    if success:
+        print("\n🎉 LLM Tool test completed successfully!")
+    else:
+        print("\n💥 LLM Tool test failed!")
+        print("\nTroubleshooting tips:")
+        print("1) Ensure GOOGLE_API_KEY is set in your .env file")
+        print("2) Check your internet connection")
+        print("3) Verify the API key has proper permissions for Gemini API")
+
+
+if __name__ == "__main__":
+    main()
