@@ -1,7 +1,11 @@
 # LLM Tool - Core utility for language model interactions
 import requests
 import json
+
+from typing import List
+
 from ..config import Config
+
 from app.schemas.issues import Issues
 
 class LLMTool:
@@ -62,17 +66,27 @@ class LLMTool:
             raise e 
     
     # gets the html content
-    def get_modifications(self, modify_context: str, match_html: str) -> str:
+    def get_modification(self, modify_context: List[str], match_html: str) -> str:
+        combined_context = "; ".join(modify_context)
+
         prompt = (
             f"Fix this HTML snippet for SEO:\n\n"
             f"Original: {match_html}\n"
-            f"Issue: {modify_context}\n\n"
+            f"Issue: {combined_context}\n\n"
             "Return ONLY the corrected HTML without markdown"
         )
 
         optimized_html = self.generate_content(prompt)
         return optimized_html
-
     
-    def modify(self):
-        pass
+    # loop through all the things that needs to be modified and calls get_modification
+    def get_batch_modification(self, issues: Issues) -> Issues:
+        issues_list = issues.issues
+        
+        for issue in issues_list:
+            optimized = self.get_modification(issue.titles, issue.match_html)
+            issue.optimized_html = optimized
+        
+        return issues
+    
+    

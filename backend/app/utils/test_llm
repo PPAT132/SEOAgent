@@ -46,7 +46,7 @@ class LLMTester:
             {
                 "name": "1",
                 "html_snippet": "<img src=\"gallery/image-2.png\">",
-                "issue": "Image elements do not have `[alt]` attributes"
+                "issue": ["Image elements do not have `[alt]` attributes"]
             }
         ]
 
@@ -55,7 +55,7 @@ class LLMTester:
         print(f"🔄 Testing: {test_case['name']}")
         
         try:
-            result = self.llm_tool.get_modifications(
+            result = self.llm_tool.get_modification(
                 modify_context=test_case['issue'],
                 match_html=test_case['html_snippet']
             )
