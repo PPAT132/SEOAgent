@@ -228,10 +228,34 @@ class _Dom:
         raw = self.raw
 
         # 1) Prefer exact snippet text if present in the raw
+        # BUT: Don't use raw.find() directly as it may find wrong occurrence
+        # Instead, use sourceline + regex matching for precise location
         if prefer_snippet:
-            off = raw.find(prefer_snippet)
-            if off != -1:
-                return off, off + len(prefer_snippet)
+            # Try to find the snippet near the element's sourceline for precision
+            prefer_line = getattr(elem, "sourceline", None)
+            if prefer_line is not None:
+                # Find snippet near the expected line
+                w_s, w_e = _find_window(raw, self.starts, prefer_line)
+                off = raw.find(prefer_snippet, w_s, w_e)
+                if off != -1:
+                    return off, off + len(prefer_snippet)
+            
+            # Fallback: find all occurrences and use context to pick the right one
+            all_occurrences = []
+            start_pos = 0
+            while True:
+                off = raw.find(prefer_snippet, start_pos)
+                if off == -1:
+                    break
+                all_occurrences.append(off)
+                start_pos = off + 1
+            
+            if len(all_occurrences) == 1:
+                return all_occurrences[0], all_occurrences[0] + len(prefer_snippet)
+            elif len(all_occurrences) > 1:
+                # Multiple occurrences - need to distinguish
+                # Use element's attributes and context to find the right one
+                return self._find_best_snippet_match(elem, prefer_snippet, all_occurrences)
 
         # 2) Otherwise: use sourceline to narrow a start-tag search
         prefer_line = getattr(elem, "sourceline", None)
@@ -272,6 +296,68 @@ class _Dom:
             pos = m_close.end()
             if depth == 0:
                 return s, pos
+
+    def _find_best_snippet_match(self, elem, snippet: str, positions: List[int]) -> Optional[Tuple[int, int]]:
+        """
+        从多个 snippet 位置中选择最佳的一个，基于元素的属性和上下文。
+        """
+        if not positions:
+            return None
+        
+        if len(positions) == 1:
+            return positions[0], positions[0] + len(snippet)
+        
+        # 获取元素的属性
+        elem_attrs = elem.attrib
+        elem_tag = elem.tag.lower()
+        
+        # 获取父元素信息
+        parent = elem.getparent()
+        parent_tag = parent.tag.lower() if parent else ""
+        parent_id = parent.get("id") if parent else ""
+        
+        best_position = None
+        best_score = 0
+        
+        for pos in positions:
+            score = 0
+            
+            # 获取这个位置的上下文
+            context_start = max(0, pos - 200)
+            context_end = min(len(self.raw), pos + len(snippet) + 200)
+            context = self.raw[context_start:context_end]
+            
+            # 1. 检查父元素 ID 是否匹配
+            if parent_id and parent_id in context:
+                score += 10
+            
+            # 2. 检查父元素标签是否匹配
+            if parent_tag and f"<{parent_tag}" in context:
+                score += 5
+            
+            # 3. 检查元素标签是否匹配
+            if elem_tag and f"<{elem_tag}" in context:
+                score += 3
+            
+            # 4. 检查元素属性是否匹配
+            for attr_name, attr_value in elem_attrs.items():
+                if attr_value and attr_value in context:
+                    score += 2
+            
+            # 5. 检查是否在正确的 section 中
+            if parent_id and "section#" in parent_id:
+                if parent_id in context:
+                    score += 8
+            
+            if score > best_score:
+                best_score = score
+                best_position = pos
+        
+        # 如果找到了高分位置，使用它；否则使用第一个位置
+        if best_position is not None:
+            return best_position, best_position + len(snippet)
+        else:
+            return positions[0], positions[0] + len(snippet)
 
 # ---------- public API ----------
 
