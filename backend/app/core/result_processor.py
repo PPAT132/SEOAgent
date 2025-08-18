@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Result Processor - 处理匹配结果，按行范围分组和排序
-用于 LLM 批量处理多个问题
+Result Processor - process matched results, group by line ranges and sort.
+Designed to prepare inputs for LLM batch processing of multiple issues.
 """
 
 from typing import Any, Dict, List, Tuple
@@ -10,8 +10,8 @@ import re
 
 def extract_line_ranges(issues: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
     """
-    按行范围分组问题
-    返回: {"start_line-end_line": [issues]}
+    Group issues by their line ranges.
+    Returns: {"start_line-end_line": [issues]}
     """
     line_ranges = {}
     
@@ -43,34 +43,34 @@ def merge_overlapping_ranges(line_ranges: Dict[str, List[Dict[str, Any]]]) -> Di
     if not line_ranges:
         return {}
     
-    # 解析行范围并排序
+    # Parse ranges and sort
     ranges = []
     for range_key, issues in line_ranges.items():
         start, end = map(int, range_key.split('-'))
         ranges.append((start, end, range_key, issues))
     
-    # 按起始行排序
+    # Sort by start line
     ranges.sort(key=lambda x: x[0])
     
-    # 合并重叠范围
+    # Merge overlapping or adjacent ranges
     merged = []
     current_start, current_end, current_key, current_issues = ranges[0]
     
     for start, end, key, issues in ranges[1:]:
         # 如果当前范围与下一个范围重叠或相邻
         if start <= current_end + 1:
-            # 扩展当前范围
+            # Extend current range
             current_end = max(current_end, end)
             current_issues.extend(issues)
         else:
-            # 保存当前范围，开始新范围
+            # Save current and start a new range
             merged.append((current_start, current_end, current_issues))
             current_start, current_end, current_issues = start, end, issues
     
-    # 添加最后一个范围
+    # Append the last accumulated range
     merged.append((current_start, current_end, current_issues))
     
-    # 重新构建字典
+    # Rebuild dictionary form
     result = {}
     for start, end, issues in merged:
         range_key = f"{start}-{end}"
@@ -81,29 +81,28 @@ def merge_overlapping_ranges(line_ranges: Dict[str, List[Dict[str, Any]]]) -> Di
 
 def sort_ranges_by_size(line_ranges: Dict[str, List[Dict[str, Any]]]) -> List[Tuple[str, List[Dict[str, Any]]]]:
     """
-    按行范围大小排序（从大到小）
-    返回排序后的列表，保持顺序
+    Sort ranges by size (largest to smallest) and return an ordered list.
     """
     if not line_ranges:
         return []
     
-    # 计算每个范围的行数并排序
+    # Compute line counts and sort by end line desc for diff application
     sorted_ranges = []
     for range_key, issues in line_ranges.items():
         start, end = map(int, range_key.split('-'))
         line_count = end - start + 1
         sorted_ranges.append((line_count, range_key, issues))
     
-    # 按结束行号从大到小排序（为了diff checker从后往前处理）
+    # Sort by end line desc (apply from bottom to top)
     sorted_ranges.sort(key=lambda x: int(x[1].split('-')[1]), reverse=True)
     
-    # 返回排序后的列表
+    # Return ordered list
     return [(range_key, issues) for _, range_key, issues in sorted_ranges]
 
 
 def add_raw_html_context(line_ranges: Dict[str, List[Dict[str, Any]]], html_content: str) -> Dict[str, List[Dict[str, Any]]]:
     """
-    为每个行范围添加原始HTML内容
+    Add raw HTML section for each line range.
     """
     if not html_content:
         return line_ranges
@@ -113,13 +112,13 @@ def add_raw_html_context(line_ranges: Dict[str, List[Dict[str, Any]]], html_cont
     for range_key, issues in line_ranges.items():
         start, end = map(int, range_key.split('-'))
         
-        # 提取行范围对应的HTML（1-based到0-based转换）
+        # Extract HTML for the line range (convert 1-based to 0-based)
         start_idx = max(0, start - 1)
         end_idx = min(len(html_lines), end)
         
         range_html = '\n'.join(html_lines[start_idx:end_idx])
         
-        # 为每个问题添加行范围HTML
+        # Attach range HTML to each issue
         for issue in issues:
             issue['raw_html'] = range_html
             issue['line_range'] = range_key
@@ -129,23 +128,23 @@ def add_raw_html_context(line_ranges: Dict[str, List[Dict[str, Any]]], html_cont
 
 def process_matched_results(matched_result: Dict[str, Any], html_content: str = None) -> Dict[str, Any]:
     """
-    处理匹配结果，生成按行范围分组的数据
+    Process the matched result into grouped-by-line-range data.
     """
     issues = matched_result.get("issues", [])
     
-    # 1. 按行范围分组
+    # 1) Group by line ranges
     line_ranges = extract_line_ranges(issues)
     
-    # 2. 合并重叠范围
+    # 2) Merge overlapping ranges
     merged_ranges = merge_overlapping_ranges(line_ranges)
     
-    # 3. 按大小排序（从大到小）
+    # 3) Sort by size (largest to smallest)
     sorted_ranges = sort_ranges_by_size(merged_ranges)
     
-    # 4. 添加HTML上下文
+    # 4) Add HTML context
     final_ranges = add_raw_html_context(dict(sorted_ranges), html_content)
     
-    # 5. 为每个范围的问题按结束行排序（用于differ checker）
+    # 5) Sort issues in each range by end line desc (for diff application)
     for range_key, issues in final_ranges.items():
         issues.sort(key=lambda x: x.get("match_line_end", 0), reverse=True)
     
@@ -153,7 +152,7 @@ def process_matched_results(matched_result: Dict[str, Any], html_content: str = 
         "summary": {
             "total_ranges": len(final_ranges),
             "total_issues": sum(len(issues) for issues in final_ranges.values()),
-            "range_sizes": {key: len(issues) for key, issues in final_ranges.items()}
+            "range_sizes": {key: len(issues) for key, issues in final_ranges.items()},
         },
         "line_ranges": final_ranges
     }
@@ -161,7 +160,7 @@ def process_matched_results(matched_result: Dict[str, Any], html_content: str = 
 
 def get_line_ranges_for_llm(processed_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
-    生成适合LLM处理的简化格式
+    Produce a simplified format suited for LLM processing.
     """
     line_ranges = processed_data.get("line_ranges", {})
     
@@ -197,69 +196,64 @@ def get_line_ranges_for_llm(processed_data: Dict[str, Any]) -> List[Dict[str, An
 
 def transform_matched_result(matched_result: Dict[str, Any], html_content: str = None) -> List[Dict[str, Any]]:
     """
-    完全重新格式化 matched_result
-    返回格式：
+    Reformat matched_result into a grouped range structure.
+    Output shape example:
     [
         {
             "start_line": 10,
             "end_line": 20,
             "issue_count": 3,
-            "section_html": "完整的10-20行HTML内容...",
+            "section_html": "full HTML slice for 10-20...",
             "issues": [
-                {
-                    "title": "Links are not crawlable",
-                    "raw_html": "<a href=\"javascript:void(0)\">",
-                    "start_line": 13,
-                    "end_line": 14
-                }
+                {"title": "Links are not crawlable", "raw_html": "<a ...>", "start_line": 13, "end_line": 14}
             ]
         }
     ]
     """
-    print(f"🔧 transform_matched_result 开始处理...")
-    print(f"   - 输入 matched_result 大小: {len(str(matched_result))} 字符")
-    print(f"   - HTML 内容大小: {len(html_content) if html_content else 0} 字符")
+    print(f"🔧 transform_matched_result start...")
+    print(f"   - matched_result size: {len(str(matched_result))} chars")
+    print(f"   - HTML size: {len(html_content) if html_content else 0} chars")
     
     issues = matched_result.get("issues", [])
-    print(f"   - 原始问题数: {len(issues)}")
+    print(f"   - total raw issues: {len(issues)}")
     
-    # 统计匹配状态
+    # Count match status
     matched_issues = [it for it in issues if it.get("match_status") == "matched"]
     unmatched_issues = [it for it in issues if it.get("match_status") != "matched"]
-    print(f"   - 已匹配问题: {len(matched_issues)}")
-    print(f"   - 未匹配问题: {len(unmatched_issues)}")
+    print(f"   - matched issues: {len(matched_issues)}")
+    print(f"   - unmatched issues: {len(unmatched_issues)}")
     
     if unmatched_issues:
-        print(f"   - 未匹配问题类型: {[it.get('audit_id') for it in unmatched_issues[:3]]}")
+        print(f"   - unmatched audit_ids sample: {[it.get('audit_id') for it in unmatched_issues[:3]]}")
     
-    # 1. 按行范围分组
-    print(f"   - 开始按行范围分组...")
+    # 1) group by ranges
+    print(f"   - grouping by ranges...")
     line_ranges = extract_line_ranges(issues)
-    print(f"   - 分组结果: {len(line_ranges)} 个范围")
+    print(f"   - grouped ranges: {len(line_ranges)}")
     for range_key, range_issues in line_ranges.items():
-        print(f"     {range_key}: {len(range_issues)} 个问题")
+        print(f"     {range_key}: {len(range_issues)} issues")
     
-    # 2. 合并重叠范围
-    print(f"   - 开始合并重叠范围...")
+    # 2) merge overlaps
+    print(f"   - merging overlapping ranges...")
     merged_ranges = merge_overlapping_ranges(line_ranges)
-    print(f"   - 合并后: {len(merged_ranges)} 个范围")
+    print(f"   - merged ranges: {len(merged_ranges)}")
     for range_key, range_issues in merged_ranges.items():
-        print(f"     {range_key}: {len(range_issues)} 个问题")
+        print(f"     {range_key}: {len(range_issues)} issues")
     
-    # 3. 按大小排序（从大到小）
-    print(f"   - 开始按大小排序...")
+    # 3) sort by size
+    print(f"   - sorting by size...")
     sorted_ranges = sort_ranges_by_size(merged_ranges)
-    print(f"   - 排序后范围: {[range_key for range_key, _ in sorted_ranges]}")
+    print(f"   - range order: {[range_key for range_key, _ in sorted_ranges]}")
     
-    # 详细显示排序信息
-    print(f"   - 排序详情:")
+    # details
+    print(f"   - range details:")
     for range_key, issues in sorted_ranges:
         start, end = map(int, range_key.split('-'))
         line_count = end - start + 1
-        print(f"     {range_key}: {line_count} 行")
+        print(f"     {range_key}: {line_count} lines")
     
-    # 4. 重新格式化输出
-    print(f"   - 开始重新格式化...")
+    # 4) reformat output
+    print(f"   - reformating output...")
     result = []
     
     # 保持排序后的顺序
@@ -273,9 +267,9 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
             start_idx = max(0, start_line - 1)  # 1-based到0-based转换
             end_idx = min(len(html_lines), end_line)
             section_html = '\n'.join(html_lines[start_idx:end_idx])
-            print(f"     {range_key}: 提取HTML {len(section_html)} 字符")
+            print(f"     {range_key}: extracted HTML {len(section_html)} chars")
         
-        # 过滤每个issue，只保留需要的字段
+        # Filter fields per issue
         filtered_issues = []
         for issue in issues:
             filtered_issue = {
@@ -286,7 +280,7 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
             }
             filtered_issues.append(filtered_issue)
         
-        # 按具体行号排序（用于differ checker）
+        # Sort per-issue by end line desc (for diff application)
         filtered_issues.sort(key=lambda x: x.get("end_line", 0), reverse=True)
         
         range_info = {
@@ -298,8 +292,8 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
         }
         result.append(range_info)
     
-    print(f"   - 最终输出: {len(result)} 个范围")
-    print(f"🔧 transform_matched_result 处理完成")
+    print(f"   - final ranges: {len(result)}")
+    print(f"🔧 transform_matched_result done")
     
     return result
 

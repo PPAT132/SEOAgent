@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SEO Analysis Service
-完整的 SEO 分析服务，整合 Lighthouse、解析器、匹配器和结果处理器
+End-to-end SEO analysis service integrating Lighthouse, parser, matcher and merger.
 """
 
 import os
@@ -9,7 +9,7 @@ import sys
 import requests
 from typing import Optional, Dict, Any, List
 
-# 添加 core 模块到路径
+# Add core module to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'core'))
 
 from app.core.lhr_parser import LHRTool
@@ -19,14 +19,14 @@ from app.schemas.seo_analysis import SEOAnalysisResult, IssueInfo
 
 
 class SEOAnalysisService:
-    """SEO 分析服务"""
+    """SEO analysis service"""
     
     def __init__(self, lighthouse_url: str = None):
         """
-        初始化 SEO 分析服务
+        Initialize SEO analysis service.
         
         Args:
-            lighthouse_url: Lighthouse 服务地址
+            lighthouse_url: Lighthouse service base URL
         """
         # Use config if no URL provided
         if lighthouse_url is None:
@@ -38,49 +38,49 @@ class SEOAnalysisService:
         
     def analyze_html(self, html_content: str) -> SEOAnalysisResult:
         """
-        分析 HTML 内容，返回完整的 SEO 分析结果
+        Analyze raw HTML and return a complete SEO analysis result.
         
         Args:
-            html_content: 要分析的 HTML 内容
+            html_content: HTML content to analyze
             
         Returns:
-            SEOAnalysisResult: 完整的 SEO 分析结果
+            SEOAnalysisResult: Complete SEO analysis result
             
         Raises:
-            Exception: 当任何步骤失败时抛出异常
+            Exception: When any step fails
         """
         try:
-            print("🚀 开始 SEO 分析流程...")
+            print("🚀 Starting SEO analysis...")
             
-            # 步骤1: 调用 Lighthouse 服务
-            print("🔍 调用 Lighthouse 服务...")
+            # Step 1: call Lighthouse service
+            print("🔍 Calling Lighthouse service...")
             lighthouse_result = self._call_lighthouse_service(html_content)
             
-            # 步骤2: 解析 Lighthouse 结果
-            print("📊 解析 Lighthouse 结果...")
+            # Step 2: parse Lighthouse result
+            print("📊 Parsing Lighthouse result...")
             parsed_result = self._run_parser(lighthouse_result)
             
-            # 步骤3: 匹配问题到原始 HTML
-            print("🎯 匹配问题到原始 HTML...")
+            # Step 3: match issues to original HTML
+            print("🎯 Matching issues to HTML...")
             matched_result = self._run_matcher(html_content, parsed_result)
             
-            # 步骤4: 处理匹配结果，合并重叠问题
-            print("🔧 处理匹配结果...")
+            # Step 4: process matched result and merge overlaps
+            print("🔧 Processing matched result...")
             processed_result = self._process_matched_result(matched_result)
             
-            # 步骤5: 构建最终结果
-            print("📝 构建最终结果...")
+            # Step 5: build final result
+            print("📝 Building final result...")
             final_result = self._build_final_result(parsed_result, processed_result, html_content)
             
-            print("✅ SEO 分析完成!")
+            print("✅ SEO analysis complete!")
             return final_result
             
         except Exception as e:
-            print(f"❌ SEO 分析失败: {e}")
+            print(f"❌ SEO analysis failed: {e}")
             raise
     
     def _call_lighthouse_service(self, html_content: str) -> Dict[str, Any]:
-        """调用 Lighthouse 服务"""
+        """Call Lighthouse microservice"""
         try:
             response = requests.post(
                 f"{self.lighthouse_url}/audit-html",
@@ -90,25 +90,25 @@ class SEOAnalysisService:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            raise Exception(f"Lighthouse 服务调用失败: {e}")
+            raise Exception(f"Lighthouse service call failed: {e}")
     
     def _run_parser(self, lighthouse_result: Dict[str, Any]) -> Dict[str, Any]:
-        """运行 LHR 解析器"""
+        """Run LHR parser"""
         try:
             parsed_result = self.parser.parse_lhr_json(lighthouse_result)
             return parsed_result
         except Exception as e:
-            raise Exception(f"LHR 解析器运行失败: {e}")
+            raise Exception(f"LHR parser failed: {e}")
     
     def _run_matcher(self, html_content: str, parsed_result: Dict[str, Any]) -> Dict[str, Any]:
-        """运行匹配器"""
+        """Run matcher"""
         try:
             return match_issues(html_content, parsed_result)
         except Exception as e:
-            raise Exception(f"匹配器运行失败: {e}")
+            raise Exception(f"Matcher failed: {e}")
     
     def _process_matched_result(self, matched_result: Dict[str, Any]) -> List[IssueInfo]:
-        """处理匹配结果，合并重叠问题"""
+        """Process matched result and merge overlapping issues"""
         try:
             # 使用 issue_merger 处理数据，支持插入操作
             processed_data = transform_to_simple_issues_with_insertions(matched_result)
@@ -127,20 +127,20 @@ class SEOAnalysisService:
             return issues
             
         except Exception as e:
-            raise Exception(f"结果处理失败: {e}")
+            raise Exception(f"Result processing failed: {e}")
     
     def _build_final_result(self, parsed_result: Dict[str, Any], 
                            issues: List[IssueInfo], 
                            html_content: str) -> SEOAnalysisResult:
-        """构建最终的 SEO 分析结果"""
+        """Build final SEO analysis result"""
         try:
-            # 获取 SEO 分数
+            # Get SEO score
             seo_score = parsed_result.get("seo_score", 0.0)
             
-            # 计算总行数
+            # Compute total line count
             total_lines = len(html_content.split('\n'))
             
-            # 构建最终结果
+            # Build final Pydantic model
             result = SEOAnalysisResult(
                 seo_score=seo_score,
                 total_lines=total_lines,
@@ -150,17 +150,17 @@ class SEOAnalysisService:
             return result
             
         except Exception as e:
-            raise Exception(f"构建最终结果失败: {e}")
+            raise Exception(f"Build final result failed: {e}")
     
     def analyze_html_file(self, html_file_path: str) -> SEOAnalysisResult:
         """
-        分析 HTML 文件，返回完整的 SEO 分析结果
+        Analyze an HTML file and return the complete SEO analysis result.
         
         Args:
-            html_file_path: HTML 文件路径
+            html_file_path: Path to the HTML file
             
         Returns:
-            SEOAnalysisResult: 完整的 SEO 分析结果
+            SEOAnalysisResult: Complete SEO analysis result
         """
         try:
             # 读取 HTML 文件
@@ -171,22 +171,22 @@ class SEOAnalysisService:
             return self.analyze_html(html_content)
             
         except FileNotFoundError:
-            raise Exception(f"HTML 文件未找到: {html_file_path}")
+            raise Exception(f"HTML file not found: {html_file_path}")
         except Exception as e:
-            raise Exception(f"读取 HTML 文件失败: {e}")
+            raise Exception(f"Failed to read HTML file: {e}")
 
 
-# 便捷函数
+# Convenience helpers
 def analyze_html(html_content: str, lighthouse_url: str = None) -> SEOAnalysisResult:
     """
-    便捷函数：分析 HTML 内容
+    Convenience function: analyze raw HTML
     
     Args:
-        html_content: HTML 内容
-        lighthouse_url: Lighthouse 服务地址
+        html_content: HTML content
+        lighthouse_url: Lighthouse service base URL
         
     Returns:
-        SEOAnalysisResult: SEO 分析结果
+        SEOAnalysisResult: SEO analysis result
     """
     service = SEOAnalysisService(lighthouse_url)
     return service.analyze_html(html_content)
@@ -194,14 +194,14 @@ def analyze_html(html_content: str, lighthouse_url: str = None) -> SEOAnalysisRe
 
 def analyze_html_file(html_file_path: str, lighthouse_url: str = None) -> SEOAnalysisResult:
     """
-    便捷函数：分析 HTML 文件
+    Convenience function: analyze an HTML file
     
     Args:
-        html_file_path: HTML 文件路径
-        lighthouse_url: Lighthouse 服务地址
+        html_file_path: Path to the HTML file
+        lighthouse_url: Lighthouse service base URL
         
     Returns:
-        SEOAnalysisResult: SEO 分析结果
+        SEOAnalysisResult: SEO analysis result
     """
     service = SEOAnalysisService(lighthouse_url)
     return service.analyze_html_file(html_file_path)

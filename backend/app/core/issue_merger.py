@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Issue Merger - 合并重叠的问题，合并错误描述
+Issue Merger - merge overlapping issues and merge descriptions
 """
 
 from typing import List, Dict, Any, Tuple
@@ -8,13 +8,13 @@ from typing import List, Dict, Any, Tuple
 
 def merge_overlapping_issues(issues: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    合并重叠的问题，合并错误描述
-    
+    Merge overlapping issues and combine descriptions.
+
     Args:
-        issues: 原始问题列表
-        
+        issues: Original issue list (expects start_line/end_line keys)
+
     Returns:
-        合并后的问题列表
+        Merged issue list
     """
     if not issues:
         return []
@@ -27,7 +27,7 @@ def merge_overlapping_issues(issues: List[Dict[str, Any]]) -> List[Dict[str, Any
     
     for issue in sorted_issues:
         if current_issue is None:
-            # 第一个问题
+            # First issue
             current_issue = {
                 "title": issue.get("title", ""),
                 "start_line": issue.get("start_line", 0),
@@ -36,17 +36,17 @@ def merge_overlapping_issues(issues: List[Dict[str, Any]]) -> List[Dict[str, Any
                 "descriptions": [issue.get("title", "")]
             }
         else:
-            # 检查是否重叠
+            # Check if ranges overlap
             if _issues_overlap(current_issue, issue):
-                # 合并重叠的问题
+                # Merge overlapping range
                 current_issue["start_line"] = min(current_issue["start_line"], issue.get("start_line", 0))
                 current_issue["end_line"] = max(current_issue["end_line"], issue.get("end_line", 0))
                 current_issue["descriptions"].append(issue.get("title", ""))
-                # 合并HTML（取较长的那个）
+                # Merge HTML (prefer the longer snippet)
                 if len(issue.get("raw_html", "")) > len(current_issue["raw_html"]):
                     current_issue["raw_html"] = issue.get("raw_html", "")
             else:
-                # 不重叠，保存当前问题，开始新问题
+                # Not overlapping, push current and start a new one
                 merged_issues.append(_finalize_issue(current_issue))
                 current_issue = {
                     "title": issue.get("title", ""),
@@ -56,41 +56,41 @@ def merge_overlapping_issues(issues: List[Dict[str, Any]]) -> List[Dict[str, Any
                     "descriptions": [issue.get("title", "")]
                 }
     
-    # 添加最后一个问题
+    # Append the final pending issue
     if current_issue:
         merged_issues.append(_finalize_issue(current_issue))
     
-    # 按结束行号从大到小排序（为了diff checker）
+    # Sort by end_line desc (to aid diff application from bottom to top)
     merged_issues.sort(key=lambda x: x["end_line"], reverse=True)
     
     return merged_issues
 
 
 def _issues_overlap(issue1: Dict[str, Any], issue2: Dict[str, Any]) -> bool:
-    """检查两个问题是否重叠"""
+    """Check if two issues' line ranges overlap."""
     start1, end1 = issue1["start_line"], issue1["end_line"]
     start2, end2 = issue2["start_line"], issue2["end_line"]
     
-    # 重叠条件：一个范围的起始行 <= 另一个范围的结束行，且一个范围的结束行 >= 另一个范围的起始行
+    # Overlap condition: start1 <= end2 and end1 >= start2
     return start1 <= end2 and end1 >= start2
 
 
 def _finalize_issue(issue: Dict[str, Any]) -> Dict[str, Any]:
-    """最终化问题，合并描述"""
+    """Finalize merged issue and build a combined title."""
     descriptions = issue["descriptions"]
     
     if len(descriptions) == 1:
-        # 只有一个描述
+        # Only one description
         final_title = descriptions[0]
     else:
-        # 多个描述，合并它们
-        unique_descriptions = list(set(descriptions))  # 去重
+        # Multiple descriptions, merge them
+        unique_descriptions = list(set(descriptions))  # de-duplicate
         if len(unique_descriptions) == 1:
-            final_title = f"{unique_descriptions[0]} (多个位置)"
+            final_title = f"{unique_descriptions[0]} (multiple locations)"
         else:
-            final_title = f"多个问题: {'; '.join(unique_descriptions[:3])}"  # 最多显示3个
+            final_title = f"Multiple issues: {'; '.join(unique_descriptions[:3])}"
             if len(unique_descriptions) > 3:
-                final_title += f" 等{len(unique_descriptions)}个问题"
+                final_title += f" and {len(unique_descriptions)} total"
     
     return {
         "title": final_title,
@@ -102,20 +102,20 @@ def _finalize_issue(issue: Dict[str, Any]) -> Dict[str, Any]:
 
 def transform_to_simple_issues(matched_result: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
-    将 matched_result 转换为简单的 IssueInfo 格式
-    
+    Convert matched_result to a simplified list used by the schema.
+
     Args:
-        matched_result: 匹配结果
-        
+        matched_result: The matcher result containing issue objects
+
     Returns:
-        简单的问题列表
+        Simplified merged issue list
     """
     issues = matched_result.get("issues", [])
     
-    # 只保留已匹配的问题
+    # Keep only matched issues
     matched_issues = [it for it in issues if it.get("match_status") == "matched"]
     
-    # 合并重叠问题
+    # Merge overlapping issues
     merged_issues = merge_overlapping_issues(matched_issues)
     
     return merged_issues
@@ -123,13 +123,15 @@ def transform_to_simple_issues(matched_result: Dict[str, Any]) -> List[Dict[str,
 
 def transform_to_simple_issues_with_insertions(matched_result: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
-    将 matched_result 转换为简单的 IssueInfo 格式，支持插入操作
-    
+    Convert matched_result to a simplified list with insertion support.
+
+    Negative line numbers are treated as insert hints by downstream logic.
+
     Args:
-        matched_result: 匹配结果
-        
+        matched_result: The matcher result containing issue objects
+
     Returns:
-        简单的问题列表，负数行号表示插入
+        Simplified issue list (merged positives, plus inserts and zeros)
     """
     issues = matched_result.get("issues", [])
     
