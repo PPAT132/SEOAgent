@@ -11,8 +11,10 @@ class Config:
     # Environment Configuration
     ENV = os.getenv("ENV", "development")
 
-    # Lighthouse Url
-    LIGHTHOUSE_URL = "http://host.docker.internal:3001"
+    # Lighthouse Url - Use environment variable or default
+    # For local development: export LIGHTHOUSE_URL=http://localhost:3002
+    # For Docker: export LIGHTHOUSE_URL=http://host.docker.internal:3002
+    LIGHTHOUSE_URL = os.getenv("LIGHTHOUSE_URL", "http://localhost:3002")
 
     SEO_AGENT_LANG = ""
     MAX_LOCATIONS_PER_ISSUE = ""

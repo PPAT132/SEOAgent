@@ -11,8 +11,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 4. Copy application code
 COPY . .
 
-# 5. Expose FastAPI port
+# 5. Set Python path to include the app directory
+ENV PYTHONPATH=/app
+
+# 6. Expose FastAPI port
 EXPOSE 8000
 
-# 6. Start the Uvicorn server
+# 7. Start the Uvicorn server
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -15,14 +15,15 @@ def test_endpoint():
 def audit_url(url: str, validator_service: ValidatorService = Depends(get_validator_service)):
     return validator_service.get_full_result(url)
 
-@router.post("/optimizev1")
+@router.post("/optimizev1") 
 def optimize_html(req: OptimizeRequest, optimization_service: OptimizationV1 = Depends(get_optimization_service)):
     """
     Optimize HTML for SEO using the OptimizationV1 service.
     """
-    optimized_html = optimization_service.optimize_html(req.html)
-    # Return 'diff' field to match frontend expectation
-    return {"diff": optimized_html}
+    seo_analysis_result = optimization_service.optimize_html(req.html)
+    
+    # Return the complete SEO analysis result
+    return seo_analysis_result
 @router.post("/lighthouse-raw")
 def lighthouse_raw_json(req: OptimizeRequest, validator_service: ValidatorService = Depends(get_validator_service)):
     """
