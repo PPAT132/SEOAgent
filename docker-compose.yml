@@ -10,5 +10,6 @@ services:
       - ./backend:/app
     environment:
       - ENV=production
+      - LIGHTHOUSE_URL=http://host.docker.internal:3002
     extra_hosts:
       - "host.docker.internal:host-gateway"

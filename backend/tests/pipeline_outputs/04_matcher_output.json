@@ -1,0 +1,284 @@
+{
+  "seo_score": 31,
+  "issues": [
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-1 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,9,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-1.png\">",
+        "nodeLabel": "tr > td > section#intro-1 > img",
+        "lhId": "1-27-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-1.png\">",
+      "match_line_start": 107,
+      "match_line_end": 107
+    },
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-2 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,11,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-2.png\">",
+        "nodeLabel": "tr > td > section#intro-2 > img",
+        "lhId": "1-28-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-2.png\">",
+      "match_line_start": 202,
+      "match_line_end": 202
+    },
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-3 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,13,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-3.png\">",
+        "nodeLabel": "tr > td > section#intro-3 > img",
+        "lhId": "1-29-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-3.png\">",
+      "match_line_start": 297,
+      "match_line_end": 297
+    },
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-4 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,15,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-4.png\">",
+        "nodeLabel": "tr > td > section#intro-4 > img",
+        "lhId": "1-30-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-4.png\">",
+      "match_line_start": 392,
+      "match_line_end": 392
+    },
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-5 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,17,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-5.png\">",
+        "nodeLabel": "tr > td > section#intro-5 > img",
+        "lhId": "1-31-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-5.png\">",
+      "match_line_start": 487,
+      "match_line_end": 487
+    },
+    {
+      "audit_id": "image-alt",
+      "title": "Image elements do not have `[alt]` attributes",
+      "node": {
+        "selector": "tr > td > section#intro-6 > img",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,19,SECTION,8,IMG",
+        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-6.png\">",
+        "nodeLabel": "tr > td > section#intro-6 > img",
+        "lhId": "1-32-IMG"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<img src=\"gallery/image-6.png\">",
+      "match_line_start": 582,
+      "match_line_end": 582
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-1 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,9,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-60-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 100,
+      "match_line_end": 100
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-2 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,11,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-68-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 195,
+      "match_line_end": 195
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-3 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,13,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-76-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 290,
+      "match_line_end": 290
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-4 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,15,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-84-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 385,
+      "match_line_end": 385
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-5 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,17,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-92-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 480,
+      "match_line_end": 480
+    },
+    {
+      "audit_id": "crawlable-anchors",
+      "title": "Links are not crawlable",
+      "node": {
+        "selector": "tr > td > section#intro-6 > a",
+        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,19,SECTION,4,A",
+        "snippet": "<a href=\"javascript:void(0)\">",
+        "nodeLabel": "learn more",
+        "lhId": "1-100-A"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<a href=\"javascript:void(0)\">",
+      "match_line_start": 575,
+      "match_line_end": 575
+    },
+    {
+      "audit_id": "is-crawlable",
+      "title": "Page is blocked from indexing",
+      "node": {
+        "selector": "head > meta",
+        "path": "2,HTML,0,HEAD,6,META",
+        "snippet": "<meta name=\"robots\" content=\"noindex, nofollow\" />",
+        "nodeLabel": "head > meta",
+        "lhId": "1-138-META"
+      },
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">",
+      "match_line_start": 9,
+      "match_line_end": 9
+    },
+    {
+      "audit_id": "hreflang",
+      "title": "Document doesn't have a valid `hreflang`",
+      "node": {
+        "selector": "head > link",
+        "path": "2,HTML,0,HEAD,22,LINK",
+        "snippet": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\" />",
+        "nodeLabel": "head > link",
+        "lhId": "1-121-LINK"
+      },
+      "url": null,
+      "link_text": null,
+      "code": "Unexpected language code",
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\">",
+      "match_line_start": 28,
+      "match_line_end": 28
+    },
+    {
+      "audit_id": "canonical",
+      "title": "Document does not have a valid `rel=canonical`",
+      "node": null,
+      "url": null,
+      "link_text": null,
+      "code": null,
+      "source_location": null,
+      "match_status": "matched",
+      "match_html": "<link rel=\"canonical\" href=\"/relative-canonical\">",
+      "match_line_start": 23,
+      "match_line_end": 23
+    }
+  ]
+}

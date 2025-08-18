@@ -19,7 +19,15 @@ export default function App() {
         body: JSON.stringify({ html }),
       });
       const data = await res.json();
-      setDiff(data.diff || '// No diff returned');
+      
+      // Check if it's an error response
+      if (data.error) {
+        setDiff(`❌ Error: ${data.error}`);
+        return;
+      }
+      
+      // Return raw JSON data for debugging
+      setDiff(JSON.stringify(data, null, 2));
     } catch (err) {
       console.error(err);
       setDiff('// Error: cannot reach backend');

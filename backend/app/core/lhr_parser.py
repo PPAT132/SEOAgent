@@ -143,3 +143,197 @@ class LHRTool:
             result["error_summary"] = f"Lighthouse encountered {len(errors)} errors during analysis"
             
         return result
+
+    def process_missing_elements(self, issues: List[Dict], html_content: str) -> List[Dict]:
+        """
+        Process missing elements and assign intelligent insertion positions
+        """
+        for issue in issues:
+            audit_id = issue.get('audit_id', '')
+            
+            # Check if element exists in HTML
+            if not self._element_exists(html_content, audit_id):
+                # Element is missing, need to insert
+                insertion_line = self._find_safe_insertion_position(html_content, audit_id)
+                
+                # Check if insertion position is safe
+                if self._is_valid_html_insertion(html_content, abs(insertion_line)):
+                    issue['start_line'] = insertion_line
+                    issue['end_line'] = insertion_line
+                    issue['raw_html'] = self._get_suggested_html(audit_id)
+                else:
+                    # Insertion position not safe, mark as 0 (will be handled by matcher)
+                    issue['start_line'] = 0
+                    issue['end_line'] = 0
+                    issue['raw_html'] = self._get_suggested_html(audit_id)
+        
+        return issues
+
+    def _element_exists(self, html_content: str, audit_id: str) -> bool:
+        """Check if element exists in HTML content"""
+        if not html_content:
+            return False
+            
+        # Define element selectors for different audit types
+        element_selectors = {
+            'meta-description': 'meta[name="description"]',
+            'document-title': 'title',
+            'hreflang': 'link[rel="alternate"][hreflang]',
+            'robots-txt': 'meta[name="robots"]',
+            'canonical': 'link[rel="canonical"]',
+            'og:title': 'meta[property="og:title"]',
+            'og:description': 'meta[property="og:description"]',
+            'og:type': 'meta[property="og:type"]',
+            'twitter:card': 'meta[name="twitter:card"]',
+            'viewport': 'meta[name="viewport"]',
+            'charset': 'meta[charset]',
+            'language': 'html[lang]'
+        }
+        
+        selector = element_selectors.get(audit_id)
+        if not selector:
+            return False
+            
+        # Simple check for element existence (basic implementation)
+        if audit_id == 'meta-description':
+            return 'name="description"' in html_content
+        elif audit_id == 'document-title':
+            return '<title>' in html_content and '</title>' in html_content
+        elif audit_id == 'hreflang':
+            return 'hreflang=' in html_content
+        elif audit_id == 'canonical':
+            return 'rel="canonical"' in html_content
+        elif audit_id.startswith('og:'):
+            return f'property="{audit_id}"' in html_content
+        elif audit_id == 'viewport':
+            return 'name="viewport"' in html_content
+        elif audit_id == 'charset':
+            return 'charset=' in html_content
+        elif audit_id == 'language':
+            return 'lang=' in html_content
+            
+        return False
+
+    def _is_valid_html_insertion(self, html_content: str, line_number: int) -> bool:
+        """Check if insertion at specified line is safe"""
+        lines = html_content.split('\n')
+        
+        if line_number <= 0 or line_number > len(lines):
+            return False
+            
+        # Convert to 0-based index
+        current_line = lines[line_number - 1]
+        
+        # Check if we're in the middle of a tag
+        if '<' in current_line and '>' not in current_line:
+            return False  # Tag not closed, can't insert
+            
+        # Check if we're in the middle of a string
+        if current_line.count('"') % 2 != 0:
+            return False  # String not closed, can't insert
+            
+        # Check if we're in the middle of HTML comment
+        if '<!--' in current_line and '-->' not in current_line:
+            return False  # Comment not closed, can't insert
+            
+        return True
+
+    def _find_safe_insertion_position(self, html_content: str, issue_type: str) -> int:
+        """Find safe insertion position for different issue types"""
+        lines = html_content.split('\n')
+        
+        if issue_type == "meta-description":
+            # Strategy 1: Insert after </title>
+            for i, line in enumerate(lines):
+                if '</title>' in line:
+                    return -(i + 2)  # Insert on next line
+                    
+            # Strategy 2: If no title, insert after <head>
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            # Strategy 3: If neither exists, insert at document beginning
+            return -1
+            
+        elif issue_type == "hreflang":
+            # Insert in <head> tag, near meta tags
+            for i, line in enumerate(lines):
+                if '<meta' in line:
+                    return -(i + 2)
+                    
+            # If no meta tags, insert after head
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            return -1
+            
+        elif issue_type == "canonical":
+            # Insert in <head> tag
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            return -1
+            
+        elif issue_type.startswith("og:"):
+            # Insert in <head> tag, near other meta tags
+            for i, line in enumerate(lines):
+                if '<meta' in line:
+                    return -(i + 2)
+                    
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            return -1
+            
+        elif issue_type == "viewport":
+            # Insert in <head> tag, near other meta tags
+            for i, line in enumerate(lines):
+                if '<meta' in line:
+                    return -(i + 2)
+                    
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            return -1
+            
+        elif issue_type == "charset":
+            # Insert at the very beginning of <head>
+            for i, line in enumerate(lines):
+                if '<head>' in line:
+                    return -(i + 2)
+                    
+            return -1
+            
+        elif issue_type == "language":
+            # Insert in <html> tag
+            for i, line in enumerate(lines):
+                if '<html' in line:
+                    return -(i + 1)  # Insert on same line
+                    
+            return -1
+            
+        # Default: insert at beginning
+        return -1
+
+    def _get_suggested_html(self, audit_id: str) -> str:
+        """Get suggested HTML for missing elements"""
+        suggestions = {
+            'meta-description': '<meta name="description" content="Your page description here">',
+            'document-title': '<title>Your Page Title</title>',
+            'hreflang': '<link rel="alternate" hreflang="en" href="https://example.com/en/">',
+            'canonical': '<link rel="canonical" href="https://example.com/page">',
+            'og:title': '<meta property="og:title" content="Your Open Graph Title">',
+            'og:description': '<meta property="og:description" content="Your Open Graph Description">',
+            'og:type': '<meta property="og:type" content="website">',
+            'twitter:card': '<meta name="twitter:card" content="summary">',
+            'viewport': '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            'charset': '<meta charset="UTF-8">',
+            'language': 'lang="en"'
+        }
+        
+        return suggestions.get(audit_id, f'<!-- Missing {audit_id} element -->')
