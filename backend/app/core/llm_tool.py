@@ -6,7 +6,7 @@ from typing import List
 
 from ..config import Config
 
-from app.schemas.issues import Issues
+from app.schemas.seo_analysis import SEOAnalysisResult
 
 class LLMTool:
     """
@@ -66,13 +66,12 @@ class LLMTool:
             raise e 
     
     # gets the html content
-    def get_modification(self, modify_context: List[str], match_html: str) -> str:
-        combined_context = "; ".join(modify_context)
+    def get_modification(self, modify_context: str, match_html: str) -> str:
 
         prompt = (
             f"Fix this HTML snippet for SEO:\n\n"
             f"Original: {match_html}\n"
-            f"Issue: {combined_context}\n\n"
+            f"Issue: {modify_context}\n\n"
             "Return ONLY the corrected HTML without markdown"
         )
 
@@ -80,13 +79,13 @@ class LLMTool:
         return optimized_html
     
     # loop through all the things that needs to be modified and calls get_modification
-    def get_batch_modification(self, issues: Issues) -> Issues:
-        issues_list = issues.issues
+    def get_batch_modification(self, analysis_res: SEOAnalysisResult) -> SEOAnalysisResult:
+        issues_list = analysis_res.issues
         
         for issue in issues_list:
-            optimized = self.get_modification(issue.titles, issue.match_html)
+            optimized = self.get_modification(issue.title, issue.raw_html)
             issue.optimized_html = optimized
         
-        return issues
+        return analysis_res
     
     

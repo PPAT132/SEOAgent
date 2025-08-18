@@ -22,6 +22,8 @@ try:
     from app.core.lhr_parser import LHRTool
     from app.core.matcher import match_issues
     from app.core.issue_merger import transform_to_simple_issues_with_insertions
+    from app.core.llm_tool import LLMTool
+    from app.core.html_editor import HTMLEditor
 except ImportError as e:
     print(f"❌ Import failed: {e}")
     print(f"CWD: {os.getcwd()}")
@@ -141,6 +143,7 @@ def test_full_pipeline():
             merged_issues, 
             html_content
         )
+        temp_result = final_result
         
         # 保存最终结果
         if hasattr(final_result, 'dict'):
@@ -155,9 +158,30 @@ def test_full_pipeline():
         )
         
         print(f"✅ Final result OK, SEO score: {final_dict.get('seo_score', 'N/A')}")
-        
+
     except Exception as e:
         print(f"❌ Final result failed: {e}")
+        return
+    
+    # 7. call LLM
+    print("Step 6: calling llm...")
+    try:
+        agent = LLMTool()
+
+        optimized_res = agent.get_batch_modification(temp_result)
+
+        if hasattr(optimized_res, 'dict'):
+            optimized_res = optimized_res.dict()
+        else:
+            optimized_res = optimized_res.__dict__
+        
+        save_json_file(
+            optimized_res,
+            "06_optimized_result.json",
+            "LLM optimized Result"
+        )
+    except Exception as e:
+        print(f"Call LLM Failed: {e}")
         return
     
     print("\n🎉 Full pipeline completed!")

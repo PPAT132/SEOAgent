@@ -7,70 +7,70 @@
       "start_line": 575,
       "end_line": 575,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a>Example link</a>"
     },
     {
       "title": "Links are not crawlable",
       "start_line": 480,
       "end_line": 480,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a>"
     },
     {
       "title": "Links are not crawlable",
       "start_line": 385,
       "end_line": 385,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a href=\"/your-relevant-page-url\">Your descriptive link text</a>"
     },
     {
       "title": "Links are not crawlable",
       "start_line": 290,
       "end_line": 290,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a href=\"/your-relevant-page-url\">"
     },
     {
       "title": "Links are not crawlable",
       "start_line": 195,
       "end_line": 195,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a href=\"/relevant-page-url\">"
     },
     {
       "title": "Links are not crawlable",
       "start_line": 100,
       "end_line": 100,
       "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": ""
+      "optimized_html": "<a>Example Link</a>"
     },
     {
       "title": "Document doesn't have a valid `hreflang`",
       "start_line": 28,
       "end_line": 28,
       "raw_html": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\">",
-      "optimized_html": ""
+      "optimized_html": "<link rel=\"alternate\" hreflang=\"en-US\" href=\"https://example.com/invalid\">"
     },
     {
       "title": "Document does not have a valid `rel=canonical`",
       "start_line": 23,
       "end_line": 23,
       "raw_html": "<link rel=\"canonical\" href=\"/relative-canonical\">",
-      "optimized_html": ""
+      "optimized_html": "<link rel=\"canonical\" href=\"https://www.example.com/relative-canonical\">"
     },
     {
       "title": "Page is blocked from indexing",
       "start_line": 9,
       "end_line": 9,
       "raw_html": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">",
-      "optimized_html": ""
+      "optimized_html": "<meta charset=\"UTF-8\">"
     },
     {
       "title": "Document doesn't have a `<title>` element",
       "start_line": 4,
       "end_line": 4,
       "raw_html": "<html lang=\"en zh-CN\" dir=\"rtl\">",
-      "optimized_html": ""
+      "optimized_html": "```html\n<!DOCTYPE html>\n<html lang=\"en zh-CN\" dir=\"rtl\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Your Title Here</title>\n</head>\n<body>\n\n</body>\n</html>\n```"
     }
   ]
 }

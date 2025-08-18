@@ -1,119 +1,24 @@
 {
-  "seo_score": 31,
+  "seo_score": 25,
   "issues": [
     {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
+      "audit_id": "document-title",
+      "title": "Document doesn't have a `<title>` element",
       "node": {
-        "selector": "tr > td > section#intro-1 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,9,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-1.png\">",
-        "nodeLabel": "tr > td > section#intro-1 > img",
-        "lhId": "1-27-IMG"
+        "selector": "html",
+        "path": "2,HTML",
+        "snippet": "<html lang=\"en zh-CN\" dir=\"rtl\">",
+        "nodeLabel": "html",
+        "lhId": "2-0-HTML"
       },
       "url": null,
       "link_text": null,
       "code": null,
       "source_location": null,
       "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-1.png\">",
-      "match_line_start": 107,
-      "match_line_end": 107
-    },
-    {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
-      "node": {
-        "selector": "tr > td > section#intro-2 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,11,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-2.png\">",
-        "nodeLabel": "tr > td > section#intro-2 > img",
-        "lhId": "1-28-IMG"
-      },
-      "url": null,
-      "link_text": null,
-      "code": null,
-      "source_location": null,
-      "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-2.png\">",
-      "match_line_start": 202,
-      "match_line_end": 202
-    },
-    {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
-      "node": {
-        "selector": "tr > td > section#intro-3 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,13,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-3.png\">",
-        "nodeLabel": "tr > td > section#intro-3 > img",
-        "lhId": "1-29-IMG"
-      },
-      "url": null,
-      "link_text": null,
-      "code": null,
-      "source_location": null,
-      "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-3.png\">",
-      "match_line_start": 297,
-      "match_line_end": 297
-    },
-    {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
-      "node": {
-        "selector": "tr > td > section#intro-4 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,15,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-4.png\">",
-        "nodeLabel": "tr > td > section#intro-4 > img",
-        "lhId": "1-30-IMG"
-      },
-      "url": null,
-      "link_text": null,
-      "code": null,
-      "source_location": null,
-      "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-4.png\">",
-      "match_line_start": 392,
-      "match_line_end": 392
-    },
-    {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
-      "node": {
-        "selector": "tr > td > section#intro-5 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,17,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-5.png\">",
-        "nodeLabel": "tr > td > section#intro-5 > img",
-        "lhId": "1-31-IMG"
-      },
-      "url": null,
-      "link_text": null,
-      "code": null,
-      "source_location": null,
-      "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-5.png\">",
-      "match_line_start": 487,
-      "match_line_end": 487
-    },
-    {
-      "audit_id": "image-alt",
-      "title": "Image elements do not have `[alt]` attributes",
-      "node": {
-        "selector": "tr > td > section#intro-6 > img",
-        "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,19,SECTION,8,IMG",
-        "snippet": "<img src=\"http://wrong.example.com/subdir/gallery/image-6.png\">",
-        "nodeLabel": "tr > td > section#intro-6 > img",
-        "lhId": "1-32-IMG"
-      },
-      "url": null,
-      "link_text": null,
-      "code": null,
-      "source_location": null,
-      "match_status": "matched",
-      "match_html": "<img src=\"gallery/image-6.png\">",
-      "match_line_start": 582,
-      "match_line_end": 582
+      "match_html": "<html lang=\"en zh-CN\" dir=\"rtl\">",
+      "match_line_start": 4,
+      "match_line_end": 4
     },
     {
       "audit_id": "crawlable-anchors",
@@ -123,7 +28,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,9,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-60-A"
+        "lhId": "2-3-A"
       },
       "url": null,
       "link_text": null,
@@ -142,7 +47,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,11,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-68-A"
+        "lhId": "2-14-A"
       },
       "url": null,
       "link_text": null,
@@ -161,7 +66,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,13,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-76-A"
+        "lhId": "2-25-A"
       },
       "url": null,
       "link_text": null,
@@ -180,7 +85,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,15,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-84-A"
+        "lhId": "2-36-A"
       },
       "url": null,
       "link_text": null,
@@ -199,7 +104,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,17,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-92-A"
+        "lhId": "2-47-A"
       },
       "url": null,
       "link_text": null,
@@ -218,7 +123,7 @@
         "path": "2,HTML,1,BODY,1,TABLE,0,TBODY,0,TR,0,TD,19,SECTION,4,A",
         "snippet": "<a href=\"javascript:void(0)\">",
         "nodeLabel": "learn more",
-        "lhId": "1-100-A"
+        "lhId": "2-58-A"
       },
       "url": null,
       "link_text": null,
@@ -237,7 +142,7 @@
         "path": "2,HTML,0,HEAD,6,META",
         "snippet": "<meta name=\"robots\" content=\"noindex, nofollow\" />",
         "nodeLabel": "head > meta",
-        "lhId": "1-138-META"
+        "lhId": "3-3-META"
       },
       "url": null,
       "link_text": null,
@@ -256,7 +161,7 @@
         "path": "2,HTML,0,HEAD,22,LINK",
         "snippet": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\" />",
         "nodeLabel": "head > link",
-        "lhId": "1-121-LINK"
+        "lhId": "2-82-LINK"
       },
       "url": null,
       "link_text": null,
