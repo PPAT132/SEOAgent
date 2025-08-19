@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SEO Analysis Result Schema
-定义 SEO 分析结果的数据结构
+Defines the data structure for SEO analysis results
 """
 
 from typing import List, Optional
@@ -9,20 +9,21 @@ from pydantic import BaseModel, Field
 
 
 class IssueInfo(BaseModel):
-    """单个问题的详细信息"""
-    title: str = Field(..., description="问题标题/描述")
-    start_line: int = Field(..., description="起始行号 (正数=替换, 负数=插入)")
-    end_line: int = Field(..., description="结束行号 (正数=替换, 负数=插入)")
-    raw_html: str = Field(..., description="原始HTML内容或建议的HTML")
+    """Detailed information for a single issue"""
+    title: str = Field(..., description="Issue title/description")
+    start_line: int = Field(..., description="Start line number (positive=replace, negative=insert)")
+    end_line: int = Field(..., description="End line number (positive=replace, negative=insert)")
+    raw_html: str = Field(..., description="Original HTML content or suggested HTML")
 
     optimized_html: str = Field("", description="the html that is returned by the llm")
 
 
 class SEOAnalysisResult(BaseModel):
-    """SEO 分析结果"""
-    seo_score: float = Field(..., description="SEO 分数 (0-100)")
-    total_lines: int = Field(..., description="HTML 文件总行数")
-    issues: List[IssueInfo] = Field(..., description="问题列表，按结束行号从大到小排序")
+    """SEO analysis result"""
+    seo_score: float = Field(..., description="SEO score (0-100)")
+    total_lines: int = Field(..., description="Total number of lines in HTML file")
+    issues: List[IssueInfo] = Field(..., description="List of issues, sorted by end line number from largest to smallest")
+    context: str = Field(..., description="string of information about the html content")
     
     class Config:
         schema_extra = {

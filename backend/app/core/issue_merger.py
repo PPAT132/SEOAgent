@@ -19,7 +19,7 @@ def merge_overlapping_issues(issues: List[Dict[str, Any]]) -> List[Dict[str, Any
     if not issues:
         return []
     
-    # 按起始行排序
+    # Sort by start line
     sorted_issues = sorted(issues, key=lambda x: x.get("start_line", 0))
     
     merged_issues = []
@@ -135,10 +135,10 @@ def transform_to_simple_issues_with_insertions(matched_result: Dict[str, Any]) -
     """
     issues = matched_result.get("issues", [])
     
-    # 只保留已匹配的问题
+    # Keep only matched issues
     matched_issues = [it for it in issues if it.get("match_status") == "matched"]
     
-    # 标准化字段名，确保一致性
+    # Normalize field names to ensure consistency
     normalized_issues = []
     for issue in matched_issues:
         normalized_issue = {
@@ -150,7 +150,7 @@ def transform_to_simple_issues_with_insertions(matched_result: Dict[str, Any]) -
         }
         normalized_issues.append(normalized_issue)
     
-    # 合并重叠问题（只对正数行号的问题）
+    # Merge overlapping issues (only for positive line numbers)
     positive_line_issues = [it for it in normalized_issues 
                            if it.get("start_line", 0) > 0 and it.get("end_line", 0) > 0]
     negative_line_issues = [it for it in normalized_issues 
@@ -158,10 +158,10 @@ def transform_to_simple_issues_with_insertions(matched_result: Dict[str, Any]) -
     zero_line_issues = [it for it in normalized_issues 
                         if it.get("start_line", 0) == 0 and it.get("end_line", 0) == 0]
     
-    # 合并正数行号的问题（替换操作）
+    # Merge positive line number issues (replacement operations)
     merged_positive_issues = merge_overlapping_issues(positive_line_issues)
     
-    # 组合所有问题：合并后的替换问题 + 插入问题 + 零行号问题
+    # Combine all issues: merged replacement issues + insertion issues + zero line number issues
     final_issues = merged_positive_issues + negative_line_issues + zero_line_issues
     
     return final_issues

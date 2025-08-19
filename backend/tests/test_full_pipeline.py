@@ -47,7 +47,7 @@ def save_json_file(data, filename, description):
 def test_full_pipeline():
     """Run the full SEO analysis pipeline."""
     
-    # 1. 读取测试HTML文件
+    # 1. Read test HTML file
     print("📖 Reading test HTML file...")
     html_file_path = Path(__file__).parent / "test_seo_page.html"
     
@@ -60,7 +60,7 @@ def test_full_pipeline():
     
     print(f"✅ HTML loaded, length: {len(html_content)} chars")
     
-    # 2. 调用Lighthouse服务
+    # 2. Call Lighthouse service
     print("\n🔍 Step 1: call Lighthouse service...")
     try:
         seo_service = SEOAnalysisService()
@@ -78,13 +78,13 @@ def test_full_pipeline():
         print(f"❌ Lighthouse call failed: {e}")
         return
     
-    # 3. 运行LHR解析器
+    # 3. Run LHR parser
     print("\n📊 Step 2: run LHR parser...")
     try:
         parser = LHRTool()
         parsed_result = parser.parse_lhr_json(lighthouse_result)
         
-        # 保存解析后的结果
+        # Save parsed result
         save_json_file(
             parsed_result, 
             "02_parser_output.json", 
@@ -97,12 +97,12 @@ def test_full_pipeline():
         print(f"❌ Parser failed: {e}")
         return
     
-    # 4. 运行匹配器
+    # 4. Run matcher
     print("\n🎯 Step 3: run matcher...")
     try:
         matched_result = match_issues(html_content, parsed_result)
         
-        # 保存匹配结果
+        # Save matching result
         save_json_file(
             matched_result, 
             "04_matcher_output.json", 
@@ -117,12 +117,12 @@ def test_full_pipeline():
         print(f"❌ Matcher failed: {e}")
         return
     
-    # 5. 运行问题合并器
+    # 5. Run issue merger
     print("\n🔧 Step 4: run issue merger...")
     try:
         merged_issues = transform_to_simple_issues_with_insertions(matched_result)
         
-        # 保存合并结果
+        # Save merged result
         save_json_file(
             merged_issues, 
             "04_merger_output.json", 
@@ -135,7 +135,7 @@ def test_full_pipeline():
         print(f"❌ Merger failed: {e}")
         return
     
-    # 6. 构建最终结果
+    # 6. Build final result
     print("\n📝 Step 5: build final result...")
     try:
         final_result = seo_service._build_final_result(
@@ -145,7 +145,7 @@ def test_full_pipeline():
         )
         temp_result = final_result
         
-        # 保存最终结果
+        # Save final result
         if hasattr(final_result, 'dict'):
             final_dict = final_result.dict()
         else:
