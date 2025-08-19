@@ -1,0 +1,112 @@
+{
+  "seo_score": 31.0,
+  "total_lines": 705,
+  "issues": [
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 582,
+      "end_line": 582,
+      "raw_html": "<img src=\"gallery/image-6.png\">",
+      "optimized_html": "<img src=\"gallery/image-6.png\" alt=\"Image 6\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 575,
+      "end_line": 575,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"#\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 487,
+      "end_line": 487,
+      "raw_html": "<img src=\"gallery/image-5.png\">",
+      "optimized_html": "<img src=\"gallery/image-5.png\" alt=\"Image 5\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 480,
+      "end_line": 480,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"#\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 392,
+      "end_line": 392,
+      "raw_html": "<img src=\"gallery/image-4.png\">",
+      "optimized_html": "<img src=\"gallery/image-4.png\" alt=\"Image 4\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 385,
+      "end_line": 385,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"#\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 297,
+      "end_line": 297,
+      "raw_html": "<img src=\"gallery/image-3.png\">",
+      "optimized_html": "<img src=\"gallery/image-3.png\" alt=\"Image 3\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 290,
+      "end_line": 290,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"#\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 202,
+      "end_line": 202,
+      "raw_html": "<img src=\"gallery/image-2.png\">",
+      "optimized_html": "<img src=\"gallery/image-2.png\" alt=\"Image 2\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 195,
+      "end_line": 195,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"#\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 107,
+      "end_line": 107,
+      "raw_html": "<img src=\"gallery/image-1.png\">",
+      "optimized_html": "<img src=\"gallery/image-1.png\" alt=\"Description of the image\">"
+    },
+    {
+      "title": "Links are not crawlable",
+      "start_line": 100,
+      "end_line": 100,
+      "raw_html": "<a href=\"javascript:void(0)\">",
+      "optimized_html": "<a href=\"/real-page\">"
+    },
+    {
+      "title": "Document doesn't have a valid `hreflang`",
+      "start_line": 28,
+      "end_line": 28,
+      "raw_html": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\">",
+      "optimized_html": "<link rel=\"alternate\" hreflang=\"en-US\" href=\"https://example.com/valid\">"
+    },
+    {
+      "title": "Document does not have a valid `rel=canonical`",
+      "start_line": 23,
+      "end_line": 23,
+      "raw_html": "<link rel=\"canonical\" href=\"/relative-canonical\">",
+      "optimized_html": "<link rel=\"canonical\" href=\"https://www.example.com/absolute-canonical\">"
+    },
+    {
+      "title": "Page is blocked from indexing",
+      "start_line": 9,
+      "end_line": 9,
+      "raw_html": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">",
+      "optimized_html": "<meta charset=\"UTF-8\">"
+    }
+  ],
+  "context": "\n        ALL_TITLES:  | Keyword Keyword Keyword | Click Click Click | 超级便宜鞋子 Cheapest Shoes OMG OMG OMG | 重复 标题 Duplicate Title 重复 标题 Duplicate Title\n        ALL_META_DESCRIPTIONS: This description is ridiculously long and spammy cheap shoes cheap shoes buy now buy now free discount coupon repeated repeated repeated. |  | 重复描述 Duplicate description 重复描述 Duplicate description\n        ALL_HEADINGS: Welcome to Cheap Shoes!!! | 欢迎来到最便宜的鞋子!!! | Subsection before H2 (bad order) | Small Topic | Jumping To H5 | Then Back To H3 | Important Content Hidden On Mobile 1 |  |  |  | Important Content Hidden On Mobile 2 |  |  |  | Important Content Hidden On Mobile 3 |  |  |  | Important Content Hidden On Mobile 4 |  |  |  | Important Content Hidden On Mobile 5 |  |  |  | Important Content Hidden On Mobile 6 |  |  |  | Footer Headline H1 (should not be H1)\n        ALL_PAGE_TEXT: Welcome to Cheap Shoes!!! 欢迎来到最便宜的鞋子!!! Subsection before H2 (bad order) Small Topic Jumping To H5 Then Back To H3 This paragraph has extremely low contrast so it’s hard to read on white background. We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here. We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here. 我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！ click here learn more read more absolute wrong Best Shoe 1 Duplicate ID section 1 with thin content. buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon LIMITED OFFER!!! BUY NOW!!! Block 1 FLASH SALE!!! Block 1 Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever. Cheap Shoe Model X-1 FREE buy cheap shoes , buy cheap shoes , buy cheap shoes Important Content Hidden On Mobile 1 This is hidden on mobile via CSS. Duplicate block A1: Cheap shoes are cheap because they are cheap. (1) Duplicate block A2: Cheap shoes are cheap because they are cheap. (1) Duplicate block A3: Cheap shoes are cheap because they are cheap. (1) Cheap Shoe 1-1 - best cheap cheap cheap Cheap Shoe 1-2 - best cheap cheap cheap Cheap Shoe 1-3 - best cheap cheap cheap Cheap Shoe 1-4 - best cheap cheap cheap Cheap Shoe 1-5 - best cheap cheap cheap Bold used as heading 1 Italics used as heading 1 Underlined heading 1 今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 1 Home Category BUY CHEAP SHOES NOW 1 HTTP external 1 We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here. We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here. 我们卖便宜鞋子，我们卖便宜鞋子，我们卖便宜鞋子！ click here learn more read more absolute wrong Best Shoe 2 Duplicate ID section 2 with thin content. buy cheap shoes cheapest sneakers discount trainers outlet footwear best price shoes free gift coupon LIMITED OFFER!!! BUY NOW!!! Block 2 FLASH SALE!!! Block 2 Text-only version: We are a luxury handcrafted artisan footwear boutique with premium pricing and no discounts whatsoever. Cheap Shoe Model X-2 FREE buy cheap shoes , buy cheap shoes , buy cheap shoes Important Content Hidden On Mobile 2 This is hidden on mobile via CSS. Duplicate block A1: Cheap shoes are cheap because they are cheap. (2) Duplicate block A2: Cheap shoes are cheap because they are cheap. (2) Duplicate block A3: Cheap shoes are cheap because they are cheap. (2) Cheap Shoe 2-1 - best cheap cheap cheap Cheap Shoe 2-2 - best cheap cheap cheap Cheap Shoe 2-3 - best cheap cheap cheap Cheap Shoe 2-4 - best cheap cheap cheap Cheap Shoe 2-5 - best cheap cheap cheap Bold used as heading 2 Italics used as heading 2 Underlined heading 2 今天 buy cheap shoes 最便宜 hurry up 马上下单！！！ Block 2 Home Category BUY CHEAP SHOES NOW 2 HTTP external 2 We sell cheap shoes. Really cheap shoes. Cheap cheap cheap shoes! Lowest price guaranteed, click here. We sell ch...\n        "
+}
