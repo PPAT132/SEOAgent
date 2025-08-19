@@ -5,8 +5,7 @@ import json
 from typing import List
 
 from ..config import Config
-
-from app.schemas.seo_analysis import SEOAnalysisResult
+from app.schemas.seo_analysis import SEOAnalysisResult, IssueInfo
 
 class LLMTool:
     """
@@ -94,29 +93,29 @@ class LLMTool:
     def process_batch(self, batch_issues: List[IssueInfo], context: str, batch_num: int):
         """Process a batch of issues, sending context only once per batch"""
         
-        # Build prompt containing 10 issues with very explicit output requirements
+        # Build prompt containing issues with very explicit output requirements
         batch_prompt = f"""
-Page Context:
-{context}
+        Page Context:
+        {context}
 
-You must fix exactly {len(batch_issues)} SEO issues. Return EXACTLY {len(batch_issues)} fixes in this EXACT format:
+        You must fix exactly {len(batch_issues)} SEO issues. Return EXACTLY {len(batch_issues)} fixes in this EXACT format:
 
-ISSUE_1: [fixed HTML]
-ISSUE_2: [fixed HTML]
-ISSUE_3: [fixed HTML]
-...
-ISSUE_{len(batch_issues)}: [fixed HTML]
+        ISSUE_1: [fixed HTML]
+        ISSUE_2: [fixed HTML]
+        ISSUE_3: [fixed HTML]
+        ...
+        ISSUE_{len(batch_issues)}: [fixed HTML]
 
-IMPORTANT RULES:
-- You MUST return exactly {len(batch_issues)} fixes
-- Each fix must start with "ISSUE_X:" followed by the corrected HTML
-- Return ONLY the corrected HTML, no explanations or markdown
-- Each fix must be on a separate line
-- The HTML must be valid and complete
+        IMPORTANT RULES:
+        - You MUST return exactly {len(batch_issues)} fixes
+        - Each fix must start with "ISSUE_X:" followed by the corrected HTML
+        - Return ONLY the corrected HTML, no explanations or markdown
+        - Each fix must be on a separate line
+        - The HTML must be valid and complete
 
-Issues to fix:
-"""
-        
+        Issues to fix:
+        """
+                
         # Add information for each issue with clear numbering
         for i, issue in enumerate(batch_issues, 1):
             batch_prompt += f"\nISSUE_{i}:\nTitle: {issue.title}\nHTML: {issue.raw_html}\n"
