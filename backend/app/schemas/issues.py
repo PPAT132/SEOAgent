@@ -10,7 +10,7 @@ class NodeLocation(BaseModel):
 
 class Issue(BaseModel):
     audit_id: str
-    title: str
+    titles: List[str]
     node: Optional[NodeLocation]
     url: Optional[str]
     link_text: Optional[str]
@@ -20,11 +20,13 @@ class Issue(BaseModel):
     match_html: str
     match_line_start: int
     match_line_end: int
+    
     optimized_html: Optional[str]
 
 # use this to pass to llm for now since 
 class Issues(BaseModel):
     seo_score: int
+    html_total_lines: int
     issues: List[Issue]
 
 #don't use this for now since only care about matched_results so just use "Issues" class

@@ -15,6 +15,8 @@ class IssueInfo(BaseModel):
     end_line: int = Field(..., description="结束行号 (正数=替换, 负数=插入)")
     raw_html: str = Field(..., description="原始HTML内容或建议的HTML")
 
+    optimized_html: str = Field("", description="the html that is returned by the llm")
+
 
 class SEOAnalysisResult(BaseModel):
     """SEO 分析结果"""

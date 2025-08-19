@@ -14,11 +14,10 @@ import sys
 import json
 from datetime import datetime
 from pathlib import Path
-from dotenv import load_dotenv
 from typing import Dict, Any, List
 
 # Add the backend directory to Python path so we can import app modules
-backend_dir = Path(__file__).parents[2]  # Go up 2 levels to reach 'backend'
+backend_dir = Path(__file__).parents[1]  # Go up 2 levels to reach 'backend'
 sys.path.insert(0, str(backend_dir))
 
 from app.core.llm_tool import LLMTool
@@ -46,7 +45,7 @@ class LLMTester:
             {
                 "name": "1",
                 "html_snippet": "<img src=\"gallery/image-2.png\">",
-                "issue": "Image elements do not have `[alt]` attributes"
+                "issue": ["Image elements do not have `[alt]` attributes"]
             }
         ]
 
@@ -55,7 +54,7 @@ class LLMTester:
         print(f"🔄 Testing: {test_case['name']}")
         
         try:
-            result = self.llm_tool.get_modifications(
+            result = self.llm_tool.get_modification(
                 modify_context=test_case['issue'],
                 match_html=test_case['html_snippet']
             )
