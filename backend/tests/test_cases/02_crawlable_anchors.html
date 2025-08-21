@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncrawlable Links Test Page</title>
+    <meta name="description" content="Test page for uncrawlable anchor links">
+    <link rel="canonical" href="https://example.com/uncrawlable-test">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Uncrawlable Links Test</h1>
+            <p>This page contains various types of uncrawlable links that should be detected by Lighthouse.</p>
+        </section>
+
+        <section class="javascript-links">
+            <h2>JavaScript Links (Uncrawlable)</h2>
+            <p>These links use JavaScript and are not crawlable by search engines:</p>
+            
+            <!-- JavaScript void links -->
+            <a href="javascript:void(0)">Click here for nothing</a>
+            <a href="javascript:void(0)">Learn more</a>
+            <a href="javascript:void(0)">Get started</a>
+            <a href="javascript:void(0)">Download now</a>
+            <a href="javascript:void(0)">Sign up</a>
+            
+            <!-- JavaScript function calls -->
+            <a href="javascript:showModal()">Open modal</a>
+            <a href="javascript:loadContent()">Load content</a>
+            <a href="javascript:submitForm()">Submit form</a>
+            <a href="javascript:playVideo()">Play video</a>
+            <a href="javascript:toggleMenu()">Toggle menu</a>
+            
+            <!-- JavaScript with parameters -->
+            <a href="javascript:openPopup('product1')">View product</a>
+            <a href="javascript:addToCart(123)">Add to cart</a>
+            <a href="javascript:shareContent('facebook')">Share on Facebook</a>
+            <a href="javascript:bookmarkPage()">Bookmark this page</a>
+            <a href="javascript:printPage()">Print page</a>
+        </section>
+
+        <section class="empty-hash-links">
+            <h2>Empty Hash Links (Uncrawlable)</h2>
+            <p>These links use empty hash and are not crawlable:</p>
+            
+            <a href="#">Click here</a>
+            <a href="#">Learn more</a>
+            <a href="#">Get started</a>
+            <a href="#">Download now</a>
+            <a href="#">Sign up</a>
+            <a href="#">Read more</a>
+            <a href="#">View details</a>
+            <a href="#">Continue reading</a>
+            <a href="#">Next page</a>
+            <a href="#">Previous page</a>
+        </section>
+
+        <section class="mailto-links">
+            <h2>Mailto Links (Limited Crawlability)</h2>
+            <p>These email links have limited crawlability:</p>
+            
+            <a href="mailto:info@example.com">Contact us</a>
+            <a href="mailto:support@example.com">Get support</a>
+            <a href="mailto:sales@example.com">Sales inquiry</a>
+            <a href="mailto:jobs@example.com">Job opportunities</a>
+            <a href="mailto:feedback@example.com">Send feedback</a>
+        </section>
+
+        <section class="tel-links">
+            <h2>Telephone Links (Limited Crawlability)</h2>
+            <p>These phone number links have limited crawlability:</p>
+            
+            <a href="tel:+1234567890">Call us</a>
+            <a href="tel:+1234567891">Support hotline</a>
+            <a href="tel:+1234567892">Sales line</a>
+            <a href="tel:+1234567893">Emergency contact</a>
+            <a href="tel:+1234567894">Main office</a>
+        </section>
+
+        <section class="onclick-links">
+            <h2>OnClick Event Links (Uncrawlable)</h2>
+            <p>These links use onclick events and are not crawlable:</p>
+            
+            <a href="#" onclick="showAlert()">Show alert</a>
+            <a href="#" onclick="loadData()">Load data</a>
+            <a href="#" onclick="saveForm()">Save form</a>
+            <a href="#" onclick="deleteItem()">Delete item</a>
+            <a href="#" onclick="updateProfile()">Update profile</a>
+            <a href="#" onclick="sendMessage()">Send message</a>
+            <a href="#" onclick="refreshPage()">Refresh page</a>
+            <a href="#" onclick="goBack()">Go back</a>
+            <a href="#" onclick="scrollToTop()">Scroll to top</a>
+            <a href="#" onclick="toggleTheme()">Toggle theme</a>
+        </section>
+
+        <section class="data-urls">
+            <h2>Data URLs (Limited Crawlability)</h2>
+            <p>These data URLs have limited crawlability:</p>
+            
+            <a href="data:text/html;charset=utf-8,<html><body><h1>Hello</h1></body></html>">Data HTML</a>
+            <a href="data:text/plain;charset=utf-8,Hello%20World">Data text</a>
+            <a href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiLz48L3N2Zz4=">Data image</a>
+        </section>
+
+        <section class="mixed-links">
+            <h2>Mixed Link Types</h2>
+            <p>This section contains a mix of crawlable and uncrawlable links:</p>
+            
+            <!-- Good crawlable links -->
+            <a href="/products">Our Products</a>
+            <a href="/services">Our Services</a>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/blog">Blog</a>
+            
+            <!-- Bad uncrawlable links -->
+            <a href="javascript:void(0)">Click for more</a>
+            <a href="#">Read more</a>
+            <a href="javascript:showDetails()">Show details</a>
+            <a href="mailto:info@example.com">Email us</a>
+            <a href="tel:+1234567890">Call us</a>
+        </section>
+
+        <section class="navigation-links">
+            <h2>Navigation Links</h2>
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0)">Home</a></li>
+                    <li><a href="javascript:void(0)">About</a></li>
+                    <li><a href="javascript:void(0)">Services</a></li>
+                    <li><a href="javascript:void(0)">Portfolio</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="footer-links">
+            <h2>Footer Links</h2>
+            <footer>
+                <div class="footer-links">
+                    <a href="javascript:void(0)">Privacy Policy</a>
+                    <a href="javascript:void(0)">Terms of Service</a>
+                    <a href="javascript:void(0)">Cookie Policy</a>
+                    <a href="javascript:void(0)">Sitemap</a>
+                    <a href="javascript:void(0)">Help Center</a>
+                </div>
+            </footer>
+        </section>
+
+        <section class="social-links">
+            <h2>Social Media Links</h2>
+            <div class="social-icons">
+                <a href="javascript:void(0)" onclick="shareOnFacebook()">Facebook</a>
+                <a href="javascript:void(0)" onclick="shareOnTwitter()">Twitter</a>
+                <a href="javascript:void(0)" onclick="shareOnLinkedIn()">LinkedIn</a>
+                <a href="javascript:void(0)" onclick="shareOnInstagram()">Instagram</a>
+                <a href="javascript:void(0)" onclick="shareOnYouTube()">YouTube</a>
+            </div>
+        </section>
+
+        <section class="form-links">
+            <h2>Form Action Links</h2>
+            <form action="javascript:void(0)" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section class="button-links">
+            <h2>Button Style Links</h2>
+            <div class="button-group">
+                <a href="javascript:void(0)" class="btn btn-primary">Primary Action</a>
+                <a href="javascript:void(0)" class="btn btn-secondary">Secondary Action</a>
+                <a href="javascript:void(0)" class="btn btn-success">Success Action</a>
+                <a href="javascript:void(0)" class="btn btn-danger">Danger Action</a>
+                <a href="javascript:void(0)" class="btn btn-warning">Warning Action</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript functions for the uncrawlable links
+        function showModal() {
+            alert('Modal would open here');
+        }
+        
+        function loadContent() {
+            console.log('Loading content...');
+        }
+        
+        function submitForm() {
+            alert('Form submitted!');
+        }
+        
+        function playVideo() {
+            console.log('Playing video...');
+        }
+        
+        function toggleMenu() {
+            console.log('Toggling menu...');
+        }
+        
+        function openPopup(productId) {
+            alert('Opening popup for product: ' + productId);
+        }
+        
+        function addToCart(productId) {
+            alert('Added product ' + productId + ' to cart');
+        }
+        
+        function shareContent(platform) {
+            alert('Sharing on ' + platform);
+        }
+        
+        function bookmarkPage() {
+            alert('Page bookmarked!');
+        }
+        
+        function printPage() {
+            window.print();
+        }
+        
+        function showAlert() {
+            alert('This is an alert!');
+        }
+        
+        function loadData() {
+            console.log('Loading data...');
+        }
+        
+        function saveForm() {
+            alert('Form saved!');
+        }
+        
+        function deleteItem() {
+            alert('Item deleted!');
+        }
+        
+        function updateProfile() {
+            alert('Profile updated!');
+        }
+        
+        function sendMessage() {
+            alert('Message sent!');
+        }
+        
+        function refreshPage() {
+            location.reload();
+        }
+        
+        function goBack() {
+            history.back();
+        }
+        
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+        
+        function toggleTheme() {
+            console.log('Toggling theme...');
+        }
+        
+        function shareOnFacebook() {
+            alert('Sharing on Facebook');
+        }
+        
+        function shareOnTwitter() {
+            alert('Sharing on Twitter');
+        }
+        
+        function shareOnLinkedIn() {
+            alert('Sharing on LinkedIn');
+        }
+        
+        function shareOnInstagram() {
+            alert('Sharing on Instagram');
+        }
+        
+        function shareOnYouTube() {
+            alert('Sharing on YouTube');
+        }
+    </script>
+
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+        
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: 1px solid #6c757d;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+            border: 1px solid #28a745;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            border: 1px solid #dc3545;
+        }
+        
+        .btn-warning {
+            background-color: #ffc107;
+            color: #212529;
+            border: 1px solid #ffc107;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+        }
+        
+        input, textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>
+</html>

@@ -644,39 +644,41 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
 
     # 6) document-level fallbacks (e.g., missing <title> / meta description)
     if audit_id in ("document-title", "meta-description"):
-        # If title/meta exists, return that; else return <head> as evidence of absence.
-        if audit_id == "document-title":
-            # Try to find an existing <title>
+        # Special handling for "does not have" type issues
+        if audit_id == "meta-description":
+            # For meta description, we want to insert after <title> tag
             try:
                 titles = dom.css("head > title")
+                if titles:
+                    # Found title tag, insert meta description after it
+                    offsets = dom.map_elem_to_offsets(titles[0])
+                    if offsets:
+                        s, e = offsets
+                        ls, le = _slice_to_lines_1based(starts, s, e)
+                        # Set start_line=0, end_line=0 to indicate "missing" issue
+                        # But provide context around title for insertion
+                        issue.update({
+                            "match_status": "matched",
+                            "match_html": raw[s:e],  # This is the title tag context
+                            "match_line_start": 0,   # Indicate missing issue
+                            "match_line_end": 0      # Indicate missing issue
+                        })
+                        return issue
             except Exception:
-                titles = []
-            if titles:
-                offsets = dom.map_elem_to_offsets(titles[0])
-                if offsets:
-                    s, e = offsets
-                    ls, le = _slice_to_lines_1based(starts, s, e)
-                    issue.update({
-                        "match_status": "matched",
-                        "match_html": raw[s:e],
-                        "match_line_start": ls,
-                        "match_line_end": le
-                    })
-                    return issue
-
-        # Return <head> slice as absence-evidence
-        m_open = re.search(r"<head\b[^>]*>", raw, re.I)
-        m_close = re.search(r"</head\s*>", raw, re.I)
-        if m_open and m_close and m_close.start() > m_open.start():
-            s, e = m_open.start(), m_close.end()
-            ls, le = _slice_to_lines_1based(starts, s, e)
-            issue.update({
-                "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
-            })
-            return issue
+                pass
+            
+            # Fallback: return head context for insertion
+            m_open = re.search(r"<head\b[^>]*>", raw, re.I)
+            m_close = re.search(r"</head\s*>", raw, re.I)
+            if m_open and m_close and m_close.start() > m_open.start():
+                s, e = m_open.start(), m_close.end()
+                issue.update({
+                    "match_status": "matched",
+                    "match_html": raw[s:e],
+                    "match_line_start": 0,   # Indicate missing issue
+                    "match_line_end": 0      # Indicate missing issue
+                })
+                return issue
 
     # 7) Special handling for canonical audit
     if audit_id == "canonical":

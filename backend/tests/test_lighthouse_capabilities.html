@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- 测试重复标题 -->
+  <title>Test Page</title>
+  <title>Duplicate Title</title>
+  
+  <!-- 测试meta描述 -->
+  <meta name="description" content="Test description">
+  
+  <!-- 测试已废弃标签 -->
+  <marquee>Scrolling text</marquee>
+  <font size="5">Big text</font>
+  <center>Centered text</center>
+  
+  <!-- 测试重复ID -->
+  <div id="test">First div</div>
+  <div id="test">Second div with same ID</div>
+  
+  <!-- 测试标题层级问题 -->
+  <h1>Main heading</h1>
+  <h3>Skip h2, go to h3</h3>
+  <h2>This should come after h1</h2>
+  
+  <!-- 测试图片alt属性 -->
+  <img src="test.jpg">
+  <img src="test2.jpg" alt="">
+  
+  <!-- 测试链接文本 -->
+  <a href="#">click</a>
+  <a href="#">here</a>
+  <a href="javascript:void(0)">javascript link</a>
+  
+  <!-- 测试不安全链接 -->
+  <iframe src="http://insecure.com"></iframe>
+  
+  <!-- 测试结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "Test Product"
+  }
+  </script>
+</head>
+<body>
+  <h1>Body content</h1>
+  <p>Test paragraph</p>
+</body>
+</html>

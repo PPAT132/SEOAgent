@@ -192,10 +192,14 @@ def main():
             f.write(f"- Optimized lines: {len(optimized_lines)}\n")
             f.write(f"- Title tags in original: {original_html.count('<title>')}\n")
             f.write(f"- Title tags in optimized: {optimized_html.count('<title>')}\n")
-            f.write(f"- Canonical links in original: {original_html.count('rel=\"canonical\"')}\n")
-            f.write(f"- Canonical links in optimized: {optimized_html.count('rel=\"canonical\"')}\n")
-            f.write(f"- JavaScript void links in original: {original_html.count('javascript:void(0)')}\n")
-            f.write(f"- JavaScript void links in optimized: {optimized_html.count('javascript:void(0)')}\n")
+            canonical_count_orig = original_html.count('rel="canonical"')
+            canonical_count_opt = optimized_html.count('rel="canonical"')
+            f.write(f"- Canonical links in original: {canonical_count_orig}\n")
+            f.write(f"- Canonical links in optimized: {canonical_count_opt}\n")
+            js_void_count_orig = original_html.count('javascript:void(0)')
+            js_void_count_opt = optimized_html.count('javascript:void(0)')
+            f.write(f"- JavaScript void links in original: {js_void_count_orig}\n")
+            f.write(f"- JavaScript void links in optimized: {js_void_count_opt}\n")
         
         print(f"✓ Report saved: {os.path.basename(report_path)}")
         

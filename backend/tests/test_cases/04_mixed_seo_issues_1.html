@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Description Missing Test Page</title>
-    <!-- Missing meta description - this should be detected -->
-    <link rel="canonical" href="https://example.com/meta-description-test">
+    <!-- 重复标题问题 -->
+    <title>Mixed SEO Issues Test Page</title>
+    <title>Duplicate Title - This should be detected</title>
+    <meta name="description" content="Test page with multiple SEO issues including missing alt attributes, uncrawlable links, and structural problems">
+    <link rel="canonical" href="https://example.com/mixed-seo-test-1">
 </head>
 <body>
     <header>
@@ -20,73 +22,100 @@
 
     <main>
         <section class="hero">
-            <h1>Meta Description Missing Test</h1>
-            <p>This page is missing a meta description tag, which is important for SEO and search engine snippets.</p>
+            <h1>Mixed SEO Issues Test Page</h1>
+            <p>This page contains multiple SEO problems that should be detected and fixed.</p>
+            
+            <!-- 缺少alt属性的图片 -->
+            <img src="hero-banner.jpg">
+            <img src="company-logo.png">
+            <img src="product-showcase.jpg">
         </section>
 
-        <section class="content">
-            <h2>Why Meta Descriptions Matter</h2>
-            <p>Meta descriptions are crucial for SEO because they:</p>
-            <ul>
-                <li>Provide a summary of the page content in search results</li>
-                <li>Help users understand what the page is about before clicking</li>
-                <li>Can improve click-through rates from search results</li>
-                <li>Give search engines context about the page content</li>
-            </ul>
+        <section class="navigation-issues">
+            <h2>Navigation Issues</h2>
+            <!-- 不可爬取的链接 -->
+            <a href="javascript:void(0)">Click here for nothing</a>
+            <a href="javascript:void(0)">Learn more</a>
+            <a href="javascript:void(0)">Get started</a>
+            <a href="#">Read more</a>
+            <a href="#">View details</a>
+            
+            <!-- 好的链接 -->
+            <a href="/products">Our Products</a>
+            <a href="/services">Our Services</a>
+        </section>
+
+        <section class="structural-issues">
+            <h2>Structural Issues</h2>
+            
+            <!-- 重复ID问题 -->
+            <div id="content">First content div</div>
+            <div id="content">Second content div with same ID</div>
+            
+            <!-- 标题层级错误 -->
+            <h1>Main Heading</h1>
+            <h3>Skip h2, go to h3</h3>
+            <h2>This should come after h1</h2>
+            <h4>Another heading</h4>
+            <h6>Skip h5, go to h6</h6>
         </section>
 
         <section class="products">
             <h2>Our Products</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="product1.jpg" alt="Product One">
+                    <img src="product1.jpg">
                     <h3>Product One</h3>
                     <p>Description of product one with detailed information about its features and benefits.</p>
+                    <a href="javascript:void(0)">Buy now</a>
                 </div>
                 <div class="product-card">
-                    <img src="product2.jpg" alt="Product Two">
+                    <img src="product2.jpg">
                     <h3>Product Two</h3>
                     <p>Description of product two with detailed information about its features and benefits.</p>
+                    <a href="javascript:void(0)">Add to cart</a>
                 </div>
                 <div class="product-card">
-                    <img src="product3.jpg" alt="Product Three">
+                    <img src="product3.jpg">
                     <h3>Product Three</h3>
                     <p>Description of product three with detailed information about its features and benefits.</p>
+                    <a href="javascript:void(0)">Learn more</a>
                 </div>
             </div>
         </section>
 
-        <section class="services">
-            <h2>Our Services</h2>
-            <div class="service-item">
-                <h3>Web Design</h3>
-                <p>Custom website design tailored to your brand and business needs.</p>
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="member">
+                    <img src="ceo.jpg">
+                    <h3>John Smith</h3>
+                    <p>CEO and Founder</p>
+                </div>
+                <div class="member">
+                    <img src="cto.jpg">
+                    <h3>Jane Doe</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="member">
+                    <img src="designer.jpg">
+                    <h3>Mike Johnson</h3>
+                    <p>Lead Designer</p>
+                </div>
             </div>
-            <div class="service-item">
-                <h3>SEO Optimization</h3>
-                <p>Comprehensive search engine optimization to improve your online visibility.</p>
-            </div>
-            <div class="service-item">
-                <h3>Digital Marketing</h3>
-                <p>Strategic digital marketing campaigns to grow your business.</p>
-            </div>
-        </section>
-
-        <section class="about">
-            <h2>About Our Company</h2>
-            <p>We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals.</p>
-            <p>With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers.</p>
         </section>
 
         <section class="testimonials">
             <h2>Customer Testimonials</h2>
             <div class="testimonial">
+                <img src="customer1.jpg">
                 <blockquote>
                     "This company has transformed our business with their innovative solutions."
                 </blockquote>
                 <cite>- Sarah Wilson, Marketing Director</cite>
             </div>
             <div class="testimonial">
+                <img src="customer2.jpg">
                 <blockquote>
                     "Outstanding service and exceptional results. Highly recommended!"
                 </blockquote>
@@ -97,22 +126,53 @@
         <section class="blog">
             <h2>Latest Blog Posts</h2>
             <article>
+                <img src="blog1.jpg">
                 <h3>How to Improve Your SEO Strategy</h3>
                 <p>Learn the latest techniques for improving your search engine optimization strategy.</p>
+                <a href="#">Read more</a>
             </article>
             <article>
+                <img src="blog2.jpg">
                 <h3>The Future of Web Development</h3>
                 <p>Explore the upcoming trends and technologies in web development.</p>
+                <a href="#">Read more</a>
             </article>
             <article>
+                <img src="blog3.jpg">
                 <h3>Building User-Friendly Interfaces</h3>
                 <p>Best practices for creating intuitive and accessible user interfaces.</p>
+                <a href="#">Read more</a>
             </article>
+        </section>
+
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <img src="web-design.jpg">
+                <h3>Web Design</h3>
+                <p>Custom website design tailored to your brand and business needs.</p>
+                <a href="javascript:void(0)">Get quote</a>
+            </div>
+            <div class="service-item">
+                <img src="seo-optimization.jpg">
+                <h3>SEO Optimization</h3>
+                <p>Comprehensive search engine optimization to improve your online visibility.</p>
+                <a href="javascript:void(0)">Learn more</a>
+            </div>
+            <div class="service-item">
+                <img src="digital-marketing.jpg">
+                <h3>Digital Marketing</h3>
+                <p>Strategic digital marketing campaigns to grow your business.</p>
+                <a href="javascript:void(0)">Start campaign</a>
+            </div>
         </section>
 
         <section class="contact">
             <h2>Contact Us</h2>
-            <p>Ready to start your project? Get in touch with us today!</p>
+            <div class="contact-info">
+                <img src="office-location.jpg">
+                <p>Visit our office for a consultation</p>
+            </div>
             <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
@@ -128,22 +188,20 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Contact Information</h4>
-                <p>Email: info@example.com</p>
-                <p>Phone: +1 (555) 123-4567</p>
-                <p>Address: 123 Main St, City, State 12345</p>
+                <img src="footer-logo.png">
+                <p>Your trusted partner in digital success.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="/privacy">Privacy Policy</a></li>
-                    <li><a href="/terms">Terms of Service</a></li>
-                    <li><a href="/sitemap">Sitemap</a></li>
+                    <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                    <li><a href="javascript:void(0)">Terms of Service</a></li>
+                    <li><a href="javascript:void(0)">Sitemap</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Follow Us</h4>
-                <p>Stay connected with us on social media</p>
+                <h4>Connect With Us</h4>
+                <img src="social-media-icons.jpg">
             </div>
         </div>
         <div class="footer-bottom">
@@ -156,14 +214,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page loaded successfully');
             
-            // Add form submission handling
-            const form = document.querySelector('form');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Form submitted! (This is a test page)');
+            // Add some interactive functionality
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    console.log('Image clicked:', this.src);
                 });
-            }
+            });
         });
     </script>
 
@@ -223,6 +280,13 @@
             border-radius: 8px;
         }
         
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
         .service-item {
             margin: 2rem 0;
             padding: 1rem;
@@ -236,15 +300,19 @@
             border-left: 4px solid #007bff;
         }
         
-        blockquote {
-            font-style: italic;
-            margin: 0;
+        a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 4px;
         }
         
-        cite {
-            display: block;
-            margin-top: 1rem;
-            font-weight: bold;
+        a:hover {
+            background-color: #007bff;
+            color: white;
         }
         
         form {

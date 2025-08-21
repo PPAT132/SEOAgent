@@ -82,18 +82,50 @@ class LLMTool:
     def get_batch_modification(self, analysis_res: SEOAnalysisResult) -> SEOAnalysisResult:
         issues_list = analysis_res.issues
         batch_size = 10  # Process 10 issues per batch
-        
-        # Process issues in batches
-        for i in range(0, len(issues_list), batch_size):
-            batch = issues_list[i:i+batch_size]
+
+        # Split issues: missing (insert new content) vs non-missing (replace/modify)
+        # Only treat specific audit types as "missing" that require insertion
+        missing_audit_ids = {"meta-description"}  # Conservative list - only confirmed missing types
+        missing_issues = []
+        non_missing_issues = []
+
+        for issue in issues_list:
+            # Check if this is a confirmed "missing" type (start_line=0, end_line=0)
+            if (issue.start_line == 0 and issue.end_line == 0):
+                # Double-check by audit_id or title to be safe
+                is_missing_type = False
+                if hasattr(issue, 'audit_id') and issue.audit_id in missing_audit_ids:
+                    is_missing_type = True
+                elif 'meta description' in (issue.title or '').lower() and 'does not have' in (issue.title or '').lower():
+                    is_missing_type = True
+                
+                if is_missing_type:
+                    missing_issues.append(issue)
+                else:
+                    # Conservative: treat as non-missing if not confirmed
+                    non_missing_issues.append(issue)
+            else:
+                non_missing_issues.append(issue)
+
+        # Process non-missing issues in batches
+        for i in range(0, len(non_missing_issues), batch_size):
+            batch = non_missing_issues[i:i+batch_size]
             self.process_batch(batch, analysis_res.context, i//batch_size + 1)
-        
+
+        # Process missing issues with lightweight targeted prompts
+        for issue in missing_issues:
+            try:
+                issue.optimized_html = self.generate_missing_element(issue, analysis_res.context)
+            except Exception:
+                # Fallback to raw_html suggestion if provided, else keep empty
+                issue.optimized_html = issue.optimized_html or issue.raw_html
+
         return analysis_res
 
     def process_batch(self, batch_issues: List[IssueInfo], context: str, batch_num: int):
         """Process a batch of issues, sending context only once per batch"""
         
-        # Build prompt containing issues with very explicit output requirements
+        # Build prompt containing issues with explicit output requirements
         batch_prompt = f"""
         Page Context:
         {context}
@@ -125,6 +157,85 @@ class LLMTool:
         
         # Parse response and assign to each issue
         self.parse_batch_response(response, batch_issues)
+
+    def generate_missing_element(self, issue: IssueInfo, context: str) -> str:
+        """Generate HTML for missing elements using a compact, targeted prompt.
+        Only used when start_line=end_line=0 (insertion required)."""
+        title_lower = issue.title.lower()
+
+        # Only handle confirmed missing types
+        if 'meta description' in title_lower and 'does not have' in title_lower:
+            prompt = (
+                "Based on the page context below, write a concise, user-friendly meta description (150-160 characters).\n"
+                "Return ONLY a single valid HTML tag like: <meta name=\"description\" content=\"...\">\n"
+                "Do NOT include any markdown formatting, code blocks, or explanations.\n"
+                "Return ONLY the HTML tag.\n\n"
+                f"Context:\n{context}"
+            )
+            result = self.generate_content(prompt)
+            # Clean up any markdown formatting that might have been added
+            result = result.strip()
+            if result.startswith('```'):
+                result = result[3:]
+            if result.endswith('```'):
+                result = result[:-3]
+            if result.startswith('html'):
+                result = result[4:]
+            result = result.strip()
+            return result
+
+        # document title (only if confirmed missing)
+        if 'title' in title_lower and 'does not have' in title_lower:
+            prompt = (
+                "Based on the page context below, write a clear, relevant page title (30-60 characters).\n"
+                "Return ONLY a single valid HTML tag like: <title>...</title>\n"
+                "Do NOT include any markdown formatting, code blocks, or explanations.\n"
+                "Return ONLY the HTML tag.\n\n"
+                f"Context:\n{context}"
+            )
+            result = self.generate_content(prompt)
+            # Clean up any markdown formatting
+            result = result.strip()
+            if result.startswith('```'):
+                result = result[3:]
+            if result.endswith('```'):
+                result = result[:-3]
+            if result.startswith('html'):
+                result = result[4:]
+            result = result.strip()
+            return result
+
+        # canonical (only if confirmed missing)
+        if 'canonical' in title_lower and 'does not have' in title_lower:
+            prompt = (
+                "If a canonical URL can be inferred from the context, return a canonical link tag.\n"
+                "Return ONLY: <link rel=\"canonical\" href=\"https://example.com/...\">\n"
+                "Do NOT include any markdown formatting, code blocks, or explanations.\n"
+                "Return ONLY the HTML tag.\n\n"
+                f"Context:\n{context}"
+            )
+            result = self.generate_content(prompt)
+            # Clean up any markdown formatting
+            result = result.strip()
+            if result.startswith('```'):
+                result = result[3:]
+            if result.endswith('```'):
+                result = result[:-3]
+            if result.startswith('html'):
+                result = result[4:]
+            result = result.strip()
+            return result
+
+        # viewport (only if confirmed missing)
+        if 'viewport' in title_lower and 'does not have' in title_lower:
+            return '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+
+        # html lang (only if confirmed missing)
+        if 'lang' in title_lower and 'html' in title_lower and 'does not have' in title_lower:
+            return ''
+
+        # default: return original suggestion or empty
+        return issue.raw_html or ''
 
     def parse_batch_response(self, response: str, batch_issues: List[IssueInfo]):
         """Parse batch response and assign fixes to each issue with robust error handling"""

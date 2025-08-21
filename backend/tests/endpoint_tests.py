@@ -2,7 +2,7 @@ import requests
 
 def test_audit_endpoint():
     # The URL of your FastAPI endpoint
-    api_url = "http://127.0.0.1:8000/audit"
+    api_url = "http://127.0.0.1:3001/audit"
     
     # The URL you want to audit
     target_url = "https://myanimelist.net/"

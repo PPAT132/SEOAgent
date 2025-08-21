@@ -23,7 +23,7 @@ class SEOAnalysisResult(BaseModel):
     seo_score: float = Field(..., description="SEO score (0-100)")
     total_lines: int = Field(..., description="Total number of lines in HTML file")
     issues: List[IssueInfo] = Field(..., description="List of issues, sorted by end line number from largest to smallest")
-    context: str = Field(..., description="string of information about the html content")
+    context: str = Field("", description="string of information about the html content")
     
     class Config:
         schema_extra = {

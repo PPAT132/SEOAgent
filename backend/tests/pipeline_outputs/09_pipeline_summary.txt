@@ -1,0 +1,25 @@
+Full SEO Pipeline Summary Report
+================================
+
+Pipeline executed: /Users/patrick/Desktop/qiaozhishishabi/SEO_Agent /SEOAgent/backend/tests/test_full_pipeline.py
+HTML file: test_seo_page.html
+Original HTML lines: 313
+SEO Score: 85.0
+Issues processed: 1
+Original size: 10124 characters
+Optimized size: 10314 characters
+
+Issues processed:
+--------------------------------------------------------------------------------
+1. Document does not have a meta description
+   Lines 0-0
+   Raw: <title>Meta Description Missing Test Page</title>
+   Fixed: <meta name="description" content="This page tests for missing meta descriptions, crucial for SEO. Le...
+
+
+
+=== OPTIMIZATION RESULTS ===
+Original SEO Score: 85
+Optimized SEO Score: 92
+Score Improvement: 7 points
+Percentage Improvement: 8.2%
