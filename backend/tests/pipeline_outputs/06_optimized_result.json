@@ -1,14 +1,203 @@
 {
   "seo_score": 85.0,
-  "total_lines": 313,
+  "total_lines": 285,
   "issues": [
     {
-      "title": "Document does not have a meta description",
-      "start_line": 0,
-      "end_line": 0,
-      "raw_html": "<title>Meta Description Missing Test Page</title>",
-      "optimized_html": "<meta name=\"description\" content=\"This page tests for missing meta descriptions, crucial for SEO. Learn why meta descriptions matter and explore our web design, SEO, & marketing services.\">"
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 178,
+      "end_line": 178,
+      "raw_html": "<img src=\"social-media-icons.jpg\">",
+      "optimized_html": "<img src=\"social-media-icons.jpg\" alt=\"Social Media Icons\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 165,
+      "end_line": 165,
+      "raw_html": "<img src=\"footer-logo.png\">",
+      "optimized_html": "<img src=\"footer-logo.png\" alt=\"Company Logo\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 147,
+      "end_line": 147,
+      "raw_html": "<img src=\"office-location.jpg\">",
+      "optimized_html": "<img src=\"office-location.jpg\" alt=\"Office Location\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 138,
+      "end_line": 138,
+      "raw_html": "<img src=\"digital-marketing.jpg\">",
+      "optimized_html": "<img src=\"digital-marketing.jpg\" alt=\"Digital Marketing\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 133,
+      "end_line": 133,
+      "raw_html": "<img src=\"seo-optimization.jpg\">",
+      "optimized_html": "<img src=\"seo-optimization.jpg\" alt=\"SEO Optimization\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 128,
+      "end_line": 128,
+      "raw_html": "<img src=\"web-design.jpg\">",
+      "optimized_html": "<img src=\"web-design.jpg\" alt=\"Web Design\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 119,
+      "end_line": 119,
+      "raw_html": "<img src=\"blog3.jpg\">",
+      "optimized_html": "<img src=\"blog3.jpg\" alt=\"Building User-Friendly Interfaces\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 114,
+      "end_line": 114,
+      "raw_html": "<img src=\"blog2.jpg\">",
+      "optimized_html": "<img src=\"blog2.jpg\" alt=\"The Future of Web Development\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 109,
+      "end_line": 109,
+      "raw_html": "<img src=\"blog1.jpg\">",
+      "optimized_html": "<img src=\"blog1.jpg\" alt=\"How to Improve Your SEO Strategy\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 98,
+      "end_line": 98,
+      "raw_html": "<img src=\"customer2.jpg\">",
+      "optimized_html": "<img src=\"customer2.jpg\" alt=\"Customer Testimonial Image\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 91,
+      "end_line": 91,
+      "raw_html": "<img src=\"customer1.jpg\">",
+      "optimized_html": "<img src=\"customer1.jpg\" alt=\"Customer 1\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 81,
+      "end_line": 81,
+      "raw_html": "<img src=\"designer.jpg\">",
+      "optimized_html": "<img src=\"designer.jpg\" alt=\"Mike Johnson, Lead Designer\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 76,
+      "end_line": 76,
+      "raw_html": "<img src=\"cto.jpg\">",
+      "optimized_html": "<img src=\"cto.jpg\" alt=\"Jane Doe, Chief Technology Officer\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 71,
+      "end_line": 71,
+      "raw_html": "<img src=\"ceo.jpg\">",
+      "optimized_html": "<img src=\"ceo.jpg\" alt=\"John Smith, CEO and Founder\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 63,
+      "end_line": 63,
+      "raw_html": "<img src=\"gallery6.jpg\">",
+      "optimized_html": "<img src=\"gallery6.jpg\" alt=\"Gallery Image 6\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 62,
+      "end_line": 62,
+      "raw_html": "<img src=\"gallery5.jpg\">",
+      "optimized_html": "<img src=\"gallery5.jpg\" alt=\"Gallery Image 5\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 61,
+      "end_line": 61,
+      "raw_html": "<img src=\"gallery4.jpg\">",
+      "optimized_html": "<img src=\"gallery4.jpg\" alt=\"Gallery Image 4\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 60,
+      "end_line": 60,
+      "raw_html": "<img src=\"gallery3.jpg\">",
+      "optimized_html": "<img src=\"gallery3.jpg\" alt=\"Gallery Image 3\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 59,
+      "end_line": 59,
+      "raw_html": "<img src=\"gallery2.jpg\">",
+      "optimized_html": "<img src=\"gallery2.jpg\" alt=\"Gallery Image 2\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 58,
+      "end_line": 58,
+      "raw_html": "<img src=\"gallery1.jpg\">",
+      "optimized_html": "<img src=\"gallery1.jpg\" alt=\"Gallery Image 1\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 48,
+      "end_line": 48,
+      "raw_html": "<img src=\"product3.jpg\">",
+      "optimized_html": "<img src=\"product3.jpg\" alt=\"Product Three\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 43,
+      "end_line": 43,
+      "raw_html": "<img src=\"product2.jpg\">",
+      "optimized_html": "<img src=\"product2.jpg\" alt=\"Product Two\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 38,
+      "end_line": 38,
+      "raw_html": "<img src=\"product1.jpg\">",
+      "optimized_html": "<img src=\"product1.jpg\" alt=\"Product One\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 31,
+      "end_line": 31,
+      "raw_html": "<img src=\"office-building.jpg\">",
+      "optimized_html": "<img src=\"office-building.jpg\" alt=\"Our Office Building\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 30,
+      "end_line": 30,
+      "raw_html": "<img src=\"team-photo.jpg\">",
+      "optimized_html": "<img src=\"team-photo.jpg\" alt=\"Our Team\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 29,
+      "end_line": 29,
+      "raw_html": "<img src=\"product-showcase.jpg\">",
+      "optimized_html": "<img src=\"product-showcase.jpg\" alt=\"Product Showcase\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 28,
+      "end_line": 28,
+      "raw_html": "<img src=\"company-logo.png\">",
+      "optimized_html": "<img src=\"company-logo.png\" alt=\"Company Logo\">"
+    },
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 27,
+      "end_line": 27,
+      "raw_html": "<img src=\"hero-banner.jpg\">",
+      "optimized_html": "<img src=\"hero-banner.jpg\" alt=\"Hero Banner\">"
     }
   ],
-  "context": "\n        ALL_TITLES: Meta Description Missing Test Page\n        ALL_META_DESCRIPTIONS: \n        ALL_HEADINGS: Meta Description Missing Test | Why Meta Descriptions Matter | Our Products | Product One | Product Two | Product Three | Our Services | Web Design | SEO Optimization | Digital Marketing | About Our Company | Customer Testimonials | Latest Blog Posts | How to Improve Your SEO Strategy | The Future of Web Development | Building User-Friendly Interfaces | Contact Us | Contact Information | Quick Links | Follow Us\n        ALL_PAGE_TEXT: Meta Description Missing Test This page is missing a meta description tag, which is important for SEO and search engine snippets. Why Meta Descriptions Matter Meta descriptions are crucial for SEO because they: Provide a summary of the page content in search results Help users understand what the page is about before clicking Can improve click-through rates from search results Give search engines context about the page content Our Products Product One Description of product one with detailed information about its features and benefits. Product Two Description of product two with detailed information about its features and benefits. Product Three Description of product three with detailed information about its features and benefits. Our Services Web Design Custom website design tailored to your brand and business needs. SEO Optimization Comprehensive search engine optimization to improve your online visibility. Digital Marketing Strategic digital marketing campaigns to grow your business. About Our Company We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals. With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers. Customer Testimonials \"This company has transformed our business with their innovative solutions.\" - Sarah Wilson, Marketing Director \"Outstanding service and exceptional results. Highly recommended!\" - David Brown, CEO Latest Blog Posts How to Improve Your SEO Strategy Learn the latest techniques for improving your search engine optimization strategy. The Future of Web Development Explore the upcoming trends and technologies in web development. Building User-Friendly Interfaces Best practices for creating intuitive and accessible user interfaces. Contact Us Ready to start your project? Get in touch with us today! Name: Email: Message: Send Message\n        "
+  "context": "\n        ALL_TITLES: Image Alt Missing Test Page\n        ALL_META_DESCRIPTIONS: Test page for missing image alt attributes\n        ALL_HEADINGS: Welcome to Our Website | Our Products | Product One | Product Two | Product Three | Photo Gallery | Our Team | John Smith | Jane Doe | Mike Johnson | Customer Testimonials | Latest Blog Posts | How to Improve Your SEO Strategy | The Future of Web Development | Building User-Friendly Interfaces | Our Services | Web Design | SEO Optimization | Digital Marketing | Contact Us | Quick Links | Connect With Us\n        ALL_PAGE_TEXT: Welcome to Our Website This is a comprehensive test page for missing image alt attributes. Our Products Product One Description of product one with detailed information about its features and benefits. Product Two Description of product two with detailed information about its features and benefits. Product Three Description of product three with detailed information about its features and benefits. Photo Gallery Our Team John Smith CEO and Founder Jane Doe Chief Technology Officer Mike Johnson Lead Designer Customer Testimonials \"This company has transformed our business with their innovative solutions.\" - Sarah Wilson, Marketing Director \"Outstanding service and exceptional results. Highly recommended!\" - David Brown, CEO Latest Blog Posts How to Improve Your SEO Strategy Learn the latest techniques for improving your search engine optimization strategy. The Future of Web Development Explore the upcoming trends and technologies in web development. Building User-Friendly Interfaces Best practices for creating intuitive and accessible user interfaces. Our Services Web Design Custom website design tailored to your brand and business needs. SEO Optimization Comprehensive search engine optimization to improve your online visibility. Digital Marketing Strategic digital marketing campaigns to grow your business. Contact Us Visit our office for a consultation Name: Email: Message: Send Message\n        "
 }

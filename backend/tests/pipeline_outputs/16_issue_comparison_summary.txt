@@ -1,16 +1,16 @@
 Issue Count Comparison Summary
 ==============================
 
-Analysis Date: /Users/patrick/Desktop/qiaozhishishabi/SEO_Agent /SEOAgent/backend/tests/test_full_pipeline.py
+Analysis Date: /Users/alexqin/Desktop/projects/SEOAgent/backend/tests/test_full_pipeline.py
 Original HTML File: test_cases/03_meta_description_missing.html
 Optimized HTML File: 08_optimized_html.html
 
 ORIGINAL HTML ANALYSIS:
 ----------------------------------------
 SEO Score: 85
-Parsed Issues: 1
-Matched Issues: 1
-Merged Issues: 1
+Parsed Issues: 28
+Matched Issues: 28
+Merged Issues: 28
 
 OPTIMIZED HTML ANALYSIS:
 ----------------------------------------
@@ -22,9 +22,9 @@ Merged Issues: 0
 IMPROVEMENTS:
 ----------------------------------------
 SEO Score Improvement: 7 points
-Parsed Issues Reduced: 1
-Matched Issues Reduced: 1
-Merged Issues Reduced: 1
+Parsed Issues Reduced: 28
+Matched Issues Reduced: 28
+Merged Issues Reduced: 28
 Percentage Reduction (Parsed): 100.0%
 Percentage Reduction (Matched): 100.0%
 Percentage Reduction (Merged): 100.0%

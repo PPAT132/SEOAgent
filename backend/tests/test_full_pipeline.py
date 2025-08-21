@@ -50,7 +50,8 @@ def test_full_pipeline():
     
     # 1. Read test HTML file
     print("📖 Reading test HTML file...")
-    html_file_path = Path(__file__).parent / "test_cases" / "03_meta_description_missing.html"
+    # html_file_path = Path(__file__).parent / "test_cases" / "03_meta_description_missing.html"
+    html_file_path = Path(__file__).parent / "test_cases" / "01_image_alt_missing.html"
     
     if not html_file_path.exists():
         print(f"❌ HTML file not found: {html_file_path}")
