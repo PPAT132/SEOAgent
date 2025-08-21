@@ -24,3 +24,9 @@ websockets==13.1
 # Additional libraries for Lighthouse parser and matcher
 lxml==6.0.0
 cssselect==1.2.0
+
+# Image captioning dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.21.0
+Pillow>=9.0.0
