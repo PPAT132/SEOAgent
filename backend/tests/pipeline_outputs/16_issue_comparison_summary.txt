@@ -1,0 +1,45 @@
+Issue Count Comparison Summary
+==============================
+
+Analysis Date: /Users/patrick/Desktop/qiaozhishishabi/SEO_Agent /SEOAgent/backend/tests/test_full_pipeline.py
+Original HTML File: test_cases/03_meta_description_missing.html
+Optimized HTML File: 08_optimized_html.html
+
+ORIGINAL HTML ANALYSIS:
+----------------------------------------
+SEO Score: 85
+Parsed Issues: 1
+Matched Issues: 1
+Merged Issues: 1
+
+OPTIMIZED HTML ANALYSIS:
+----------------------------------------
+SEO Score: 92
+Parsed Issues: 0
+Matched Issues: 0
+Merged Issues: 0
+
+IMPROVEMENTS:
+----------------------------------------
+SEO Score Improvement: 7 points
+Parsed Issues Reduced: 1
+Matched Issues Reduced: 1
+Merged Issues Reduced: 1
+Percentage Reduction (Parsed): 100.0%
+Percentage Reduction (Matched): 100.0%
+Percentage Reduction (Merged): 100.0%
+
+FILES GENERATED:
+----------------------------------------
+Original Analysis:
+  01_lighthouse_raw.json
+  02_parser_output.json
+  04_matcher_output.json
+  04_merger_output.json
+
+Optimized Analysis:
+  12_lighthouse_optimized_raw.json
+  13_parser_optimized_output.json
+  14_matcher_optimized_output.json
+  15_merger_optimized_output.json
+  16_issue_comparison_summary.txt

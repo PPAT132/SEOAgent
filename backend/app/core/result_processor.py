@@ -25,7 +25,7 @@ def extract_line_ranges(issues: List[Dict[str, Any]]) -> Dict[str, List[Dict[str
         if start_line is None or end_line is None:
             continue
             
-        # 创建行范围键
+        # Create line range key
         range_key = f"{start_line}-{end_line}"
         
         if range_key not in line_ranges:
@@ -37,8 +37,8 @@ def extract_line_ranges(issues: List[Dict[str, Any]]) -> Dict[str, List[Dict[str
 
 def merge_overlapping_ranges(line_ranges: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
     """
-    合并重叠或相邻的行范围
-    例如: 10-20 和 13-14 合并为 10-20
+    Merge overlapping or adjacent line ranges
+    For example: 10-20 and 13-14 merge to 10-20
     """
     if not line_ranges:
         return {}
@@ -57,7 +57,7 @@ def merge_overlapping_ranges(line_ranges: Dict[str, List[Dict[str, Any]]]) -> Di
     current_start, current_end, current_key, current_issues = ranges[0]
     
     for start, end, key, issues in ranges[1:]:
-        # 如果当前范围与下一个范围重叠或相邻
+        # If current range overlaps or is adjacent to next range
         if start <= current_end + 1:
             # Extend current range
             current_end = max(current_end, end)
@@ -256,15 +256,15 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
     print(f"   - reformating output...")
     result = []
     
-    # 保持排序后的顺序
+    # Maintain sorted order
     for range_key, issues in sorted_ranges:
         start_line, end_line = map(int, range_key.split('-'))
         
-        # 提取整个范围的HTML内容
+        # Extract HTML content for the entire range
         section_html = ""
         if html_content:
             html_lines = html_content.split('\n')
-            start_idx = max(0, start_line - 1)  # 1-based到0-based转换
+            start_idx = max(0, start_line - 1)  # 1-based to 0-based conversion
             end_idx = min(len(html_lines), end_line)
             section_html = '\n'.join(html_lines[start_idx:end_idx])
             print(f"     {range_key}: extracted HTML {len(section_html)} chars")
@@ -274,8 +274,8 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
         for issue in issues:
             filtered_issue = {
                 "title": issue.get("title", ""),
-                "raw_html": issue.get("match_html", ""),  # 匹配到的具体HTML行
-                "start_line": issue.get("match_line_start"),  # 具体行号
+                "raw_html": issue.get("match_html", ""),  # Matched specific HTML line
+                "start_line": issue.get("match_line_start"),  # Specific line number
                 "end_line": issue.get("match_line_end")
             }
             filtered_issues.append(filtered_issue)
@@ -287,7 +287,7 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
             "start_line": start_line,
             "end_line": end_line,
             "issue_count": len(filtered_issues),
-            "section_html": section_html,  # 整个范围的完整HTML
+            "section_html": section_html,  # Complete HTML for entire range
             "issues": filtered_issues
         }
         result.append(range_info)
@@ -300,14 +300,14 @@ def transform_matched_result(matched_result: Dict[str, Any], html_content: str =
 
 def create_dummy_matched_result() -> Dict[str, Any]:
     """
-    创建测试用的 Dummy matched_result 数据
-    包含行范围重叠的情况来测试合并逻辑
+    Create dummy matched_result data for testing
+    Contains overlapping line ranges to test merge logic
     """
-    print("🧪 创建 Dummy 测试数据...")
+    print("🧪 Creating dummy test data...")
     
     dummy_result = {
         "issues": [
-            # 问题1: 10-16行
+            # Issue 1: lines 10-16
             {
                 "audit_id": "crawlable-anchors",
                 "title": "Links are not crawlable",
@@ -317,7 +317,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 10,
                 "match_line_end": 16
             },
-            # 问题2: 13-20行 (与问题1重叠)
+            # Issue 2: lines 13-20 (overlaps with issue 1)
             {
                 "audit_id": "image-alt",
                 "title": "Image elements do not have [alt] attributes",
@@ -327,7 +327,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 13,
                 "match_line_end": 20
             },
-            # 问题3: 25-30行
+            # Issue 3: lines 25-30
             {
                 "audit_id": "duplicate-title",
                 "title": "Document has duplicate title",
@@ -337,7 +337,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 25,
                 "match_line_end": 30
             },
-            # 问题4: 28-35行 (与问题3重叠)
+            # Issue 4: lines 28-35 (overlaps with issue 3)
             {
                 "audit_id": "meta-description",
                 "title": "Document does not have a meta description",
@@ -347,7 +347,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 28,
                 "match_line_end": 35
             },
-            # 问题5: 40-45行 (独立范围)
+            # Issue 5: lines 40-45 (independent range)
             {
                 "audit_id": "hreflang",
                 "title": "Document has invalid hreflang",
@@ -357,7 +357,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 40,
                 "match_line_end": 45
             },
-            # 问题6: 50-60行 (大范围)
+            # Issue 6: lines 50-60 (large range)
             {
                 "audit_id": "large-content",
                 "title": "Content is too large",
@@ -367,7 +367,7 @@ def create_dummy_matched_result() -> Dict[str, Any]:
                 "match_line_start": 50,
                 "match_line_end": 60
             },
-            # 问题7: 55-58行 (在问题6范围内)
+            # Issue 7: lines 55-58 (within issue 6 range)
             {
                 "audit_id": "small-issue",
                 "title": "Small formatting issue",
@@ -380,42 +380,42 @@ def create_dummy_matched_result() -> Dict[str, Any]:
         ]
     }
     
-    print(f"✅ 创建了 {len(dummy_result['issues'])} 个测试问题")
-    print("   包含以下行范围重叠情况:")
-    print("   - 10-16 和 13-20 → 应该合并为 10-20")
-    print("   - 25-30 和 28-35 → 应该合并为 25-35") 
-    print("   - 50-60 和 55-58 → 应该合并为 50-60")
-    print("   - 40-45 → 独立范围")
+    print(f"✅ Created {len(dummy_result['issues'])} test issues")
+    print("   Contains the following overlapping line ranges:")
+    print("   - 10-16 and 13-20 → should merge to 10-20")
+    print("   - 25-30 and 28-35 → should merge to 25-35") 
+    print("   - 50-60 and 55-58 → should merge to 50-60")
+    print("   - 40-45 → independent range")
     
     return dummy_result
 
 
 def test_dummy_data():
     """
-    测试 Dummy 数据的处理逻辑
+    Test dummy data processing logic
     """
     print("\n" + "="*60)
-    print("🧪 测试 Dummy 数据处理逻辑")
+    print("🧪 Testing dummy data processing logic")
     print("="*60)
     
-    # 创建 Dummy 数据
+    # Create dummy data
     dummy_result = create_dummy_matched_result()
     
-    # 创建 Dummy HTML 内容
+    # Create dummy HTML content
     dummy_html = "\n".join([f"Line {i}: Dummy content for testing" for i in range(1, 61)])
     
-    # 处理数据
+    # Process data
     result = transform_matched_result(dummy_result, dummy_html)
     
-    # 显示结果
-    print(f"\n📊 处理结果:")
+    # Display results
+    print(f"\n📊 Processing results:")
     for i, range_info in enumerate(result, 1):
-        print(f"\n{i}. 行范围: {range_info['start_line']}-{range_info['end_line']}")
-        print(f"   问题数量: {range_info['issue_count']}")
-        print(f"   HTML长度: {len(range_info['section_html'])} 字符")
-        print(f"   具体问题:")
+        print(f"\n{i}. Line range: {range_info['start_line']}-{range_info['end_line']}")
+        print(f"   Issue count: {range_info['issue_count']}")
+        print(f"   HTML length: {len(range_info['section_html'])} characters")
+        print(f"   Specific issues:")
         for j, issue in enumerate(range_info['issues'], 1):
-            print(f"     {j}. {issue['title']} (行 {issue['start_line']}-{issue['end_line']})")
+            print(f"     {j}. {issue['title']} (lines {issue['start_line']}-{issue['end_line']})")
             print(f"        HTML: {issue['raw_html']}")
     
     print("\n" + "="*60)

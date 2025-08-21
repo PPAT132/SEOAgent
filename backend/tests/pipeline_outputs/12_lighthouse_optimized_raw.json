@@ -1,5 +1,5 @@
 {
-  "seoScore": 85,
+  "seoScore": 92,
   "audits": {
     "document-title": {
       "id": "document-title",
@@ -47,9 +47,9 @@
     },
     "meta-description": {
       "id": "meta-description",
-      "title": "Document does not have a meta description",
+      "title": "Document has a meta description",
       "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more about the meta description](https://developer.chrome.com/docs/lighthouse/seo/meta-description/).",
-      "score": 0,
+      "score": 1,
       "scoreDisplayMode": "binary"
     },
     "http-status-code": {
@@ -125,7 +125,7 @@
       "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
       "score": 0,
       "scoreDisplayMode": "binary",
-      "displayValue": "278 errors found",
+      "displayValue": "279 errors found",
       "details": {
         "type": "table",
         "headings": [
@@ -178,1361 +178,1366 @@
           },
           {
             "index": "7",
-            "line": "    <!-- Missing meta description - this should be detected -->",
+            "line": "<meta name=\"description\" content=\"This page tests for missing meta descriptions, crucial for SEO. Learn why meta descriptions matter and explore our web design, SEO, & marketing services.\">",
             "message": "Syntax not understood"
           },
           {
             "index": "8",
+            "line": "    <!-- Missing meta description - this should be detected -->",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "9",
             "line": "    <link rel=\"canonical\" href=\"https://example.com/meta-description-test\">",
             "message": "Unknown directive"
           },
           {
-            "index": "9",
+            "index": "10",
             "line": "</head>",
             "message": "Syntax not understood"
           },
           {
-            "index": "10",
+            "index": "11",
             "line": "<body>",
             "message": "Syntax not understood"
           },
           {
-            "index": "11",
+            "index": "12",
             "line": "    <header>",
             "message": "Syntax not understood"
           },
           {
-            "index": "12",
+            "index": "13",
             "line": "        <nav>",
             "message": "Syntax not understood"
           },
           {
-            "index": "13",
-            "line": "            <ul>",
-            "message": "Syntax not understood"
-          },
-          {
             "index": "14",
-            "line": "                <li><a href=\"/\">Home</a></li>",
+            "line": "            <ul>",
             "message": "Syntax not understood"
           },
           {
             "index": "15",
-            "line": "                <li><a href=\"/about\">About</a></li>",
+            "line": "                <li><a href=\"/\">Home</a></li>",
             "message": "Syntax not understood"
           },
           {
             "index": "16",
-            "line": "                <li><a href=\"/contact\">Contact</a></li>",
+            "line": "                <li><a href=\"/about\">About</a></li>",
             "message": "Syntax not understood"
           },
           {
             "index": "17",
-            "line": "            </ul>",
+            "line": "                <li><a href=\"/contact\">Contact</a></li>",
             "message": "Syntax not understood"
           },
           {
             "index": "18",
-            "line": "        </nav>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "19",
-            "line": "    </header>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "21",
-            "line": "    <main>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "22",
-            "line": "        <section class=\"hero\">",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "23",
-            "line": "            <h1>Meta Description Missing Test</h1>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "24",
-            "line": "            <p>This page is missing a meta description tag, which is important for SEO and search engine snippets.</p>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "25",
-            "line": "        </section>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "27",
-            "line": "        <section class=\"content\">",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "28",
-            "line": "            <h2>Why Meta Descriptions Matter</h2>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "29",
-            "line": "            <p>Meta descriptions are crucial for SEO because they:</p>",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "30",
-            "line": "            <ul>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "31",
-            "line": "                <li>Provide a summary of the page content in search results</li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "32",
-            "line": "                <li>Help users understand what the page is about before clicking</li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "33",
-            "line": "                <li>Can improve click-through rates from search results</li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "34",
-            "line": "                <li>Give search engines context about the page content</li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "35",
             "line": "            </ul>",
             "message": "Syntax not understood"
           },
           {
-            "index": "36",
+            "index": "19",
+            "line": "        </nav>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "20",
+            "line": "    </header>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "22",
+            "line": "    <main>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "23",
+            "line": "        <section class=\"hero\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "24",
+            "line": "            <h1>Meta Description Missing Test</h1>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "25",
+            "line": "            <p>This page is missing a meta description tag, which is important for SEO and search engine snippets.</p>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "26",
             "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
-            "index": "38",
-            "line": "        <section class=\"products\">",
+            "index": "28",
+            "line": "        <section class=\"content\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "29",
+            "line": "            <h2>Why Meta Descriptions Matter</h2>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "30",
+            "line": "            <p>Meta descriptions are crucial for SEO because they:</p>",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "31",
+            "line": "            <ul>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "32",
+            "line": "                <li>Provide a summary of the page content in search results</li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "33",
+            "line": "                <li>Help users understand what the page is about before clicking</li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "34",
+            "line": "                <li>Can improve click-through rates from search results</li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "35",
+            "line": "                <li>Give search engines context about the page content</li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "36",
+            "line": "            </ul>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "37",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "39",
-            "line": "            <h2>Our Products</h2>",
+            "line": "        <section class=\"products\">",
             "message": "Syntax not understood"
           },
           {
             "index": "40",
-            "line": "            <div class=\"product-grid\">",
+            "line": "            <h2>Our Products</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "41",
-            "line": "                <div class=\"product-card\">",
+            "line": "            <div class=\"product-grid\">",
             "message": "Syntax not understood"
           },
           {
             "index": "42",
-            "line": "                    <img src=\"product1.jpg\" alt=\"Product One\">",
+            "line": "                <div class=\"product-card\">",
             "message": "Syntax not understood"
           },
           {
             "index": "43",
-            "line": "                    <h3>Product One</h3>",
+            "line": "                    <img src=\"product1.jpg\" alt=\"Product One\">",
             "message": "Syntax not understood"
           },
           {
             "index": "44",
-            "line": "                    <p>Description of product one with detailed information about its features and benefits.</p>",
+            "line": "                    <h3>Product One</h3>",
             "message": "Syntax not understood"
           },
           {
             "index": "45",
-            "line": "                </div>",
+            "line": "                    <p>Description of product one with detailed information about its features and benefits.</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "46",
-            "line": "                <div class=\"product-card\">",
+            "line": "                </div>",
             "message": "Syntax not understood"
           },
           {
             "index": "47",
-            "line": "                    <img src=\"product2.jpg\" alt=\"Product Two\">",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "48",
-            "line": "                    <h3>Product Two</h3>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "49",
-            "line": "                    <p>Description of product two with detailed information about its features and benefits.</p>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "50",
-            "line": "                </div>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "51",
             "line": "                <div class=\"product-card\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "52",
-            "line": "                    <img src=\"product3.jpg\" alt=\"Product Three\">",
+            "index": "48",
+            "line": "                    <img src=\"product2.jpg\" alt=\"Product Two\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "53",
-            "line": "                    <h3>Product Three</h3>",
+            "index": "49",
+            "line": "                    <h3>Product Two</h3>",
             "message": "Syntax not understood"
           },
           {
-            "index": "54",
-            "line": "                    <p>Description of product three with detailed information about its features and benefits.</p>",
+            "index": "50",
+            "line": "                    <p>Description of product two with detailed information about its features and benefits.</p>",
             "message": "Syntax not understood"
           },
           {
-            "index": "55",
+            "index": "51",
             "line": "                </div>",
             "message": "Syntax not understood"
           },
           {
+            "index": "52",
+            "line": "                <div class=\"product-card\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "53",
+            "line": "                    <img src=\"product3.jpg\" alt=\"Product Three\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "54",
+            "line": "                    <h3>Product Three</h3>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "55",
+            "line": "                    <p>Description of product three with detailed information about its features and benefits.</p>",
+            "message": "Syntax not understood"
+          },
+          {
             "index": "56",
-            "line": "            </div>",
+            "line": "                </div>",
             "message": "Syntax not understood"
           },
           {
             "index": "57",
-            "line": "        </section>",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
-            "index": "59",
-            "line": "        <section class=\"services\">",
+            "index": "58",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "60",
-            "line": "            <h2>Our Services</h2>",
+            "line": "        <section class=\"services\">",
             "message": "Syntax not understood"
           },
           {
             "index": "61",
-            "line": "            <div class=\"service-item\">",
+            "line": "            <h2>Our Services</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "62",
-            "line": "                <h3>Web Design</h3>",
+            "line": "            <div class=\"service-item\">",
             "message": "Syntax not understood"
           },
           {
             "index": "63",
-            "line": "                <p>Custom website design tailored to your brand and business needs.</p>",
+            "line": "                <h3>Web Design</h3>",
             "message": "Syntax not understood"
           },
           {
             "index": "64",
-            "line": "            </div>",
+            "line": "                <p>Custom website design tailored to your brand and business needs.</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "65",
-            "line": "            <div class=\"service-item\">",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
             "index": "66",
-            "line": "                <h3>SEO Optimization</h3>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "67",
-            "line": "                <p>Comprehensive search engine optimization to improve your online visibility.</p>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "68",
-            "line": "            </div>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "69",
             "line": "            <div class=\"service-item\">",
             "message": "Syntax not understood"
           },
           {
+            "index": "67",
+            "line": "                <h3>SEO Optimization</h3>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "68",
+            "line": "                <p>Comprehensive search engine optimization to improve your online visibility.</p>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "69",
+            "line": "            </div>",
+            "message": "Syntax not understood"
+          },
+          {
             "index": "70",
-            "line": "                <h3>Digital Marketing</h3>",
+            "line": "            <div class=\"service-item\">",
             "message": "Syntax not understood"
           },
           {
             "index": "71",
-            "line": "                <p>Strategic digital marketing campaigns to grow your business.</p>",
+            "line": "                <h3>Digital Marketing</h3>",
             "message": "Syntax not understood"
           },
           {
             "index": "72",
-            "line": "            </div>",
+            "line": "                <p>Strategic digital marketing campaigns to grow your business.</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "73",
-            "line": "        </section>",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
-            "index": "75",
-            "line": "        <section class=\"about\">",
+            "index": "74",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "76",
-            "line": "            <h2>About Our Company</h2>",
+            "line": "        <section class=\"about\">",
             "message": "Syntax not understood"
           },
           {
             "index": "77",
-            "line": "            <p>We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals.</p>",
+            "line": "            <h2>About Our Company</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "78",
-            "line": "            <p>With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers.</p>",
+            "line": "            <p>We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals.</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "79",
-            "line": "        </section>",
+            "line": "            <p>With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers.</p>",
             "message": "Syntax not understood"
           },
           {
-            "index": "81",
-            "line": "        <section class=\"testimonials\">",
+            "index": "80",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "82",
-            "line": "            <h2>Customer Testimonials</h2>",
+            "line": "        <section class=\"testimonials\">",
             "message": "Syntax not understood"
           },
           {
             "index": "83",
-            "line": "            <div class=\"testimonial\">",
+            "line": "            <h2>Customer Testimonials</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "84",
-            "line": "                <blockquote>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "85",
-            "line": "                    \"This company has transformed our business with their innovative solutions.\"",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "86",
-            "line": "                </blockquote>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "87",
-            "line": "                <cite>- Sarah Wilson, Marketing Director</cite>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "88",
-            "line": "            </div>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "89",
             "line": "            <div class=\"testimonial\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "90",
+            "index": "85",
             "line": "                <blockquote>",
             "message": "Syntax not understood"
           },
           {
-            "index": "91",
-            "line": "                    \"Outstanding service and exceptional results. Highly recommended!\"",
+            "index": "86",
+            "line": "                    \"This company has transformed our business with their innovative solutions.\"",
             "message": "Syntax not understood"
           },
           {
-            "index": "92",
+            "index": "87",
             "line": "                </blockquote>",
             "message": "Syntax not understood"
           },
           {
+            "index": "88",
+            "line": "                <cite>- Sarah Wilson, Marketing Director</cite>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "89",
+            "line": "            </div>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "90",
+            "line": "            <div class=\"testimonial\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "91",
+            "line": "                <blockquote>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "92",
+            "line": "                    \"Outstanding service and exceptional results. Highly recommended!\"",
+            "message": "Syntax not understood"
+          },
+          {
             "index": "93",
-            "line": "                <cite>- David Brown, CEO</cite>",
+            "line": "                </blockquote>",
             "message": "Syntax not understood"
           },
           {
             "index": "94",
-            "line": "            </div>",
+            "line": "                <cite>- David Brown, CEO</cite>",
             "message": "Syntax not understood"
           },
           {
             "index": "95",
-            "line": "        </section>",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
-            "index": "97",
-            "line": "        <section class=\"blog\">",
+            "index": "96",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "98",
-            "line": "            <h2>Latest Blog Posts</h2>",
+            "line": "        <section class=\"blog\">",
             "message": "Syntax not understood"
           },
           {
             "index": "99",
-            "line": "            <article>",
+            "line": "            <h2>Latest Blog Posts</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "100",
-            "line": "                <h3>How to Improve Your SEO Strategy</h3>",
+            "line": "            <article>",
             "message": "Syntax not understood"
           },
           {
             "index": "101",
-            "line": "                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>",
+            "line": "                <h3>How to Improve Your SEO Strategy</h3>",
             "message": "Syntax not understood"
           },
           {
             "index": "102",
-            "line": "            </article>",
+            "line": "                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "103",
-            "line": "            <article>",
+            "line": "            </article>",
             "message": "Syntax not understood"
           },
           {
             "index": "104",
-            "line": "                <h3>The Future of Web Development</h3>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "105",
-            "line": "                <p>Explore the upcoming trends and technologies in web development.</p>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "106",
-            "line": "            </article>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "107",
             "line": "            <article>",
             "message": "Syntax not understood"
           },
           {
-            "index": "108",
-            "line": "                <h3>Building User-Friendly Interfaces</h3>",
+            "index": "105",
+            "line": "                <h3>The Future of Web Development</h3>",
             "message": "Syntax not understood"
           },
           {
-            "index": "109",
-            "line": "                <p>Best practices for creating intuitive and accessible user interfaces.</p>",
+            "index": "106",
+            "line": "                <p>Explore the upcoming trends and technologies in web development.</p>",
             "message": "Syntax not understood"
           },
           {
-            "index": "110",
+            "index": "107",
             "line": "            </article>",
             "message": "Syntax not understood"
           },
           {
-            "index": "111",
-            "line": "        </section>",
+            "index": "108",
+            "line": "            <article>",
             "message": "Syntax not understood"
           },
           {
-            "index": "113",
-            "line": "        <section class=\"contact\">",
+            "index": "109",
+            "line": "                <h3>Building User-Friendly Interfaces</h3>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "110",
+            "line": "                <p>Best practices for creating intuitive and accessible user interfaces.</p>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "111",
+            "line": "            </article>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "112",
+            "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
             "index": "114",
-            "line": "            <h2>Contact Us</h2>",
+            "line": "        <section class=\"contact\">",
             "message": "Syntax not understood"
           },
           {
             "index": "115",
-            "line": "            <p>Ready to start your project? Get in touch with us today!</p>",
+            "line": "            <h2>Contact Us</h2>",
             "message": "Syntax not understood"
           },
           {
             "index": "116",
-            "line": "            <form>",
+            "line": "            <p>Ready to start your project? Get in touch with us today!</p>",
             "message": "Syntax not understood"
           },
           {
             "index": "117",
+            "line": "            <form>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "118",
             "line": "                <label for=\"name\">Name:</label>",
             "message": "Unknown directive"
           },
           {
-            "index": "118",
+            "index": "119",
             "line": "                <input type=\"text\" id=\"name\" name=\"name\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "119",
+            "index": "120",
             "line": "                <label for=\"email\">Email:</label>",
             "message": "Unknown directive"
           },
           {
-            "index": "120",
+            "index": "121",
             "line": "                <input type=\"email\" id=\"email\" name=\"email\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "121",
+            "index": "122",
             "line": "                <label for=\"message\">Message:</label>",
             "message": "Unknown directive"
           },
           {
-            "index": "122",
+            "index": "123",
             "line": "                <textarea id=\"message\" name=\"message\"></textarea>",
             "message": "Syntax not understood"
           },
           {
-            "index": "123",
+            "index": "124",
             "line": "                <button type=\"submit\">Send Message</button>",
             "message": "Syntax not understood"
           },
           {
-            "index": "124",
+            "index": "125",
             "line": "            </form>",
             "message": "Syntax not understood"
           },
           {
-            "index": "125",
+            "index": "126",
             "line": "        </section>",
             "message": "Syntax not understood"
           },
           {
-            "index": "126",
+            "index": "127",
             "line": "    </main>",
             "message": "Syntax not understood"
           },
           {
-            "index": "128",
+            "index": "129",
             "line": "    <footer>",
             "message": "Syntax not understood"
           },
           {
-            "index": "129",
+            "index": "130",
             "line": "        <div class=\"footer-content\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "130",
-            "line": "            <div class=\"footer-section\">",
-            "message": "Syntax not understood"
-          },
-          {
             "index": "131",
-            "line": "                <h4>Contact Information</h4>",
+            "line": "            <div class=\"footer-section\">",
             "message": "Syntax not understood"
           },
           {
             "index": "132",
+            "line": "                <h4>Contact Information</h4>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "133",
             "line": "                <p>Email: info@example.com</p>",
             "message": "Unknown directive"
           },
           {
-            "index": "133",
+            "index": "134",
             "line": "                <p>Phone: +1 (555) 123-4567</p>",
             "message": "Unknown directive"
           },
           {
-            "index": "134",
+            "index": "135",
             "line": "                <p>Address: 123 Main St, City, State 12345</p>",
             "message": "Unknown directive"
           },
           {
-            "index": "135",
-            "line": "            </div>",
-            "message": "Syntax not understood"
-          },
-          {
             "index": "136",
-            "line": "            <div class=\"footer-section\">",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
             "index": "137",
-            "line": "                <h4>Quick Links</h4>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "138",
-            "line": "                <ul>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "139",
-            "line": "                    <li><a href=\"/privacy\">Privacy Policy</a></li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "140",
-            "line": "                    <li><a href=\"/terms\">Terms of Service</a></li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "141",
-            "line": "                    <li><a href=\"/sitemap\">Sitemap</a></li>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "142",
-            "line": "                </ul>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "143",
-            "line": "            </div>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "144",
             "line": "            <div class=\"footer-section\">",
             "message": "Syntax not understood"
           },
           {
-            "index": "145",
-            "line": "                <h4>Follow Us</h4>",
+            "index": "138",
+            "line": "                <h4>Quick Links</h4>",
             "message": "Syntax not understood"
           },
           {
-            "index": "146",
-            "line": "                <p>Stay connected with us on social media</p>",
+            "index": "139",
+            "line": "                <ul>",
             "message": "Syntax not understood"
           },
           {
-            "index": "147",
+            "index": "140",
+            "line": "                    <li><a href=\"/privacy\">Privacy Policy</a></li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "141",
+            "line": "                    <li><a href=\"/terms\">Terms of Service</a></li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "142",
+            "line": "                    <li><a href=\"/sitemap\">Sitemap</a></li>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "143",
+            "line": "                </ul>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "144",
             "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
+            "index": "145",
+            "line": "            <div class=\"footer-section\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "146",
+            "line": "                <h4>Follow Us</h4>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "147",
+            "line": "                <p>Stay connected with us on social media</p>",
+            "message": "Syntax not understood"
+          },
+          {
             "index": "148",
-            "line": "        </div>",
+            "line": "            </div>",
             "message": "Syntax not understood"
           },
           {
             "index": "149",
-            "line": "        <div class=\"footer-bottom\">",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "150",
-            "line": "            <p>&copy; 2024 Your Company. All rights reserved.</p>",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "151",
             "line": "        </div>",
             "message": "Syntax not understood"
           },
           {
+            "index": "150",
+            "line": "        <div class=\"footer-bottom\">",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "151",
+            "line": "            <p>&copy; 2024 Your Company. All rights reserved.</p>",
+            "message": "Syntax not understood"
+          },
+          {
             "index": "152",
+            "line": "        </div>",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "153",
             "line": "    </footer>",
             "message": "Syntax not understood"
           },
           {
-            "index": "154",
+            "index": "155",
             "line": "    <script>",
             "message": "Syntax not understood"
           },
           {
-            "index": "155",
+            "index": "156",
             "line": "        // JavaScript for interactive features",
             "message": "Syntax not understood"
           },
           {
-            "index": "156",
+            "index": "157",
             "line": "        document.addEventListener('DOMContentLoaded', function() {",
             "message": "Syntax not understood"
           },
           {
-            "index": "157",
+            "index": "158",
             "line": "            console.log('Page loaded successfully');",
             "message": "Syntax not understood"
           },
           {
-            "index": "159",
+            "index": "160",
             "line": "            // Add form submission handling",
             "message": "Syntax not understood"
           },
           {
-            "index": "160",
+            "index": "161",
             "line": "            const form = document.querySelector('form');",
             "message": "Syntax not understood"
           },
           {
-            "index": "161",
+            "index": "162",
             "line": "            if (form) {",
             "message": "Syntax not understood"
           },
           {
-            "index": "162",
+            "index": "163",
             "line": "                form.addEventListener('submit', function(e) {",
             "message": "Syntax not understood"
           },
           {
-            "index": "163",
+            "index": "164",
             "line": "                    e.preventDefault();",
             "message": "Syntax not understood"
           },
           {
-            "index": "164",
+            "index": "165",
             "line": "                    alert('Form submitted! (This is a test page)');",
             "message": "Syntax not understood"
           },
           {
-            "index": "165",
+            "index": "166",
             "line": "                });",
             "message": "Syntax not understood"
           },
           {
-            "index": "166",
+            "index": "167",
             "line": "            }",
             "message": "Syntax not understood"
           },
           {
-            "index": "167",
+            "index": "168",
             "line": "        });",
             "message": "Syntax not understood"
           },
           {
-            "index": "168",
+            "index": "169",
             "line": "    </script>",
             "message": "Syntax not understood"
           },
           {
-            "index": "170",
+            "index": "171",
             "line": "    <style>",
             "message": "Syntax not understood"
           },
           {
-            "index": "171",
+            "index": "172",
             "line": "        /* CSS styles for the page */",
             "message": "Syntax not understood"
           },
           {
-            "index": "172",
+            "index": "173",
             "line": "        body {",
             "message": "Syntax not understood"
           },
           {
-            "index": "173",
+            "index": "174",
             "line": "            font-family: Arial, sans-serif;",
             "message": "Unknown directive"
           },
           {
-            "index": "174",
+            "index": "175",
             "line": "            line-height: 1.6;",
             "message": "Unknown directive"
           },
           {
-            "index": "175",
-            "line": "            margin: 0;",
-            "message": "Unknown directive"
-          },
-          {
             "index": "176",
-            "line": "            padding: 0;",
+            "line": "            margin: 0;",
             "message": "Unknown directive"
           },
           {
             "index": "177",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "179",
-            "line": "        header {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "180",
-            "line": "            background-color: #333;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "181",
-            "line": "            color: white;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "182",
-            "line": "            padding: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "183",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "185",
-            "line": "        nav ul {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "186",
-            "line": "            list-style: none;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "187",
-            "line": "            display: flex;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "188",
-            "line": "            gap: 2rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "189",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "191",
-            "line": "        nav a {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "192",
-            "line": "            color: white;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "193",
-            "line": "            text-decoration: none;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "194",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "196",
-            "line": "        main {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "197",
-            "line": "            max-width: 1200px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "198",
-            "line": "            margin: 0 auto;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "199",
-            "line": "            padding: 2rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "200",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "202",
-            "line": "        section {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "203",
-            "line": "            margin: 2rem 0;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "204",
-            "line": "            padding: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "205",
-            "line": "            border: 1px solid #ddd;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "206",
-            "line": "            border-radius: 8px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "207",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "209",
-            "line": "        h1, h2, h3 {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "210",
-            "line": "            color: #333;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "211",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "213",
-            "line": "        .product-grid {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "214",
-            "line": "            display: grid;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "215",
-            "line": "            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "216",
-            "line": "            gap: 2rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "217",
-            "line": "            margin: 2rem 0;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "218",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "220",
-            "line": "        .product-card {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "221",
-            "line": "            padding: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "222",
-            "line": "            border: 1px solid #ddd;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "223",
-            "line": "            border-radius: 8px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "224",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "226",
-            "line": "        .service-item {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "227",
-            "line": "            margin: 2rem 0;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "228",
-            "line": "            padding: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "229",
-            "line": "            border: 1px solid #ddd;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "230",
-            "line": "            border-radius: 8px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "231",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "233",
-            "line": "        .testimonial {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "234",
-            "line": "            margin: 2rem 0;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "235",
-            "line": "            padding: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "236",
-            "line": "            border-left: 4px solid #007bff;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "237",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "239",
-            "line": "        blockquote {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "240",
-            "line": "            font-style: italic;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "241",
-            "line": "            margin: 0;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "242",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "244",
-            "line": "        cite {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "245",
-            "line": "            display: block;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "246",
-            "line": "            margin-top: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "247",
-            "line": "            font-weight: bold;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "248",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "250",
-            "line": "        form {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "251",
-            "line": "            display: flex;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "252",
-            "line": "            flex-direction: column;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "253",
-            "line": "            gap: 1rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "254",
-            "line": "            max-width: 400px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "255",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "257",
-            "line": "        input, textarea {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "258",
-            "line": "            padding: 0.5rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "259",
-            "line": "            border: 1px solid #ddd;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "260",
-            "line": "            border-radius: 4px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "261",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "263",
-            "line": "        button {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "264",
-            "line": "            padding: 0.75rem 1.5rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "265",
-            "line": "            background-color: #007bff;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "266",
-            "line": "            color: white;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "267",
-            "line": "            border: none;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "268",
-            "line": "            border-radius: 4px;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "269",
-            "line": "            cursor: pointer;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "270",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "272",
-            "line": "        button:hover {",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "273",
-            "line": "            background-color: #0056b3;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "274",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "276",
-            "line": "        footer {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "277",
-            "line": "            background-color: #333;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "278",
-            "line": "            color: white;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "279",
-            "line": "            padding: 2rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "280",
-            "line": "            margin-top: 3rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "281",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "283",
-            "line": "        .footer-content {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "284",
-            "line": "            display: grid;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "285",
-            "line": "            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "286",
-            "line": "            gap: 2rem;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "287",
-            "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "289",
-            "line": "        .footer-section ul {",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "290",
-            "line": "            list-style: none;",
-            "message": "Unknown directive"
-          },
-          {
-            "index": "291",
             "line": "            padding: 0;",
             "message": "Unknown directive"
           },
           {
-            "index": "292",
+            "index": "178",
             "line": "        }",
             "message": "Syntax not understood"
           },
           {
-            "index": "294",
-            "line": "        .footer-section a {",
+            "index": "180",
+            "line": "        header {",
             "message": "Syntax not understood"
           },
           {
-            "index": "295",
+            "index": "181",
+            "line": "            background-color: #333;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "182",
             "line": "            color: white;",
             "message": "Unknown directive"
           },
           {
-            "index": "296",
+            "index": "183",
+            "line": "            padding: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "184",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "186",
+            "line": "        nav ul {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "187",
+            "line": "            list-style: none;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "188",
+            "line": "            display: flex;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "189",
+            "line": "            gap: 2rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "190",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "192",
+            "line": "        nav a {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "193",
+            "line": "            color: white;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "194",
             "line": "            text-decoration: none;",
             "message": "Unknown directive"
           },
           {
-            "index": "297",
+            "index": "195",
             "line": "        }",
             "message": "Syntax not understood"
           },
           {
-            "index": "299",
-            "line": "        .footer-bottom {",
+            "index": "197",
+            "line": "        main {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "198",
+            "line": "            max-width: 1200px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "199",
+            "line": "            margin: 0 auto;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "200",
+            "line": "            padding: 2rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "201",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "203",
+            "line": "        section {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "204",
+            "line": "            margin: 2rem 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "205",
+            "line": "            padding: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "206",
+            "line": "            border: 1px solid #ddd;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "207",
+            "line": "            border-radius: 8px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "208",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "210",
+            "line": "        h1, h2, h3 {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "211",
+            "line": "            color: #333;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "212",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "214",
+            "line": "        .product-grid {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "215",
+            "line": "            display: grid;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "216",
+            "line": "            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "217",
+            "line": "            gap: 2rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "218",
+            "line": "            margin: 2rem 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "219",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "221",
+            "line": "        .product-card {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "222",
+            "line": "            padding: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "223",
+            "line": "            border: 1px solid #ddd;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "224",
+            "line": "            border-radius: 8px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "225",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "227",
+            "line": "        .service-item {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "228",
+            "line": "            margin: 2rem 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "229",
+            "line": "            padding: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "230",
+            "line": "            border: 1px solid #ddd;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "231",
+            "line": "            border-radius: 8px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "232",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "234",
+            "line": "        .testimonial {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "235",
+            "line": "            margin: 2rem 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "236",
+            "line": "            padding: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "237",
+            "line": "            border-left: 4px solid #007bff;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "238",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "240",
+            "line": "        blockquote {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "241",
+            "line": "            font-style: italic;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "242",
+            "line": "            margin: 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "243",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "245",
+            "line": "        cite {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "246",
+            "line": "            display: block;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "247",
+            "line": "            margin-top: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "248",
+            "line": "            font-weight: bold;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "249",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "251",
+            "line": "        form {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "252",
+            "line": "            display: flex;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "253",
+            "line": "            flex-direction: column;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "254",
+            "line": "            gap: 1rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "255",
+            "line": "            max-width: 400px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "256",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "258",
+            "line": "        input, textarea {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "259",
+            "line": "            padding: 0.5rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "260",
+            "line": "            border: 1px solid #ddd;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "261",
+            "line": "            border-radius: 4px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "262",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "264",
+            "line": "        button {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "265",
+            "line": "            padding: 0.75rem 1.5rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "266",
+            "line": "            background-color: #007bff;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "267",
+            "line": "            color: white;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "268",
+            "line": "            border: none;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "269",
+            "line": "            border-radius: 4px;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "270",
+            "line": "            cursor: pointer;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "271",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "273",
+            "line": "        button:hover {",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "274",
+            "line": "            background-color: #0056b3;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "275",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "277",
+            "line": "        footer {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "278",
+            "line": "            background-color: #333;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "279",
+            "line": "            color: white;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "280",
+            "line": "            padding: 2rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "281",
+            "line": "            margin-top: 3rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "282",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "284",
+            "line": "        .footer-content {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "285",
+            "line": "            display: grid;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "286",
+            "line": "            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "287",
+            "line": "            gap: 2rem;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "288",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "290",
+            "line": "        .footer-section ul {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "291",
+            "line": "            list-style: none;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "292",
+            "line": "            padding: 0;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "293",
+            "line": "        }",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "295",
+            "line": "        .footer-section a {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "296",
+            "line": "            color: white;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "297",
+            "line": "            text-decoration: none;",
+            "message": "Unknown directive"
+          },
+          {
+            "index": "298",
+            "line": "        }",
             "message": "Syntax not understood"
           },
           {
             "index": "300",
+            "line": "        .footer-bottom {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "301",
             "line": "            text-align: center;",
             "message": "Unknown directive"
           },
           {
-            "index": "301",
+            "index": "302",
             "line": "            margin-top: 2rem;",
             "message": "Unknown directive"
           },
           {
-            "index": "302",
+            "index": "303",
             "line": "            padding-top: 1rem;",
             "message": "Unknown directive"
           },
           {
-            "index": "303",
+            "index": "304",
             "line": "            border-top: 1px solid #555;",
             "message": "Unknown directive"
           },
           {
-            "index": "304",
+            "index": "305",
             "line": "        }",
-            "message": "Syntax not understood"
-          },
-          {
-            "index": "306",
-            "line": "        img {",
             "message": "Syntax not understood"
           },
           {
             "index": "307",
+            "line": "        img {",
+            "message": "Syntax not understood"
+          },
+          {
+            "index": "308",
             "line": "            max-width: 100%;",
             "message": "Unknown directive"
           },
           {
-            "index": "308",
+            "index": "309",
             "line": "            height: auto;",
             "message": "Unknown directive"
           },
           {
-            "index": "309",
+            "index": "310",
             "line": "        }",
             "message": "Syntax not understood"
           },
           {
-            "index": "310",
+            "index": "311",
             "line": "    </style>",
             "message": "Syntax not understood"
           },
           {
-            "index": "311",
+            "index": "312",
             "line": "</body>",
             "message": "Syntax not understood"
           },
           {
-            "index": "312",
+            "index": "313",
             "line": "</html>",
             "message": "Syntax not understood"
           }
@@ -1642,7 +1647,7 @@
         }
       ],
       "id": "seo",
-      "score": 0.85
+      "score": 0.92
     }
   },
   "fullReport": {
@@ -1651,14 +1656,14 @@
     "mainDocumentUrl": "http://localhost:3002/temp-page",
     "finalDisplayedUrl": "http://localhost:3002/temp-page",
     "finalUrl": "http://localhost:3002/temp-page",
-    "fetchTime": "2025-08-21T18:26:46.168Z",
+    "fetchTime": "2025-08-21T18:27:03.454Z",
     "gatherMode": "navigation",
     "runWarnings": [],
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
     "environment": {
       "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
       "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
-      "benchmarkIndex": 2939.5,
+      "benchmarkIndex": 2963,
       "credits": {
         "axe-core": "4.10.3"
       }
@@ -1710,9 +1715,9 @@
       },
       "meta-description": {
         "id": "meta-description",
-        "title": "Document does not have a meta description",
+        "title": "Document has a meta description",
         "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more about the meta description](https://developer.chrome.com/docs/lighthouse/seo/meta-description/).",
-        "score": 0,
+        "score": 1,
         "scoreDisplayMode": "binary"
       },
       "http-status-code": {
@@ -1788,7 +1793,7 @@
         "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
         "score": 0,
         "scoreDisplayMode": "binary",
-        "displayValue": "278 errors found",
+        "displayValue": "279 errors found",
         "details": {
           "type": "table",
           "headings": [
@@ -1841,1361 +1846,1366 @@
             },
             {
               "index": "7",
-              "line": "    <!-- Missing meta description - this should be detected -->",
+              "line": "<meta name=\"description\" content=\"This page tests for missing meta descriptions, crucial for SEO. Learn why meta descriptions matter and explore our web design, SEO, & marketing services.\">",
               "message": "Syntax not understood"
             },
             {
               "index": "8",
+              "line": "    <!-- Missing meta description - this should be detected -->",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "9",
               "line": "    <link rel=\"canonical\" href=\"https://example.com/meta-description-test\">",
               "message": "Unknown directive"
             },
             {
-              "index": "9",
+              "index": "10",
               "line": "</head>",
               "message": "Syntax not understood"
             },
             {
-              "index": "10",
+              "index": "11",
               "line": "<body>",
               "message": "Syntax not understood"
             },
             {
-              "index": "11",
+              "index": "12",
               "line": "    <header>",
               "message": "Syntax not understood"
             },
             {
-              "index": "12",
+              "index": "13",
               "line": "        <nav>",
               "message": "Syntax not understood"
             },
             {
-              "index": "13",
-              "line": "            <ul>",
-              "message": "Syntax not understood"
-            },
-            {
               "index": "14",
-              "line": "                <li><a href=\"/\">Home</a></li>",
+              "line": "            <ul>",
               "message": "Syntax not understood"
             },
             {
               "index": "15",
-              "line": "                <li><a href=\"/about\">About</a></li>",
+              "line": "                <li><a href=\"/\">Home</a></li>",
               "message": "Syntax not understood"
             },
             {
               "index": "16",
-              "line": "                <li><a href=\"/contact\">Contact</a></li>",
+              "line": "                <li><a href=\"/about\">About</a></li>",
               "message": "Syntax not understood"
             },
             {
               "index": "17",
-              "line": "            </ul>",
+              "line": "                <li><a href=\"/contact\">Contact</a></li>",
               "message": "Syntax not understood"
             },
             {
               "index": "18",
-              "line": "        </nav>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "19",
-              "line": "    </header>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "21",
-              "line": "    <main>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "22",
-              "line": "        <section class=\"hero\">",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "23",
-              "line": "            <h1>Meta Description Missing Test</h1>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "24",
-              "line": "            <p>This page is missing a meta description tag, which is important for SEO and search engine snippets.</p>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "25",
-              "line": "        </section>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "27",
-              "line": "        <section class=\"content\">",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "28",
-              "line": "            <h2>Why Meta Descriptions Matter</h2>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "29",
-              "line": "            <p>Meta descriptions are crucial for SEO because they:</p>",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "30",
-              "line": "            <ul>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "31",
-              "line": "                <li>Provide a summary of the page content in search results</li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "32",
-              "line": "                <li>Help users understand what the page is about before clicking</li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "33",
-              "line": "                <li>Can improve click-through rates from search results</li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "34",
-              "line": "                <li>Give search engines context about the page content</li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "35",
               "line": "            </ul>",
               "message": "Syntax not understood"
             },
             {
-              "index": "36",
+              "index": "19",
+              "line": "        </nav>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "20",
+              "line": "    </header>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "22",
+              "line": "    <main>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "23",
+              "line": "        <section class=\"hero\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "24",
+              "line": "            <h1>Meta Description Missing Test</h1>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "25",
+              "line": "            <p>This page is missing a meta description tag, which is important for SEO and search engine snippets.</p>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "26",
               "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
-              "index": "38",
-              "line": "        <section class=\"products\">",
+              "index": "28",
+              "line": "        <section class=\"content\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "29",
+              "line": "            <h2>Why Meta Descriptions Matter</h2>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "30",
+              "line": "            <p>Meta descriptions are crucial for SEO because they:</p>",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "31",
+              "line": "            <ul>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "32",
+              "line": "                <li>Provide a summary of the page content in search results</li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "33",
+              "line": "                <li>Help users understand what the page is about before clicking</li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "34",
+              "line": "                <li>Can improve click-through rates from search results</li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "35",
+              "line": "                <li>Give search engines context about the page content</li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "36",
+              "line": "            </ul>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "37",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "39",
-              "line": "            <h2>Our Products</h2>",
+              "line": "        <section class=\"products\">",
               "message": "Syntax not understood"
             },
             {
               "index": "40",
-              "line": "            <div class=\"product-grid\">",
+              "line": "            <h2>Our Products</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "41",
-              "line": "                <div class=\"product-card\">",
+              "line": "            <div class=\"product-grid\">",
               "message": "Syntax not understood"
             },
             {
               "index": "42",
-              "line": "                    <img src=\"product1.jpg\" alt=\"Product One\">",
+              "line": "                <div class=\"product-card\">",
               "message": "Syntax not understood"
             },
             {
               "index": "43",
-              "line": "                    <h3>Product One</h3>",
+              "line": "                    <img src=\"product1.jpg\" alt=\"Product One\">",
               "message": "Syntax not understood"
             },
             {
               "index": "44",
-              "line": "                    <p>Description of product one with detailed information about its features and benefits.</p>",
+              "line": "                    <h3>Product One</h3>",
               "message": "Syntax not understood"
             },
             {
               "index": "45",
-              "line": "                </div>",
+              "line": "                    <p>Description of product one with detailed information about its features and benefits.</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "46",
-              "line": "                <div class=\"product-card\">",
+              "line": "                </div>",
               "message": "Syntax not understood"
             },
             {
               "index": "47",
-              "line": "                    <img src=\"product2.jpg\" alt=\"Product Two\">",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "48",
-              "line": "                    <h3>Product Two</h3>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "49",
-              "line": "                    <p>Description of product two with detailed information about its features and benefits.</p>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "50",
-              "line": "                </div>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "51",
               "line": "                <div class=\"product-card\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "52",
-              "line": "                    <img src=\"product3.jpg\" alt=\"Product Three\">",
+              "index": "48",
+              "line": "                    <img src=\"product2.jpg\" alt=\"Product Two\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "53",
-              "line": "                    <h3>Product Three</h3>",
+              "index": "49",
+              "line": "                    <h3>Product Two</h3>",
               "message": "Syntax not understood"
             },
             {
-              "index": "54",
-              "line": "                    <p>Description of product three with detailed information about its features and benefits.</p>",
+              "index": "50",
+              "line": "                    <p>Description of product two with detailed information about its features and benefits.</p>",
               "message": "Syntax not understood"
             },
             {
-              "index": "55",
+              "index": "51",
               "line": "                </div>",
               "message": "Syntax not understood"
             },
             {
+              "index": "52",
+              "line": "                <div class=\"product-card\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "53",
+              "line": "                    <img src=\"product3.jpg\" alt=\"Product Three\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "54",
+              "line": "                    <h3>Product Three</h3>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "55",
+              "line": "                    <p>Description of product three with detailed information about its features and benefits.</p>",
+              "message": "Syntax not understood"
+            },
+            {
               "index": "56",
-              "line": "            </div>",
+              "line": "                </div>",
               "message": "Syntax not understood"
             },
             {
               "index": "57",
-              "line": "        </section>",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
-              "index": "59",
-              "line": "        <section class=\"services\">",
+              "index": "58",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "60",
-              "line": "            <h2>Our Services</h2>",
+              "line": "        <section class=\"services\">",
               "message": "Syntax not understood"
             },
             {
               "index": "61",
-              "line": "            <div class=\"service-item\">",
+              "line": "            <h2>Our Services</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "62",
-              "line": "                <h3>Web Design</h3>",
+              "line": "            <div class=\"service-item\">",
               "message": "Syntax not understood"
             },
             {
               "index": "63",
-              "line": "                <p>Custom website design tailored to your brand and business needs.</p>",
+              "line": "                <h3>Web Design</h3>",
               "message": "Syntax not understood"
             },
             {
               "index": "64",
-              "line": "            </div>",
+              "line": "                <p>Custom website design tailored to your brand and business needs.</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "65",
-              "line": "            <div class=\"service-item\">",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
               "index": "66",
-              "line": "                <h3>SEO Optimization</h3>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "67",
-              "line": "                <p>Comprehensive search engine optimization to improve your online visibility.</p>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "68",
-              "line": "            </div>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "69",
               "line": "            <div class=\"service-item\">",
               "message": "Syntax not understood"
             },
             {
+              "index": "67",
+              "line": "                <h3>SEO Optimization</h3>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "68",
+              "line": "                <p>Comprehensive search engine optimization to improve your online visibility.</p>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "69",
+              "line": "            </div>",
+              "message": "Syntax not understood"
+            },
+            {
               "index": "70",
-              "line": "                <h3>Digital Marketing</h3>",
+              "line": "            <div class=\"service-item\">",
               "message": "Syntax not understood"
             },
             {
               "index": "71",
-              "line": "                <p>Strategic digital marketing campaigns to grow your business.</p>",
+              "line": "                <h3>Digital Marketing</h3>",
               "message": "Syntax not understood"
             },
             {
               "index": "72",
-              "line": "            </div>",
+              "line": "                <p>Strategic digital marketing campaigns to grow your business.</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "73",
-              "line": "        </section>",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
-              "index": "75",
-              "line": "        <section class=\"about\">",
+              "index": "74",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "76",
-              "line": "            <h2>About Our Company</h2>",
+              "line": "        <section class=\"about\">",
               "message": "Syntax not understood"
             },
             {
               "index": "77",
-              "line": "            <p>We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals.</p>",
+              "line": "            <h2>About Our Company</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "78",
-              "line": "            <p>With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers.</p>",
+              "line": "            <p>We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals.</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "79",
-              "line": "        </section>",
+              "line": "            <p>With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers.</p>",
               "message": "Syntax not understood"
             },
             {
-              "index": "81",
-              "line": "        <section class=\"testimonials\">",
+              "index": "80",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "82",
-              "line": "            <h2>Customer Testimonials</h2>",
+              "line": "        <section class=\"testimonials\">",
               "message": "Syntax not understood"
             },
             {
               "index": "83",
-              "line": "            <div class=\"testimonial\">",
+              "line": "            <h2>Customer Testimonials</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "84",
-              "line": "                <blockquote>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "85",
-              "line": "                    \"This company has transformed our business with their innovative solutions.\"",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "86",
-              "line": "                </blockquote>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "87",
-              "line": "                <cite>- Sarah Wilson, Marketing Director</cite>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "88",
-              "line": "            </div>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "89",
               "line": "            <div class=\"testimonial\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "90",
+              "index": "85",
               "line": "                <blockquote>",
               "message": "Syntax not understood"
             },
             {
-              "index": "91",
-              "line": "                    \"Outstanding service and exceptional results. Highly recommended!\"",
+              "index": "86",
+              "line": "                    \"This company has transformed our business with their innovative solutions.\"",
               "message": "Syntax not understood"
             },
             {
-              "index": "92",
+              "index": "87",
               "line": "                </blockquote>",
               "message": "Syntax not understood"
             },
             {
+              "index": "88",
+              "line": "                <cite>- Sarah Wilson, Marketing Director</cite>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "89",
+              "line": "            </div>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "90",
+              "line": "            <div class=\"testimonial\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "91",
+              "line": "                <blockquote>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "92",
+              "line": "                    \"Outstanding service and exceptional results. Highly recommended!\"",
+              "message": "Syntax not understood"
+            },
+            {
               "index": "93",
-              "line": "                <cite>- David Brown, CEO</cite>",
+              "line": "                </blockquote>",
               "message": "Syntax not understood"
             },
             {
               "index": "94",
-              "line": "            </div>",
+              "line": "                <cite>- David Brown, CEO</cite>",
               "message": "Syntax not understood"
             },
             {
               "index": "95",
-              "line": "        </section>",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
-              "index": "97",
-              "line": "        <section class=\"blog\">",
+              "index": "96",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "98",
-              "line": "            <h2>Latest Blog Posts</h2>",
+              "line": "        <section class=\"blog\">",
               "message": "Syntax not understood"
             },
             {
               "index": "99",
-              "line": "            <article>",
+              "line": "            <h2>Latest Blog Posts</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "100",
-              "line": "                <h3>How to Improve Your SEO Strategy</h3>",
+              "line": "            <article>",
               "message": "Syntax not understood"
             },
             {
               "index": "101",
-              "line": "                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>",
+              "line": "                <h3>How to Improve Your SEO Strategy</h3>",
               "message": "Syntax not understood"
             },
             {
               "index": "102",
-              "line": "            </article>",
+              "line": "                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "103",
-              "line": "            <article>",
+              "line": "            </article>",
               "message": "Syntax not understood"
             },
             {
               "index": "104",
-              "line": "                <h3>The Future of Web Development</h3>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "105",
-              "line": "                <p>Explore the upcoming trends and technologies in web development.</p>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "106",
-              "line": "            </article>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "107",
               "line": "            <article>",
               "message": "Syntax not understood"
             },
             {
-              "index": "108",
-              "line": "                <h3>Building User-Friendly Interfaces</h3>",
+              "index": "105",
+              "line": "                <h3>The Future of Web Development</h3>",
               "message": "Syntax not understood"
             },
             {
-              "index": "109",
-              "line": "                <p>Best practices for creating intuitive and accessible user interfaces.</p>",
+              "index": "106",
+              "line": "                <p>Explore the upcoming trends and technologies in web development.</p>",
               "message": "Syntax not understood"
             },
             {
-              "index": "110",
+              "index": "107",
               "line": "            </article>",
               "message": "Syntax not understood"
             },
             {
-              "index": "111",
-              "line": "        </section>",
+              "index": "108",
+              "line": "            <article>",
               "message": "Syntax not understood"
             },
             {
-              "index": "113",
-              "line": "        <section class=\"contact\">",
+              "index": "109",
+              "line": "                <h3>Building User-Friendly Interfaces</h3>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "110",
+              "line": "                <p>Best practices for creating intuitive and accessible user interfaces.</p>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "111",
+              "line": "            </article>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "112",
+              "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
               "index": "114",
-              "line": "            <h2>Contact Us</h2>",
+              "line": "        <section class=\"contact\">",
               "message": "Syntax not understood"
             },
             {
               "index": "115",
-              "line": "            <p>Ready to start your project? Get in touch with us today!</p>",
+              "line": "            <h2>Contact Us</h2>",
               "message": "Syntax not understood"
             },
             {
               "index": "116",
-              "line": "            <form>",
+              "line": "            <p>Ready to start your project? Get in touch with us today!</p>",
               "message": "Syntax not understood"
             },
             {
               "index": "117",
+              "line": "            <form>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "118",
               "line": "                <label for=\"name\">Name:</label>",
               "message": "Unknown directive"
             },
             {
-              "index": "118",
+              "index": "119",
               "line": "                <input type=\"text\" id=\"name\" name=\"name\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "119",
+              "index": "120",
               "line": "                <label for=\"email\">Email:</label>",
               "message": "Unknown directive"
             },
             {
-              "index": "120",
+              "index": "121",
               "line": "                <input type=\"email\" id=\"email\" name=\"email\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "121",
+              "index": "122",
               "line": "                <label for=\"message\">Message:</label>",
               "message": "Unknown directive"
             },
             {
-              "index": "122",
+              "index": "123",
               "line": "                <textarea id=\"message\" name=\"message\"></textarea>",
               "message": "Syntax not understood"
             },
             {
-              "index": "123",
+              "index": "124",
               "line": "                <button type=\"submit\">Send Message</button>",
               "message": "Syntax not understood"
             },
             {
-              "index": "124",
+              "index": "125",
               "line": "            </form>",
               "message": "Syntax not understood"
             },
             {
-              "index": "125",
+              "index": "126",
               "line": "        </section>",
               "message": "Syntax not understood"
             },
             {
-              "index": "126",
+              "index": "127",
               "line": "    </main>",
               "message": "Syntax not understood"
             },
             {
-              "index": "128",
+              "index": "129",
               "line": "    <footer>",
               "message": "Syntax not understood"
             },
             {
-              "index": "129",
+              "index": "130",
               "line": "        <div class=\"footer-content\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "130",
-              "line": "            <div class=\"footer-section\">",
-              "message": "Syntax not understood"
-            },
-            {
               "index": "131",
-              "line": "                <h4>Contact Information</h4>",
+              "line": "            <div class=\"footer-section\">",
               "message": "Syntax not understood"
             },
             {
               "index": "132",
+              "line": "                <h4>Contact Information</h4>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "133",
               "line": "                <p>Email: info@example.com</p>",
               "message": "Unknown directive"
             },
             {
-              "index": "133",
+              "index": "134",
               "line": "                <p>Phone: +1 (555) 123-4567</p>",
               "message": "Unknown directive"
             },
             {
-              "index": "134",
+              "index": "135",
               "line": "                <p>Address: 123 Main St, City, State 12345</p>",
               "message": "Unknown directive"
             },
             {
-              "index": "135",
-              "line": "            </div>",
-              "message": "Syntax not understood"
-            },
-            {
               "index": "136",
-              "line": "            <div class=\"footer-section\">",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
               "index": "137",
-              "line": "                <h4>Quick Links</h4>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "138",
-              "line": "                <ul>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "139",
-              "line": "                    <li><a href=\"/privacy\">Privacy Policy</a></li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "140",
-              "line": "                    <li><a href=\"/terms\">Terms of Service</a></li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "141",
-              "line": "                    <li><a href=\"/sitemap\">Sitemap</a></li>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "142",
-              "line": "                </ul>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "143",
-              "line": "            </div>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "144",
               "line": "            <div class=\"footer-section\">",
               "message": "Syntax not understood"
             },
             {
-              "index": "145",
-              "line": "                <h4>Follow Us</h4>",
+              "index": "138",
+              "line": "                <h4>Quick Links</h4>",
               "message": "Syntax not understood"
             },
             {
-              "index": "146",
-              "line": "                <p>Stay connected with us on social media</p>",
+              "index": "139",
+              "line": "                <ul>",
               "message": "Syntax not understood"
             },
             {
-              "index": "147",
+              "index": "140",
+              "line": "                    <li><a href=\"/privacy\">Privacy Policy</a></li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "141",
+              "line": "                    <li><a href=\"/terms\">Terms of Service</a></li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "142",
+              "line": "                    <li><a href=\"/sitemap\">Sitemap</a></li>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "143",
+              "line": "                </ul>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "144",
               "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
+              "index": "145",
+              "line": "            <div class=\"footer-section\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "146",
+              "line": "                <h4>Follow Us</h4>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "147",
+              "line": "                <p>Stay connected with us on social media</p>",
+              "message": "Syntax not understood"
+            },
+            {
               "index": "148",
-              "line": "        </div>",
+              "line": "            </div>",
               "message": "Syntax not understood"
             },
             {
               "index": "149",
-              "line": "        <div class=\"footer-bottom\">",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "150",
-              "line": "            <p>&copy; 2024 Your Company. All rights reserved.</p>",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "151",
               "line": "        </div>",
               "message": "Syntax not understood"
             },
             {
+              "index": "150",
+              "line": "        <div class=\"footer-bottom\">",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "151",
+              "line": "            <p>&copy; 2024 Your Company. All rights reserved.</p>",
+              "message": "Syntax not understood"
+            },
+            {
               "index": "152",
+              "line": "        </div>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "153",
               "line": "    </footer>",
               "message": "Syntax not understood"
             },
             {
-              "index": "154",
+              "index": "155",
               "line": "    <script>",
               "message": "Syntax not understood"
             },
             {
-              "index": "155",
+              "index": "156",
               "line": "        // JavaScript for interactive features",
               "message": "Syntax not understood"
             },
             {
-              "index": "156",
+              "index": "157",
               "line": "        document.addEventListener('DOMContentLoaded', function() {",
               "message": "Syntax not understood"
             },
             {
-              "index": "157",
+              "index": "158",
               "line": "            console.log('Page loaded successfully');",
               "message": "Syntax not understood"
             },
             {
-              "index": "159",
+              "index": "160",
               "line": "            // Add form submission handling",
               "message": "Syntax not understood"
             },
             {
-              "index": "160",
+              "index": "161",
               "line": "            const form = document.querySelector('form');",
               "message": "Syntax not understood"
             },
             {
-              "index": "161",
+              "index": "162",
               "line": "            if (form) {",
               "message": "Syntax not understood"
             },
             {
-              "index": "162",
+              "index": "163",
               "line": "                form.addEventListener('submit', function(e) {",
               "message": "Syntax not understood"
             },
             {
-              "index": "163",
+              "index": "164",
               "line": "                    e.preventDefault();",
               "message": "Syntax not understood"
             },
             {
-              "index": "164",
+              "index": "165",
               "line": "                    alert('Form submitted! (This is a test page)');",
               "message": "Syntax not understood"
             },
             {
-              "index": "165",
+              "index": "166",
               "line": "                });",
               "message": "Syntax not understood"
             },
             {
-              "index": "166",
+              "index": "167",
               "line": "            }",
               "message": "Syntax not understood"
             },
             {
-              "index": "167",
+              "index": "168",
               "line": "        });",
               "message": "Syntax not understood"
             },
             {
-              "index": "168",
+              "index": "169",
               "line": "    </script>",
               "message": "Syntax not understood"
             },
             {
-              "index": "170",
+              "index": "171",
               "line": "    <style>",
               "message": "Syntax not understood"
             },
             {
-              "index": "171",
+              "index": "172",
               "line": "        /* CSS styles for the page */",
               "message": "Syntax not understood"
             },
             {
-              "index": "172",
+              "index": "173",
               "line": "        body {",
               "message": "Syntax not understood"
             },
             {
-              "index": "173",
+              "index": "174",
               "line": "            font-family: Arial, sans-serif;",
               "message": "Unknown directive"
             },
             {
-              "index": "174",
+              "index": "175",
               "line": "            line-height: 1.6;",
               "message": "Unknown directive"
             },
             {
-              "index": "175",
-              "line": "            margin: 0;",
-              "message": "Unknown directive"
-            },
-            {
               "index": "176",
-              "line": "            padding: 0;",
+              "line": "            margin: 0;",
               "message": "Unknown directive"
             },
             {
               "index": "177",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "179",
-              "line": "        header {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "180",
-              "line": "            background-color: #333;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "181",
-              "line": "            color: white;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "182",
-              "line": "            padding: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "183",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "185",
-              "line": "        nav ul {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "186",
-              "line": "            list-style: none;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "187",
-              "line": "            display: flex;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "188",
-              "line": "            gap: 2rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "189",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "191",
-              "line": "        nav a {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "192",
-              "line": "            color: white;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "193",
-              "line": "            text-decoration: none;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "194",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "196",
-              "line": "        main {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "197",
-              "line": "            max-width: 1200px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "198",
-              "line": "            margin: 0 auto;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "199",
-              "line": "            padding: 2rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "200",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "202",
-              "line": "        section {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "203",
-              "line": "            margin: 2rem 0;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "204",
-              "line": "            padding: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "205",
-              "line": "            border: 1px solid #ddd;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "206",
-              "line": "            border-radius: 8px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "207",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "209",
-              "line": "        h1, h2, h3 {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "210",
-              "line": "            color: #333;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "211",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "213",
-              "line": "        .product-grid {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "214",
-              "line": "            display: grid;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "215",
-              "line": "            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "216",
-              "line": "            gap: 2rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "217",
-              "line": "            margin: 2rem 0;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "218",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "220",
-              "line": "        .product-card {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "221",
-              "line": "            padding: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "222",
-              "line": "            border: 1px solid #ddd;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "223",
-              "line": "            border-radius: 8px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "224",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "226",
-              "line": "        .service-item {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "227",
-              "line": "            margin: 2rem 0;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "228",
-              "line": "            padding: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "229",
-              "line": "            border: 1px solid #ddd;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "230",
-              "line": "            border-radius: 8px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "231",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "233",
-              "line": "        .testimonial {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "234",
-              "line": "            margin: 2rem 0;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "235",
-              "line": "            padding: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "236",
-              "line": "            border-left: 4px solid #007bff;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "237",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "239",
-              "line": "        blockquote {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "240",
-              "line": "            font-style: italic;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "241",
-              "line": "            margin: 0;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "242",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "244",
-              "line": "        cite {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "245",
-              "line": "            display: block;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "246",
-              "line": "            margin-top: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "247",
-              "line": "            font-weight: bold;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "248",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "250",
-              "line": "        form {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "251",
-              "line": "            display: flex;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "252",
-              "line": "            flex-direction: column;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "253",
-              "line": "            gap: 1rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "254",
-              "line": "            max-width: 400px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "255",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "257",
-              "line": "        input, textarea {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "258",
-              "line": "            padding: 0.5rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "259",
-              "line": "            border: 1px solid #ddd;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "260",
-              "line": "            border-radius: 4px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "261",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "263",
-              "line": "        button {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "264",
-              "line": "            padding: 0.75rem 1.5rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "265",
-              "line": "            background-color: #007bff;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "266",
-              "line": "            color: white;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "267",
-              "line": "            border: none;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "268",
-              "line": "            border-radius: 4px;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "269",
-              "line": "            cursor: pointer;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "270",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "272",
-              "line": "        button:hover {",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "273",
-              "line": "            background-color: #0056b3;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "274",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "276",
-              "line": "        footer {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "277",
-              "line": "            background-color: #333;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "278",
-              "line": "            color: white;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "279",
-              "line": "            padding: 2rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "280",
-              "line": "            margin-top: 3rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "281",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "283",
-              "line": "        .footer-content {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "284",
-              "line": "            display: grid;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "285",
-              "line": "            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "286",
-              "line": "            gap: 2rem;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "287",
-              "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "289",
-              "line": "        .footer-section ul {",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "290",
-              "line": "            list-style: none;",
-              "message": "Unknown directive"
-            },
-            {
-              "index": "291",
               "line": "            padding: 0;",
               "message": "Unknown directive"
             },
             {
-              "index": "292",
+              "index": "178",
               "line": "        }",
               "message": "Syntax not understood"
             },
             {
-              "index": "294",
-              "line": "        .footer-section a {",
+              "index": "180",
+              "line": "        header {",
               "message": "Syntax not understood"
             },
             {
-              "index": "295",
+              "index": "181",
+              "line": "            background-color: #333;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "182",
               "line": "            color: white;",
               "message": "Unknown directive"
             },
             {
-              "index": "296",
+              "index": "183",
+              "line": "            padding: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "184",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "186",
+              "line": "        nav ul {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "187",
+              "line": "            list-style: none;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "188",
+              "line": "            display: flex;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "189",
+              "line": "            gap: 2rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "190",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "192",
+              "line": "        nav a {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "193",
+              "line": "            color: white;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "194",
               "line": "            text-decoration: none;",
               "message": "Unknown directive"
             },
             {
-              "index": "297",
+              "index": "195",
               "line": "        }",
               "message": "Syntax not understood"
             },
             {
-              "index": "299",
-              "line": "        .footer-bottom {",
+              "index": "197",
+              "line": "        main {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "198",
+              "line": "            max-width: 1200px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "199",
+              "line": "            margin: 0 auto;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "200",
+              "line": "            padding: 2rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "201",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "203",
+              "line": "        section {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "204",
+              "line": "            margin: 2rem 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "205",
+              "line": "            padding: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "206",
+              "line": "            border: 1px solid #ddd;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "207",
+              "line": "            border-radius: 8px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "208",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "210",
+              "line": "        h1, h2, h3 {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "211",
+              "line": "            color: #333;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "212",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "214",
+              "line": "        .product-grid {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "215",
+              "line": "            display: grid;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "216",
+              "line": "            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "217",
+              "line": "            gap: 2rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "218",
+              "line": "            margin: 2rem 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "219",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "221",
+              "line": "        .product-card {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "222",
+              "line": "            padding: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "223",
+              "line": "            border: 1px solid #ddd;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "224",
+              "line": "            border-radius: 8px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "225",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "227",
+              "line": "        .service-item {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "228",
+              "line": "            margin: 2rem 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "229",
+              "line": "            padding: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "230",
+              "line": "            border: 1px solid #ddd;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "231",
+              "line": "            border-radius: 8px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "232",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "234",
+              "line": "        .testimonial {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "235",
+              "line": "            margin: 2rem 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "236",
+              "line": "            padding: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "237",
+              "line": "            border-left: 4px solid #007bff;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "238",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "240",
+              "line": "        blockquote {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "241",
+              "line": "            font-style: italic;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "242",
+              "line": "            margin: 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "243",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "245",
+              "line": "        cite {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "246",
+              "line": "            display: block;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "247",
+              "line": "            margin-top: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "248",
+              "line": "            font-weight: bold;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "249",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "251",
+              "line": "        form {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "252",
+              "line": "            display: flex;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "253",
+              "line": "            flex-direction: column;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "254",
+              "line": "            gap: 1rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "255",
+              "line": "            max-width: 400px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "256",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "258",
+              "line": "        input, textarea {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "259",
+              "line": "            padding: 0.5rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "260",
+              "line": "            border: 1px solid #ddd;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "261",
+              "line": "            border-radius: 4px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "262",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "264",
+              "line": "        button {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "265",
+              "line": "            padding: 0.75rem 1.5rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "266",
+              "line": "            background-color: #007bff;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "267",
+              "line": "            color: white;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "268",
+              "line": "            border: none;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "269",
+              "line": "            border-radius: 4px;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "270",
+              "line": "            cursor: pointer;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "271",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "273",
+              "line": "        button:hover {",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "274",
+              "line": "            background-color: #0056b3;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "275",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "277",
+              "line": "        footer {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "278",
+              "line": "            background-color: #333;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "279",
+              "line": "            color: white;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "280",
+              "line": "            padding: 2rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "281",
+              "line": "            margin-top: 3rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "282",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "284",
+              "line": "        .footer-content {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "285",
+              "line": "            display: grid;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "286",
+              "line": "            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "287",
+              "line": "            gap: 2rem;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "288",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "290",
+              "line": "        .footer-section ul {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "291",
+              "line": "            list-style: none;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "292",
+              "line": "            padding: 0;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "293",
+              "line": "        }",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "295",
+              "line": "        .footer-section a {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "296",
+              "line": "            color: white;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "297",
+              "line": "            text-decoration: none;",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "298",
+              "line": "        }",
               "message": "Syntax not understood"
             },
             {
               "index": "300",
+              "line": "        .footer-bottom {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "301",
               "line": "            text-align: center;",
               "message": "Unknown directive"
             },
             {
-              "index": "301",
+              "index": "302",
               "line": "            margin-top: 2rem;",
               "message": "Unknown directive"
             },
             {
-              "index": "302",
+              "index": "303",
               "line": "            padding-top: 1rem;",
               "message": "Unknown directive"
             },
             {
-              "index": "303",
+              "index": "304",
               "line": "            border-top: 1px solid #555;",
               "message": "Unknown directive"
             },
             {
-              "index": "304",
+              "index": "305",
               "line": "        }",
-              "message": "Syntax not understood"
-            },
-            {
-              "index": "306",
-              "line": "        img {",
               "message": "Syntax not understood"
             },
             {
               "index": "307",
+              "line": "        img {",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "308",
               "line": "            max-width: 100%;",
               "message": "Unknown directive"
             },
             {
-              "index": "308",
+              "index": "309",
               "line": "            height: auto;",
               "message": "Unknown directive"
             },
             {
-              "index": "309",
+              "index": "310",
               "line": "        }",
               "message": "Syntax not understood"
             },
             {
-              "index": "310",
+              "index": "311",
               "line": "    </style>",
               "message": "Syntax not understood"
             },
             {
-              "index": "311",
+              "index": "312",
               "line": "</body>",
               "message": "Syntax not understood"
             },
             {
-              "index": "312",
+              "index": "313",
               "line": "</html>",
               "message": "Syntax not understood"
             }
@@ -3358,7 +3368,7 @@
           }
         ],
         "id": "seo",
-        "score": 0.85
+        "score": 0.92
       }
     },
     "categoryGroups": {
@@ -3558,253 +3568,262 @@
           "right": 0,
           "width": 0,
           "height": 0
+        },
+        "1-12-META": {
+          "id": "",
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "height": 0
         }
       }
     },
     "timing": {
       "entries": [
         {
-          "startTime": 118367652.97,
+          "startTime": 118385063,
           "name": "lh:config",
-          "duration": 247.24,
+          "duration": 192.17,
           "entryType": "measure"
         },
         {
-          "startTime": 118367660.23,
+          "startTime": 118385064.82,
           "name": "lh:config:resolveArtifactsToDefns",
-          "duration": 9.11,
+          "duration": 1.84,
           "entryType": "measure"
         },
         {
-          "startTime": 118367900.25,
+          "startTime": 118385255.19,
           "name": "lh:runner:gather",
-          "duration": 5408.64,
+          "duration": 5202.44,
           "entryType": "measure"
         },
         {
-          "startTime": 118368087.48,
+          "startTime": 118385374.87,
           "name": "lh:driver:connect",
-          "duration": 2.62,
+          "duration": 5.11,
           "entryType": "measure"
         },
         {
-          "startTime": 118368090.12,
+          "startTime": 118385380.02,
           "name": "lh:driver:navigate",
-          "duration": 47.43,
+          "duration": 51.58,
           "entryType": "measure"
         },
         {
-          "startTime": 118368138.38,
+          "startTime": 118385432.08,
           "name": "lh:gather:getBenchmarkIndex",
-          "duration": 1012.5,
+          "duration": 1004.29,
           "entryType": "measure"
         },
         {
-          "startTime": 118369150.93,
+          "startTime": 118386436.49,
           "name": "lh:gather:getVersion",
-          "duration": 0.91,
+          "duration": 0.97,
           "entryType": "measure"
         },
         {
-          "startTime": 118369151.87,
+          "startTime": 118386437.5,
           "name": "lh:gather:getDevicePixelRatio",
-          "duration": 0.56,
+          "duration": 0.75,
           "entryType": "measure"
         },
         {
-          "startTime": 118369153.25,
+          "startTime": 118386438.31,
           "name": "lh:prepare:navigationMode",
-          "duration": 54.2,
+          "duration": 112.41,
           "entryType": "measure"
         },
         {
-          "startTime": 118369169.68,
+          "startTime": 118386450.06,
           "name": "lh:storage:clearDataForOrigin",
-          "duration": 20.33,
+          "duration": 86.39,
           "entryType": "measure"
         },
         {
-          "startTime": 118369190.03,
+          "startTime": 118386536.47,
           "name": "lh:storage:clearBrowserCaches",
-          "duration": 14.21,
+          "duration": 11.07,
           "entryType": "measure"
         },
         {
-          "startTime": 118369206.97,
+          "startTime": 118386550.2,
           "name": "lh:gather:prepareThrottlingAndNetwork",
-          "duration": 0.47,
+          "duration": 0.52,
           "entryType": "measure"
         },
         {
-          "startTime": 118369211.99,
+          "startTime": 118386559.49,
           "name": "lh:driver:navigate",
-          "duration": 2499.69,
+          "duration": 2456.44,
           "entryType": "measure"
         },
         {
-          "startTime": 118371727.67,
+          "startTime": 118389020.94,
           "name": "lh:computed:NetworkRecords",
-          "duration": 4.75,
+          "duration": 0.75,
           "entryType": "measure"
         },
         {
-          "startTime": 118371733.11,
+          "startTime": 118389021.92,
           "name": "lh:gather:getArtifact:DevtoolsLog",
-          "duration": 0.77,
+          "duration": 0.24,
           "entryType": "measure"
         },
         {
-          "startTime": 118371733.89,
+          "startTime": 118389022.66,
           "name": "lh:gather:getArtifact:Accessibility",
-          "duration": 256.73,
+          "duration": 184.68,
           "entryType": "measure"
         },
         {
-          "startTime": 118371991.14,
+          "startTime": 118389207.38,
           "name": "lh:gather:getArtifact:AnchorElements",
-          "duration": 66.55,
+          "duration": 15.28,
           "entryType": "measure"
         },
         {
-          "startTime": 118372057.72,
+          "startTime": 118389222.69,
           "name": "lh:gather:getArtifact:LinkElements",
-          "duration": 1.56,
+          "duration": 1.43,
           "entryType": "measure"
         },
         {
-          "startTime": 118372059.23,
+          "startTime": 118389224.04,
           "name": "lh:computed:MainResource",
-          "duration": 0.04,
+          "duration": 0.06,
           "entryType": "measure"
         },
         {
-          "startTime": 118372059.29,
+          "startTime": 118389224.13,
           "name": "lh:gather:getArtifact:MetaElements",
-          "duration": 1.32,
+          "duration": 1.44,
           "entryType": "measure"
         },
         {
-          "startTime": 118372060.63,
+          "startTime": 118389225.58,
           "name": "lh:gather:getArtifact:NetworkUserAgent",
-          "duration": 0.02,
+          "duration": 0.03,
           "entryType": "measure"
         },
         {
-          "startTime": 118372060.66,
+          "startTime": 118389225.61,
           "name": "lh:gather:getArtifact:RobotsTxt",
-          "duration": 7.36,
+          "duration": 2.83,
           "entryType": "measure"
         },
         {
-          "startTime": 118372068.03,
+          "startTime": 118389228.45,
           "name": "lh:gather:getArtifact:Stacks",
-          "duration": 14.23,
+          "duration": 8.38,
           "entryType": "measure"
         },
         {
-          "startTime": 118372068.17,
+          "startTime": 118389228.47,
           "name": "lh:gather:collectStacks",
-          "duration": 14.08,
+          "duration": 8.35,
           "entryType": "measure"
         },
         {
-          "startTime": 118372082.27,
+          "startTime": 118389236.84,
           "name": "lh:gather:getArtifact:FullPageScreenshot",
-          "duration": 1208.23,
+          "duration": 1214.35,
           "entryType": "measure"
         },
         {
-          "startTime": 118373308.93,
+          "startTime": 118390457.68,
           "name": "lh:runner:audit",
-          "duration": 20.55,
+          "duration": 13.12,
           "entryType": "measure"
         },
         {
-          "startTime": 118373308.93,
+          "startTime": 118390457.69,
           "name": "lh:runner:auditing",
-          "duration": 20.5,
+          "duration": 13.06,
           "entryType": "measure"
         },
         {
-          "startTime": 118373309.32,
+          "startTime": 118390458.46,
           "name": "lh:audit:document-title",
-          "duration": 2.44,
+          "duration": 1.99,
           "entryType": "measure"
         },
         {
-          "startTime": 118373311.87,
+          "startTime": 118390460.58,
           "name": "lh:audit:image-alt",
-          "duration": 1.61,
+          "duration": 1.63,
           "entryType": "measure"
         },
         {
-          "startTime": 118373313.6,
+          "startTime": 118390462.34,
           "name": "lh:audit:meta-description",
-          "duration": 0.36,
+          "duration": 0.48,
           "entryType": "measure"
         },
         {
-          "startTime": 118373314.06,
+          "startTime": 118390463.03,
           "name": "lh:audit:http-status-code",
-          "duration": 0.49,
+          "duration": 0.44,
           "entryType": "measure"
         },
         {
-          "startTime": 118373314.66,
+          "startTime": 118390463.61,
           "name": "lh:audit:link-text",
-          "duration": 0.38,
+          "duration": 0.43,
           "entryType": "measure"
         },
         {
-          "startTime": 118373315.15,
+          "startTime": 118390464.17,
           "name": "lh:audit:crawlable-anchors",
-          "duration": 0.36,
+          "duration": 0.48,
           "entryType": "measure"
         },
         {
-          "startTime": 118373315.63,
+          "startTime": 118390464.79,
           "name": "lh:audit:is-crawlable",
-          "duration": 0.45,
+          "duration": 0.54,
           "entryType": "measure"
         },
         {
-          "startTime": 118373316.18,
+          "startTime": 118390465.45,
           "name": "lh:audit:robots-txt",
-          "duration": 11.46,
+          "duration": 1.76,
           "entryType": "measure"
         },
         {
-          "startTime": 118373327.75,
+          "startTime": 118390467.33,
           "name": "lh:audit:hreflang",
-          "duration": 0.36,
+          "duration": 0.35,
           "entryType": "measure"
         },
         {
-          "startTime": 118373328.21,
+          "startTime": 118390467.78,
           "name": "lh:audit:canonical",
-          "duration": 0.84,
+          "duration": 2.56,
           "entryType": "measure"
         },
         {
-          "startTime": 118373329.15,
+          "startTime": 118390470.46,
           "name": "lh:audit:structured-data",
           "duration": 0.28,
           "entryType": "measure"
         },
         {
-          "startTime": 118373329.44,
+          "startTime": 118390470.75,
           "name": "lh:runner:generate",
-          "duration": 0.04,
+          "duration": 0.05,
           "entryType": "measure"
         },
         {
-          "startTime": 118373329.53,
+          "startTime": 118390470.84,
           "name": "lh:computed:EntityClassification",
-          "duration": 0.11,
+          "duration": 0.1,
           "entryType": "measure"
         }
       ],
-      "total": 5429.1900000000005
+      "total": 5215.5599999999995
     },
     "i18n": {
       "rendererFormattedStrings": {
@@ -3887,7 +3906,7 @@
         "core/audits/accessibility/image-alt.js | description": [
           "audits[image-alt].description"
         ],
-        "core/audits/seo/meta-description.js | failureTitle": [
+        "core/audits/seo/meta-description.js | title": [
           "audits[meta-description].title"
         ],
         "core/audits/seo/meta-description.js | description": [
@@ -3929,7 +3948,7 @@
         "core/audits/seo/robots-txt.js | displayValueValidationError": [
           {
             "values": {
-              "itemCount": 278
+              "itemCount": 279
             },
             "path": "audits[robots-txt].displayValue"
           }

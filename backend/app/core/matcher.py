@@ -299,7 +299,7 @@ class _Dom:
 
     def _find_best_snippet_match(self, elem, snippet: str, positions: List[int]) -> Optional[Tuple[int, int]]:
         """
-        从多个 snippet 位置中选择最佳的一个，基于元素的属性和上下文。
+        Choose the best one from multiple snippet positions based on element attributes and context.
         """
         if not positions:
             return None
@@ -307,11 +307,11 @@ class _Dom:
         if len(positions) == 1:
             return positions[0], positions[0] + len(snippet)
         
-        # 获取元素的属性
+        # Get element attributes
         elem_attrs = elem.attrib
         elem_tag = elem.tag.lower()
         
-        # 获取父元素信息
+        # Get parent element information
         parent = elem.getparent()
         parent_tag = parent.tag.lower() if parent else ""
         parent_id = parent.get("id") if parent else ""
@@ -322,29 +322,29 @@ class _Dom:
         for pos in positions:
             score = 0
             
-            # 获取这个位置的上下文
+            # Get context for this position
             context_start = max(0, pos - 200)
             context_end = min(len(self.raw), pos + len(snippet) + 200)
             context = self.raw[context_start:context_end]
             
-            # 1. 检查父元素 ID 是否匹配
+            # 1. Check if parent element ID matches
             if parent_id and parent_id in context:
                 score += 10
             
-            # 2. 检查父元素标签是否匹配
+            # 2. Check if parent element tag matches
             if parent_tag and f"<{parent_tag}" in context:
                 score += 5
             
-            # 3. 检查元素标签是否匹配
+            # 3. Check if element tag matches
             if elem_tag and f"<{elem_tag}" in context:
                 score += 3
             
-            # 4. 检查元素属性是否匹配
+            # 4. Check if element attributes match
             for attr_name, attr_value in elem_attrs.items():
                 if attr_value and attr_value in context:
                     score += 2
             
-            # 5. 检查是否在正确的 section 中
+            # 5. Check if in the correct section
             if parent_id and "section#" in parent_id:
                 if parent_id in context:
                     score += 8
@@ -353,7 +353,7 @@ class _Dom:
                 best_score = score
                 best_position = pos
         
-        # 如果找到了高分位置，使用它；否则使用第一个位置
+        # If a high-scoring position is found, use it; otherwise use the first position
         if best_position is not None:
             return best_position, best_position + len(snippet)
         else:
@@ -644,39 +644,41 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
 
     # 6) document-level fallbacks (e.g., missing <title> / meta description)
     if audit_id in ("document-title", "meta-description"):
-        # If title/meta exists, return that; else return <head> as evidence of absence.
-        if audit_id == "document-title":
-            # Try to find an existing <title>
+        # Special handling for "does not have" type issues
+        if audit_id == "meta-description":
+            # For meta description, we want to insert after <title> tag
             try:
                 titles = dom.css("head > title")
+                if titles:
+                    # Found title tag, insert meta description after it
+                    offsets = dom.map_elem_to_offsets(titles[0])
+                    if offsets:
+                        s, e = offsets
+                        ls, le = _slice_to_lines_1based(starts, s, e)
+                        # Set start_line=0, end_line=0 to indicate "missing" issue
+                        # But provide context around title for insertion
+                        issue.update({
+                            "match_status": "matched",
+                            "match_html": raw[s:e],  # This is the title tag context
+                            "match_line_start": 0,   # Indicate missing issue
+                            "match_line_end": 0      # Indicate missing issue
+                        })
+                        return issue
             except Exception:
-                titles = []
-            if titles:
-                offsets = dom.map_elem_to_offsets(titles[0])
-                if offsets:
-                    s, e = offsets
-                    ls, le = _slice_to_lines_1based(starts, s, e)
-                    issue.update({
-                        "match_status": "matched",
-                        "match_html": raw[s:e],
-                        "match_line_start": ls,
-                        "match_line_end": le
-                    })
-                    return issue
-
-        # Return <head> slice as absence-evidence
-        m_open = re.search(r"<head\b[^>]*>", raw, re.I)
-        m_close = re.search(r"</head\s*>", raw, re.I)
-        if m_open and m_close and m_close.start() > m_open.start():
-            s, e = m_open.start(), m_close.end()
-            ls, le = _slice_to_lines_1based(starts, s, e)
-            issue.update({
-                "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
-            })
-            return issue
+                pass
+            
+            # Fallback: return head context for insertion
+            m_open = re.search(r"<head\b[^>]*>", raw, re.I)
+            m_close = re.search(r"</head\s*>", raw, re.I)
+            if m_open and m_close and m_close.start() > m_open.start():
+                s, e = m_open.start(), m_close.end()
+                issue.update({
+                    "match_status": "matched",
+                    "match_html": raw[s:e],
+                    "match_line_start": 0,   # Indicate missing issue
+                    "match_line_end": 0      # Indicate missing issue
+                })
+                return issue
 
     # 7) Special handling for canonical audit
     if audit_id == "canonical":

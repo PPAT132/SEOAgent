@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deprecated Tags and Security Issues Test</title>
+    <meta name="description" content="Test page with deprecated HTML tags, security issues, and link text problems">
+    <link rel="canonical" href="https://example.com/deprecated-tags-test">
+    <!-- 不安全的meta标签 -->
+    <meta http-equiv="refresh" content="0; url=http://malicious-site.com">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Deprecated Tags and Security Issues Test</h1>
+            <p>This page contains deprecated HTML tags, security issues, and various link text problems.</p>
+        </section>
+
+        <section class="deprecated-tags">
+            <h2>Deprecated HTML Tags</h2>
+            <p>These tags are deprecated and should not be used in modern HTML:</p>
+            
+            <!-- 已废弃的标签 -->
+            <marquee>This is a scrolling marquee text - deprecated!</marquee>
+            <font size="5" color="red">This text uses deprecated font tag</font>
+            <center>This text is centered using deprecated center tag</center>
+            <strike>This text is struck through using deprecated strike tag</strike>
+            <big>This text is big using deprecated big tag</big>
+            <small>This text is small using deprecated small tag</small>
+            <tt>This is teletype text using deprecated tt tag</tt>
+            <u>This text is underlined using deprecated u tag</u>
+        </section>
+
+        <section class="security-issues">
+            <h2>Security Issues</h2>
+            <p>These elements pose security risks:</p>
+            
+            <!-- 不安全的链接 -->
+            <a href="http://insecure-site.com">Insecure HTTP link</a>
+            <a href="http://malicious-site.com">Malicious site link</a>
+            <a href="http://phishing-site.com">Phishing site link</a>
+            
+            <!-- 不安全的iframe -->
+            <iframe src="http://insecure-site.com" width="300" height="200"></iframe>
+            <iframe src="http://malicious-site.com" width="300" height="200"></iframe>
+            
+            <!-- 不安全的脚本 -->
+            <script src="http://insecure-cdn.com/script.js"></script>
+            <script src="http://malicious-cdn.com/script.js"></script>
+        </section>
+
+        <section class="link-text-issues">
+            <h2>Poor Link Text</h2>
+            <p>These links have poor, non-descriptive text:</p>
+            
+            <!-- 不好的链接文本 -->
+            <a href="/products">click</a>
+            <a href="/services">here</a>
+            <a href="/about">more</a>
+            <a href="/contact">link</a>
+            <a href="/blog">read</a>
+            <a href="/download">download</a>
+            <a href="/signup">signup</a>
+            <a href="/login">login</a>
+            <a href="/help">help</a>
+            <a href="/support">support</a>
+            
+            <!-- 重复的链接文本 -->
+            <a href="/product1">Read more</a>
+            <a href="/product2">Read more</a>
+            <a href="/product3">Read more</a>
+            <a href="/article1">Read more</a>
+            <a href="/article2">Read more</a>
+            <a href="/article3">Read more</a>
+        </section>
+
+        <section class="meta-issues">
+            <h2>Meta Tag Issues</h2>
+            <p>Various meta tag problems:</p>
+            
+            <!-- 重复的meta标签 -->
+            <meta name="keywords" content="seo, optimization, web design">
+            <meta name="keywords" content="digital marketing, branding, development">
+            
+            <!-- 空的meta标签 -->
+            <meta name="author" content="">
+            <meta name="generator" content="">
+            
+            <!-- 不合适的meta标签 -->
+            <meta name="rating" content="adult">
+            <meta name="distribution" content="global">
+        </section>
+
+        <section class="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="product1.jpg" alt="Product One">
+                    <h3>Product One</h3>
+                    <p>Description of product one with detailed information about its features and benefits.</p>
+                    <a href="http://insecure-site.com">click</a>
+                </div>
+                <div class="product-card">
+                    <img src="product2.jpg" alt="Product Two">
+                    <h3>Product Two</h3>
+                    <p>Description of product two with detailed information about its features and benefits.</p>
+                    <a href="http://malicious-site.com">here</a>
+                </div>
+                <div class="product-card">
+                    <img src="product3.jpg" alt="Product Three">
+                    <h3>Product Three</h3>
+                    <p>Description of product three with detailed information about its features and benefits.</p>
+                    <a href="http://phishing-site.com">more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="member">
+                    <img src="ceo.jpg" alt="CEO">
+                    <h3>John Smith</h3>
+                    <p>CEO and Founder</p>
+                    <a href="mailto:ceo@insecure-company.com">click</a>
+                </div>
+                <div class="member">
+                    <img src="cto.jpg" alt="CTO">
+                    <h3>Jane Doe</h3>
+                    <p>Chief Technology Officer</p>
+                    <a href="mailto:cto@insecure-company.com">here</a>
+                </div>
+                <div class="member">
+                    <img src="designer.jpg" alt="Designer">
+                    <h3>Mike Johnson</h3>
+                    <p>Lead Designer</p>
+                    <a href="mailto:designer@insecure-company.com">link</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Customer Testimonials</h2>
+            <div class="testimonial">
+                <img src="customer1.jpg" alt="Customer One">
+                <blockquote>
+                    "This company has transformed our business with their innovative solutions."
+                </blockquote>
+                <cite>- Sarah Wilson, Marketing Director</cite>
+                <a href="http://insecure-site.com">read more</a>
+            </div>
+            <div class="testimonial">
+                <img src="customer2.jpg" alt="Customer Two">
+                <blockquote>
+                    "Outstanding service and exceptional results. Highly recommended!"
+                </blockquote>
+                <cite>- David Brown, CEO</cite>
+                <a href="http://malicious-site.com">click here</a>
+            </div>
+        </section>
+
+        <section class="blog">
+            <h2>Latest Blog Posts</h2>
+            <article>
+                <img src="blog1.jpg" alt="Blog Post One">
+                <h3>How to Improve Your SEO Strategy</h3>
+                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>
+                <a href="http://insecure-site.com">read</a>
+            </article>
+            <article>
+                <img src="blog2.jpg" alt="Blog Post Two">
+                <h3>The Future of Web Development</h3>
+                <p>Explore the upcoming trends and technologies in web development.</p>
+                <a href="http://malicious-site.com">more</a>
+            </article>
+            <article>
+                <img src="blog3.jpg" alt="Blog Post Three">
+                <h3>Building User-Friendly Interfaces</h3>
+                <p>Best practices for creating intuitive and accessible user interfaces.</p>
+                <a href="http://phishing-site.com">link</a>
+            </article>
+        </section>
+
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <img src="web-design.jpg" alt="Web Design">
+                <h3>Web Design</h3>
+                <p>Custom website design tailored to your brand and business needs.</p>
+                <a href="http://insecure-site.com">click here</a>
+            </div>
+            <div class="service-item">
+                <img src="seo-optimization.jpg" alt="SEO Optimization">
+                <h3>SEO Optimization</h3>
+                <p>Comprehensive search engine optimization to improve your online visibility.</p>
+                <a href="http://malicious-site.com">here</a>
+            </div>
+            <div class="service-item">
+                <img src="digital-marketing.jpg" alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>Strategic digital marketing campaigns to grow your business.</p>
+                <a href="http://phishing-site.com">more</a>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <img src="office-location.jpg" alt="Office Location">
+                <p>Visit our office for a consultation</p>
+            </div>
+            <form action="http://insecure-site.com/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="footer-logo.png" alt="Footer Logo">
+                <p>Your trusted partner in digital success.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="http://insecure-site.com/privacy">click</a></li>
+                    <li><a href="http://malicious-site.com/terms">here</a></li>
+                    <li><a href="http://phishing-site.com/sitemap">more</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <img src="social-media-icons.jpg" alt="Social Media Icons">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+            
+            // Add some interactive functionality
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    console.log('Image clicked:', this.src);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-item {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .testimonial {
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid #007bff;
+        }
+        
+        a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+        
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+        }
+        
+        input, textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Styles for deprecated tags */
+        marquee {
+            background-color: #ffeb3b;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        font[size="5"] {
+            font-size: 24px;
+        }
+        
+        center {
+            text-align: center;
+        }
+        
+        strike {
+            text-decoration: line-through;
+        }
+        
+        big {
+            font-size: 18px;
+        }
+        
+        small {
+            font-size: 12px;
+        }
+        
+        tt {
+            font-family: monospace;
+        }
+        
+        u {
+            text-decoration: underline;
+        }
+    </style>
+</body>
+</html>

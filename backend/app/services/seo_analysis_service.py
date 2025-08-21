@@ -8,6 +8,7 @@ import os
 import sys
 import requests
 from typing import Optional, Dict, Any, List
+from app.core.context_extracter import extract_context
 
 # Add core module to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'core'))
@@ -110,10 +111,10 @@ class SEOAnalysisService:
     def _process_matched_result(self, matched_result: Dict[str, Any]) -> List[IssueInfo]:
         """Process matched result and merge overlapping issues"""
         try:
-            # 使用 issue_merger 处理数据，支持插入操作
+            # Use issue_merger to process data, supporting insertion operations
             processed_data = transform_to_simple_issues_with_insertions(matched_result)
             
-            # 转换为 IssueInfo 对象
+            # Convert to IssueInfo objects
             issues = []
             for issue_data in processed_data:
                 issue = IssueInfo(
@@ -144,7 +145,8 @@ class SEOAnalysisService:
             result = SEOAnalysisResult(
                 seo_score=seo_score,
                 total_lines=total_lines,
-                issues=issues
+                issues=issues,
+                context=extract_context(html_content)
             )
             
             return result
@@ -163,11 +165,11 @@ class SEOAnalysisService:
             SEOAnalysisResult: Complete SEO analysis result
         """
         try:
-            # 读取 HTML 文件
+            # Read HTML file
             with open(html_file_path, 'r', encoding='utf-8') as f:
                 html_content = f.read()
             
-            # 分析 HTML 内容
+            # Analyze HTML content
             return self.analyze_html(html_content)
             
         except FileNotFoundError:

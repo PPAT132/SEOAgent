@@ -1,76 +1,14 @@
 {
-  "seo_score": 25.0,
-  "total_lines": 705,
+  "seo_score": 85.0,
+  "total_lines": 313,
   "issues": [
     {
-      "title": "Links are not crawlable",
-      "start_line": 575,
-      "end_line": 575,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a>Example link</a>"
-    },
-    {
-      "title": "Links are not crawlable",
-      "start_line": 480,
-      "end_line": 480,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a>"
-    },
-    {
-      "title": "Links are not crawlable",
-      "start_line": 385,
-      "end_line": 385,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a href=\"/your-relevant-page-url\">Your descriptive link text</a>"
-    },
-    {
-      "title": "Links are not crawlable",
-      "start_line": 290,
-      "end_line": 290,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a href=\"/your-relevant-page-url\">"
-    },
-    {
-      "title": "Links are not crawlable",
-      "start_line": 195,
-      "end_line": 195,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a href=\"/relevant-page-url\">"
-    },
-    {
-      "title": "Links are not crawlable",
-      "start_line": 100,
-      "end_line": 100,
-      "raw_html": "<a href=\"javascript:void(0)\">",
-      "optimized_html": "<a>Example Link</a>"
-    },
-    {
-      "title": "Document doesn't have a valid `hreflang`",
-      "start_line": 28,
-      "end_line": 28,
-      "raw_html": "<link rel=\"alternate\" hreflang=\"xx-YY\" href=\"https://example.com/invalid\">",
-      "optimized_html": "<link rel=\"alternate\" hreflang=\"en-US\" href=\"https://example.com/invalid\">"
-    },
-    {
-      "title": "Document does not have a valid `rel=canonical`",
-      "start_line": 23,
-      "end_line": 23,
-      "raw_html": "<link rel=\"canonical\" href=\"/relative-canonical\">",
-      "optimized_html": "<link rel=\"canonical\" href=\"https://www.example.com/relative-canonical\">"
-    },
-    {
-      "title": "Page is blocked from indexing",
-      "start_line": 9,
-      "end_line": 9,
-      "raw_html": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">",
-      "optimized_html": "<meta charset=\"UTF-8\">"
-    },
-    {
-      "title": "Document doesn't have a `<title>` element",
-      "start_line": 4,
-      "end_line": 4,
-      "raw_html": "<html lang=\"en zh-CN\" dir=\"rtl\">",
-      "optimized_html": "```html\n<!DOCTYPE html>\n<html lang=\"en zh-CN\" dir=\"rtl\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Your Title Here</title>\n</head>\n<body>\n\n</body>\n</html>\n```"
+      "title": "Document does not have a meta description",
+      "start_line": 0,
+      "end_line": 0,
+      "raw_html": "<title>Meta Description Missing Test Page</title>",
+      "optimized_html": "<meta name=\"description\" content=\"This page tests for missing meta descriptions, crucial for SEO. Learn why meta descriptions matter and explore our web design, SEO, & marketing services.\">"
     }
-  ]
+  ],
+  "context": "\n        ALL_TITLES: Meta Description Missing Test Page\n        ALL_META_DESCRIPTIONS: \n        ALL_HEADINGS: Meta Description Missing Test | Why Meta Descriptions Matter | Our Products | Product One | Product Two | Product Three | Our Services | Web Design | SEO Optimization | Digital Marketing | About Our Company | Customer Testimonials | Latest Blog Posts | How to Improve Your SEO Strategy | The Future of Web Development | Building User-Friendly Interfaces | Contact Us | Contact Information | Quick Links | Follow Us\n        ALL_PAGE_TEXT: Meta Description Missing Test This page is missing a meta description tag, which is important for SEO and search engine snippets. Why Meta Descriptions Matter Meta descriptions are crucial for SEO because they: Provide a summary of the page content in search results Help users understand what the page is about before clicking Can improve click-through rates from search results Give search engines context about the page content Our Products Product One Description of product one with detailed information about its features and benefits. Product Two Description of product two with detailed information about its features and benefits. Product Three Description of product three with detailed information about its features and benefits. Our Services Web Design Custom website design tailored to your brand and business needs. SEO Optimization Comprehensive search engine optimization to improve your online visibility. Digital Marketing Strategic digital marketing campaigns to grow your business. About Our Company We are a leading digital agency specializing in web design, SEO optimization, and digital marketing services. Our team of experts is dedicated to helping businesses grow their online presence and achieve their digital marketing goals. With years of experience in the industry, we understand what it takes to create successful online campaigns and websites that convert visitors into customers. Customer Testimonials \"This company has transformed our business with their innovative solutions.\" - Sarah Wilson, Marketing Director \"Outstanding service and exceptional results. Highly recommended!\" - David Brown, CEO Latest Blog Posts How to Improve Your SEO Strategy Learn the latest techniques for improving your search engine optimization strategy. The Future of Web Development Explore the upcoming trends and technologies in web development. Building User-Friendly Interfaces Best practices for creating intuitive and accessible user interfaces. Contact Us Ready to start your project? Get in touch with us today! Name: Email: Message: Send Message\n        "
 }

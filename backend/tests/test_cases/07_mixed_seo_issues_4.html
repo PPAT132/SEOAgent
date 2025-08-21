@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive SEO Test Page</title>
+    <meta name="description" content="Comprehensive test page with both good and bad SEO practices to test detection and optimization capabilities">
+    <link rel="canonical" href="https://example.com/comprehensive-test">
+    <link rel="alternate" hreflang="en" href="https://example.com/en">
+    <link rel="alternate" hreflang="es" href="https://example.com/es">
+    <link rel="alternate" hreflang="x-default" href="https://example.com/">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Comprehensive SEO Test Page</h1>
+            <p>This page contains a mix of good and bad SEO practices to test detection and optimization capabilities.</p>
+            
+            <!-- 好的图片 - 有alt属性 -->
+            <img src="hero-banner.jpg" alt="Hero banner image">
+            <img src="company-logo.png" alt="Company logo">
+            
+            <!-- 坏的图片 - 缺少alt属性 -->
+            <img src="product-showcase.jpg">
+            <img src="team-photo.jpg">
+            <img src="office-building.jpg">
+        </section>
+
+        <section class="navigation-issues">
+            <h2>Navigation Issues</h2>
+            
+            <!-- 好的链接 -->
+            <a href="/products">Our Products</a>
+            <a href="/services">Our Services</a>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/blog">Blog</a>
+            
+            <!-- 坏的链接 - 不可爬取 -->
+            <a href="javascript:void(0)">Click here for nothing</a>
+            <a href="javascript:void(0)">Learn more</a>
+            <a href="javascript:void(0)">Get started</a>
+            <a href="#">Read more</a>
+            <a href="#">View details</a>
+        </section>
+
+        <section class="link-text-issues">
+            <h2>Link Text Issues</h2>
+            
+            <!-- 好的链接文本 -->
+            <a href="/web-design">Web Design Services</a>
+            <a href="/seo-optimization">SEO Optimization</a>
+            <a href="/digital-marketing">Digital Marketing</a>
+            <a href="/contact-us">Contact Our Team</a>
+            <a href="/download-guide">Download SEO Guide</a>
+            
+            <!-- 坏的链接文本 -->
+            <a href="/products">click</a>
+            <a href="/services">here</a>
+            <a href="/about">more</a>
+            <a href="/contact">link</a>
+            <a href="/blog">read</a>
+            
+            <!-- 重复的链接文本 -->
+            <a href="/product1">Read more</a>
+            <a href="/product2">Read more</a>
+            <a href="/product3">Read more</a>
+            <a href="/article1">Read more</a>
+            <a href="/article2">Read more</a>
+        </section>
+
+        <section class="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <!-- 好的图片 -->
+                    <img src="product1.jpg" alt="Product One - Premium Web Design Package">
+                    <h3>Product One</h3>
+                    <p>Description of product one with detailed information about its features and benefits.</p>
+                    <!-- 坏的链接 -->
+                    <a href="javascript:void(0)">Buy now</a>
+                </div>
+                <div class="product-card">
+                    <!-- 坏的图片 -->
+                    <img src="product2.jpg">
+                    <h3>Product Two</h3>
+                    <p>Description of product two with detailed information about its features and benefits.</p>
+                    <!-- 坏的链接 -->
+                    <a href="javascript:void(0)">Add to cart</a>
+                </div>
+                <div class="product-card">
+                    <!-- 好的图片 -->
+                    <img src="product3.jpg" alt="Product Three - Advanced SEO Solution">
+                    <h3>Product Three</h3>
+                    <p>Description of product three with detailed information about its features and benefits.</p>
+                    <!-- 好的链接 -->
+                    <a href="/product-three-details">Learn more about Product Three</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="member">
+                    <!-- 好的图片 -->
+                    <img src="ceo.jpg" alt="John Smith - CEO and Founder">
+                    <h3>John Smith</h3>
+                    <p>CEO and Founder</p>
+                </div>
+                <div class="member">
+                    <!-- 坏的图片 -->
+                    <img src="cto.jpg">
+                    <h3>Jane Doe</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="member">
+                    <!-- 好的图片 -->
+                    <img src="designer.jpg" alt="Mike Johnson - Lead Designer">
+                    <h3>Mike Johnson</h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Customer Testimonials</h2>
+            <div class="testimonial">
+                <!-- 好的图片 -->
+                <img src="customer1.jpg" alt="Sarah Wilson - Marketing Director">
+                <blockquote>
+                    "This company has transformed our business with their innovative solutions."
+                </blockquote>
+                <cite>- Sarah Wilson, Marketing Director</cite>
+                <!-- 坏的链接 -->
+                <a href="javascript:void(0)">read more</a>
+            </div>
+            <div class="testimonial">
+                <!-- 坏的图片 -->
+                <img src="customer2.jpg">
+                <blockquote>
+                    "Outstanding service and exceptional results. Highly recommended!"
+                </blockquote>
+                <cite>- David Brown, CEO</cite>
+                <!-- 好的链接 -->
+                <a href="/testimonials/david-brown">Read full testimonial</a>
+            </div>
+        </section>
+
+        <section class="blog">
+            <h2>Latest Blog Posts</h2>
+            <article>
+                <!-- 好的图片 -->
+                <img src="blog1.jpg" alt="SEO Strategy Improvement Guide">
+                <h3>How to Improve Your SEO Strategy</h3>
+                <p>Learn the latest techniques for improving your search engine optimization strategy.</p>
+                <!-- 坏的链接 -->
+                <a href="#">Read more</a>
+            </article>
+            <article>
+                <!-- 坏的图片 -->
+                <img src="blog2.jpg">
+                <h3>The Future of Web Development</h3>
+                <p>Explore the upcoming trends and technologies in web development.</p>
+                <!-- 好的链接 -->
+                <a href="/blog/future-web-development">Read full article</a>
+            </article>
+            <article>
+                <!-- 好的图片 -->
+                <img src="blog3.jpg" alt="User Interface Design Best Practices">
+                <h3>Building User-Friendly Interfaces</h3>
+                <p>Best practices for creating intuitive and accessible user interfaces.</p>
+                <!-- 坏的链接 -->
+                <a href="#">Read more</a>
+            </article>
+        </section>
+
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <!-- 好的图片 -->
+                <img src="web-design.jpg" alt="Professional Web Design Services">
+                <h3>Web Design</h3>
+                <p>Custom website design tailored to your brand and business needs.</p>
+                <!-- 坏的链接 -->
+                <a href="javascript:void(0)">Get quote</a>
+            </div>
+            <div class="service-item">
+                <!-- 坏的图片 -->
+                <img src="seo-optimization.jpg">
+                <h3>SEO Optimization</h3>
+                <p>Comprehensive search engine optimization to improve your online visibility.</p>
+                <!-- 好的链接 -->
+                <a href="/services/seo-optimization">Learn about SEO services</a>
+            </div>
+            <div class="service-item">
+                <!-- 好的图片 -->
+                <img src="digital-marketing.jpg" alt="Digital Marketing Campaigns">
+                <h3>Digital Marketing</h3>
+                <p>Strategic digital marketing campaigns to grow your business.</p>
+                <!-- 坏的链接 -->
+                <a href="javascript:void(0)">Start campaign</a>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <!-- 好的图片 -->
+                <img src="office-location.jpg" alt="Our office location">
+                <p>Visit our office for a consultation</p>
+            </div>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <!-- 好的图片 -->
+                <img src="footer-logo.png" alt="Company logo">
+                <p>Your trusted partner in digital success.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <!-- 好的链接 -->
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <!-- 坏的图片 -->
+                <img src="social-media-icons.jpg">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+            
+            // Add some interactive functionality
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    console.log('Image clicked:', this.src);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* CSS styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-item {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .testimonial {
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid #007bff;
+        }
+        
+        a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+        
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+        }
+        
+        input, textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</body>
+</html>
