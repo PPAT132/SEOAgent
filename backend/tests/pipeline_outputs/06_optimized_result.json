@@ -1,203 +1,35 @@
 {
-  "seo_score": 85.0,
-  "total_lines": 285,
+  "seo_score": 75.0,
+  "total_lines": 19,
   "issues": [
     {
       "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 178,
-      "end_line": 178,
-      "raw_html": "<img src=\"social-media-icons.jpg\">",
-      "optimized_html": "<img src=\"social-media-icons.jpg\" alt=\"Social Media Icons\">"
+      "start_line": 14,
+      "end_line": 14,
+      "raw_html": "<img src=\"https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400\">",
+      "optimized_html": "<img src=\"https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400\" alt=\"UNKNOWN_IMAGE\">"
     },
     {
       "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 165,
-      "end_line": 165,
-      "raw_html": "<img src=\"footer-logo.png\">",
-      "optimized_html": "<img src=\"footer-logo.png\" alt=\"Company Logo\">"
+      "start_line": 13,
+      "end_line": 13,
+      "raw_html": "<img src=\"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400\">",
+      "optimized_html": "<img src=\"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400\" alt=\"UNKNOWN_IMAGE\">"
     },
     {
       "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 147,
-      "end_line": 147,
-      "raw_html": "<img src=\"office-location.jpg\">",
-      "optimized_html": "<img src=\"office-location.jpg\" alt=\"Office Location\">"
+      "start_line": 12,
+      "end_line": 12,
+      "raw_html": "<img src=\"https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400\">",
+      "optimized_html": "<img src=\"https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400\" alt=\"UNKNOWN_IMAGE\">"
     },
     {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 138,
-      "end_line": 138,
-      "raw_html": "<img src=\"digital-marketing.jpg\">",
-      "optimized_html": "<img src=\"digital-marketing.jpg\" alt=\"Digital Marketing\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 133,
-      "end_line": 133,
-      "raw_html": "<img src=\"seo-optimization.jpg\">",
-      "optimized_html": "<img src=\"seo-optimization.jpg\" alt=\"SEO Optimization\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 128,
-      "end_line": 128,
-      "raw_html": "<img src=\"web-design.jpg\">",
-      "optimized_html": "<img src=\"web-design.jpg\" alt=\"Web Design\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 119,
-      "end_line": 119,
-      "raw_html": "<img src=\"blog3.jpg\">",
-      "optimized_html": "<img src=\"blog3.jpg\" alt=\"Building User-Friendly Interfaces\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 114,
-      "end_line": 114,
-      "raw_html": "<img src=\"blog2.jpg\">",
-      "optimized_html": "<img src=\"blog2.jpg\" alt=\"The Future of Web Development\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 109,
-      "end_line": 109,
-      "raw_html": "<img src=\"blog1.jpg\">",
-      "optimized_html": "<img src=\"blog1.jpg\" alt=\"How to Improve Your SEO Strategy\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 98,
-      "end_line": 98,
-      "raw_html": "<img src=\"customer2.jpg\">",
-      "optimized_html": "<img src=\"customer2.jpg\" alt=\"Customer Testimonial Image\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 91,
-      "end_line": 91,
-      "raw_html": "<img src=\"customer1.jpg\">",
-      "optimized_html": "<img src=\"customer1.jpg\" alt=\"Customer 1\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 81,
-      "end_line": 81,
-      "raw_html": "<img src=\"designer.jpg\">",
-      "optimized_html": "<img src=\"designer.jpg\" alt=\"Mike Johnson, Lead Designer\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 76,
-      "end_line": 76,
-      "raw_html": "<img src=\"cto.jpg\">",
-      "optimized_html": "<img src=\"cto.jpg\" alt=\"Jane Doe, Chief Technology Officer\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 71,
-      "end_line": 71,
-      "raw_html": "<img src=\"ceo.jpg\">",
-      "optimized_html": "<img src=\"ceo.jpg\" alt=\"John Smith, CEO and Founder\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 63,
-      "end_line": 63,
-      "raw_html": "<img src=\"gallery6.jpg\">",
-      "optimized_html": "<img src=\"gallery6.jpg\" alt=\"Gallery Image 6\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 62,
-      "end_line": 62,
-      "raw_html": "<img src=\"gallery5.jpg\">",
-      "optimized_html": "<img src=\"gallery5.jpg\" alt=\"Gallery Image 5\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 61,
-      "end_line": 61,
-      "raw_html": "<img src=\"gallery4.jpg\">",
-      "optimized_html": "<img src=\"gallery4.jpg\" alt=\"Gallery Image 4\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 60,
-      "end_line": 60,
-      "raw_html": "<img src=\"gallery3.jpg\">",
-      "optimized_html": "<img src=\"gallery3.jpg\" alt=\"Gallery Image 3\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 59,
-      "end_line": 59,
-      "raw_html": "<img src=\"gallery2.jpg\">",
-      "optimized_html": "<img src=\"gallery2.jpg\" alt=\"Gallery Image 2\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 58,
-      "end_line": 58,
-      "raw_html": "<img src=\"gallery1.jpg\">",
-      "optimized_html": "<img src=\"gallery1.jpg\" alt=\"Gallery Image 1\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 48,
-      "end_line": 48,
-      "raw_html": "<img src=\"product3.jpg\">",
-      "optimized_html": "<img src=\"product3.jpg\" alt=\"Product Three\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 43,
-      "end_line": 43,
-      "raw_html": "<img src=\"product2.jpg\">",
-      "optimized_html": "<img src=\"product2.jpg\" alt=\"Product Two\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 38,
-      "end_line": 38,
-      "raw_html": "<img src=\"product1.jpg\">",
-      "optimized_html": "<img src=\"product1.jpg\" alt=\"Product One\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 31,
-      "end_line": 31,
-      "raw_html": "<img src=\"office-building.jpg\">",
-      "optimized_html": "<img src=\"office-building.jpg\" alt=\"Our Office Building\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 30,
-      "end_line": 30,
-      "raw_html": "<img src=\"team-photo.jpg\">",
-      "optimized_html": "<img src=\"team-photo.jpg\" alt=\"Our Team\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 29,
-      "end_line": 29,
-      "raw_html": "<img src=\"product-showcase.jpg\">",
-      "optimized_html": "<img src=\"product-showcase.jpg\" alt=\"Product Showcase\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 28,
-      "end_line": 28,
-      "raw_html": "<img src=\"company-logo.png\">",
-      "optimized_html": "<img src=\"company-logo.png\" alt=\"Company Logo\">"
-    },
-    {
-      "title": "Image elements do not have `[alt]` attributes",
-      "start_line": 27,
-      "end_line": 27,
-      "raw_html": "<img src=\"hero-banner.jpg\">",
-      "optimized_html": "<img src=\"hero-banner.jpg\" alt=\"Hero Banner\">"
+      "title": "Document does not have a meta description",
+      "start_line": 0,
+      "end_line": 0,
+      "raw_html": "<title>Sample HTML with Valid Images</title>",
+      "optimized_html": "<meta name=\"description\" content=\"Sample HTML page demonstrating images. Images have valid URLs but lack alt attributes. Example for testing and evaluation.\">"
     }
   ],
-  "context": "\n        ALL_TITLES: Image Alt Missing Test Page\n        ALL_META_DESCRIPTIONS: Test page for missing image alt attributes\n        ALL_HEADINGS: Welcome to Our Website | Our Products | Product One | Product Two | Product Three | Photo Gallery | Our Team | John Smith | Jane Doe | Mike Johnson | Customer Testimonials | Latest Blog Posts | How to Improve Your SEO Strategy | The Future of Web Development | Building User-Friendly Interfaces | Our Services | Web Design | SEO Optimization | Digital Marketing | Contact Us | Quick Links | Connect With Us\n        ALL_PAGE_TEXT: Welcome to Our Website This is a comprehensive test page for missing image alt attributes. Our Products Product One Description of product one with detailed information about its features and benefits. Product Two Description of product two with detailed information about its features and benefits. Product Three Description of product three with detailed information about its features and benefits. Photo Gallery Our Team John Smith CEO and Founder Jane Doe Chief Technology Officer Mike Johnson Lead Designer Customer Testimonials \"This company has transformed our business with their innovative solutions.\" - Sarah Wilson, Marketing Director \"Outstanding service and exceptional results. Highly recommended!\" - David Brown, CEO Latest Blog Posts How to Improve Your SEO Strategy Learn the latest techniques for improving your search engine optimization strategy. The Future of Web Development Explore the upcoming trends and technologies in web development. Building User-Friendly Interfaces Best practices for creating intuitive and accessible user interfaces. Our Services Web Design Custom website design tailored to your brand and business needs. SEO Optimization Comprehensive search engine optimization to improve your online visibility. Digital Marketing Strategic digital marketing campaigns to grow your business. Contact Us Visit our office for a consultation Name: Email: Message: Send Message\n        "
+  "context": "\n        ALL_TITLES: Sample HTML with Valid Images\n        ALL_META_DESCRIPTIONS: \n        ALL_HEADINGS: Sample Page with Images\n        ALL_PAGE_TEXT: Sample Page with Images Images have no alt attributes and valid URLs. End of page.\n        "
 }

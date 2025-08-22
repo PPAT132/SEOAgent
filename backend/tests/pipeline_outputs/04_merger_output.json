@@ -1,170 +1,29 @@
 [
   {
     "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 178,
-    "end_line": 178,
-    "raw_html": "<img src=\"social-media-icons.jpg\">"
+    "start_line": 14,
+    "end_line": 14,
+    "raw_html": "<img src=\"https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400\">"
   },
   {
     "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 165,
-    "end_line": 165,
-    "raw_html": "<img src=\"footer-logo.png\">"
+    "start_line": 13,
+    "end_line": 13,
+    "raw_html": "<img src=\"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400\">"
   },
   {
     "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 147,
-    "end_line": 147,
-    "raw_html": "<img src=\"office-location.jpg\">"
+    "start_line": 12,
+    "end_line": 12,
+    "raw_html": "<img src=\"https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400\">"
   },
   {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 138,
-    "end_line": 138,
-    "raw_html": "<img src=\"digital-marketing.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 133,
-    "end_line": 133,
-    "raw_html": "<img src=\"seo-optimization.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 128,
-    "end_line": 128,
-    "raw_html": "<img src=\"web-design.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 119,
-    "end_line": 119,
-    "raw_html": "<img src=\"blog3.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 114,
-    "end_line": 114,
-    "raw_html": "<img src=\"blog2.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 109,
-    "end_line": 109,
-    "raw_html": "<img src=\"blog1.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 98,
-    "end_line": 98,
-    "raw_html": "<img src=\"customer2.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 91,
-    "end_line": 91,
-    "raw_html": "<img src=\"customer1.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 81,
-    "end_line": 81,
-    "raw_html": "<img src=\"designer.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 76,
-    "end_line": 76,
-    "raw_html": "<img src=\"cto.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 71,
-    "end_line": 71,
-    "raw_html": "<img src=\"ceo.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 63,
-    "end_line": 63,
-    "raw_html": "<img src=\"gallery6.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 62,
-    "end_line": 62,
-    "raw_html": "<img src=\"gallery5.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 61,
-    "end_line": 61,
-    "raw_html": "<img src=\"gallery4.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 60,
-    "end_line": 60,
-    "raw_html": "<img src=\"gallery3.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 59,
-    "end_line": 59,
-    "raw_html": "<img src=\"gallery2.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 58,
-    "end_line": 58,
-    "raw_html": "<img src=\"gallery1.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 48,
-    "end_line": 48,
-    "raw_html": "<img src=\"product3.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 43,
-    "end_line": 43,
-    "raw_html": "<img src=\"product2.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 38,
-    "end_line": 38,
-    "raw_html": "<img src=\"product1.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 31,
-    "end_line": 31,
-    "raw_html": "<img src=\"office-building.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 30,
-    "end_line": 30,
-    "raw_html": "<img src=\"team-photo.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 29,
-    "end_line": 29,
-    "raw_html": "<img src=\"product-showcase.jpg\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 28,
-    "end_line": 28,
-    "raw_html": "<img src=\"company-logo.png\">"
-  },
-  {
-    "title": "Image elements do not have `[alt]` attributes",
-    "start_line": 27,
-    "end_line": 27,
-    "raw_html": "<img src=\"hero-banner.jpg\">"
+    "title": "Document does not have a meta description",
+    "start_line": 0,
+    "end_line": 0,
+    "raw_html": "<title>Sample HTML with Valid Images</title>",
+    "descriptions": [
+      "Document does not have a meta description"
+    ]
   }
 ]

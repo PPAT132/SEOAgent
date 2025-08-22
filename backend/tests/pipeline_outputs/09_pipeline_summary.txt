@@ -3,158 +3,38 @@ Full SEO Pipeline Summary Report
 
 Pipeline executed: /Users/alexqin/Desktop/projects/SEOAgent/backend/tests/test_full_pipeline.py
 HTML file: test_seo_page.html
-Original HTML lines: 285
-SEO Score: 85.0
-Issues processed: 28
-Original size: 9408 characters
-Optimized size: 9649 characters
+Original HTML lines: 19
+SEO Score: 75.0
+Issues processed: 4
+Original size: 588 characters
+Optimized size: 906 characters
 
 Issues processed:
 --------------------------------------------------------------------------------
 1. Image elements do not have `[alt]` attributes
-   Lines 178-178
-   Raw: <img src="social-media-icons.jpg">
-   Fixed: <img src="social-media-icons.jpg" alt="Social Media Icons">
+   Lines 14-14
+   Raw: <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400">
+   Fixed: <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400" alt="UNKNOWN_IMAGE">
 
 2. Image elements do not have `[alt]` attributes
-   Lines 165-165
-   Raw: <img src="footer-logo.png">
-   Fixed: <img src="footer-logo.png" alt="Company Logo">
+   Lines 13-13
+   Raw: <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400">
+   Fixed: <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400" alt="UNKNOWN_IMAGE">
 
 3. Image elements do not have `[alt]` attributes
-   Lines 147-147
-   Raw: <img src="office-location.jpg">
-   Fixed: <img src="office-location.jpg" alt="Office Location">
+   Lines 12-12
+   Raw: <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400">
+   Fixed: <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400" alt="UNKNOWN_IMAGE">
 
-4. Image elements do not have `[alt]` attributes
-   Lines 138-138
-   Raw: <img src="digital-marketing.jpg">
-   Fixed: <img src="digital-marketing.jpg" alt="Digital Marketing">
-
-5. Image elements do not have `[alt]` attributes
-   Lines 133-133
-   Raw: <img src="seo-optimization.jpg">
-   Fixed: <img src="seo-optimization.jpg" alt="SEO Optimization">
-
-6. Image elements do not have `[alt]` attributes
-   Lines 128-128
-   Raw: <img src="web-design.jpg">
-   Fixed: <img src="web-design.jpg" alt="Web Design">
-
-7. Image elements do not have `[alt]` attributes
-   Lines 119-119
-   Raw: <img src="blog3.jpg">
-   Fixed: <img src="blog3.jpg" alt="Building User-Friendly Interfaces">
-
-8. Image elements do not have `[alt]` attributes
-   Lines 114-114
-   Raw: <img src="blog2.jpg">
-   Fixed: <img src="blog2.jpg" alt="The Future of Web Development">
-
-9. Image elements do not have `[alt]` attributes
-   Lines 109-109
-   Raw: <img src="blog1.jpg">
-   Fixed: <img src="blog1.jpg" alt="How to Improve Your SEO Strategy">
-
-10. Image elements do not have `[alt]` attributes
-   Lines 98-98
-   Raw: <img src="customer2.jpg">
-   Fixed: <img src="customer2.jpg" alt="Customer Testimonial Image">
-
-11. Image elements do not have `[alt]` attributes
-   Lines 91-91
-   Raw: <img src="customer1.jpg">
-   Fixed: <img src="customer1.jpg" alt="Customer 1">
-
-12. Image elements do not have `[alt]` attributes
-   Lines 81-81
-   Raw: <img src="designer.jpg">
-   Fixed: <img src="designer.jpg" alt="Mike Johnson, Lead Designer">
-
-13. Image elements do not have `[alt]` attributes
-   Lines 76-76
-   Raw: <img src="cto.jpg">
-   Fixed: <img src="cto.jpg" alt="Jane Doe, Chief Technology Officer">
-
-14. Image elements do not have `[alt]` attributes
-   Lines 71-71
-   Raw: <img src="ceo.jpg">
-   Fixed: <img src="ceo.jpg" alt="John Smith, CEO and Founder">
-
-15. Image elements do not have `[alt]` attributes
-   Lines 63-63
-   Raw: <img src="gallery6.jpg">
-   Fixed: <img src="gallery6.jpg" alt="Gallery Image 6">
-
-16. Image elements do not have `[alt]` attributes
-   Lines 62-62
-   Raw: <img src="gallery5.jpg">
-   Fixed: <img src="gallery5.jpg" alt="Gallery Image 5">
-
-17. Image elements do not have `[alt]` attributes
-   Lines 61-61
-   Raw: <img src="gallery4.jpg">
-   Fixed: <img src="gallery4.jpg" alt="Gallery Image 4">
-
-18. Image elements do not have `[alt]` attributes
-   Lines 60-60
-   Raw: <img src="gallery3.jpg">
-   Fixed: <img src="gallery3.jpg" alt="Gallery Image 3">
-
-19. Image elements do not have `[alt]` attributes
-   Lines 59-59
-   Raw: <img src="gallery2.jpg">
-   Fixed: <img src="gallery2.jpg" alt="Gallery Image 2">
-
-20. Image elements do not have `[alt]` attributes
-   Lines 58-58
-   Raw: <img src="gallery1.jpg">
-   Fixed: <img src="gallery1.jpg" alt="Gallery Image 1">
-
-21. Image elements do not have `[alt]` attributes
-   Lines 48-48
-   Raw: <img src="product3.jpg">
-   Fixed: <img src="product3.jpg" alt="Product Three">
-
-22. Image elements do not have `[alt]` attributes
-   Lines 43-43
-   Raw: <img src="product2.jpg">
-   Fixed: <img src="product2.jpg" alt="Product Two">
-
-23. Image elements do not have `[alt]` attributes
-   Lines 38-38
-   Raw: <img src="product1.jpg">
-   Fixed: <img src="product1.jpg" alt="Product One">
-
-24. Image elements do not have `[alt]` attributes
-   Lines 31-31
-   Raw: <img src="office-building.jpg">
-   Fixed: <img src="office-building.jpg" alt="Our Office Building">
-
-25. Image elements do not have `[alt]` attributes
-   Lines 30-30
-   Raw: <img src="team-photo.jpg">
-   Fixed: <img src="team-photo.jpg" alt="Our Team">
-
-26. Image elements do not have `[alt]` attributes
-   Lines 29-29
-   Raw: <img src="product-showcase.jpg">
-   Fixed: <img src="product-showcase.jpg" alt="Product Showcase">
-
-27. Image elements do not have `[alt]` attributes
-   Lines 28-28
-   Raw: <img src="company-logo.png">
-   Fixed: <img src="company-logo.png" alt="Company Logo">
-
-28. Image elements do not have `[alt]` attributes
-   Lines 27-27
-   Raw: <img src="hero-banner.jpg">
-   Fixed: <img src="hero-banner.jpg" alt="Hero Banner">
+4. Document does not have a meta description
+   Lines 0-0
+   Raw: <title>Sample HTML with Valid Images</title>
+   Fixed: <meta name="description" content="Sample HTML page demonstrating images. Images have valid URLs but ...
 
 
 
 === OPTIMIZATION RESULTS ===
-Original SEO Score: 85
+Original SEO Score: 75
 Optimized SEO Score: 92
-Score Improvement: 7 points
-Percentage Improvement: 8.2%
+Score Improvement: 17 points
+Percentage Improvement: 22.7%

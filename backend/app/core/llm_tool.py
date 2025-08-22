@@ -144,6 +144,7 @@ class LLMTool:
         - Return ONLY the corrected HTML, no explanations or markdown
         - Each fix must be on a separate line
         - The HTML must be valid and complete
+        - For unknown images, put "UNKNOWN_IMAGE" as the alt tags
 
         Issues to fix:
         """
