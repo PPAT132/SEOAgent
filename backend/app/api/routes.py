@@ -32,22 +32,6 @@ def get_optimization_pipeline():
         _pipeline = OptimizationPipeline()
     return _pipeline
 
-# Pydantic models for image captioning
-class ImageCaptionRequest(BaseModel):
-    image_url: str
-    short: bool = True
-    max_length: int = 50
-
-class BatchImageCaptionRequest(BaseModel):
-    image_urls: List[str]
-    max_length: int = 50
-
-class ImageCaptionResponse(BaseModel):
-    image_url: str
-    caption: Optional[str]
-    success: bool
-    error: Optional[str] = None
-
 @router.get("/test")
 def test_endpoint():
     return {"message": "Router is working"}
@@ -148,95 +132,6 @@ def lighthouse_raw_json(req: OptimizeRequest, validator_service: ValidatorServic
             "error_type": type(e).__name__,
             "debug_info": "Python backend error"
         }
-
-
-@router.post("/caption-image", response_model=ImageCaptionResponse)
-def caption_single_image(request: ImageCaptionRequest):
-    """
-    Generate a caption for a single image from URL
-    """
-    try:
-        captioner = get_image_captioner()
-        
-        if request.short:
-            caption = captioner.generate_short_caption(request.image_url)
-        else:
-            caption = captioner.generate_caption(request.image_url, max_length=request.max_length)
-        
-        return ImageCaptionResponse(
-            image_url=request.image_url,
-            caption=caption,
-            success=caption is not None
-        )
-        
-    except Exception as e:
-        return ImageCaptionResponse(
-            image_url=request.image_url,
-            caption=None,
-            success=False,
-            error=str(e)
-        )
-
-
-@router.post("/caption-images", response_model=List[ImageCaptionResponse])
-def caption_multiple_images(request: BatchImageCaptionRequest):
-    """
-    Generate captions for multiple images from URLs
-    """
-    try:
-        captioner = get_image_captioner()
-        results = captioner.batch_caption_images(request.image_urls, max_length=request.max_length)
-        
-        responses = []
-        for url in request.image_urls:
-            caption = results.get(url)
-            responses.append(ImageCaptionResponse(
-                image_url=url,
-                caption=caption,
-                success=caption is not None
-            ))
-        
-        return responses
-        
-    except Exception as e:
-        # Return error response for all images
-        return [
-            ImageCaptionResponse(
-                image_url=url,
-                caption=None,
-                success=False,
-                error=str(e)
-            )
-            for url in request.image_urls
-        ]
-
-
-@router.get("/caption-test")
-def test_image_captioning():
-    """
-    Test endpoint for image captioning functionality
-    """
-    test_url = "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300"
-    
-    try:
-        captioner = get_image_captioner()
-        caption = captioner.generate_short_caption(test_url)
-        
-        return {
-            "success": True,
-            "test_url": test_url,
-            "caption": caption,
-            "message": "Image captioning is working!"
-        }
-        
-    except Exception as e:
-        return {
-            "success": False,
-            "test_url": test_url,
-            "error": str(e),
-            "message": "Image captioning failed"
-        }
-
 
 @router.get("/optimize-v2-test")
 def test_optimize_v2():

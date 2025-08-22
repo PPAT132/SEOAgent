@@ -1,6 +1,6 @@
 {
   "success": true,
-  "modified_html": "<!DOCTYPE html>\n<title>Test</title>\n<meta name=\"description\" content=\"Test.\">\n<head><title></title></head>\n<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\" alt=\"A dog with its tongue sticking out.\">\n</html>",
+  "modified_html": "<!DOCTYPE html>\n<title>Test</title>\n<meta name=\"description\" content=\"Test. Learn more about our company and services. Contact us today for a consultation!\">\n<head><title></title></head>\n<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\" alt=\"A dog with its tongue sticking out.\">\n</html>",
   "optimization_result": {
     "seo_score": 67.0,
     "total_lines": 5,
@@ -24,7 +24,7 @@
         "start_line": 0,
         "end_line": 0,
         "raw_html": "<title></title>",
-        "optimized_html": "<meta name=\"description\" content=\"Test.\">"
+        "optimized_html": "<meta name=\"description\" content=\"Test. Learn more about our company and services. Contact us today for a consultation!\">"
       }
     ],
     "context": "\n        ALL_TITLES: \n        ALL_META_DESCRIPTIONS: \n        ALL_HEADINGS: Test\n        ALL_PAGE_TEXT: Test\n        "
@@ -400,14 +400,14 @@
       "mainDocumentUrl": "http://localhost:3002/temp-page",
       "finalDisplayedUrl": "http://localhost:3002/temp-page",
       "finalUrl": "http://localhost:3002/temp-page",
-      "fetchTime": "2025-08-22T03:44:34.034Z",
+      "fetchTime": "2025-08-22T03:50:32.638Z",
       "gatherMode": "navigation",
       "runWarnings": [],
       "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
       "environment": {
         "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
         "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
-        "benchmarkIndex": 3750.5,
+        "benchmarkIndex": 3856,
         "credits": {
           "axe-core": "4.10.3"
         }
@@ -936,247 +936,247 @@
       "timing": {
         "entries": [
           {
-            "startTime": 152866.87,
+            "startTime": 511504.77,
             "name": "lh:config",
-            "duration": 162.47,
+            "duration": 100.66,
             "entryType": "measure"
           },
           {
-            "startTime": 152868.38,
+            "startTime": 511505.15,
             "name": "lh:config:resolveArtifactsToDefns",
-            "duration": 2.25,
+            "duration": 0.62,
             "entryType": "measure"
           },
           {
-            "startTime": 153029.38,
+            "startTime": 511605.46,
             "name": "lh:runner:gather",
-            "duration": 4948.51,
+            "duration": 4751.58,
             "entryType": "measure"
           },
           {
-            "startTime": 153106.62,
+            "startTime": 511653.28,
             "name": "lh:driver:connect",
-            "duration": 1.88,
+            "duration": 1.86,
             "entryType": "measure"
           },
           {
-            "startTime": 153108.51,
+            "startTime": 511655.16,
             "name": "lh:driver:navigate",
-            "duration": 34.48,
+            "duration": 28.57,
             "entryType": "measure"
           },
           {
-            "startTime": 153143.12,
+            "startTime": 511683.78,
             "name": "lh:gather:getBenchmarkIndex",
-            "duration": 1010.25,
+            "duration": 1001.16,
             "entryType": "measure"
           },
           {
-            "startTime": 154153.38,
+            "startTime": 512684.95,
             "name": "lh:gather:getVersion",
+            "duration": 0.35,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512685.31,
+            "name": "lh:gather:getDevicePixelRatio",
+            "duration": 0.45,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512685.79,
+            "name": "lh:prepare:navigationMode",
+            "duration": 30.64,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512692.92,
+            "name": "lh:storage:clearDataForOrigin",
+            "duration": 16.68,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512709.61,
+            "name": "lh:storage:clearBrowserCaches",
+            "duration": 6.25,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512716.1,
+            "name": "lh:gather:prepareThrottlingAndNetwork",
+            "duration": 0.32,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 512722.51,
+            "name": "lh:driver:navigate",
+            "duration": 2427.97,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515153.36,
+            "name": "lh:computed:NetworkRecords",
             "duration": 0.34,
             "entryType": "measure"
           },
           {
-            "startTime": 154153.73,
-            "name": "lh:gather:getDevicePixelRatio",
-            "duration": 1.85,
+            "startTime": 515153.8,
+            "name": "lh:gather:getArtifact:DevtoolsLog",
+            "duration": 0.13,
             "entryType": "measure"
           },
           {
-            "startTime": 154155.61,
-            "name": "lh:prepare:navigationMode",
-            "duration": 35.59,
+            "startTime": 515153.93,
+            "name": "lh:gather:getArtifact:Accessibility",
+            "duration": 95.02,
             "entryType": "measure"
           },
           {
-            "startTime": 154167.51,
-            "name": "lh:storage:clearDataForOrigin",
-            "duration": 16.01,
+            "startTime": 515248.97,
+            "name": "lh:gather:getArtifact:AnchorElements",
+            "duration": 1.76,
             "entryType": "measure"
           },
           {
-            "startTime": 154183.53,
-            "name": "lh:storage:clearBrowserCaches",
-            "duration": 6.31,
+            "startTime": 515250.75,
+            "name": "lh:gather:getArtifact:LinkElements",
+            "duration": 0.74,
             "entryType": "measure"
           },
           {
-            "startTime": 154190.82,
-            "name": "lh:gather:prepareThrottlingAndNetwork",
+            "startTime": 515251.44,
+            "name": "lh:computed:MainResource",
+            "duration": 0.04,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515251.49,
+            "name": "lh:gather:getArtifact:MetaElements",
+            "duration": 0.58,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515252.08,
+            "name": "lh:gather:getArtifact:NetworkUserAgent",
+            "duration": 0.02,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515252.11,
+            "name": "lh:gather:getArtifact:RobotsTxt",
+            "duration": 1.93,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515254.05,
+            "name": "lh:gather:getArtifact:Stacks",
+            "duration": 3.71,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515254.06,
+            "name": "lh:gather:collectStacks",
+            "duration": 3.69,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 515257.76,
+            "name": "lh:gather:getArtifact:FullPageScreenshot",
+            "duration": 1092.83,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516357.11,
+            "name": "lh:runner:audit",
+            "duration": 11.05,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516357.12,
+            "name": "lh:runner:auditing",
+            "duration": 10.99,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516357.66,
+            "name": "lh:audit:document-title",
+            "duration": 2.88,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516360.68,
+            "name": "lh:audit:image-alt",
+            "duration": 2.42,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516363.23,
+            "name": "lh:audit:meta-description",
+            "duration": 0.48,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516363.84,
+            "name": "lh:audit:http-status-code",
+            "duration": 0.42,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516364.37,
+            "name": "lh:audit:link-text",
+            "duration": 0.37,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516364.85,
+            "name": "lh:audit:crawlable-anchors",
             "duration": 0.38,
             "entryType": "measure"
           },
           {
-            "startTime": 154195.44,
-            "name": "lh:driver:navigate",
-            "duration": 2554.4,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156753.04,
-            "name": "lh:computed:NetworkRecords",
-            "duration": 0.57,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156753.7,
-            "name": "lh:gather:getArtifact:DevtoolsLog",
-            "duration": 0.12,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156753.83,
-            "name": "lh:gather:getArtifact:Accessibility",
-            "duration": 116.99,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156870.84,
-            "name": "lh:gather:getArtifact:AnchorElements",
-            "duration": 3.07,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156873.94,
-            "name": "lh:gather:getArtifact:LinkElements",
-            "duration": 0.96,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156874.72,
-            "name": "lh:computed:MainResource",
-            "duration": 0.05,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156874.9,
-            "name": "lh:gather:getArtifact:MetaElements",
-            "duration": 0.66,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156875.57,
-            "name": "lh:gather:getArtifact:NetworkUserAgent",
-            "duration": 0.03,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156875.6,
-            "name": "lh:gather:getArtifact:RobotsTxt",
-            "duration": 2.66,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156878.28,
-            "name": "lh:gather:getArtifact:Stacks",
-            "duration": 5.95,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156878.3,
-            "name": "lh:gather:collectStacks",
-            "duration": 5.92,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 156884.23,
-            "name": "lh:gather:getArtifact:FullPageScreenshot",
-            "duration": 1083.91,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157977.94,
-            "name": "lh:runner:audit",
-            "duration": 11.1,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157977.94,
-            "name": "lh:runner:auditing",
-            "duration": 11.04,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157978.37,
-            "name": "lh:audit:document-title",
-            "duration": 2.62,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157981.12,
-            "name": "lh:audit:image-alt",
-            "duration": 2.98,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157984.23,
-            "name": "lh:audit:meta-description",
-            "duration": 0.41,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157984.74,
-            "name": "lh:audit:http-status-code",
-            "duration": 0.47,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157985.32,
-            "name": "lh:audit:link-text",
-            "duration": 0.44,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157985.86,
-            "name": "lh:audit:crawlable-anchors",
-            "duration": 0.34,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157986.31,
+            "startTime": 516365.35,
             "name": "lh:audit:is-crawlable",
-            "duration": 0.53,
+            "duration": 0.52,
             "entryType": "measure"
           },
           {
-            "startTime": 157986.94,
+            "startTime": 516365.98,
             "name": "lh:audit:robots-txt",
-            "duration": 0.78,
+            "duration": 0.7,
             "entryType": "measure"
           },
           {
-            "startTime": 157987.82,
+            "startTime": 516366.8,
             "name": "lh:audit:hreflang",
             "duration": 0.37,
             "entryType": "measure"
           },
           {
-            "startTime": 157988.29,
+            "startTime": 516367.29,
             "name": "lh:audit:canonical",
+            "duration": 0.37,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 516367.75,
+            "name": "lh:audit:structured-data",
             "duration": 0.35,
             "entryType": "measure"
           },
           {
-            "startTime": 157988.73,
-            "name": "lh:audit:structured-data",
-            "duration": 0.25,
-            "entryType": "measure"
-          },
-          {
-            "startTime": 157988.99,
+            "startTime": 516368.12,
             "name": "lh:runner:generate",
             "duration": 0.04,
             "entryType": "measure"
           },
           {
-            "startTime": 157989.09,
+            "startTime": 516368.21,
             "name": "lh:computed:EntityClassification",
-            "duration": 0.27,
+            "duration": 0.17,
             "entryType": "measure"
           }
         ],
-        "total": 4959.610000000001
+        "total": 4762.63
       },
       "i18n": {
         "rendererFormattedStrings": {
