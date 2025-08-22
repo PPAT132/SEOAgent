@@ -1,10 +1,99 @@
 from typing import List
+import re
 from app.schemas.seo_analysis import SEOAnalysisResult
 
 class HTMLEditor:
 
     def __init__(self):
-        pass
+        # Lazy load ImageCaptioner to avoid import issues if dependencies aren't installed
+        self._image_captioner = None
+    
+    def _get_image_captioner(self):
+        """Lazy load the ImageCaptioner to avoid import errors if dependencies missing"""
+        if self._image_captioner is None:
+            try:
+                from app.core.image_captioner import ImageCaptioner
+                self._image_captioner = ImageCaptioner()
+                print("✓ ImageCaptioner loaded successfully")
+            except ImportError as e:
+                print(f"⚠️  ImageCaptioner not available: {e}")
+                self._image_captioner = False  # Mark as unavailable
+            except Exception as e:
+                print(f"⚠️  Failed to initialize ImageCaptioner: {e}")
+                self._image_captioner = False
+        return self._image_captioner if self._image_captioner is not False else None
+    
+    def _replace_unknown_image_alts(self, html_content: str) -> str:
+        """
+        Replace UNKNOWN_IMAGE alt attributes with AI-generated captions
+        
+        Args:
+            html_content: HTML content that may contain UNKNOWN_IMAGE alt attributes
+            
+        Returns:
+            HTML content with UNKNOWN_IMAGE replaced by actual captions
+        """
+        if 'UNKNOWN_IMAGE' not in html_content:
+            return html_content
+        
+        print("🖼️  Found UNKNOWN_IMAGE placeholder(s), generating captions...")
+        
+        # Get the image captioner
+        captioner = self._get_image_captioner()
+        if not captioner:
+            print("⚠️  ImageCaptioner not available, keeping UNKNOWN_IMAGE placeholders")
+            return html_content
+        
+        # Find all img tags with UNKNOWN_IMAGE alt attributes
+        img_pattern = r'<img([^>]*?)alt=["\']UNKNOWN_IMAGE["\']([^>]*?)>'
+        
+        def replace_unknown_alt(match):
+            before_alt = match.group(1)
+            after_alt = match.group(2)
+            full_tag = match.group(0)
+            
+            # Extract src attribute from the img tag
+            src_match = re.search(r'src=["\']([^"\']+)["\']', full_tag)
+            if not src_match:
+                print("⚠️  No src found in img tag, keeping UNKNOWN_IMAGE")
+                return full_tag
+            
+            src_url = src_match.group(1)
+            print(f"🔍 Generating caption for: {src_url}")
+            
+            try:
+                # Generate caption using ImageCaptioner
+                caption = captioner.generate_short_caption(src_url)
+                
+                if caption:
+                    print(f"✓ Generated caption: '{caption}'")
+                    # Replace UNKNOWN_IMAGE with the generated caption
+                    new_tag = f'<img{before_alt}alt="{caption}"{after_alt}>'
+                    return new_tag
+                else:
+                    print("⚠️  Failed to generate caption, using fallback")
+                    # Use a more descriptive fallback
+                    fallback_alt = "Image"
+                    new_tag = f'<img{before_alt}alt="{fallback_alt}"{after_alt}>'
+                    return new_tag
+                    
+            except Exception as e:
+                print(f"⚠️  Error generating caption: {e}")
+                # Keep UNKNOWN_IMAGE as fallback
+                return full_tag
+        
+        # Replace all UNKNOWN_IMAGE instances
+        updated_html = re.sub(img_pattern, replace_unknown_alt, html_content, flags=re.IGNORECASE)
+        
+        # Count how many were replaced
+        original_count = html_content.count('UNKNOWN_IMAGE')
+        remaining_count = updated_html.count('UNKNOWN_IMAGE')
+        replaced_count = original_count - remaining_count
+        
+        if replaced_count > 0:
+            print(f"✓ Replaced {replaced_count} UNKNOWN_IMAGE placeholder(s) with AI captions")
+        
+        return updated_html
     
     def modify_html(self, html: str, modified_issues: SEOAnalysisResult) -> str:
         """
@@ -70,7 +159,9 @@ class HTMLEditor:
                 insertion_idx = self._find_insertion_line(lines, where or '')
                 print(f"  📍 Inserting at line {insertion_idx + 1} (where={where})")
                 if html_payload:
-                    for snippet_line in html_payload.split('\n'):
+                    # Process the HTML payload to replace UNKNOWN_IMAGE with AI captions
+                    processed_payload = self._replace_unknown_image_alts(html_payload)
+                    for snippet_line in processed_payload.split('\n'):
                         lines.insert(insertion_idx, snippet_line)
                         insertion_idx += 1
                     total_lines = len(lines)
@@ -93,7 +184,10 @@ class HTMLEditor:
             
             # Replace the lines
             original_lines = lines[start_line:end_line + 1]
-            optimized_lines = issue.optimized_html.split('\n')
+            
+            # Process optimized_html to replace UNKNOWN_IMAGE with AI captions
+            processed_optimized_html = self._replace_unknown_image_alts(issue.optimized_html)
+            optimized_lines = processed_optimized_html.split('\n')
             
             print(f"  Replacing {len(original_lines)} lines with {len(optimized_lines)} lines")
             
