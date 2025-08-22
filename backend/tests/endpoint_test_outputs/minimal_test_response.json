@@ -1,0 +1,1700 @@
+{
+  "success": true,
+  "modified_html": "<!DOCTYPE html>\n<title>Test</title>\n<meta name=\"description\" content=\"Test.\">\n<head><title></title></head>\n<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\" alt=\"A dog with its tongue sticking out.\">\n</html>",
+  "optimization_result": {
+    "seo_score": 67.0,
+    "total_lines": 5,
+    "issues": [
+      {
+        "title": "Image elements do not have `[alt]` attributes",
+        "start_line": 4,
+        "end_line": 4,
+        "raw_html": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+        "optimized_html": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\" alt=\"UNKNOWN_IMAGE\">"
+      },
+      {
+        "title": "Document doesn't have a `<title>` element",
+        "start_line": 2,
+        "end_line": 2,
+        "raw_html": "<html>",
+        "optimized_html": "<title>Test</title>"
+      },
+      {
+        "title": "Document does not have a meta description",
+        "start_line": 0,
+        "end_line": 0,
+        "raw_html": "<title></title>",
+        "optimized_html": "<meta name=\"description\" content=\"Test.\">"
+      }
+    ],
+    "context": "\n        ALL_TITLES: \n        ALL_META_DESCRIPTIONS: \n        ALL_HEADINGS: Test\n        ALL_PAGE_TEXT: Test\n        "
+  },
+  "original_seo_score": 67,
+  "optimized_seo_score": 67.0,
+  "issues_processed": 3,
+  "pipeline_steps": [
+    "lighthouse_analysis",
+    "lhr_parsing",
+    "issue_matching",
+    "issue_merging",
+    "llm_optimization",
+    "html_modification",
+    "image_captioning"
+  ],
+  "lighthouse_result": {
+    "seoScore": 67,
+    "audits": {
+      "document-title": {
+        "id": "document-title",
+        "title": "Document doesn't have a `<title>` element",
+        "description": "The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search. [Learn more about document titles](https://dequeuniversity.com/rules/axe/4.10/document-title).",
+        "score": 0,
+        "scoreDisplayMode": "binary",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "node",
+              "valueType": "node",
+              "subItemsHeading": {
+                "key": "relatedNode",
+                "valueType": "node"
+              },
+              "label": "Failing Elements"
+            }
+          ],
+          "items": [
+            {
+              "node": {
+                "type": "node",
+                "lhId": "1-0-HTML",
+                "path": "1,HTML",
+                "selector": "html",
+                "boundingRect": {
+                  "top": 0,
+                  "bottom": 292,
+                  "left": 0,
+                  "right": 980,
+                  "width": 980,
+                  "height": 292
+                },
+                "snippet": "<html>",
+                "nodeLabel": "html",
+                "explanation": "Fix any of the following:\n  Document does not have a non-empty <title> element"
+              }
+            }
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "impact": "serious",
+            "tags": [
+              "cat.text-alternatives",
+              "wcag2a",
+              "wcag242",
+              "TTv5",
+              "TT12.a",
+              "EN-301-549",
+              "EN-9.2.4.2",
+              "ACT"
+            ]
+          }
+        }
+      },
+      "image-alt": {
+        "id": "image-alt",
+        "title": "Image elements do not have `[alt]` attributes",
+        "description": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more about the `alt` attribute](https://dequeuniversity.com/rules/axe/4.10/image-alt).",
+        "score": 0,
+        "scoreDisplayMode": "binary",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "node",
+              "valueType": "node",
+              "subItemsHeading": {
+                "key": "relatedNode",
+                "valueType": "node"
+              },
+              "label": "Failing Elements"
+            }
+          ],
+          "items": [
+            {
+              "node": {
+                "type": "node",
+                "lhId": "1-1-IMG",
+                "path": "1,HTML,1,BODY,1,IMG",
+                "selector": "body > img",
+                "boundingRect": {
+                  "top": 80,
+                  "bottom": 280,
+                  "left": 8,
+                  "right": 308,
+                  "width": 300,
+                  "height": 200
+                },
+                "snippet": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+                "nodeLabel": "body > img",
+                "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+              }
+            }
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "impact": "critical",
+            "tags": [
+              "cat.text-alternatives",
+              "wcag2a",
+              "wcag111",
+              "section508",
+              "section508.22.a",
+              "TTv5",
+              "TT7.a",
+              "TT7.b",
+              "EN-301-549",
+              "EN-9.1.1.1",
+              "ACT"
+            ]
+          }
+        }
+      },
+      "meta-description": {
+        "id": "meta-description",
+        "title": "Document does not have a meta description",
+        "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more about the meta description](https://developer.chrome.com/docs/lighthouse/seo/meta-description/).",
+        "score": 0,
+        "scoreDisplayMode": "binary"
+      },
+      "http-status-code": {
+        "id": "http-status-code",
+        "title": "Page has successful HTTP status code",
+        "description": "Pages with unsuccessful HTTP status codes may not be indexed properly. [Learn more about HTTP status codes](https://developer.chrome.com/docs/lighthouse/seo/http-status-code/).",
+        "score": 1,
+        "scoreDisplayMode": "binary"
+      },
+      "link-text": {
+        "id": "link-text",
+        "title": "Links have descriptive text",
+        "description": "Descriptive link text helps search engines understand your content. [Learn how to make links more accessible](https://developer.chrome.com/docs/lighthouse/seo/link-text/).",
+        "score": 1,
+        "scoreDisplayMode": "binary",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "href",
+              "valueType": "url",
+              "label": "Link destination"
+            },
+            {
+              "key": "text",
+              "valueType": "text",
+              "label": "Link Text"
+            }
+          ],
+          "items": []
+        }
+      },
+      "crawlable-anchors": {
+        "id": "crawlable-anchors",
+        "title": "Links are crawlable",
+        "description": "Search engines may use `href` attributes on links to crawl websites. Ensure that the `href` attribute of anchor elements links to an appropriate destination, so more pages of the site can be discovered. [Learn how to make links crawlable](https://support.google.com/webmasters/answer/9112205)",
+        "score": 1,
+        "scoreDisplayMode": "binary",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "node",
+              "valueType": "node",
+              "label": "Uncrawlable Link"
+            }
+          ],
+          "items": []
+        }
+      },
+      "is-crawlable": {
+        "id": "is-crawlable",
+        "title": "Page isn\u2019t blocked from indexing",
+        "description": "Search engines are unable to include your pages in search results if they don't have permission to crawl them. [Learn more about crawler directives](https://developer.chrome.com/docs/lighthouse/seo/is-crawlable/).",
+        "score": 1,
+        "scoreDisplayMode": "binary",
+        "warnings": [],
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "label": "Blocking Directive Source"
+            }
+          ],
+          "items": []
+        }
+      },
+      "robots-txt": {
+        "id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
+        "score": 0,
+        "scoreDisplayMode": "binary",
+        "displayValue": "5 errors found",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "index",
+              "valueType": "text",
+              "label": "Line #"
+            },
+            {
+              "key": "line",
+              "valueType": "code",
+              "label": "Content"
+            },
+            {
+              "key": "message",
+              "valueType": "code",
+              "label": "Error"
+            }
+          ],
+          "items": [
+            {
+              "index": "1",
+              "line": "<!DOCTYPE html>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "2",
+              "line": "<html>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "3",
+              "line": "<head><title></title></head>",
+              "message": "Syntax not understood"
+            },
+            {
+              "index": "4",
+              "line": "<body><h1>Test</h1><img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\"></body>",
+              "message": "Unknown directive"
+            },
+            {
+              "index": "5",
+              "line": "</html>",
+              "message": "Syntax not understood"
+            }
+          ]
+        }
+      },
+      "hreflang": {
+        "id": "hreflang",
+        "title": "Document has a valid `hreflang`",
+        "description": "hreflang links tell search engines what version of a page they should list in search results for a given language or region. [Learn more about `hreflang`](https://developer.chrome.com/docs/lighthouse/seo/hreflang/).",
+        "score": 1,
+        "scoreDisplayMode": "binary",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "subItemsHeading": {
+                "key": "reason",
+                "valueType": "text"
+              },
+              "label": ""
+            }
+          ],
+          "items": []
+        }
+      },
+      "canonical": {
+        "id": "canonical",
+        "title": "Document has a valid `rel=canonical`",
+        "description": "Canonical links suggest which URL to show in search results. [Learn more about canonical links](https://developer.chrome.com/docs/lighthouse/seo/canonical/).",
+        "score": null,
+        "scoreDisplayMode": "notApplicable"
+      },
+      "structured-data": {
+        "id": "structured-data",
+        "title": "Structured data is valid",
+        "description": "Run the [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/) and the [Structured Data Linter](http://linter.structured-data.org/) to validate structured data. [Learn more about Structured Data](https://developer.chrome.com/docs/lighthouse/seo/structured-data/).",
+        "score": null,
+        "scoreDisplayMode": "manual"
+      }
+    },
+    "categories": {
+      "seo": {
+        "title": "SEO",
+        "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769).",
+        "manualDescription": "Run these additional validators on your site to check additional SEO best practices.",
+        "supportedModes": [
+          "navigation",
+          "snapshot"
+        ],
+        "auditRefs": [
+          {
+            "id": "is-crawlable",
+            "weight": 4.043478260869565,
+            "group": "seo-crawl"
+          },
+          {
+            "id": "document-title",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "meta-description",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "http-status-code",
+            "weight": 1,
+            "group": "seo-crawl"
+          },
+          {
+            "id": "link-text",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "crawlable-anchors",
+            "weight": 1,
+            "group": "seo-crawl"
+          },
+          {
+            "id": "robots-txt",
+            "weight": 1,
+            "group": "seo-crawl"
+          },
+          {
+            "id": "image-alt",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "hreflang",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "canonical",
+            "weight": 0,
+            "group": "seo-content"
+          },
+          {
+            "id": "structured-data",
+            "weight": 0
+          }
+        ],
+        "id": "seo",
+        "score": 0.67
+      }
+    },
+    "fullReport": {
+      "lighthouseVersion": "12.8.1",
+      "requestedUrl": "http://localhost:3002/temp-page",
+      "mainDocumentUrl": "http://localhost:3002/temp-page",
+      "finalDisplayedUrl": "http://localhost:3002/temp-page",
+      "finalUrl": "http://localhost:3002/temp-page",
+      "fetchTime": "2025-08-22T03:44:34.034Z",
+      "gatherMode": "navigation",
+      "runWarnings": [],
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/139.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3750.5,
+        "credits": {
+          "axe-core": "4.10.3"
+        }
+      },
+      "audits": {
+        "document-title": {
+          "id": "document-title",
+          "title": "Document doesn't have a `<title>` element",
+          "description": "The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search. [Learn more about document titles](https://dequeuniversity.com/rules/axe/4.10/document-title).",
+          "score": 0,
+          "scoreDisplayMode": "binary",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "node",
+                "valueType": "node",
+                "subItemsHeading": {
+                  "key": "relatedNode",
+                  "valueType": "node"
+                },
+                "label": "Failing Elements"
+              }
+            ],
+            "items": [
+              {
+                "node": {
+                  "type": "node",
+                  "lhId": "1-0-HTML",
+                  "path": "1,HTML",
+                  "selector": "html",
+                  "boundingRect": {
+                    "top": 0,
+                    "bottom": 292,
+                    "left": 0,
+                    "right": 980,
+                    "width": 980,
+                    "height": 292
+                  },
+                  "snippet": "<html>",
+                  "nodeLabel": "html",
+                  "explanation": "Fix any of the following:\n  Document does not have a non-empty <title> element"
+                }
+              }
+            ],
+            "debugData": {
+              "type": "debugdata",
+              "impact": "serious",
+              "tags": [
+                "cat.text-alternatives",
+                "wcag2a",
+                "wcag242",
+                "TTv5",
+                "TT12.a",
+                "EN-301-549",
+                "EN-9.2.4.2",
+                "ACT"
+              ]
+            }
+          }
+        },
+        "image-alt": {
+          "id": "image-alt",
+          "title": "Image elements do not have `[alt]` attributes",
+          "description": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more about the `alt` attribute](https://dequeuniversity.com/rules/axe/4.10/image-alt).",
+          "score": 0,
+          "scoreDisplayMode": "binary",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "node",
+                "valueType": "node",
+                "subItemsHeading": {
+                  "key": "relatedNode",
+                  "valueType": "node"
+                },
+                "label": "Failing Elements"
+              }
+            ],
+            "items": [
+              {
+                "node": {
+                  "type": "node",
+                  "lhId": "1-1-IMG",
+                  "path": "1,HTML,1,BODY,1,IMG",
+                  "selector": "body > img",
+                  "boundingRect": {
+                    "top": 80,
+                    "bottom": 280,
+                    "left": 8,
+                    "right": 308,
+                    "width": 300,
+                    "height": 200
+                  },
+                  "snippet": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+                  "nodeLabel": "body > img",
+                  "explanation": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+                }
+              }
+            ],
+            "debugData": {
+              "type": "debugdata",
+              "impact": "critical",
+              "tags": [
+                "cat.text-alternatives",
+                "wcag2a",
+                "wcag111",
+                "section508",
+                "section508.22.a",
+                "TTv5",
+                "TT7.a",
+                "TT7.b",
+                "EN-301-549",
+                "EN-9.1.1.1",
+                "ACT"
+              ]
+            }
+          }
+        },
+        "meta-description": {
+          "id": "meta-description",
+          "title": "Document does not have a meta description",
+          "description": "Meta descriptions may be included in search results to concisely summarize page content. [Learn more about the meta description](https://developer.chrome.com/docs/lighthouse/seo/meta-description/).",
+          "score": 0,
+          "scoreDisplayMode": "binary"
+        },
+        "http-status-code": {
+          "id": "http-status-code",
+          "title": "Page has successful HTTP status code",
+          "description": "Pages with unsuccessful HTTP status codes may not be indexed properly. [Learn more about HTTP status codes](https://developer.chrome.com/docs/lighthouse/seo/http-status-code/).",
+          "score": 1,
+          "scoreDisplayMode": "binary"
+        },
+        "link-text": {
+          "id": "link-text",
+          "title": "Links have descriptive text",
+          "description": "Descriptive link text helps search engines understand your content. [Learn how to make links more accessible](https://developer.chrome.com/docs/lighthouse/seo/link-text/).",
+          "score": 1,
+          "scoreDisplayMode": "binary",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "href",
+                "valueType": "url",
+                "label": "Link destination"
+              },
+              {
+                "key": "text",
+                "valueType": "text",
+                "label": "Link Text"
+              }
+            ],
+            "items": []
+          }
+        },
+        "crawlable-anchors": {
+          "id": "crawlable-anchors",
+          "title": "Links are crawlable",
+          "description": "Search engines may use `href` attributes on links to crawl websites. Ensure that the `href` attribute of anchor elements links to an appropriate destination, so more pages of the site can be discovered. [Learn how to make links crawlable](https://support.google.com/webmasters/answer/9112205)",
+          "score": 1,
+          "scoreDisplayMode": "binary",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "node",
+                "valueType": "node",
+                "label": "Uncrawlable Link"
+              }
+            ],
+            "items": []
+          }
+        },
+        "is-crawlable": {
+          "id": "is-crawlable",
+          "title": "Page isn\u2019t blocked from indexing",
+          "description": "Search engines are unable to include your pages in search results if they don't have permission to crawl them. [Learn more about crawler directives](https://developer.chrome.com/docs/lighthouse/seo/is-crawlable/).",
+          "score": 1,
+          "scoreDisplayMode": "binary",
+          "warnings": [],
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "source",
+                "valueType": "code",
+                "label": "Blocking Directive Source"
+              }
+            ],
+            "items": []
+          }
+        },
+        "robots-txt": {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "description": "If your robots.txt file is malformed, crawlers may not be able to understand how you want your website to be crawled or indexed. [Learn more about robots.txt](https://developer.chrome.com/docs/lighthouse/seo/invalid-robots-txt/).",
+          "score": 0,
+          "scoreDisplayMode": "binary",
+          "displayValue": "5 errors found",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "index",
+                "valueType": "text",
+                "label": "Line #"
+              },
+              {
+                "key": "line",
+                "valueType": "code",
+                "label": "Content"
+              },
+              {
+                "key": "message",
+                "valueType": "code",
+                "label": "Error"
+              }
+            ],
+            "items": [
+              {
+                "index": "1",
+                "line": "<!DOCTYPE html>",
+                "message": "Syntax not understood"
+              },
+              {
+                "index": "2",
+                "line": "<html>",
+                "message": "Syntax not understood"
+              },
+              {
+                "index": "3",
+                "line": "<head><title></title></head>",
+                "message": "Syntax not understood"
+              },
+              {
+                "index": "4",
+                "line": "<body><h1>Test</h1><img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\"></body>",
+                "message": "Unknown directive"
+              },
+              {
+                "index": "5",
+                "line": "</html>",
+                "message": "Syntax not understood"
+              }
+            ]
+          }
+        },
+        "hreflang": {
+          "id": "hreflang",
+          "title": "Document has a valid `hreflang`",
+          "description": "hreflang links tell search engines what version of a page they should list in search results for a given language or region. [Learn more about `hreflang`](https://developer.chrome.com/docs/lighthouse/seo/hreflang/).",
+          "score": 1,
+          "scoreDisplayMode": "binary",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "source",
+                "valueType": "code",
+                "subItemsHeading": {
+                  "key": "reason",
+                  "valueType": "text"
+                },
+                "label": ""
+              }
+            ],
+            "items": []
+          }
+        },
+        "canonical": {
+          "id": "canonical",
+          "title": "Document has a valid `rel=canonical`",
+          "description": "Canonical links suggest which URL to show in search results. [Learn more about canonical links](https://developer.chrome.com/docs/lighthouse/seo/canonical/).",
+          "score": null,
+          "scoreDisplayMode": "notApplicable"
+        },
+        "structured-data": {
+          "id": "structured-data",
+          "title": "Structured data is valid",
+          "description": "Run the [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/) and the [Structured Data Linter](http://linter.structured-data.org/) to validate structured data. [Learn more about Structured Data](https://developer.chrome.com/docs/lighthouse/seo/structured-data/).",
+          "score": null,
+          "scoreDisplayMode": "manual"
+        }
+      },
+      "configSettings": {
+        "output": "json",
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "categories": {
+        "seo": {
+          "title": "SEO",
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769).",
+          "manualDescription": "Run these additional validators on your site to check additional SEO best practices.",
+          "supportedModes": [
+            "navigation",
+            "snapshot"
+          ],
+          "auditRefs": [
+            {
+              "id": "is-crawlable",
+              "weight": 4.043478260869565,
+              "group": "seo-crawl"
+            },
+            {
+              "id": "document-title",
+              "weight": 1,
+              "group": "seo-content"
+            },
+            {
+              "id": "meta-description",
+              "weight": 1,
+              "group": "seo-content"
+            },
+            {
+              "id": "http-status-code",
+              "weight": 1,
+              "group": "seo-crawl"
+            },
+            {
+              "id": "link-text",
+              "weight": 1,
+              "group": "seo-content"
+            },
+            {
+              "id": "crawlable-anchors",
+              "weight": 1,
+              "group": "seo-crawl"
+            },
+            {
+              "id": "robots-txt",
+              "weight": 1,
+              "group": "seo-crawl"
+            },
+            {
+              "id": "image-alt",
+              "weight": 1,
+              "group": "seo-content"
+            },
+            {
+              "id": "hreflang",
+              "weight": 1,
+              "group": "seo-content"
+            },
+            {
+              "id": "canonical",
+              "weight": 0,
+              "group": "seo-content"
+            },
+            {
+              "id": "structured-data",
+              "weight": 0
+            }
+          ],
+          "id": "seo",
+          "score": 0.67
+        }
+      },
+      "categoryGroups": {
+        "metrics": {
+          "title": "Metrics"
+        },
+        "insights": {
+          "title": "Insights",
+          "description": "These insights are also available in the Chrome DevTools Performance Panel - [record a trace](https://developer.chrome.com/docs/devtools/performance/reference) to view more detailed information."
+        },
+        "diagnostics": {
+          "title": "Diagnostics",
+          "description": "More information about the performance of your application. These numbers don't [directly affect](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) the Performance score."
+        },
+        "a11y-best-practices": {
+          "title": "Best practices",
+          "description": "These items highlight common accessibility best practices."
+        },
+        "a11y-color-contrast": {
+          "title": "Contrast",
+          "description": "These are opportunities to improve the legibility of your content."
+        },
+        "a11y-names-labels": {
+          "title": "Names and labels",
+          "description": "These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader."
+        },
+        "a11y-navigation": {
+          "title": "Navigation",
+          "description": "These are opportunities to improve keyboard navigation in your application."
+        },
+        "a11y-aria": {
+          "title": "ARIA",
+          "description": "These are opportunities to improve the usage of ARIA in your application which may enhance the experience for users of assistive technology, like a screen reader."
+        },
+        "a11y-language": {
+          "title": "Internationalization and localization",
+          "description": "These are opportunities to improve the interpretation of your content by users in different locales."
+        },
+        "a11y-audio-video": {
+          "title": "Audio and video",
+          "description": "These are opportunities to provide alternative content for audio and video. This may improve the experience for users with hearing or vision impairments."
+        },
+        "a11y-tables-lists": {
+          "title": "Tables and lists",
+          "description": "These are opportunities to improve the experience of reading tabular or list data using assistive technology, like a screen reader."
+        },
+        "seo-mobile": {
+          "title": "Mobile Friendly",
+          "description": "Make sure your pages are mobile friendly so users don\u2019t have to pinch or zoom in order to read the content pages. [Learn how to make pages mobile-friendly](https://developers.google.com/search/mobile-sites/)."
+        },
+        "seo-content": {
+          "title": "Content Best Practices",
+          "description": "Format your HTML in a way that enables crawlers to better understand your app\u2019s content."
+        },
+        "seo-crawl": {
+          "title": "Crawling and Indexing",
+          "description": "To appear in search results, crawlers need access to your app."
+        },
+        "best-practices-trust-safety": {
+          "title": "Trust and Safety"
+        },
+        "best-practices-ux": {
+          "title": "User Experience"
+        },
+        "best-practices-browser-compat": {
+          "title": "Browser Compatibility"
+        },
+        "best-practices-general": {
+          "title": "General"
+        },
+        "hidden": {
+          "title": ""
+        }
+      },
+      "stackPacks": [],
+      "entities": [
+        {
+          "name": "localhost",
+          "origins": [
+            "http://localhost:3002"
+          ],
+          "isFirstParty": true,
+          "isUnrecognized": true
+        },
+        {
+          "name": "unsplash.com",
+          "origins": [
+            "https://images.unsplash.com"
+          ],
+          "isUnrecognized": true
+        }
+      ],
+      "fullPageScreenshot": {
+        "screenshot": {
+          "data": "data:image/webp;base64,UklGRqYIAABXRUJQVlA4WAoAAAAgAAAAmwEANgMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDgguAYAAPBrAJ0BKpwBNwM/EYjCWawpL6Og08gp8CIJaW7hd2EWgG6IA0poFk8lHjx48ePHjx48cs3TAcCkuK37Vh06dOnTp06dOm+lkKuT4FEMeTH6stSIbv+qRhENkW7TKCYP0NPjmANlMr8XZaV0Dubctak3LGBP7vnTp06dOnRyswLl0xT57sn1pTnEhko6DHAY+QVqNFInyScMd1OjyJVhJplFIbcB8yUFjj1Ysri9gMtatWrVq1aq6IU/glpjnUW6Ceo91wmnPuRStA+cRQC4f1/D6o58cZEGMuuxLsirQKhEtAeU+oYy1q1atWrVqruwCYBVoRiTNsZWv4fGyIoBCu5e4nI4UX9iwtwZnQEMuXhkyZMmTJksz0v7QWFVt5IBzt2vuI66xSptMRBH27pgEmarcg3+HwnXQX40ECBAgQID/Krb9gJcJs9uLSXiumLgqVNqZpRRQJ8Geg9ixJumrVq1atWrXAwuMmzL6jx48ePHjx5wZZMmTJkyZMmTJlu3ECBAgQIECBAgQTI+o8ePHjx48ePHl2IXkyZMmTJkyZMmrq1atWrVq1atWrVvOvXr169evXr169fh58+fPnz58+fPn0DGEGDBgwYMGDBgwZ1K1atWrVq1atWrV9qPg0aNGjRo0aNGmvnTp06dOnTp06dPPHnTp06dOnTp06dVpyBlkyZMmTJkyZN7MmTJkyZMmTJkyZbtxAgQIECBAgQIEEyPqPHjx48ePHjx5diF5MmTJkyZMmTJq6tWrVq1atWrVq1noGDBgwYMGDBgwYM8P9HwaNGjRo0aNGm2pyBlkyZMmTJkyZcMtmzZs2bNmzZs2cOt9R48ePHjx48ePL0tMmTJkyZMmTJkyrJ169evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evXs+5Xr169evXr169ez7levXr169evXr17PuV69evXr169evVQAAP7vsi9UvGRf6EG/Ti4cdihefNxpdsM2VtUI73DdaEFEDMVwwGEobvXnGNvrTl7S6eR5cGKn4OmL3LeT5Ccs6aWhTc3RE9DZ3dF96Rt7rR/VcC37ExpYFYujd95J091bDIUYqJgipJlaacTdIAyYBgIJoBYULtNpicgmWySk88uASrOiO9KF7D0vsKXxsgctS19RCUbRueaH1KbYOXiMUNscj9gFJ8wUUY/0qAKmvmFBbhxINYM0HiD80qoULFp4QdOCg4rqYkKrz6VEF7jBGDQllpWKQItfUhim9RWHpO23cCpfFKTuVvdrbsWzaxzEvueP2RQBIyzxF0tcxNo8BhNmu3pmjoAhRTqDAKyBoJKaqFyxBwrY23tCCaB5PZ16EE/Bn1kUiZjv1EcnmGMK1khdZcAFV1OYleHL0+lkPQBY7eObw/pjJ3C9C5FCkTJFr4F7n1ydwNHDVgEZjI9hzKcA66CSFWG1BSVwIuNmzXNrrLnoXe6BIycNEUcEdeRN+C03yeeYZDYyTdDSYTWDvsyW+BxkGJcEUrXj+Dpv9vAM9egEXaqdT//uTbBXaD7esYkZ6+w6wMw3dsETL0T9qXPg8qX+ieuh6QllckRcfuY/M3+C0Xc2AKZbploJk/q++oYqspw51s4wnwQBaz3Ye4elFpj/oroyGkzZdxHKSUPLxCxBn7fNpm7mdEh0CGwqRrfqpDDk91d0v8NA6AwR2fIL7QgR8S8A2vfDAC/1SBxQMi2u4YS7dQQTRIbbQhd/xXT4Q0LpWDy0JFGlTaINkee9HqDfg6eJLc7ZatZIKcHOJmA1uZ2+eDHCq/ccnc3rbGofkT09SIihBg9l5wYcq8ZXuqqS7Q4lBUCQ9vE+JcoEbpHuG3ZPV/lXQ9BqtvruANW1G8eOLuEVPB8svrVguNc86kNTqztss465wSmm0Ku1NNiHLCJ5hi8OkzzUrO3JcBKAI7Ziv6NCViZUb9bu+B2VYG0zjmfE/S9RX/+w0+yrGTEevpIL0mUGIE72aiQIH6BPkDjgVEBxwKiA44FRAccCogOOBUQHHAqIDjgVEBxwKiAylVvu4DKVW+7gMpVb7uAylVvu4DKVW+7gMpVb7uAylVvu4DKVW+7gMpUAAAA=",
+          "width": 980.0000610351562,
+          "height": 1957.6214599609375
+        },
+        "nodes": {
+          "1-0-HTML": {
+            "id": "",
+            "top": 0,
+            "bottom": 292,
+            "left": 0,
+            "right": 980,
+            "width": 980,
+            "height": 292
+          },
+          "1-1-IMG": {
+            "id": "",
+            "top": 80,
+            "bottom": 280,
+            "left": 8,
+            "right": 308,
+            "width": 300,
+            "height": 200
+          }
+        }
+      },
+      "timing": {
+        "entries": [
+          {
+            "startTime": 152866.87,
+            "name": "lh:config",
+            "duration": 162.47,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 152868.38,
+            "name": "lh:config:resolveArtifactsToDefns",
+            "duration": 2.25,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 153029.38,
+            "name": "lh:runner:gather",
+            "duration": 4948.51,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 153106.62,
+            "name": "lh:driver:connect",
+            "duration": 1.88,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 153108.51,
+            "name": "lh:driver:navigate",
+            "duration": 34.48,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 153143.12,
+            "name": "lh:gather:getBenchmarkIndex",
+            "duration": 1010.25,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154153.38,
+            "name": "lh:gather:getVersion",
+            "duration": 0.34,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154153.73,
+            "name": "lh:gather:getDevicePixelRatio",
+            "duration": 1.85,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154155.61,
+            "name": "lh:prepare:navigationMode",
+            "duration": 35.59,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154167.51,
+            "name": "lh:storage:clearDataForOrigin",
+            "duration": 16.01,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154183.53,
+            "name": "lh:storage:clearBrowserCaches",
+            "duration": 6.31,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154190.82,
+            "name": "lh:gather:prepareThrottlingAndNetwork",
+            "duration": 0.38,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 154195.44,
+            "name": "lh:driver:navigate",
+            "duration": 2554.4,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156753.04,
+            "name": "lh:computed:NetworkRecords",
+            "duration": 0.57,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156753.7,
+            "name": "lh:gather:getArtifact:DevtoolsLog",
+            "duration": 0.12,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156753.83,
+            "name": "lh:gather:getArtifact:Accessibility",
+            "duration": 116.99,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156870.84,
+            "name": "lh:gather:getArtifact:AnchorElements",
+            "duration": 3.07,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156873.94,
+            "name": "lh:gather:getArtifact:LinkElements",
+            "duration": 0.96,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156874.72,
+            "name": "lh:computed:MainResource",
+            "duration": 0.05,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156874.9,
+            "name": "lh:gather:getArtifact:MetaElements",
+            "duration": 0.66,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156875.57,
+            "name": "lh:gather:getArtifact:NetworkUserAgent",
+            "duration": 0.03,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156875.6,
+            "name": "lh:gather:getArtifact:RobotsTxt",
+            "duration": 2.66,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156878.28,
+            "name": "lh:gather:getArtifact:Stacks",
+            "duration": 5.95,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156878.3,
+            "name": "lh:gather:collectStacks",
+            "duration": 5.92,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 156884.23,
+            "name": "lh:gather:getArtifact:FullPageScreenshot",
+            "duration": 1083.91,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157977.94,
+            "name": "lh:runner:audit",
+            "duration": 11.1,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157977.94,
+            "name": "lh:runner:auditing",
+            "duration": 11.04,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157978.37,
+            "name": "lh:audit:document-title",
+            "duration": 2.62,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157981.12,
+            "name": "lh:audit:image-alt",
+            "duration": 2.98,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157984.23,
+            "name": "lh:audit:meta-description",
+            "duration": 0.41,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157984.74,
+            "name": "lh:audit:http-status-code",
+            "duration": 0.47,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157985.32,
+            "name": "lh:audit:link-text",
+            "duration": 0.44,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157985.86,
+            "name": "lh:audit:crawlable-anchors",
+            "duration": 0.34,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157986.31,
+            "name": "lh:audit:is-crawlable",
+            "duration": 0.53,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157986.94,
+            "name": "lh:audit:robots-txt",
+            "duration": 0.78,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157987.82,
+            "name": "lh:audit:hreflang",
+            "duration": 0.37,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157988.29,
+            "name": "lh:audit:canonical",
+            "duration": 0.35,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157988.73,
+            "name": "lh:audit:structured-data",
+            "duration": 0.25,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157988.99,
+            "name": "lh:runner:generate",
+            "duration": 0.04,
+            "entryType": "measure"
+          },
+          {
+            "startTime": 157989.09,
+            "name": "lh:computed:EntityClassification",
+            "duration": 0.27,
+            "entryType": "measure"
+          }
+        ],
+        "total": 4959.610000000001
+      },
+      "i18n": {
+        "rendererFormattedStrings": {
+          "calculatorLink": "See calculator.",
+          "collapseView": "Collapse view",
+          "crcInitialNavigation": "Initial Navigation",
+          "crcLongestDurationLabel": "Maximum critical path latency:",
+          "dropdownCopyJSON": "Copy JSON",
+          "dropdownDarkTheme": "Toggle Dark Theme",
+          "dropdownPrintExpanded": "Print Expanded",
+          "dropdownPrintSummary": "Print Summary",
+          "dropdownSaveGist": "Save as Gist",
+          "dropdownSaveHTML": "Save as HTML",
+          "dropdownSaveJSON": "Save as JSON",
+          "dropdownViewUnthrottledTrace": "View Unthrottled Trace",
+          "dropdownViewer": "Open in Viewer",
+          "errorLabel": "Error!",
+          "errorMissingAuditInfo": "Report error: no audit information",
+          "expandView": "Expand view",
+          "firstPartyChipLabel": "1st party",
+          "footerIssue": "File an issue",
+          "goBackToAudits": "Go back to audits",
+          "hide": "Hide",
+          "insightsNotice": "Later this year, insights will replace performance audits. [Learn more and provide feedback here](https://github.com/GoogleChrome/lighthouse/discussions/16462).",
+          "labDataTitle": "Lab Data",
+          "lsPerformanceCategoryDescription": "[Lighthouse](https://developers.google.com/web/tools/lighthouse/) analysis of the current page on an emulated mobile network. Values are estimated and may vary.",
+          "manualAuditsGroupTitle": "Additional items to manually check",
+          "notApplicableAuditsGroupTitle": "Not applicable",
+          "openInANewTabTooltip": "Open in a new tab",
+          "opportunityResourceColumnLabel": "Opportunity",
+          "opportunitySavingsColumnLabel": "Estimated Savings",
+          "passedAuditsGroupTitle": "Passed audits",
+          "runtimeAnalysisWindow": "Initial page load",
+          "runtimeAnalysisWindowSnapshot": "Point-in-time snapshot",
+          "runtimeAnalysisWindowTimespan": "User interactions timespan",
+          "runtimeCustom": "Custom throttling",
+          "runtimeDesktopEmulation": "Emulated Desktop",
+          "runtimeMobileEmulation": "Emulated Moto G Power",
+          "runtimeNoEmulation": "No emulation",
+          "runtimeSettingsAxeVersion": "Axe version",
+          "runtimeSettingsBenchmark": "Unthrottled CPU/Memory Power",
+          "runtimeSettingsCPUThrottling": "CPU throttling",
+          "runtimeSettingsDevice": "Device",
+          "runtimeSettingsNetworkThrottling": "Network throttling",
+          "runtimeSettingsScreenEmulation": "Screen emulation",
+          "runtimeSettingsUANetwork": "User agent (network)",
+          "runtimeSingleLoad": "Single page session",
+          "runtimeSingleLoadTooltip": "This data is taken from a single page session, as opposed to field data summarizing many sessions.",
+          "runtimeSlow4g": "Slow 4G throttling",
+          "runtimeUnknown": "Unknown",
+          "show": "Show",
+          "showRelevantAudits": "Show audits relevant to:",
+          "snippetCollapseButtonLabel": "Collapse snippet",
+          "snippetExpandButtonLabel": "Expand snippet",
+          "thirdPartyResourcesLabel": "Show 3rd-party resources",
+          "throttlingProvided": "Provided by environment",
+          "toplevelWarningsMessage": "There were issues affecting this run of Lighthouse:",
+          "tryInsights": "Try insights",
+          "unattributable": "Unattributable",
+          "varianceDisclaimer": "Values are estimated and may vary. The [performance score is calculated](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/) directly from these metrics.",
+          "viewTraceLabel": "View Trace",
+          "viewTreemapLabel": "View Treemap",
+          "warningAuditsGroupTitle": "Passed audits but with warnings",
+          "warningHeader": "Warnings: "
+        },
+        "icuMessagePaths": {
+          "core/audits/accessibility/document-title.js | failureTitle": [
+            "audits[document-title].title"
+          ],
+          "core/audits/accessibility/document-title.js | description": [
+            "audits[document-title].description"
+          ],
+          "core/lib/i18n/i18n.js | columnFailingElem": [
+            "audits[document-title].details.headings[0].label",
+            "audits[image-alt].details.headings[0].label"
+          ],
+          "core/audits/accessibility/image-alt.js | failureTitle": [
+            "audits[image-alt].title"
+          ],
+          "core/audits/accessibility/image-alt.js | description": [
+            "audits[image-alt].description"
+          ],
+          "core/audits/seo/meta-description.js | failureTitle": [
+            "audits[meta-description].title"
+          ],
+          "core/audits/seo/meta-description.js | description": [
+            "audits[meta-description].description"
+          ],
+          "core/audits/seo/http-status-code.js | title": [
+            "audits[http-status-code].title"
+          ],
+          "core/audits/seo/http-status-code.js | description": [
+            "audits[http-status-code].description"
+          ],
+          "core/audits/seo/link-text.js | title": [
+            "audits[link-text].title"
+          ],
+          "core/audits/seo/link-text.js | description": [
+            "audits[link-text].description"
+          ],
+          "core/audits/seo/crawlable-anchors.js | title": [
+            "audits[crawlable-anchors].title"
+          ],
+          "core/audits/seo/crawlable-anchors.js | description": [
+            "audits[crawlable-anchors].description"
+          ],
+          "core/audits/seo/crawlable-anchors.js | columnFailingLink": [
+            "audits[crawlable-anchors].details.headings[0].label"
+          ],
+          "core/audits/seo/is-crawlable.js | title": [
+            "audits[is-crawlable].title"
+          ],
+          "core/audits/seo/is-crawlable.js | description": [
+            "audits[is-crawlable].description"
+          ],
+          "core/audits/seo/robots-txt.js | failureTitle": [
+            "audits[robots-txt].title"
+          ],
+          "core/audits/seo/robots-txt.js | description": [
+            "audits[robots-txt].description"
+          ],
+          "core/audits/seo/robots-txt.js | displayValueValidationError": [
+            {
+              "values": {
+                "itemCount": 5
+              },
+              "path": "audits[robots-txt].displayValue"
+            }
+          ],
+          "core/audits/seo/hreflang.js | title": [
+            "audits.hreflang.title"
+          ],
+          "core/audits/seo/hreflang.js | description": [
+            "audits.hreflang.description"
+          ],
+          "core/audits/seo/canonical.js | title": [
+            "audits.canonical.title"
+          ],
+          "core/audits/seo/canonical.js | description": [
+            "audits.canonical.description"
+          ],
+          "core/audits/seo/manual/structured-data.js | title": [
+            "audits[structured-data].title"
+          ],
+          "core/audits/seo/manual/structured-data.js | description": [
+            "audits[structured-data].description"
+          ],
+          "core/config/default-config.js | seoCategoryTitle": [
+            "categories.seo.title"
+          ],
+          "core/config/default-config.js | seoCategoryDescription": [
+            "categories.seo.description"
+          ],
+          "core/config/default-config.js | seoCategoryManualDescription": [
+            "categories.seo.manualDescription"
+          ],
+          "core/config/default-config.js | metricGroupTitle": [
+            "categoryGroups.metrics.title"
+          ],
+          "core/config/default-config.js | insightsGroupTitle": [
+            "categoryGroups.insights.title"
+          ],
+          "core/config/default-config.js | insightsGroupDescription": [
+            "categoryGroups.insights.description"
+          ],
+          "core/config/default-config.js | diagnosticsGroupTitle": [
+            "categoryGroups.diagnostics.title"
+          ],
+          "core/config/default-config.js | diagnosticsGroupDescription": [
+            "categoryGroups.diagnostics.description"
+          ],
+          "core/config/default-config.js | a11yBestPracticesGroupTitle": [
+            "categoryGroups[a11y-best-practices].title"
+          ],
+          "core/config/default-config.js | a11yBestPracticesGroupDescription": [
+            "categoryGroups[a11y-best-practices].description"
+          ],
+          "core/config/default-config.js | a11yColorContrastGroupTitle": [
+            "categoryGroups[a11y-color-contrast].title"
+          ],
+          "core/config/default-config.js | a11yColorContrastGroupDescription": [
+            "categoryGroups[a11y-color-contrast].description"
+          ],
+          "core/config/default-config.js | a11yNamesLabelsGroupTitle": [
+            "categoryGroups[a11y-names-labels].title"
+          ],
+          "core/config/default-config.js | a11yNamesLabelsGroupDescription": [
+            "categoryGroups[a11y-names-labels].description"
+          ],
+          "core/config/default-config.js | a11yNavigationGroupTitle": [
+            "categoryGroups[a11y-navigation].title"
+          ],
+          "core/config/default-config.js | a11yNavigationGroupDescription": [
+            "categoryGroups[a11y-navigation].description"
+          ],
+          "core/config/default-config.js | a11yAriaGroupTitle": [
+            "categoryGroups[a11y-aria].title"
+          ],
+          "core/config/default-config.js | a11yAriaGroupDescription": [
+            "categoryGroups[a11y-aria].description"
+          ],
+          "core/config/default-config.js | a11yLanguageGroupTitle": [
+            "categoryGroups[a11y-language].title"
+          ],
+          "core/config/default-config.js | a11yLanguageGroupDescription": [
+            "categoryGroups[a11y-language].description"
+          ],
+          "core/config/default-config.js | a11yAudioVideoGroupTitle": [
+            "categoryGroups[a11y-audio-video].title"
+          ],
+          "core/config/default-config.js | a11yAudioVideoGroupDescription": [
+            "categoryGroups[a11y-audio-video].description"
+          ],
+          "core/config/default-config.js | a11yTablesListsVideoGroupTitle": [
+            "categoryGroups[a11y-tables-lists].title"
+          ],
+          "core/config/default-config.js | a11yTablesListsVideoGroupDescription": [
+            "categoryGroups[a11y-tables-lists].description"
+          ],
+          "core/config/default-config.js | seoMobileGroupTitle": [
+            "categoryGroups[seo-mobile].title"
+          ],
+          "core/config/default-config.js | seoMobileGroupDescription": [
+            "categoryGroups[seo-mobile].description"
+          ],
+          "core/config/default-config.js | seoContentGroupTitle": [
+            "categoryGroups[seo-content].title"
+          ],
+          "core/config/default-config.js | seoContentGroupDescription": [
+            "categoryGroups[seo-content].description"
+          ],
+          "core/config/default-config.js | seoCrawlingGroupTitle": [
+            "categoryGroups[seo-crawl].title"
+          ],
+          "core/config/default-config.js | seoCrawlingGroupDescription": [
+            "categoryGroups[seo-crawl].description"
+          ],
+          "core/config/default-config.js | bestPracticesTrustSafetyGroupTitle": [
+            "categoryGroups[best-practices-trust-safety].title"
+          ],
+          "core/config/default-config.js | bestPracticesUXGroupTitle": [
+            "categoryGroups[best-practices-ux].title"
+          ],
+          "core/config/default-config.js | bestPracticesBrowserCompatGroupTitle": [
+            "categoryGroups[best-practices-browser-compat].title"
+          ],
+          "core/config/default-config.js | bestPracticesGeneralGroupTitle": [
+            "categoryGroups[best-practices-general].title"
+          ]
+        }
+      }
+    },
+    "source": "html_content",
+    "tempUrl": "http://localhost:3002/temp-page"
+  },
+  "parsed_result": {
+    "seo_score": 67,
+    "issues": [
+      {
+        "audit_id": "document-title",
+        "title": "Document doesn't have a `<title>` element",
+        "node": {
+          "selector": "html",
+          "path": "1,HTML",
+          "snippet": "<html>",
+          "nodeLabel": "html",
+          "lhId": "1-0-HTML"
+        },
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<html>",
+        "match_line_start": 2,
+        "match_line_end": 2
+      },
+      {
+        "audit_id": "image-alt",
+        "title": "Image elements do not have `[alt]` attributes",
+        "node": {
+          "selector": "body > img",
+          "path": "1,HTML,1,BODY,1,IMG",
+          "snippet": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+          "nodeLabel": "body > img",
+          "lhId": "1-1-IMG"
+        },
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+        "match_line_start": 4,
+        "match_line_end": 4
+      },
+      {
+        "audit_id": "meta-description",
+        "title": "Document does not have a meta description",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<title></title>",
+        "match_line_start": 0,
+        "match_line_end": 0
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      }
+    ]
+  },
+  "matched_result": {
+    "seo_score": 67,
+    "issues": [
+      {
+        "audit_id": "document-title",
+        "title": "Document doesn't have a `<title>` element",
+        "node": {
+          "selector": "html",
+          "path": "1,HTML",
+          "snippet": "<html>",
+          "nodeLabel": "html",
+          "lhId": "1-0-HTML"
+        },
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<html>",
+        "match_line_start": 2,
+        "match_line_end": 2
+      },
+      {
+        "audit_id": "image-alt",
+        "title": "Image elements do not have `[alt]` attributes",
+        "node": {
+          "selector": "body > img",
+          "path": "1,HTML,1,BODY,1,IMG",
+          "snippet": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+          "nodeLabel": "body > img",
+          "lhId": "1-1-IMG"
+        },
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">",
+        "match_line_start": 4,
+        "match_line_end": 4
+      },
+      {
+        "audit_id": "meta-description",
+        "title": "Document does not have a meta description",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "matched",
+        "match_html": "<title></title>",
+        "match_line_start": 0,
+        "match_line_end": 0
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      },
+      {
+        "audit_id": "robots-txt",
+        "title": "robots.txt is not valid",
+        "node": null,
+        "url": null,
+        "link_text": null,
+        "code": null,
+        "source_location": null,
+        "match_status": "unmatched",
+        "match_html": null,
+        "match_line_start": null,
+        "match_line_end": null
+      }
+    ]
+  },
+  "merged_issues": [
+    {
+      "title": "Image elements do not have `[alt]` attributes",
+      "start_line": 4,
+      "end_line": 4,
+      "raw_html": "<img src=\"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=300\">"
+    },
+    {
+      "title": "Document doesn't have a `<title>` element",
+      "start_line": 2,
+      "end_line": 2,
+      "raw_html": "<html>"
+    },
+    {
+      "title": "Document does not have a meta description",
+      "start_line": 0,
+      "end_line": 0,
+      "raw_html": "<title></title>",
+      "descriptions": [
+        "Document does not have a meta description"
+      ]
+    }
+  ]
+}
