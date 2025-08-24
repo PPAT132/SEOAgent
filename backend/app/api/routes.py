@@ -43,12 +43,28 @@ def audit_url(url: str, validator_service: ValidatorService = Depends(get_valida
 @router.post("/optimizev1") 
 def optimize_html(req: OptimizeRequest, optimization_service: OptimizationV1 = Depends(get_optimization_service)):
     """
-    Optimize HTML for SEO using the OptimizationV1 service.
+    Optimize HTML for SEO using the full pipeline with comparison data.
     """
-    seo_analysis_result = optimization_service.optimize_html(req.html)
-    
-    # Return the complete SEO analysis result
-    return seo_analysis_result
+    try:
+        # Get the pipeline instance for full optimization
+        pipeline = get_optimization_pipeline()
+        
+        # Run the full pipeline
+        result = pipeline.run_full_pipeline(req.html)
+        
+        # Return the complete result with comparison data
+        return result
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        
+        return {
+            "success": False,
+            "error": str(e),
+            "error_type": type(e).__name__,
+            "step": "endpoint_execution"
+        }
 
 
 @router.post("/optimize_v2")

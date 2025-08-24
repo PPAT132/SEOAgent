@@ -11,9 +11,8 @@ from pydantic import BaseModel, Field
 class IssueInfo(BaseModel):
     """Detailed information for a single issue"""
     title: str = Field(..., description="Issue title/description")
-    start_line: int = Field(..., description="Start line number (positive=replace, negative=insert)")
-    end_line: int = Field(..., description="End line number (positive=replace, negative=insert)")
     raw_html: str = Field(..., description="Original HTML content or suggested HTML")
+    ranges: Optional[List[List[int]]] = Field(None, description="Optional list of [start,end] line pairs for multi-location edits")
 
     optimized_html: str = Field("", description="the html that is returned by the llm")
 
@@ -35,7 +34,8 @@ class SEOAnalysisResult(BaseModel):
                         "title": "Links are not crawlable",
                         "start_line": 10,
                         "end_line": 20,
-                        "raw_html": "<a href=\"javascript:void(0)\">click here</a>"
+                        "raw_html": "<a href=\"javascript:void(0)\">click here</a>",
+                        "ranges": [[10, 10], [20, 20]]
                     },
                     {
                         "title": "Document does not have a meta description",
@@ -47,7 +47,8 @@ class SEOAnalysisResult(BaseModel):
                         "title": "Image elements do not have [alt] attributes",
                         "start_line": 25,
                         "end_line": 30,
-                        "raw_html": "<img src=\"photo.jpg\" class=\"photo\">"
+                        "raw_html": "<img src=\"photo.jpg\" class=\"photo\">",
+                        "ranges": [[25, 25], [27, 27], [30, 30]]
                     }
                 ]
             }

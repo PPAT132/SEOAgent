@@ -18,8 +18,8 @@ class Issue(BaseModel):
     source_location: Optional[str]
     match_status: str
     match_html: str
-    match_line_start: int
-    match_line_end: int
+    # optional multi-range support: list of [start, end] pairs (1-based)
+    match_line_ranges: Optional[List[List[int]]]
     
     optimized_html: Optional[str]
 

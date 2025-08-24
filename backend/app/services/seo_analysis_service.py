@@ -119,9 +119,8 @@ class SEOAnalysisService:
             for issue_data in processed_data:
                 issue = IssueInfo(
                     title=issue_data['title'],
-                    start_line=issue_data['start_line'],
-                    end_line=issue_data['end_line'],
-                    raw_html=issue_data['raw_html']
+                    raw_html=issue_data['raw_html'],
+                    ranges=issue_data.get('ranges')
                 )
                 issues.append(issue)
             

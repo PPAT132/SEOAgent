@@ -365,7 +365,7 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
     """
     Return the issue with filled match_* fields if located.
     Strategy:
-      node.selector -> node.path -> node.snippet -> url+link_text -> code (minimal)
+      node.path -> node.selector -> node.snippet -> url+link_text -> code (minimal)
     """
     dom = _Dom(raw_html)
     raw = dom.raw
@@ -379,56 +379,65 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
     link_url = issue.get("url")
     link_text = issue.get("link_text") or ""
 
-    # 1) Prefer node.selector with more specific matching
+    # 1) Prefer node.path for precise element selection
     elem = None
-    if selector:
+    if path:
+        elem = dom.by_path(path)
+
+    # 2) If path lookup failed, use node.selector with smarter disambiguation
+    if elem is None and selector:
         cands = dom.css(selector)
         if cands:
             # For link tags, try to match by rel attribute to avoid wrong matches
-            if snippet and "rel=" in snippet:
+            if snippet and "rel=" in (snippet or ""):
                 # Extract rel attribute from snippet
                 rel_match = re.search(r'rel\s*=\s*["\']([^"\']+)["\']', snippet)
                 if rel_match:
                     target_rel = rel_match.group(1)
-                    
-                    # For hreflang tags, also extract hreflang and href attributes for precise matching
+                    # Also extract hreflang and href attributes for precise matching
                     hreflang_match = re.search(r'hreflang\s*=\s*["\']([^"\']+)["\']', snippet)
                     href_match = re.search(r'href\s*=\s*["\']([^"\']+)["\']', snippet)
-                    
                     target_hreflang = hreflang_match.group(1) if hreflang_match else None
                     target_href = href_match.group(1) if href_match else None
-                    
-                    if target_hreflang and target_href:
-                        # Find element with matching rel, hreflang, and href attributes
-                        for i, cand in enumerate(cands):
-                            cand_rel = cand.get("rel")
-                            cand_hreflang = cand.get("hreflang")
-                            cand_href = cand.get("href")
-                            if (cand_rel == target_rel and 
-                                cand_hreflang == target_hreflang and 
-                                cand_href == target_href):
-                                elem = cand
-                                break
-                    
-                    # If no exact match, fall back to rel-only matching
+                    # Try exact rel+hreflang+href
+                    for cand in cands:
+                        cand_rel = cand.get("rel")
+                        cand_hreflang = cand.get("hreflang")
+                        cand_href = cand.get("href")
+                        if (cand_rel == target_rel and 
+                            (target_hreflang is None or cand_hreflang == target_hreflang) and 
+                            (target_href is None or cand_href == target_href)):
+                            elem = cand
+                            break
+                    # Fallback rel-only
                     if elem is None:
-                        for i, cand in enumerate(cands):
-                            cand_rel = cand.get("rel")
-                            if cand_rel == target_rel:
+                        for cand in cands:
+                            if cand.get("rel") == target_rel:
                                 elem = cand
                                 break
-                    
-                    # If still no match, use first candidate
+                    # Final fallback
                     if elem is None:
                         elem = cands[0]
                 else:
                     elem = cands[0]
             else:
-                elem = cands[0]
-
-    # 2) Fallback to node.path
-    if elem is None and path:
-        elem = dom.by_path(path)
+                # Try to disambiguate by src/href in snippet
+                src_match = re.search(r'src\s*=\s*["\']([^"\']+)["\']', snippet or "")
+                href_match = re.search(r'href\s*=\s*["\']([^"\']+)["\']', snippet or "")
+                if src_match:
+                    target_src = src_match.group(1)
+                    for cand in cands:
+                        if cand.get("src") == target_src:
+                            elem = cand
+                            break
+                if elem is None and href_match:
+                    target_href = href_match.group(1)
+                    for cand in cands:
+                        if cand.get("href") == target_href:
+                            elem = cand
+                            break
+                if elem is None:
+                    elem = cands[0]
 
     # 3) Map element to raw, preferring snippet if present
     if elem is not None:
@@ -436,11 +445,21 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
         if offsets:
             s, e = offsets
             ls, le = _slice_to_lines_1based(starts, s, e)
+            frag = raw[s:e]
+            # collect all identical occurrences as ranges
+            ranges = []
+            pos = 0
+            while True:
+                off_all = raw.find(frag, pos)
+                if off_all == -1:
+                    break
+                ls_a, le_a = _slice_to_lines_1based(starts, off_all, off_all + len(frag))
+                ranges.append([ls_a, le_a])
+                pos = off_all + 1
             issue.update({
                 "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
+                "match_html": frag,
+                "match_line_ranges": ranges or [[ls, le]]
             })
             return issue
 
@@ -459,11 +478,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
         if off != -1:
             s, e = off, off + len(snippet)
             ls, le = _slice_to_lines_1based(starts, s, e)
+            frag = raw[s:e]
+            ranges = []
+            pos = 0
+            while True:
+                off_all = raw.find(frag, pos)
+                if off_all == -1:
+                    break
+                ls_a, le_a = _slice_to_lines_1based(starts, off_all, off_all + len(frag))
+                ranges.append([ls_a, le_a])
+                pos = off_all + 1
             issue.update({
                 "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
+                "match_html": frag,
+                "match_line_ranges": ranges or [[ls, le]]
             })
             return issue
         
@@ -472,11 +500,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
         if off != -1:
             s, e = off, off + len(normalized_snippet)
             ls, le = _slice_to_lines_1based(starts, s, e)
+            frag = raw[s:e]
+            ranges = []
+            pos = 0
+            while True:
+                off_all = raw.find(frag, pos)
+                if off_all == -1:
+                    break
+                ls_a, le_a = _slice_to_lines_1based(starts, off_all, off_all + len(frag))
+                ranges.append([ls_a, le_a])
+                pos = off_all + 1
             issue.update({
                 "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
+                "match_html": frag,
+                "match_line_ranges": ranges or [[ls, le]]
             })
             return issue
         
@@ -499,11 +536,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
             s = original_pos
             e = s + len(normalized_snippet)
             ls, le = _slice_to_lines_1based(starts, s, e)
+            frag = raw[s:e]
+            ranges = []
+            pos = 0
+            while True:
+                off_all = raw.find(frag, pos)
+                if off_all == -1:
+                    break
+                ls_a, le_a = _slice_to_lines_1based(starts, off_all, off_all + len(frag))
+                ranges.append([ls_a, le_a])
+                pos = off_all + 1
             issue.update({
                 "match_status": "matched",
-                "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
+                "match_html": frag,
+                "match_line_ranges": ranges or [[ls, le]]
             })
             return issue
         
@@ -562,11 +608,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                                     if offsets:
                                         s, e = offsets
                                         ls, le = _slice_to_lines_1based(starts, s, e)
+                                        frag2 = raw[s:e]
+                                        ranges2 = []
+                                        pos2 = 0
+                                        while True:
+                                            off_all2 = raw.find(frag2, pos2)
+                                            if off_all2 == -1:
+                                                break
+                                            ls_b, le_b = _slice_to_lines_1based(starts, off_all2, off_all2 + len(frag2))
+                                            ranges2.append([ls_b, le_b])
+                                            pos2 = off_all2 + 1
                                         issue.update({
                                             "match_status": "matched",
-                                            "match_html": raw[s:e],
-                                            "match_line_start": ls,
-                                            "match_line_end": le
+                                            "match_html": frag2,
+                                            "match_line_ranges": ranges2 or [[ls, le]]
                                         })
                                         return issue
                         except Exception:
@@ -608,11 +663,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                                                 not elem.get("alt") and  # For images without alt
                                                 "src=" in found_html):   # Has src attribute
                                                 
+                                                # Build ranges for all identical occurrences
+                                                ranges3 = []
+                                                pos3 = 0
+                                                while True:
+                                                    off_all3 = raw.find(found_html, pos3)
+                                                    if off_all3 == -1:
+                                                        break
+                                                    ls_c, le_c = _slice_to_lines_1based(starts, off_all3, off_all3 + len(found_html))
+                                                    ranges3.append([ls_c, le_c])
+                                                    pos3 = off_all3 + 1
                                                 issue.update({
                                                     "match_status": "matched",
                                                     "match_html": found_html,
-                                                    "match_line_start": ls,
-                                                    "match_line_end": le
+                                                    "match_line_ranges": ranges3 or [[ls, le]]
                                                 })
                                                 return issue
                                     except Exception:
@@ -634,11 +698,20 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
             if offsets:
                 s, e = offsets
                 ls, le = _slice_to_lines_1based(starts, s, e)
+                frag = raw[s:e]
+                ranges = []
+                pos = 0
+                while True:
+                    off_all = raw.find(frag, pos)
+                    if off_all == -1:
+                        break
+                    ls_a, le_a = _slice_to_lines_1based(starts, off_all, off_all + len(frag))
+                    ranges.append([ls_a, le_a])
+                    pos = off_all + 1
                 issue.update({
                     "match_status": "matched",
-                    "match_html": raw[s:e],
-                    "match_line_start": ls,
-                    "match_line_end": le
+                    "match_html": frag,
+                    "match_line_ranges": ranges or [[ls, le]]
                 })
                 return issue
 
@@ -660,8 +733,7 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                         issue.update({
                             "match_status": "matched",
                             "match_html": raw[s:e],  # This is the title tag context
-                            "match_line_start": 0,   # Indicate missing issue
-                            "match_line_end": 0      # Indicate missing issue
+                            "match_line_ranges": [[ls, le]]
                         })
                         return issue
             except Exception:
@@ -675,8 +747,7 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                 issue.update({
                     "match_status": "matched",
                     "match_html": raw[s:e],
-                    "match_line_start": 0,   # Indicate missing issue
-                    "match_line_end": 0      # Indicate missing issue
+                    "match_line_ranges": [[s, e]]
                 })
                 return issue
 
@@ -692,8 +763,7 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
                 issue.update({
                     "match_status": "matched",
                     "match_html": raw[s:e],
-                    "match_line_start": ls,
-                    "match_line_end": le
+                    "match_line_ranges": [[ls, le]]
                 })
                 return issue
 
@@ -707,8 +777,7 @@ def match_single_issue(raw_html: str, issue: Dict[str, Any]) -> Dict[str, Any]:
             issue.update({
                 "match_status": "matched",
                 "match_html": raw[s:e],
-                "match_line_start": ls,
-                "match_line_end": le
+                "match_line_ranges": [[ls, le]]
             })
             return issue
 
