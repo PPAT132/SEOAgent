@@ -90,21 +90,21 @@ class LLMTool:
         non_missing_issues = []
 
         for issue in issues_list:
-            # Check if this is a confirmed "missing" type (start_line=0, end_line=0)
-            if (issue.start_line == 0 and issue.end_line == 0):
-                # Double-check by audit_id or title to be safe
-                is_missing_type = False
-                if hasattr(issue, 'audit_id') and issue.audit_id in missing_audit_ids:
-                    is_missing_type = True
-                elif 'meta description' in (issue.title or '').lower() and 'does not have' in (issue.title or '').lower():
-                    is_missing_type = True
-                
-                if is_missing_type:
-                    missing_issues.append(issue)
-                else:
-                    # Conservative: treat as non-missing if not confirmed
-                    non_missing_issues.append(issue)
+            # Check if this is a confirmed "missing" type (all ranges negative)
+            ranges = issue.ranges or []
+            is_missing = all(r[0] < 0 for r in ranges) if ranges else False
+            
+            # Double-check by audit_id or title to be safe
+            is_missing_type = False
+            if hasattr(issue, 'audit_id') and issue.audit_id in missing_audit_ids:
+                is_missing_type = True
+            elif 'meta description' in (issue.title or '').lower() and 'does not have' in (issue.title or '').lower():
+                is_missing_type = True
+            
+            if is_missing and is_missing_type:
+                missing_issues.append(issue)
             else:
+                # Conservative: treat as non-missing if not confirmed
                 non_missing_issues.append(issue)
 
         # Process non-missing issues in batches

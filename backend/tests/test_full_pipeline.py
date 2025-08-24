@@ -51,7 +51,7 @@ def test_full_pipeline():
     # 1. Read test HTML file
     print("📖 Reading test HTML file...")
     # html_file_path = Path(__file__).parent / "test_cases" / "03_meta_description_missing.html"
-    html_file_path = Path(__file__).parent / "test_cases" / "08_image_links_alt_missing.html"
+    html_file_path = Path(__file__).parent / "test_cases" / "01_image_alt_missing.html"
     
     if not html_file_path.exists():
         print(f"❌ HTML file not found: {html_file_path}")
@@ -233,10 +233,9 @@ def test_full_pipeline():
         for issue_data in optimized_res.get('issues', []):
             issue = IssueInfo(
                 title=issue_data.get('title', ''),
-                start_line=issue_data.get('start_line', 1),
-                end_line=issue_data.get('end_line', 1),
                 raw_html=issue_data.get('raw_html', ''),
-                optimized_html=issue_data.get('optimized_html', '')
+                optimized_html=issue_data.get('optimized_html', ''),
+                ranges=issue_data.get('ranges')
             )
             issues.append(issue)
         
@@ -244,11 +243,10 @@ def test_full_pipeline():
             seo_score=optimized_res.get('seo_score', 0.0),
             total_lines=optimized_res.get('total_lines', len(html_content.split('\n'))),
             issues=issues,
-            context=""
+            context=optimized_res.get('context', '')
         )
         
-        # Sort issues in descending order by end_line (as expected by the editor)
-        seo_result.issues.sort(key=lambda x: x.end_line, reverse=True)
+        # No need to sort here; editor handles range sorting internally
         
         # Initialize the HTML editor
         editor = HTMLEditor()
@@ -286,7 +284,8 @@ def test_full_pipeline():
             f.write("-" * 80 + "\n")
             for i, issue in enumerate(seo_result.issues, 1):
                 f.write(f"{i}. {issue.title}\n")
-                f.write(f"   Lines {issue.start_line}-{issue.end_line}\n")
+                ranges_str = str(issue.ranges) if issue.ranges else "No ranges"
+                f.write(f"   Ranges: {ranges_str}\n")
                 f.write(f"   Raw: {issue.raw_html[:100]}{'...' if len(issue.raw_html) > 100 else ''}\n")
                 f.write(f"   Fixed: {issue.optimized_html[:100]}{'...' if len(issue.optimized_html) > 100 else ''}\n\n")
         
@@ -433,7 +432,7 @@ def test_full_pipeline():
                 <h3>Issue {i}: {html.escape(issue.title)}</h3>
                 <div class="before-after">
                     <div class="before">
-                        <h4>❌ Before (Lines {issue.start_line}-{issue.end_line})</h4>
+                        <h4>❌ Before (Ranges: {issue.ranges if issue.ranges else 'No ranges'})</h4>
                         <pre>{html.escape(issue.raw_html[:300] + ("..." if len(issue.raw_html) > 300 else ""))}</pre>
                     </div>
                     <div class="after">
@@ -612,7 +611,7 @@ def test_full_pipeline():
             f.write("Issue Count Comparison Summary\n")
             f.write("==============================\n\n")
             f.write(f"Analysis Date: {__file__}\n")
-            f.write(f"Original HTML File: test_cases/03_meta_description_missing.html\n")
+            f.write(f"Original HTML File: test_cases/05_mixed_seo_issues_2.html\n")
             f.write(f"Optimized HTML File: 08_optimized_html.html\n\n")
             
             f.write("ORIGINAL HTML ANALYSIS:\n")

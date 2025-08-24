@@ -62,25 +62,45 @@ class HTMLEditor:
             print(f"🔍 Generating caption for: {src_url}")
             
             try:
-                # Generate caption using ImageCaptioner
-                caption = captioner.generate_short_caption(src_url)
+                # Generate caption using ImageCaptioner with timeout protection
+                import signal
                 
-                if caption:
-                    print(f"✓ Generated caption: '{caption}'")
-                    # Replace UNKNOWN_IMAGE with the generated caption
-                    new_tag = f'<img{before_alt}alt="{caption}"{after_alt}>'
-                    return new_tag
-                else:
-                    print("⚠️  Failed to generate caption, using fallback")
-                    # Use a more descriptive fallback
-                    fallback_alt = "Image"
+                def timeout_handler(signum, frame):
+                    raise TimeoutError("Caption generation timed out")
+                
+                # Set a 10-second timeout for caption generation
+                signal.signal(signal.SIGALRM, timeout_handler)
+                signal.alarm(10)
+                
+                try:
+                    caption = captioner.generate_short_caption(src_url)
+                    signal.alarm(0)  # Cancel the alarm
+                    
+                    if caption:
+                        print(f"✓ Generated caption: '{caption}'")
+                        # Replace UNKNOWN_IMAGE with the generated caption
+                        new_tag = f'<img{before_alt}alt="{caption}"{after_alt}>'
+                        return new_tag
+                    else:
+                        print("⚠️  Failed to generate caption, using URL-based fallback")
+                        # Extract descriptive text from URL
+                        fallback_alt = self._extract_descriptive_alt_from_url(src_url)
+                        new_tag = f'<img{before_alt}alt="{fallback_alt}"{after_alt}>'
+                        return new_tag
+                        
+                except TimeoutError:
+                    signal.alarm(0)  # Cancel the alarm
+                    print("⚠️  Caption generation timed out, using URL-based fallback")
+                    fallback_alt = self._extract_descriptive_alt_from_url(src_url)
                     new_tag = f'<img{before_alt}alt="{fallback_alt}"{after_alt}>'
                     return new_tag
                     
             except Exception as e:
                 print(f"⚠️  Error generating caption: {e}")
-                # Keep UNKNOWN_IMAGE as fallback
-                return full_tag
+                # Extract descriptive text from URL as fallback
+                fallback_alt = self._extract_descriptive_alt_from_url(src_url)
+                new_tag = f'<img{before_alt}alt="{fallback_alt}"{after_alt}>'
+                return new_tag
         
         # Replace all UNKNOWN_IMAGE instances
         updated_html = re.sub(img_pattern, replace_unknown_alt, html_content, flags=re.IGNORECASE)
@@ -95,107 +115,83 @@ class HTMLEditor:
         
         return updated_html
     
+    def _extract_descriptive_alt_from_url(self, url: str) -> str:
+        """
+        Extract descriptive alt text from image URL
+        
+        Args:
+            url: Image URL or path
+            
+        Returns:
+            Descriptive alt text based on URL
+        """
+        try:
+            # Extract filename from URL
+            filename = url.split('/')[-1].split('.')[0]  # Get filename without extension
+            
+            # Convert filename to readable text
+            # Replace common separators with spaces
+            descriptive = filename.replace('-', ' ').replace('_', ' ').replace('.', ' ')
+            
+            # Capitalize first letter of each word
+            descriptive = descriptive.title()
+            
+            # Clean up multiple spaces
+            descriptive = ' '.join(descriptive.split())
+            
+            # If it's too long, truncate
+            if len(descriptive) > 50:
+                descriptive = descriptive[:47] + "..."
+            
+            # If empty or too short, use a default
+            if len(descriptive) < 3:
+                descriptive = "Image"
+                
+            return descriptive
+            
+        except Exception as e:
+            print(f"⚠️  Error extracting alt from URL: {e}")
+            return "Image"
+    
     def modify_html(self, html: str, modified_issues: SEOAnalysisResult) -> str:
         """
-        Modify HTML by replacing issues with optimized HTML.
-        Issues should be sorted in descending order by line number to avoid offset issues.
+        Modify HTML content based on SEO issues
         """
-        if not modified_issues.issues:
-            return html
-            
-        # Convert HTML to lines for easier manipulation
+        print(f"HTML editing start...")
+        print(f"  Original HTML size: {len(html)} characters")
+        print(f"  Issues to process: {len(modified_issues.issues)}")
+        
+        # Split HTML into lines for easier manipulation
         lines = html.split('\n')
         total_lines = len(lines)
         
-        print(f"Total lines in HTML: {total_lines}")
-        print(f"Number of issues to fix: {len(modified_issues.issues)}")
-        
-        # Sort issues by line number in descending order to avoid offset issues
-        sorted_issues = sorted(modified_issues.issues, key=lambda x: x.end_line, reverse=True)
-        
-        for i, issue in enumerate(sorted_issues):
+        # Process issues (no need to sort since we handle ranges internally)
+        for i, issue in enumerate(modified_issues.issues):
             print(f"Processing issue {i+1}: {issue.title}")
             print(f"  Original: {issue.raw_html[:100]}...")
             print(f"  Optimized: {issue.optimized_html[:100]}...")
             
-            # Special handling for "does not have" issues (start_line=0, end_line=0)
-            if issue.start_line == 0 and issue.end_line == 0:
-                print(f"  🔧 This is a 'missing' issue, need to insert content")
-                action = self._parse_ai_action(issue.optimized_html)
-                html_payload = action.get('html', '')
-                mode = action.get('mode', 'INSERT')
-                where = action.get('WHERE')
-                target = action.get('TARGET')
-                attr = action.get('ATTR')
-
-                if mode == 'MODIFY_TAG' and (target or '').lower() == 'html' and attr:
-                    # modify <html ...> attributes
-                    print(f"  ✏️  Modifying <html> tag attrs: {attr}")
-                    for i, line in enumerate(lines):
-                        if '<html' in line:
-                            # naive append/replace of attribute
-                            if '>' in line:
-                                insert_pos = line.find('>')
-                                new_line = line[:insert_pos] + f" {attr}" + line[insert_pos:]
-                                lines[i] = new_line
-                                break
-                    continue
-
-                # derive default WHERE by heuristic if not provided
-                if not where:
-                    title_l = (issue.title or '').lower()
-                    if 'meta description' in title_l:
-                        where = 'after_title'
-                    elif 'title' in title_l:
-                        where = 'after_meta_charset'
-                    elif 'canonical' in title_l:
-                        where = 'head_end'
-                    elif 'viewport' in title_l:
-                        where = 'after_meta_charset'
-                    else:
-                        where = 'head_start'
-
-                # default: INSERT
-                insertion_idx = self._find_insertion_line(lines, where or '')
-                print(f"  📍 Inserting at line {insertion_idx + 1} (where={where})")
-                if html_payload:
-                    # Process the HTML payload to replace UNKNOWN_IMAGE with AI captions
-                    processed_payload = self._replace_unknown_image_alts(html_payload)
-                    for snippet_line in processed_payload.split('\n'):
-                        lines.insert(insertion_idx, snippet_line)
-                        insertion_idx += 1
-                    total_lines = len(lines)
+            # Handle missing issues (ranges with negative values)
+            if all(r[0] < 0 for r in (issue.ranges or [])):
+                # Insertion logic using first negative range as position
+                insertion_line = abs(issue.ranges[0][0]) if issue.ranges else 1
+                processed_payload = self._replace_unknown_image_alts(issue.optimized_html)
+                lines.insert(insertion_line - 1, processed_payload)
                 continue
             
-            # Normal replacement logic for existing issues
-            start_line = issue.start_line - 1  # Convert to 0-based index
-            end_line = issue.end_line - 1      # Convert to 0-based index
-            
-            print(f"  Lines {start_line+1}-{end_line+1}")
-            
-            # Validate line numbers
-            if start_line < 0 or end_line >= total_lines:
-                print(f"  ⚠️  Invalid line numbers: {start_line+1}-{end_line+1}, skipping")
-                continue
-                
-            if start_line > end_line:
-                print(f"  ⚠️  Start line > end line: {start_line+1} > {end_line+1}, skipping")
-                continue
-            
-            # Replace the lines
-            original_lines = lines[start_line:end_line + 1]
-            
-            # Process optimized_html to replace UNKNOWN_IMAGE with AI captions
+            # Normal replacement using ranges
+            ranges = issue.ranges or []
+            sorted_ranges = sorted(ranges, key=lambda r: r[1], reverse=True)
             processed_optimized_html = self._replace_unknown_image_alts(issue.optimized_html)
             optimized_lines = processed_optimized_html.split('\n')
             
-            print(f"  Replacing {len(original_lines)} lines with {len(optimized_lines)} lines")
-            
-            # Replace the lines
-            lines[start_line:end_line + 1] = optimized_lines
-            
-            # Update total lines count
-            total_lines = len(lines)
+            for r_start, r_end in sorted_ranges:
+                start_line = r_start - 1
+                end_line = r_end - 1
+                if start_line < 0 or end_line >= total_lines or start_line > end_line:
+                    continue
+                lines[start_line:end_line + 1] = optimized_lines
+                total_lines = len(lines)
         
         # Join lines back into HTML
         result_html = '\n'.join(lines)

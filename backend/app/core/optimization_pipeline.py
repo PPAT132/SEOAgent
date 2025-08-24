@@ -189,10 +189,9 @@ class OptimizationPipeline:
         for issue_data in optimized_dict.get('issues', []):
             issue = IssueInfo(
                 title=issue_data.get('title', ''),
-                start_line=issue_data.get('start_line', 1),
-                end_line=issue_data.get('end_line', 1),
                 raw_html=issue_data.get('raw_html', ''),
-                optimized_html=issue_data.get('optimized_html', '')
+                optimized_html=issue_data.get('optimized_html', ''),
+                ranges=issue_data.get('ranges')
             )
             issues.append(issue)
         
@@ -203,8 +202,7 @@ class OptimizationPipeline:
             context=optimized_dict.get('context', '')
         )
         
-        # Sort issues in descending order by end_line
-        seo_result.issues.sort(key=lambda x: x.end_line, reverse=True)
+        # No need to sort here; editor will handle range sorting internally
         
         # Apply fixes using HTML editor (includes image captioning)
         optimized_html = self.html_editor.modify_html(html_content, seo_result)
@@ -246,6 +244,16 @@ class OptimizationPipeline:
             # Step 7: Apply HTML modifications
             optimized_html = self.apply_html_modifications(html_content, optimized_dict)
             
+            # Step 8: Re-run Lighthouse analysis on optimized HTML to get improved score
+            logger.info("🔍 Step 8: Re-running Lighthouse analysis on optimized HTML...")
+            try:
+                optimized_lighthouse_result = self.seo_service._call_lighthouse_service(optimized_html)
+                optimized_seo_score = optimized_lighthouse_result.get('seoScore', 0)
+                logger.info(f"✅ Optimized HTML SEO score: {optimized_seo_score}")
+            except Exception as e:
+                logger.warning(f"⚠️ Failed to re-run Lighthouse on optimized HTML: {e}")
+                optimized_seo_score = original_seo_score  # Fallback to original score
+            
             logger.info("🎉 Full pipeline completed successfully!")
             
             # Return complete results
@@ -254,7 +262,7 @@ class OptimizationPipeline:
                 "modified_html": optimized_html,
                 "optimization_result": optimized_dict,
                 "original_seo_score": original_seo_score,
-                "optimized_seo_score": optimized_dict.get('seo_score', 0.0),
+                "optimized_seo_score": optimized_seo_score,
                 "issues_processed": len(optimized_dict.get('issues', [])),
                 "pipeline_steps": [
                     "lighthouse_analysis",
@@ -263,9 +271,11 @@ class OptimizationPipeline:
                     "issue_merging",
                     "llm_optimization",
                     "html_modification",
-                    "image_captioning"
+                    "image_captioning",
+                    "lighthouse_reanalysis"
                 ],
                 "lighthouse_result": lighthouse_result,
+                "optimized_lighthouse_result": optimized_lighthouse_result if 'optimized_lighthouse_result' in locals() else None,
                 "parsed_result": parsed_result,
                 "matched_result": matched_result,
                 "merged_issues": merged_issues

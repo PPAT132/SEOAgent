@@ -50,8 +50,8 @@ class OptimizationV1:
                 for i, issue in enumerate(result_dict['issues'], 1):
                     if isinstance(issue, dict):
                         report_lines.append(f"\n{i}. {issue.get('title', 'Unknown issue')}")
-                        if 'start_line' in issue:
-                            report_lines.append(f"   Lines: {issue.get('start_line')}-{issue.get('end_line', 'N/A')}")
+                        if 'ranges' in issue:
+                            report_lines.append(f"   Ranges: {issue.get('ranges', 'N/A')}")
                         if 'raw_html' in issue:
                             report_lines.append(f"   HTML: {issue.get('raw_html', 'N/A')[:100]}...")
                     else:
