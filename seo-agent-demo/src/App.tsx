@@ -220,17 +220,14 @@ export default function App() {
               </button>
               
               <div className={isOriginalCollapsed ? 'h-[200px] overflow-y-auto' : 'overflow-visible'}>
-                <div 
-                  contentEditable
-                  className={`w-full min-h-[200px] p-4 rounded-lg bg-black/40 border border-white/20 focus:outline-none focus:ring-2 focus:ring-violet-400 font-mono backdrop-blur-lg ${
-                    !html ? 'before:content-[attr(data-placeholder)] before:text-gray-300 before:pointer-events-none' : ''
-                  }`}
-                  data-placeholder="Paste raw HTML here..."
-                  onInput={(e) => setHtml(e.currentTarget.textContent || '')}
-                  suppressContentEditableWarning={true}
-                >
-                  {html}
-                </div>
+                <motion.textarea
+                  id="html-in"
+                  className="w-full min-h-[200px] p-4 rounded-lg bg-black/40 border border-white/20 focus:outline-none focus:ring-2 focus:ring-violet-400 font-mono placeholder:text-gray-300 backdrop-blur-lg"
+                  placeholder="Paste raw HTML here..."
+                  value={html}
+                  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setHtml(e.target.value)}
+                  whileFocus={{ scale: 1.01 }}
+                />
               </div>
             </div>
           </div>
